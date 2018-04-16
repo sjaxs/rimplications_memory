@@ -176,60 +176,60 @@ Figura 6
 
 Este archivo usa un formato simple denominado Debian control format (DCF) cuya estructura
 es muy simple, cada l\'inea consiste en un campo y un valor separados por \enquote*{:}, cuando el valor
-8ocupa m\'as de una l\'inea hay que tabular las l\'ineas, como se puede ver en el campo
+ocupa m\'as de una l\'inea hay que tabular las l\'ineas, como se puede ver en el campo
 \textbf{DESCRIPTION} en la figura 5.
-A parte de los campos de la plantilla existen otros m\'as a tener en cuenta como son Imports
-y Suggests. A continuaci\'on, se proceder\'a a detallar el prop\'osito y/o contenido de cada uno
+A parte de los campos de la plantilla existen otros m\'as a tener en cuenta como son \textbf{Imports}
+y \textbf{Suggests}. A continuaci\'on, se proceder\'a a detallar el prop\'osito y/o contenido de cada uno
 de los principales campos del archivo.
-Package: no es m\'as que el nombre que recibir\'a nuestro paquete.
-Type: Sirve para indicar a R Studio que se trata de un paquete (este campo no aparece al
-crear nuestro paquete con devtools)
-Title: Comentario en una l\'inea que resume la funcionalidad/cometido de nuestro paquete, es
+\textbf{Package}: no es m\'as que el nombre que recibir\'a nuestro paquete.
+\textbf{Type}: Sirve para indicar a R Studio que se trata de un paquete (este campo no aparece al
+crear nuestro paquete con \textbf{devtools})
+\textbf{Title}: Comentario en una l\'inea que resume la funcionalidad/cometido de nuestro paquete, es
 usado por R Studio en la lista de paquetes disponibles, por lo que es recomendable que no
 sea demasiado largo (65 caracteres m\'aximo).
 
 Figura 7
 
-Version: Indica la versi\'on de nuestro paquete, est\'a formada por al menos dos enteros
-separados por “.” o “-” , como por ejemplo 1.0 o 0.7.2-5. R considera que la versi\'on 1.5, por
-ejemplo, es igual a la versi\'on 1.5.0 y que la versi\'on 1.9.3 es menor que la versi\'on 1.10.0.
+\textbf{Version}: Indica la versi\'on de nuestro paquete, est\'a formada por al menos dos enteros
+separados por “.” o “-” , como por ejemplo \textbf{1.0} o \textbf{0.7.2-5}. R considera que la versi\'on \textbf{1.5}, por
+ejemplo, es igual a la versi\'on \textbf{1.5.0} y que la versi\'on \textbf{1.9.3} es menor que la versi\'on \textbf{1.10.0}.
 El formato de este n\'umero queda a elecci\'on del desarrollador, salvo por la restricci\'on ya
 comentada de que tienen que ser al menos dos enteros separados por un punto o un guion,
 aunque es importante destacar que un correcto uso de este n\'umero puede ayudar a los
 usuarios que van a utilizar nuestro paquete a distinguir la magnitud de los cambios que ha
 recibido.
-Autor: En este caso bastar\'ia con indicar el nombre del autor o autores del paquete, aunque
-el creador de devtools (Hadley Wickham) nos propone otro formato en el que se incluye el
+\textbf{Autor}: En este caso bastar\'ia con indicar el nombre del autor o autores del paquete, aunque
+el creador de \textbf{devtools} (Hadley Wickham) nos propone otro formato en el que se incluye el
 email y el rol de la persona a la que se hace referencia el cual puede ser:
 
 \begin{itemize}
-    \item cre: el creador o mantenedor del paquete, en resumidas cuentas, la persona a la que
+    \item \textbf{cre}: el creador o mantenedor del paquete, en resumidas cuentas, la persona a la que
 contactar en caso de alg\'un problema con el paquete.
-    \item aut: autor, persona que ha realizado contribuciones importantes al desarrollo del
+    \item \textbf{aut}: autor, persona que ha realizado contribuciones importantes al desarrollo del
 paquete.
-    \item ctb: contribuidor, persona que ha realizado peque\~nas contribuciones, como parches.
-    \item cph: propietario del copyright del paquete, en caso de no ser el propio autor, como
+    \item \textbf{ctb}: contribuidor, persona que ha realizado peque\~nas contribuciones, como parches.
+    \item \textbf{cph}: propietario del copyright del paquete, en caso de no ser el propio autor, como
 por ejemplo una compa\~n\'ia/empresa.
 \end{itemize}
 
 Un paquete debe tener al menos un autor y un mantenedor, aunque pueden ser la misma
 persona.
-Maintainer: Mantenedor del paquete, en caso de no usar el formato propuesto por el autor
-de devtools.
+\textbf{Maintainer}: Mantenedor del paquete, en caso de no usar el formato propuesto por el autor
+de \textbf{devtools}.
 Es importante que el creador o el mantenedor tengan un email de contacto, ya que este ser\'a
 usado en caso de que exista alg\'un problema con el paquete y es el \'unico medio de
 comunicaci\'on que usa CRAN para contactar cuando sea necesario. Adem\'as, dado que esa
 direcci\'on ser\'a usada para el env\'io autom\'atico de emails por parte de CRAN, debe ser un
 email perteneciente a una sola persona, no a una lista de mails.
-\textbf{DESCRIPTION}: Como su propio nombre indica, es una descripci\'on m\'as detallada del cometido
+\textbf{Description}: Como su propio nombre indica, es una descripci\'on m\'as detallada del cometido
 de nuestro paquete, en este caso puede ocupar varias l\'ineas de hasta 80 caracteres cada
 una.
-License: este campo puede ser una abreviaci\'on de una licencia open source est\'andar como
-puede ser GPL-2 o BSD, o un puntero a un fichero LICENSE con m\'as informaci\'on.
+\textbf{License}: este campo puede ser una abreviaci\'on de una licencia \textbf{open source} est\'andar como
+puede ser GPL-2 o BSD, o un puntero a un fichero \textbf{LICENSE} con m\'as informaci\'on.
 Si se quiere publicar el paquete en CRAN, se debe escoger una licencia est\'andar de forma
 que no sea dif\'icil par CRAN saber si es legal o no distribuir nuestro paquete (ver 
-https://svn\textbf{.R}-project.org/R/trunk/share/licenses/license.db)
-Imports y Suggests: ambos sirven para indicar las dependencias de nuestro paquete con
+https://svn.R-project.org/R/trunk/share/licenses/license.db)
+\textbf{Imports y Suggests}: ambos sirven para indicar las dependencias de nuestro paquete con
 respecto a otros paquetes.
 
 Figura 8
@@ -243,63 +243,66 @@ Esto resulta \'util en la forma en que, si un usuario no tiene la versi\'on requ
 en caso de que hayamos especificado una, el usuario recibir\'a un mensaje de error indic\'andole que el 
 paquete esta desactualizado, mientras que, si no especificamos qu\'e versi\'on
 necesitamos, el usuario recibir\'a un error poco descriptivo y poco \'util.
+
 Es recomendable no indicar una versi\'on exacta si no una versi\'on m\'inima necesaria.
-Imports indica que un paquete es necesario para que nuestro paquete funcione, de hecho,
-en el momento que el usuario instale nuestro paquete, si los paquetes declarados en Imports
+
+\textbf{Imports} indica que un paquete es necesario para que nuestro paquete funcione, de hecho,
+en el momento que el usuario instale nuestro paquete, si los paquetes declarados en \textbf{Imports}
 no est\'an ya instalados, se instalaran autom\'aticamente. Sin embargo, no se cargar\'an (atach)
 para su uso autom\'aticamente, por ello una buena pr\'actica a la hora de usar funciones de
-otros paquetes es referenci\'andolas expl\'icitamente de la siguiente forma paquete::funci\'on().
+otros paquetes es referenci\'andolas expl\'icitamente de la siguiente forma \textbf{paquete::funci\'on()}.
 Esto adem\'as mejora la lectura del c\'odigo haciendo posible identificar cu\'ales son las funciones
 externas que estamos usando.
 Esta forma de referenciar funciones de forma expl\'icita puede ser algo tedioso si estamos
 continuamente usando funciones de otros paquetes, m\'as adelante se detallar\'an otras formas
 de usar estas funciones (ver 7.4 NAMESPACE).
-Suggests indica que nuestro paquete puede hacer uso de otro paquete, pero no es
+
+\textbf{Suggests} indica que nuestro paquete puede hacer uso de otro paquete, pero no es
 estrictamente necesario, en este caso los paquetes sugeridos no son instalados de forma
 autom\'atica y es el desarrollador el responsable de realizar la comprobaci\'on.
 
 Figura 10
 
-La forma m\'as f\'acil de a\~nadir un paquete a Imports y Suggests es mediante el uso de
-devtools, otra forma es haci\'endolo a mano en el archivo \textbf{DESCRIPTION}.
+La forma m\'as f\'acil de a\~nadir un paquete a \textbf{Imports} y \textbf{Suggests} es mediante el uso de
+\textbf{devtools}, otra forma es haci\'endolo a mano en el archivo \textbf{DESCRIPTION}.
 
 Figura 11
 
-Depends antes de la llegada de los namespaces a R, depends era la \'unica forma de que
-nuestro paquete dependiese de otro, pero a partir de la llegada de los namespaces, es m\'as
-recomendable usar los Imports de NAMESPACE. Tambi\'en es \'util para indicar una versi\'on
+\textbf{text}{Depends} antes de la llegada de los \textbf{namespaces} a R, \textbf{text}{depends} era la \'unica forma de que
+nuestro paquete dependiese de otro, pero a partir de la llegada de los \textbf{namespaces}, es m\'as
+recomendable usar los \textbf{Imports} de NAMESPACE. Tambi\'en es \'util para indicar una versi\'on
 m\'inima de R requerida. Veremos esto m\'as detalladamente en el apartado dedicado al archivo
 NAMESPACE.
 
-LazyData ser\'a descrito m\'as adelante en el apartado de Datos externos.
+\textbf{LazyData} ser\'a descrito m\'as adelante en el apartado de Datos externos.
 
 \subsubsection{Documentaci\'on de objetos}
 
 En este caso vamos a detallar la documentaci\'on de los distintos elementos que componen el
 paquete, como pueden ser las funciones, los datasets, clases y gen\'ericos de S3, S4 y RC y
 hasta el mismo paquete.
-Este tipo de documentaci\'on es accesible a trav\'es de ? o help() y funciona como un
+Este tipo de documentaci\'on es accesible a trav\'es de \textbf{?} o \textbf{help()} y funciona como un
 diccionario, permitiendo al usuario obtener informaci\'on sobre una funci\'on, paquete o conjunto
 de datos.
 Como ya se ha mencionado anteriormente, esta documentaci\'on se encuentra en la carpeta
-man de nuestro proyecto en formato \textbf{.R}d. Para crear la documentaci\'on vamos a hacer uso del
+\textbf{man} de nuestro proyecto en formato \textbf{.rd}. Para crear la documentaci\'on vamos a hacer uso del
 paquete \textbf{roxygen2}, el cual nos har\'a m\'as f\'acil el trabajo, en lugar de crearla a mano.
-Crear la documentaci\'on
+\textbf{Crear la documentaci\'on}
 Para crear esta documentaci\'on, lo primero que debemos hacer es a\~nadir comentarios
-roxygen a nuestras archivos \textbf{.R}, como, por ejemplo
+\textbf{roxygen} a nuestras archivos \textbf{.R}, como, por ejemplo
 
 Figura 12
 
-Una vez completado esto, presionamos Ctrl/Cmd + Shift + B, esto reconstruir\'a
+Una vez completado esto, presionamos \textbf{Ctrl/Cmd + Shift + B}, esto reconstruir\'a
 completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a nuestro
 paquete. Ya podemos proceder a ver la documentaci\'on generada con ?. Repetiremos este
 proceso hasta que la documentaci\'on quede como deseamos.
-Comentarios roxygen
+Comentarios \textbf{roxygen}
 Estos comentarios comienzan con \#' y se colocan delante de cada funci\'on formando lo que
 se llama un bloque. Estos bloques se dividen en tags (@NombreDelTag), el contenido de un
 tag se extiende desde el final del nombre del tag hasta el inicio del siguiente o el final del
 bloque.
-Nota: dado que el car\'acter @ tiene un significado especial para roxygen, en caso de querer
+Nota: dado que el car\'acter @ tiene un significado especial para \textbf{roxygen}, en caso de querer
 introducir un @ en el texto (para un email, por ejemplo), deber\'iamos escribir @@. Lo mismo
 ocurre con “%” y “\”, los cuales tienen un significado especial en Latex, para usarlos debemos
 escribir “\%” y “\\” respectivamente.
@@ -318,7 +321,7 @@ para dividir los detalles de la funci\'on en distintas secciones.
 \end{itemize}
 
 El t\'itulo y la descripci\'on son obligatorios, mientras que los detalles son opcionales.
-Nota: cada l\'inea de roxygen no debe superar los 80 caracteres y es recomendable tabular
+Nota: cada l\'inea de \textbf{roxygen} no debe superar los 80 caracteres y es recomendable tabular
 las l\'ineas para facilitar la lectura.
 Existen otros tags que facilitan la navegaci\'on entre los documentos de ayuda:
 
@@ -354,7 +357,7 @@ de los par\'ametros de entrada o si estamos devolviendo un objeto S3, S4 o RC.
 Documentando datasets
 Ver datos externos.
 Documentando paquetes
-Podemos usar roxygen para crear una p\'agina de ayuda propia del paquete, no asociada a
+Podemos usar \textbf{roxygen} para crear una p\'agina de ayuda propia del paquete, no asociada a
 una funci\'on en particular. Esta p\'agina es accesible mediante package?nombreDelPaquete y
 puede ser usada para describir los componentes m\'as importantes del paquete o las
 dependencias que tiene, por ejemplo.
@@ -366,7 +369,7 @@ Figura 13
 
 Documentaci\'on repetida
 Dado que es muy probable que muchas veces tengamos que documentar funciones con los
-mismos par\'ametros o incluso distintas versiones de una misma funci\'on, roxygen nos
+mismos par\'ametros o incluso distintas versiones de una misma funci\'on, \textbf{roxygen} nos
 proporciona dos mecanismos para que no tengamos que repetir de nuevo la misma
 documentaci\'on, uno de ellos es la herencia de par\'ametros y el otro consiste en documentar
 varias funciones en el mismo archivo.
@@ -394,7 +397,7 @@ describe cada una de las funciones.
 
 Figura 15
 
-@rdname sobreescribe el nombre por defecto que genera roxygen y une
+@rdname sobreescribe el nombre por defecto que genera \textbf{roxygen} y une
 documentaci\'on de m\'ultiples funciones en un mismo archivo.
 \end{itemize}
 
@@ -420,7 +423,7 @@ Por ejemplo, si queremos a\~nadir un data.frame “datos”, se guardar\'a como 
 instrucci\'on:
 > save(datos, file=”ruta/del/paquete/miPaquete/data/datos\textbf{.R}da”)
 Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\'an de forma
-“Lazy”. Es decir, que no ocupar\'an memoria hasta que se usen, devtools::cr\'eate() establece
+“Lazy”. Es decir, que no ocupar\'an memoria hasta que se usen, \textbf{devtools::cr\'eate()} establece
 LazyData a true autom\'aticamente.
 Documentando datasets
 Todos los objetos de data/ son siempre exportados, esto significa que deben ser
@@ -461,8 +464,8 @@ cuando importamos dos paquetes que ambos contienen una funci\'on con el mismo no
 podemos desambiguarla con el operador “::”. Por ejemplo, si usamos los paquetes plyr y
 Hmisc, ambos tienen la funci\'on sumarize(), por lo que, dependiendo de cu\'al queramos usar,
 usaremos plyr::sumarize() o Hmisc::sumarize().
-NAMESPACE hace nuestro paquete autocontenido, tanto con los imports, como con los
-exports. Los imports, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
+NAMESPACE hace nuestro paquete autocontenido, tanto con los \textbf{Imports}, como con los
+exports. Los \textbf{Imports}, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
 otro. Los exports, nos ayudan a evitar los conflictos con otros paquetes especificando qu\'e
 funciones se pueden usar fuera de nuestro paquete.
 
@@ -488,12 +491,12 @@ si no lo encuentra.
 no lo encuentra.
 \end{itemize}
 
-Volvemos a la diferencia entre Depends e Imports en \textbf{DESCRIPTION}, ¿Cu\'ando debemos
+Volvemos a la diferencia entre \textbf{text}{Depends} e \textbf{Imports} en \textbf{DESCRIPTION}, ¿Cu\'ando debemos
 usar cada uno?
 La inclusi\'on de un paquete en cualquiera de ellos garantiza que est\'e instalado cuando sea
-necesario. La principal diferencia es que Imports, carga el paquete, en cambio, Depends
+necesario. La principal diferencia es que \textbf{Imports}, carga el paquete, en cambio, \textbf{text}{Depends}
 tambi\'en lo adjunta.
-Salvo que haya una buena raz\'on, siempre debemos enumerar los paquetes en Imports, ya
+Salvo que haya una buena raz\'on, siempre debemos enumerar los paquetes en \textbf{Imports}, ya
 que un buen paquete debe ser autocontenido y minimizar los cambios en el entorno.
 El archivo NAMESPACE
 Cada l\'inea contiene una directriz: S3method(), export(), exportClasses(), adem\'as de otros.
@@ -521,7 +524,7 @@ No se recomienda escribir estas directrices a mano, sino usar \textbf{roxygen2},
 trabajo m\'as f\'acil y ordenado.
 Generar el namespace con \textbf{roxygen2} es como generar la documentaci\'on para las funciones,
 usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspondiente, ejecutamos
-devtools::document() (o, Ctrl + Shift +D)y comprobamos que el archivo NAMESPACE se
+\textbf{devtools}::document() (o, Ctrl + Shift +D)y comprobamos que el archivo NAMESPACE se
 haya modificado correctamente.
 Ejemplo de archivo NAMESPACE generado por \textbf{roxygen2}:
 
@@ -578,7 +581,7 @@ general, imposible que sus clases se extiendan fuera de su paquete.
 Los archivos que est\'an en data/ no necesitan ser exportados.
 \end{itemize}
 
-Imports
+\textbf{Imports}
 NAMESPACE tambi\'en controla las funciones externas que pueden ser usadas en nuestro
 paquete sin usar “::”. Esto puede confundirnos si recordamos que el archivo \textbf{DESCRIPTION}
 (a trav\'es del campo Import) tambi\'en est\'a involucrado en los paquetes que importamos al
@@ -586,8 +589,8 @@ nuestro. Sin embargo, existe una diferencia muy clara, el campo Import del archi
 \textbf{DESCRIPTION} solo comprueba que el paquete est\'a instalado cuando se instala nuestro
 paquete, pero no hace disponibles las funciones de dicho paquete, para ellos debemos usar
 las directivas import de NAMESPACE.
-Por otro lado, Depends, se encarga de que si nuestro paquete esta adjuntado (attached),
-todos los paquetes que est\'en listados en Depends, tambi\'en se adjunten y, en el caso de que
+Por otro lado, \textbf{text}{Depends}, se encarga de que si nuestro paquete esta adjuntado (attached),
+todos los paquetes que est\'en listados en \textbf{text}{Depends}, tambi\'en se adjunten y, en el caso de que
 nuestro paquete este cargado (loaded), estos paquetes lo est\'en tambi\'en.
 Lo m\'as recomendable es que el paquete este importado en \textbf{DESCRIPTION} y no en el
 NAMESPACE y referenciar a las funciones haciendo uso de “::”, esto puede suponernos m\'as
