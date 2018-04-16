@@ -1,0 +1,793 @@
+\section{Paquetes}
+\subsection{Introducci\'on}
+
+
+El lenguaje R es un lenguaje que est\'a muy fundamentado en la comunidad, dispone de una gran comunidad que 
+contribuye al desarrollo, mejora y extensi\'on de este lenguaje. La unidad fundamental a la hora de compartir 
+nuestro trabajo con la comunidad es el paquete. Es por ello por lo cual se va a desarrollar un estudio sobre 
+c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que este\'e disponible para toda la 
+comunidad y contribuir al desarrollo de este lenguaje.
+Para ello primero hablaremos del equipo CRAN, los encargados de mantener y revisar todos los paquetes que
+se encuentran disponibles para este lenguaje en el principal repositorio del mismo, luego hablaremos de 
+c\'omo se estructura un paquete, directorios y archivos principales que ha de contener el mismo. Por \'ultimo, 
+se detallar\'a todo el proceso de creaci\'on, documentaci\'on y distribuci\'on del paquete, apoyado con 
+consejos, buenas pr\'acticas y recomendaciones que har\'an m\'as f\'acil este proceso y dotar\'an a nuestro 
+paquete de mayor facilidad de uso, distribuci\'on, posibles ampliaciones futuras y detecci\'on y correcci\'on 
+de posibles fallos.
+Como herramientas fundamentales para seguir este proceso, haremos uso del entorno de desarrollo R Studio, 
+de la herramienta Rtools y de los paquetes de R, devtools y \textbf{roxygen2}.
+
+\'a
+\'e
+\'i
+\'o
+\'u
+\~n
+
+\subsection{?`Qu\'e es CRAN?}
+
+Es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes 
+necesarios para un proyecto.
+CRAN se mantiene gracias al esfuerzo de los voluntarios \textbf{(El equipo CRAN)} y los recursos de la fundaci\'on R. 
+Este equipo se encarga de ponerse en contacto con las personas que se encargan de mantener sus propios paquetes, 
+en caso de que algo no vaya bien.
+Tambi\'en, en casos excepcionales, pueden modificar algo de un paquete que haya fallado al actualizar la versi\'on 
+de R.
+Por \'ultimo, tambi\'en encontramos al \textbf{R Core Team}, un grupo formado por unas 20 personas que se dedica a modificar 
+el c\'odigo fuente de R.
+
+\subsection{Estructura de paquetes en R}
+
+Un paquete (\textbf{package}) es una colecci\'on de funciones, datos y c\'odigo R que se almacenan en una carpeta 
+conforme a una estructura bien definida y f\'acilmente accesible para R.
+Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
+nuevas. El directorio donde se almacenan los paquetes se llama libreri\'ia (\textbf{library}).
+Como ya se ha comentado, R ya tiene instalados por defecto algunos paquetes, otros muchos est\'an disponibles 
+para descargarlos e instalarlos. Una vez completados los dos pasos anteriores, los paquetes tienen que ser 
+cargados en cada sesi\'on que se vayan a usar.
+
+Es importante distinguir entre tener un paquete instalado en el ordenador y tenerlo cargado en memoria:
+
+\begin{itemize}
+    \item Tenerlo instalado en el ordenador significa simplemente que en alg\'un momento lo hemos bajado de internet 
+y lo hemos copiado en alg\'un directorio en que R lo puede localizar.
+    \item Tenerlo cargado en memoria significa que durante nuestra sesi\'on de trabajo R ha lei\'ido el contenido del 
+paquete y ha incorporado las funciones que contiene a su espacio de trabajo, de tal forma que tales funciones 
+pueden ya ser invocadas y ejecutadas.
+\end{itemize}
+
+Una vez que tenemos claro que\'i es un paquete en R, veamos su estructura, esto es, directorios y archivos 
+m\'as importantes que lo componen.
+Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambie\'in incorpora m\'as ficheros, 
+los cuales se van a detallar a continuaci\'on.
+La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{\textbf{DESCRIPTION}}, donde podemos ver que\'i hace 
+el paquete, quie\'in es el autor o autores, quie\'in realizar\'a el mantenimiento, a que\'i versi\'on pertenece la 
+documentaci\'on... entre otros datos.
+En el fichero \textbf{NAMESPACE} se deber\'an especificar todos aquellos objetos que ser\'an importados o exportados del paquete.
+En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.
+Para finalizar con los ficheros, podremos encontrar en algunos casos uno llamado \textbf{NEWS}, en el cual estar\'an 
+incluidos los cambios que se realizan de una versi\'on a otra.
+La carpeta \textbf{R} es el n\'ucleo de la estructura, aqui\'i se encuentran todos los archivos \textbf{\textbf{.R}} con el c\'odigo de las 
+funciones que incluya dicho paquete.
+Es recomendable no aglutinar todo el c\'odigo en un mismo archivo sino separar las funciones que tienen relaci\'on 
+o que cumplen cierta funcionalidad en archivos separados, asi\'i como dar un nombre descriptivo a los archivos.
+La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos paquetes compondr\'an el “Manual de referencia” 
+del paquete. Cada uno de estos ficheros, se debe corresponder a cada uno de los archivos que se encuentran 
+en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.
+En la carpeta data se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
+de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
+Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que deseemos que se instalen con el paquete.
+
+
+En caso de tener c\'odigo en otro lenguaje, adem\'as de R, los ficheros correspondientes se incluir\'an en la carpeta 
+\textbf{src}.
+De estos archivos se hablar\'a m\'as adelante en la secci\'on de documentaci\'on.
+
+
+\subsection{Requisitos previos}
+
+\begin{itemize}
+    \item R Studio
+    \item Paquete \textbf{devtools}
+    \item Paquete \textbf{\textbf{roxygen2}} 
+    \item Rtools
+\end{itemize}
+
+\subsection{Crear proyecto R}
+
+Una vez que se tiene clara la estructura de los paquetes en R y cu\'ales son los archivos
+imprescindibles que deber\'a tener nuestro paquete, podemos comenzar a trabajar en su
+creaci\'on. Si bien es cierto que existen diferentes formas de crear y trabajar con los paquetes
+en R, en este caso lo podemos hacer tanto con R Studio, como se muestra a continuaci\'on,
+como con \textbf{devtools::create(}\enquote*{ruta/del/paquete/nombreDelPaquete}\textbf{)}, ambas opciones nos
+proporcionaran un \enquote*{esqueleto} del paquete con los archivos imprescindibles.
+Una vez abierto R Studio, lo primero que debemos hacer es crear un nuevo proyecto para
+ellos vamos a: 
+\begin{center}
+    \textbf{file > new project > new directory > r package} 
+\end{center}
+
+En este momento deber\'iamos ver una ventana como la siguiente:
+
+Figura 1
+
+En la casilla \textbf{Package name:} especificamos el nombre de nuestro proyecto; en la casilla
+\textbf{Create package based on source files} podemos a\~nadir (picando en el bot\'on \textbf{Add}) los
+archivos \textbf{.R} que contengan nuestras funciones, si los hemos generado previamente (no es
+estrictamente necesario a\~nadirlos ahora, se pueden a\~nadir posteriormente).
+Por \'ultimo, indicamos el directorio ra\'iz en el que se situar\'a el subdirectorio en que estar\'an
+contenidos los archivos de nuestro proyecto. Resulta conveniente disponer de una carpeta
+espec\'ifica para paquetes de R. R Studio crear\'a un subdirectorio dentro de dicha carpeta con
+el nombre de nuestro nuevo paquete.
+Si se quiere llevar a cabo un control de versiones del paquete se puede hacer clic en \textbf{Create
+a git repository}.
+Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
+estructura necesaria para que R pueda construir el paquete:
+
+Figura 2
+
+
+
+\subsection{Crear/a\~nadir las funciones que componen el paquete}
+
+A continuaci\'on, debemos a\~nadir a la carpeta R los scripts/funciones que incluye nuestro
+paquete.
+Para que R pueda generar autom\'aticamente el archivo de ayuda para nuestras funciones
+usando \textbf{roxygen2} incluimos las siguientes l\'ineas antes del comienzo de la funci\'on:
+
+Figura 3
+
+Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
+
+Figura 4
+
+Una vez ajustada la configuraci\'on, pinchamos en \textbf{Install and Restart} de la pesta\~na \textbf{Build},
+esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.Rd} de ayuda de nuestra funci\'on
+en la carpeta \textbf{man}.\\
+La documentaci\'on de ayuda de nuestras funciones se detallar\'a m\'as en la secci\'on de
+documentaci\'on.
+
+\subsection{Documentaci\'on}
+
+La documentaci\'on es una de las partes m\'as importantes del paquete en R, esta sirve para
+ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
+incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian
+sus funciones.
+Por ello, a continuaci\'on, se proceder\'a a describir los archivos m\'as importantes de
+documentaci\'on que todo paquete de R debe contener.
+
+\subsubsection{Archivo DESCRIPTION}
+
+Uno de los archivos m\'as importantes dentro de la estructura de un paquete en R es el archivo
+\textbf{DESCRIPTION}, su funci\'on es la de almacenar todos los metadatos relacionados con el
+paquete al que pertenece, como pueden ser el autor o la licencia bajo la que se distribuye el
+paquete.
+En primer lugar, el archivo \textbf{DESCRIPTION} es lo que indica a R Studio que el directorio que lo
+contiene es un paquete. Cuando creamos un proyecto e indicamos a R Studio que se va a
+tratar de un paquete, este autom\'aticamente genera una plantilla del archivo \textbf{DESCRIPTION}
+con los campos m\'inimamente necesarios.
+
+Figura 5
+
+De igual forma, si creamos el paquete haciendo uso de la herramienta \textbf{devtools}, obtendremos
+una plantilla similar.
+
+Figura 6
+
+Este archivo usa un formato simple denominado Debian control format (DCF) cuya estructura
+es muy simple, cada l\'inea consiste en un campo y un valor separados por \enquote*{:}, cuando el valor
+8ocupa m\'as de una l\'inea hay que tabular las l\'ineas, como se puede ver en el campo
+\textbf{DESCRIPTION} en la figura 5.
+A parte de los campos de la plantilla existen otros m\'as a tener en cuenta como son Imports
+y Suggests. A continuaci\'on, se proceder\'a a detallar el prop\'osito y/o contenido de cada uno
+de los principales campos del archivo.
+Package: no es m\'as que el nombre que recibir\'a nuestro paquete.
+Type: Sirve para indicar a R Studio que se trata de un paquete (este campo no aparece al
+crear nuestro paquete con devtools)
+Title: Comentario en una l\'inea que resume la funcionalidad/cometido de nuestro paquete, es
+usado por R Studio en la lista de paquetes disponibles, por lo que es recomendable que no
+sea demasiado largo (65 caracteres m\'aximo).
+
+Figura 7
+
+Version: Indica la versi\'on de nuestro paquete, est\'a formada por al menos dos enteros
+separados por “.” o “-” , como por ejemplo 1.0 o 0.7.2-5. R considera que la versi\'on 1.5, por
+ejemplo, es igual a la versi\'on 1.5.0 y que la versi\'on 1.9.3 es menor que la versi\'on 1.10.0.
+El formato de este n\'umero queda a elecci\'on del desarrollador, salvo por la restricci\'on ya
+comentada de que tienen que ser al menos dos enteros separados por un punto o un guion,
+aunque es importante destacar que un correcto uso de este n\'umero puede ayudar a los
+usuarios que van a utilizar nuestro paquete a distinguir la magnitud de los cambios que ha
+recibido.
+Autor: En este caso bastar\'ia con indicar el nombre del autor o autores del paquete, aunque
+el creador de devtools (Hadley Wickham) nos propone otro formato en el que se incluye el
+email y el rol de la persona a la que se hace referencia el cual puede ser:
+
+\begin{itemize}
+    \item cre: el creador o mantenedor del paquete, en resumidas cuentas, la persona a la que
+contactar en caso de alg\'un problema con el paquete.
+    \item aut: autor, persona que ha realizado contribuciones importantes al desarrollo del
+paquete.
+    \item ctb: contribuidor, persona que ha realizado peque\~nas contribuciones, como parches.
+    \item cph: propietario del copyright del paquete, en caso de no ser el propio autor, como
+por ejemplo una compa\~n\'ia/empresa.
+\end{itemize}
+
+Un paquete debe tener al menos un autor y un mantenedor, aunque pueden ser la misma
+persona.
+Maintainer: Mantenedor del paquete, en caso de no usar el formato propuesto por el autor
+de devtools.
+Es importante que el creador o el mantenedor tengan un email de contacto, ya que este ser\'a
+usado en caso de que exista alg\'un problema con el paquete y es el \'unico medio de
+comunicaci\'on que usa CRAN para contactar cuando sea necesario. Adem\'as, dado que esa
+direcci\'on ser\'a usada para el env\'io autom\'atico de emails por parte de CRAN, debe ser un
+email perteneciente a una sola persona, no a una lista de mails.
+\textbf{DESCRIPTION}: Como su propio nombre indica, es una descripci\'on m\'as detallada del cometido
+de nuestro paquete, en este caso puede ocupar varias l\'ineas de hasta 80 caracteres cada
+una.
+License: este campo puede ser una abreviaci\'on de una licencia open source est\'andar como
+puede ser GPL-2 o BSD, o un puntero a un fichero LICENSE con m\'as informaci\'on.
+Si se quiere publicar el paquete en CRAN, se debe escoger una licencia est\'andar de forma
+que no sea dif\'icil par CRAN saber si es legal o no distribuir nuestro paquete (ver 
+https://svn\textbf{.R}-project.org/R/trunk/share/licenses/license.db)
+Imports y Suggests: ambos sirven para indicar las dependencias de nuestro paquete con
+respecto a otros paquetes.
+
+Figura 8
+
+En caso de necesitar una versi\'on espec\'ifica de un paquete lo podemos especificar entre
+par\'entesis:
+
+Figura 9
+
+Esto resulta \'util en la forma en que, si un usuario no tiene la versi\'on requerida del paquete,
+en caso de que hayamos especificado una, el usuario recibir\'a un mensaje de error indic\'andole que el 
+paquete esta desactualizado, mientras que, si no especificamos qu\'e versi\'on
+necesitamos, el usuario recibir\'a un error poco descriptivo y poco \'util.
+Es recomendable no indicar una versi\'on exacta si no una versi\'on m\'inima necesaria.
+Imports indica que un paquete es necesario para que nuestro paquete funcione, de hecho,
+en el momento que el usuario instale nuestro paquete, si los paquetes declarados en Imports
+no est\'an ya instalados, se instalaran autom\'aticamente. Sin embargo, no se cargar\'an (atach)
+para su uso autom\'aticamente, por ello una buena pr\'actica a la hora de usar funciones de
+otros paquetes es referenci\'andolas expl\'icitamente de la siguiente forma paquete::funci\'on().
+Esto adem\'as mejora la lectura del c\'odigo haciendo posible identificar cu\'ales son las funciones
+externas que estamos usando.
+Esta forma de referenciar funciones de forma expl\'icita puede ser algo tedioso si estamos
+continuamente usando funciones de otros paquetes, m\'as adelante se detallar\'an otras formas
+de usar estas funciones (ver 7.4 NAMESPACE).
+Suggests indica que nuestro paquete puede hacer uso de otro paquete, pero no es
+estrictamente necesario, en este caso los paquetes sugeridos no son instalados de forma
+autom\'atica y es el desarrollador el responsable de realizar la comprobaci\'on.
+
+Figura 10
+
+La forma m\'as f\'acil de a\~nadir un paquete a Imports y Suggests es mediante el uso de
+devtools, otra forma es haci\'endolo a mano en el archivo \textbf{DESCRIPTION}.
+
+Figura 11
+
+Depends antes de la llegada de los namespaces a R, depends era la \'unica forma de que
+nuestro paquete dependiese de otro, pero a partir de la llegada de los namespaces, es m\'as
+recomendable usar los Imports de NAMESPACE. Tambi\'en es \'util para indicar una versi\'on
+m\'inima de R requerida. Veremos esto m\'as detalladamente en el apartado dedicado al archivo
+NAMESPACE.
+
+LazyData ser\'a descrito m\'as adelante en el apartado de Datos externos.
+
+\subsubsection{Documentaci\'on de objetos}
+
+En este caso vamos a detallar la documentaci\'on de los distintos elementos que componen el
+paquete, como pueden ser las funciones, los datasets, clases y gen\'ericos de S3, S4 y RC y
+hasta el mismo paquete.
+Este tipo de documentaci\'on es accesible a trav\'es de ? o help() y funciona como un
+diccionario, permitiendo al usuario obtener informaci\'on sobre una funci\'on, paquete o conjunto
+de datos.
+Como ya se ha mencionado anteriormente, esta documentaci\'on se encuentra en la carpeta
+man de nuestro proyecto en formato \textbf{.R}d. Para crear la documentaci\'on vamos a hacer uso del
+paquete \textbf{roxygen2}, el cual nos har\'a m\'as f\'acil el trabajo, en lugar de crearla a mano.
+Crear la documentaci\'on
+Para crear esta documentaci\'on, lo primero que debemos hacer es a\~nadir comentarios
+roxygen a nuestras archivos \textbf{.R}, como, por ejemplo
+
+Figura 12
+
+Una vez completado esto, presionamos Ctrl/Cmd + Shift + B, esto reconstruir\'a
+completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a nuestro
+paquete. Ya podemos proceder a ver la documentaci\'on generada con ?. Repetiremos este
+proceso hasta que la documentaci\'on quede como deseamos.
+Comentarios roxygen
+Estos comentarios comienzan con \#' y se colocan delante de cada funci\'on formando lo que
+se llama un bloque. Estos bloques se dividen en tags (@NombreDelTag), el contenido de un
+tag se extiende desde el final del nombre del tag hasta el inicio del siguiente o el final del
+bloque.
+Nota: dado que el car\'acter @ tiene un significado especial para roxygen, en caso de querer
+introducir un @ en el texto (para un email, por ejemplo), deber\'iamos escribir @@. Lo mismo
+ocurre con “%” y “\”, los cuales tienen un significado especial en Latex, para usarlos debemos
+escribir “\%” y “\\” respectivamente.
+Adem\'as, cada bloque incluye texto previo al primer tag, esto se denomina la introducci\'on y
+se estructura de la siguiente forma:
+
+\begin{itemize}
+    \item La primera frase se corresponde con el t\'itulo de la documentaci\'on, es lo primero que
+se ve cuando consultamos la ayuda de un paquete o funci\'on. Debe constar de solo
+una l\'inea y acabar en punto.
+    \item El segundo p\'arrafo es la descripci\'on, se muestra inmediatamente despu\'es del t\'itulo y
+debe dar una breve descripci\'on de lo que hace la funci\'on.
+    \item Por \'ultimo, el resto de p\'arrafos, si los hubiera, corresponden a una descripci\'on m\'as
+detallada del funcionamiento de la funci\'on. Tambi\'en podemos usar el tag @section
+para dividir los detalles de la funci\'on en distintas secciones.
+\end{itemize}
+
+El t\'itulo y la descripci\'on son obligatorios, mientras que los detalles son opcionales.
+Nota: cada l\'inea de roxygen no debe superar los 80 caracteres y es recomendable tabular
+las l\'ineas para facilitar la lectura.
+Existen otros tags que facilitan la navegaci\'on entre los documentos de ayuda:
+
+\begin{itemize}
+    \item @seealso, que nos permite enlazar con otros recursos, como puede ser una p\'agina
+web, otra funci\'on de nuestro paquete o incluso de otro paquete.
+    \item @family, que sirve para identificar funciones que pertenecen a la misma familia
+    \item @aliases, permite a\~nadir distintos “alias” a nuestro paquete/funci\'on, de forma que
+sea posible encontrarlo buscando distintas palabras con “?”.
+\end{itemize}
+
+Existen m\'as tags que son situacionales, es decir, est\'an basados en el objeto el cual estamos
+documentando. A continuaci\'on, vamos a estudiar estos tags en funci\'on del objeto al que
+documentan.
+Documentando funciones
+Adem\'as del bloque introductorio y los tags ya mencionados, las funciones cuentan con una
+serie de tags propios:
+\begin{itemize}
+    \item @param compuesto por un nombre y una descripci\'on. Sirve para describir los
+par\'ametros de entrada de la funci\'on, su nombre, su tipo y para qu\'e se utilizan.
+La descripci\'on debe comenzar con letra may\'uscula y acabar en un punto, puede
+abarcar varias l\'ineas y no debe quedar ning\'un par\'ametro sin documentar.
+Se pueden documentar al mismo tiempo par\'ametros similares y/o del mismo tipo
+separando sus nombres con comas.
+    \item @examples sirve para proveer c\'odigo en R que muestre un ejemplo de c\'omo funciona
+la funci\'on. El c\'odigo debe funcionar sin errores. Esto es importante ya que muchos
+usuarios miran primero los ejemplos.
+    \item @return descripci\'on de la salida de la funci\'on, no siempre es necesario, pero es
+bueno incluirlo si, por ejemplo, la funci\'on devuelve distintos tipos de salida en funci\'on
+de los par\'ametros de entrada o si estamos devolviendo un objeto S3, S4 o RC.
+\end{itemize}
+
+Documentando datasets
+Ver datos externos.
+Documentando paquetes
+Podemos usar roxygen para crear una p\'agina de ayuda propia del paquete, no asociada a
+una funci\'on en particular. Esta p\'agina es accesible mediante package?nombreDelPaquete y
+puede ser usada para describir los componentes m\'as importantes del paquete o las
+dependencias que tiene, por ejemplo.
+En este caso, dado que no se corresponde con un objeto en concreto, debemos etiquetarlo
+manualmente como @docType package y @name nombreDelPaquete y poner un NULL al
+final.
+
+Figura 13
+
+Documentaci\'on repetida
+Dado que es muy probable que muchas veces tengamos que documentar funciones con los
+mismos par\'ametros o incluso distintas versiones de una misma funci\'on, roxygen nos
+proporciona dos mecanismos para que no tengamos que repetir de nuevo la misma
+documentaci\'on, uno de ellos es la herencia de par\'ametros y el otro consiste en documentar
+varias funciones en el mismo archivo.
+
+\begin{itemize}
+    \item Heredando par\'ametros: podemos hacer que una funci\'on herede la descripci\'on de
+ciertos par\'ametros usando el tag @inheritParams nombreFuncion. Este tag traer\'a
+toda la informaci\'on de los par\'ametros que no est\'an documentados en nuestra funci\'on,
+pero s\'i en la funci\'on a la que referenciamos en nombreFuncion.
+La funci\'on puede ser del mismo paquete o de otro paquete de la forma
+paquete::@inheritParams nombreFuncion
+
+Figura 14
+
+Nota: la herencia no se encadena, esto es, la funci\'on referenciada debe definir los
+par\'ametros expl\'icitamente, no podemos encadenar funciones hasta llegar a una que
+los defina.
+    \item Documentando varias funciones en el mismo archivo: podemos documentar
+varias funciones en el mismo archivo usando @either o @describedIn. Esto debe ser
+usado con precauci\'on, ya que documentar muchas funciones en un mismo archivo
+puede dar lugar a documentaci\'on confusa, por ello se deben documentar funciones
+con argumentos similares o funcionalidad similar o complementaria.
+@describedIn genera una nueva secci\'on en la documentaci\'on con una lista donde
+describe cada una de las funciones.
+
+Figura 15
+
+@rdname sobreescribe el nombre por defecto que genera roxygen y une
+documentaci\'on de m\'ultiples funciones en un mismo archivo.
+\end{itemize}
+
+\subsubsection{Datos externos}
+
+Hay tres maneras principales de incluir datos en un paquete, dependiendo de qu\'e queramos
+hacer con ellos o qui\'en debe usarlos:
+
+\begin{itemize}
+    \item Si se quiere almacenar datos binarios y que est\'en disponibles para los usuarios, se
+deben poner en el directorio data/. Este es el mejor sitio para los datasets.
+    \item Si lo que se quiere es almacenar datos de an\'alisis, pero que los dem\'as usuarios no
+los tengan disponibles, se deben colocar en R/sysdata\textbf{.R}da. En este caso es el mejor
+sitio para los datos que necesiten nuestras funciones.
+    \item Por \'ultimo, si queremos almacenar datos raw, se deben almacenar en el directorio
+inst/data.
+\end{itemize}
+
+La localizaci\'on m\'as com\'un para los datos de un paquete es data/. Cada archivo de este
+directorio debe ser un archivo \textbf{.R}data o \textbf{.R}da creado por la funci\'on save() y que contenga un
+solo objeto, con el mismo nombre que el archivo.
+Por ejemplo, si queremos a\~nadir un data.frame “datos”, se guardar\'a como “Rda” con la
+instrucci\'on:
+> save(datos, file=”ruta/del/paquete/miPaquete/data/datos\textbf{.R}da”)
+Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\'an de forma
+“Lazy”. Es decir, que no ocupar\'an memoria hasta que se usen, devtools::cr\'eate() establece
+LazyData a true autom\'aticamente.
+Documentando datasets
+Todos los objetos de data/ son siempre exportados, esto significa que deben ser
+documentados.
+La documentaci\'on de datos es como documentar una funci\'on con algunas diferencias. En
+lugar de documentar los datos directamente, se debe documentar el nombre del dataset y
+guardarlo en R/.
+
+Figura 16
+
+Hay dos etiquetas importantes para la documentaci\'on de datasets:
+
+\begin{itemize}
+    \item @format: proporciona una vista r\'apida del dataset. Para data frames, se debe incluir
+una lista de definiciones que describan cada variable.
+    \item @source: proporciona detalles sobre d\'onde est\'an los datos, generalmente una \textbackslash url{}.
+\end{itemize}
+
+Nunca se le pone @export a un data set.
+Datos internos
+Algunas veces, las funciones necesitan data tables pre-computados. Si los ponemos en data/,
+estos datos estar\'an disponibles para todos los usuarios, lo que no es apropiado. En lugar de
+eso, podemos guardarlos en R/sysdata\textbf{.R}da. Los objetos que se encuentran en este directorio
+no se exportan, luego, no necesitan estar documentados. S\'olo estar\'an disponibles dentro del
+paquete.
+Generalmente, los datos de los paquetes deben pesar menos de un megabyte, si es m\'as
+grande, se deber\'a pedir una exenci\'on. Esto es m\'as f\'acil si los datos se encuentran en el
+propio paquete y no se actualizan frecuentemente.
+Se debe estar seguro de que los datos est\'en comprimidos de forma \'optima.
+
+\subsubsection{NAMESPACE}
+
+El archivo NAMESPACE es muy importante en nuestro paquete, ya que nos va a ayudar a
+encapsular nuestro paquete y que no falle por las dependencias que pueda tener de otros, ni
+interfiera en otros que usen el nuestro si lo actualizamos.
+Como su nombre indica, NAMESPACE proporciona “espacios” para “nombres”. Por ejemplo,
+cuando importamos dos paquetes que ambos contienen una funci\'on con el mismo nombre,
+podemos desambiguarla con el operador “::”. Por ejemplo, si usamos los paquetes plyr y
+Hmisc, ambos tienen la funci\'on sumarize(), por lo que, dependiendo de cu\'al queramos usar,
+usaremos plyr::sumarize() o Hmisc::sumarize().
+NAMESPACE hace nuestro paquete autocontenido, tanto con los imports, como con los
+exports. Los imports, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
+otro. Los exports, nos ayudan a evitar los conflictos con otros paquetes especificando qu\'e
+funciones se pueden usar fuera de nuestro paquete.
+
+Generalmente querremos exportar un conjunto m\'inimo de funciones, ya que cuanto menos
+exportemos, menos posibilidades hay de conflicto.
+¿C\'omo carga R los paquetes?
+Cuando se llama a una funci\'on, R tiene que encontrarla, primero busca en el entorno. Si no
+lo encuentra, contin\'ua por los paquetes que hayamos adjuntado(attach) nosotros.
+Hay una gran diferencia entre cargar(load) y adjuntar(attach).
+Cuando cargamos un paquete, estar\'a en memoria, pero no en el path, por lo que tendremos
+que usar el operador “::”. En cambio, si lo adjuntamos, s\'i que se encontrar\'a en el path. No
+se puede adjuntar un paquete sin haberlo cargado antes.
+Hay cuatro funciones que hacen que un paquete sea v\'alido. Difieren unas de otras,
+dependiendo de si se cargan o se adjuntan y qu\'e tipo de error devuelve si no se encuentra el
+paquete:
+
+\begin{itemize}
+    \item loadNamespace(“x”): carga el paquete (load) y lanza un error si no lo encuentra.
+    \item library(x): adjunta el paquete (attach) y tambi\'en lanza un error si no lo encuentra.
+    \item requireNamespace(“x”, quietely = TRUE): carga el paquete (load) y devuelve falso
+si no lo encuentra.
+    \item require(x, quietely = TRUE): adjunta el paquete (attach) y tambi\'en devuelve falso si
+no lo encuentra.
+\end{itemize}
+
+Volvemos a la diferencia entre Depends e Imports en \textbf{DESCRIPTION}, ¿Cu\'ando debemos
+usar cada uno?
+La inclusi\'on de un paquete en cualquiera de ellos garantiza que est\'e instalado cuando sea
+necesario. La principal diferencia es que Imports, carga el paquete, en cambio, Depends
+tambi\'en lo adjunta.
+Salvo que haya una buena raz\'on, siempre debemos enumerar los paquetes en Imports, ya
+que un buen paquete debe ser autocontenido y minimizar los cambios en el entorno.
+El archivo NAMESPACE
+Cada l\'inea contiene una directriz: S3method(), export(), exportClasses(), adem\'as de otros.
+Cada una de estas directivas describe un objeto de R, que nos indica si se exporta desde
+nuestro paquete para ser usado por los dem\'as o si se importa para usarlo de forma local.
+En total hay ocho directrices. Cuatro de ellas describen las exportaciones:
+
+\begin{itemize}
+    \item export(): exporta una funci\'on.
+    \item exportPattern(): exporta todas las funciones que coinciden con un patr\'on.
+    \item exportClasses(), exportMethods(): exporta las clases S4 y sus m\'etodos.
+    \item S3method(): exporta los m\'etodos de S3.
+\end{itemize}
+
+Y las cuatro restantes describen las importaciones:
+\begin{itemize}
+    \item import(): importa todas las funciones de un paquete.
+    \item importFrom(): importa las funciones seleccionadas.
+    \item importClassesFrom(), importMethodsFrom(): importa las clases S4 y sus
+m\'etodos.
+    \item useDynLib(): importa una funci\'on de C.
+\end{itemize}
+
+No se recomienda escribir estas directrices a mano, sino usar \textbf{roxygen2}, ya que hace este
+trabajo m\'as f\'acil y ordenado.
+Generar el namespace con \textbf{roxygen2} es como generar la documentaci\'on para las funciones,
+usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspondiente, ejecutamos
+devtools::document() (o, Ctrl + Shift +D)y comprobamos que el archivo NAMESPACE se
+haya modificado correctamente.
+Ejemplo de archivo NAMESPACE generado por \textbf{roxygen2}:
+
+Figura 17
+
+Exports
+Para que una funci\'on sea usable fuera de nuestro paquete debemos exportarla, si creamos
+nuestro paquete con devtools::create(), se cre\'o un NAMESPACE temporal que exporta todo
+lo que haya en nuestro paquete que no comience con un punto “.”. Si planeamos distribuir
+nuestro paquete, debemos ser cuidadosos con lo que exportamos para reducir en lo posible
+los conflictos con otros paquetes.
+Para exportar un objeto, se debe poner “@export” en el bloque roxygen. Por ejemplo:
+
+Figura 18
+
+Esto generar\'a S3method(), export(), exportClasses(), o exportMethods(), dependiendo del
+tipo de objeto.
+Las funciones que se exporten deben estar documentadas, y se debe tener precauci\'on
+cuando se cambien, ya que otras personas pueden estar us\'andolas.
+¿Qu\'e debemos exportar si estamos usando S3, S4 o RC?
+\renewcommand{\labelitemii}{\textendash}
+\begin{itemize}
+
+    \item S3:
+Si se quiere que los dem\'as puedan crear instancias de una clase S3, debemos a\~nadir
+@export al constructor de la funci\'on. Los gen\'ericos S3 son como funciones normales
+de R, podemos exportarlos igual que las funciones.
+
+Los m\'etodos S3 representan el caso m\'as complicado, ya que hay cuatro escenarios
+diferentes.
+
+\begin{itemize}
+    \item   Un m\'etodo para un gen\'erico exportado: exportar todos los m\'etodos.
+    \item   Un m\'etodo para un gen\'erico interno: t\'ecnicamente, no se necesita exportar estos
+m\'etodos.
+    \item   Un m\'etodo para un gen\'erico en un paquete requerido: se tendr\'a que importar el
+gen\'erico y exportar el m\'etodo.
+    \item   Un m\'etodo para un gen\'erico en un paquete recomendado: las directrices de
+NAMESPACE deben referirse a funciones que est\'en disponibles.
+\end{itemize}
+
+    \item S4:
+Clases: Si se quiere que los dem\'as puedan extender de nuestra clase, debemos
+a\~nadir la etiqueta @export a nuestra clase, en cambio, si queremos que puedan crear
+instancias para no extender, la etiqueta ir\'a en el constructor de la funci\'on, no en la
+clase.
+Gen\'ericos: @export si queremos que el gen\'erico sea usable p\'ublicamente.
+Metodos: solo necesitamos exportar los m\'etodos para los gen\'ericos que no hayamos
+definido, pero es recomendable exportar todos los m\'etodos.
+    \item RC:
+Igual que en S4. Debido a la forma en que RC est\'a implementado actualmente, es, en
+general, imposible que sus clases se extiendan fuera de su paquete.
+    \item Data:
+Los archivos que est\'an en data/ no necesitan ser exportados.
+\end{itemize}
+
+Imports
+NAMESPACE tambi\'en controla las funciones externas que pueden ser usadas en nuestro
+paquete sin usar “::”. Esto puede confundirnos si recordamos que el archivo \textbf{DESCRIPTION}
+(a trav\'es del campo Import) tambi\'en est\'a involucrado en los paquetes que importamos al
+nuestro. Sin embargo, existe una diferencia muy clara, el campo Import del archivo
+\textbf{DESCRIPTION} solo comprueba que el paquete est\'a instalado cuando se instala nuestro
+paquete, pero no hace disponibles las funciones de dicho paquete, para ellos debemos usar
+las directivas import de NAMESPACE.
+Por otro lado, Depends, se encarga de que si nuestro paquete esta adjuntado (attached),
+todos los paquetes que est\'en listados en Depends, tambi\'en se adjunten y, en el caso de que
+nuestro paquete este cargado (loaded), estos paquetes lo est\'en tambi\'en.
+Lo m\'as recomendable es que el paquete este importado en \textbf{DESCRIPTION} y no en el
+NAMESPACE y referenciar a las funciones haciendo uso de “::”, esto puede suponernos m\'as
+trabajo pero har\'a nuestro c\'odigo m\'as f\'acil de leer, entender y mantener. El contrario no se
+cumple, todo paquete importado en NAMESPACE, debe estar tambi\'en en \textbf{DESCRIPTION}.
+
+\begin{itemize}
+    \item Funciones R:
+Si solo se van a usar algunas funciones de otro paquete, lo recomendable es que el
+paquete este importado en \textbf{DESCRIPTION} y referenciar a las funciones haciendo uso
+de “::”.
+En caso de que usemos alguna funci\'on de forma muy repetida podemos evitar el uso
+de “::” importando la funci\'on con @importFrom paquete funcion.
+Como ultima opci\'on, si usamos muchas funciones de forma repetida, importaremos el
+paquete completo, @import paquete. Esto es poco recomendable, hace nuestro
+c\'odigo dif\'icil de leer y puede generar conflictos con otros paquetes.
+    \item S3:
+Los gen\'ericos de S3 son funciones, as\'i que se le aplican las mismas reglas.
+    \item S4:
+Para usar las clases definidas en otros paquetes, debemos a\~nadir
+@importClassesFrom package ClassA ClassB... junto a las clases que heredan de
+las clases importadas, o junto a los m\'etodos que implementan un gen\'erico para las
+clases importadas.
+Para usar gen\'ericos definidos en otros paquetes, hay que a\~nadir
+@importMethodsFrom package GenericA GenericB ... junto a los m\'etodos que usan
+los gen\'ericos importados.
+\end{itemize}
+
+\subsection{Comprobando el paquete}
+
+Una parte importante del desarrollo de un paquete es comprobar que el c\'odigo y la
+documentaci\'on no presenten problemas, especialmente si se planea distribuir p\'ublicamente
+el paquete. Para ello contamos con la herramienta R CMD check.
+R CMD check es el nombre del comando que se usa desde una terminal, pero en nuestro
+caso vamos a usar la herramienta que nos proporciona devtools, en concreto,
+devtools::check() o, equivalentemente, Ctrl + Shift + E en R Studio.
+Esta herramienta se encarga de que toda la documentaci\'on del paquete este actualizada, ya
+que ejecuta devtools::document() de manera autom\'atica.
+Encapsula el paquete antes de realizar las comprobaciones. Esto asegura que la
+comprobaci\'on del paquete se hace desde un estado limpio ya que el encapsulamiento no
+contiene ning\'un posible archivo temporal que se haya podido acumular y que pueda interferir
+en las comprobaciones.
+La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
+
+\begin{itemize}
+    \item Ejecutar devtools::check() o Ctrl + Shift + E en R Studio.
+    \item Arreglar el primer problema.
+    \item Repetir los dos anteriores hasta que no haya m\'as problemas.
+\end{itemize}
+
+R CMD check devuelve tres tipos de problemas distintos:
+
+\begin{itemize}
+    \item Error: Problema grave que deber ser arreglado, aunque no planeemos subir el
+paquete a CRAN.
+    \item Warning: Problema medio que debe ser arreglado en caso de que planeemos subir
+el paquete a CRAN.
+    \item Note: Problema medio que deber\'iamos arreglar en caso de querer subir el paquete a
+CRAN incluso si se trata de un falso positivo. En el caso de que no tengamos ninguna
+nota, el proceso de subida a CRAN ser\'a autom\'atico sin intervenci\'on humana. Si no
+es posible eliminar una nota, debemos describir por qu\'e no supone un problema.
+\end{itemize}
+
+
+\subsection{Liberando el paquete}
+
+Si queremos que nuestro paquete tenga cierta trascendencia en la comunidad de R,
+necesitamos subirlo a CRAN, ya que la mayor\'ia de usuarios descargan e instalan sus
+paquetes desde CRAN.
+A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir nuestro paquete a
+en CRAN.
+N\'umero de versi\'on.
+Ya hablamos acerca de los n\'umeros de versi\'on de nuestro paquete en la secci\'on de
+documentaci\'on, en este caso, detallaremos algunos consejos a la hora de publicar una nueva
+versi\'on de nuestro paquete.
+El nuevo n\'umero de versi\'on debe hacer que el usuario pueda entender la magnitud de los
+cambios realizados con respecto a la versi\'on anterior, por ejemplo, supongamos que la
+versi\'on actual de nuestro paquete es la 0.7.3, en funci\'on de los cambios que hayamos hecho
+a nuestro paquete debemos elegir un nuevo n\'umero de versi\'on u otro:
+
+\begin{itemize}
+    \item Parche: si solo hemos arreglado errores de nuestro paquete sin a\~nadir ninguna
+funcionalidad significativa, un buen n\'umero de versi\'on seria 0.7.4.
+    \item Actualizaci\'on menor: si adem\'as de solucionar errores hemos a\~nadido nuevas
+funcionalidades y existen cambios en la compatibilidad hacia atr\'as de nuestro
+paquete, el nuevo n\'umero de versi\'on deber\'ia ser 0.8.0.
+    \item Actualizaci\'on mayor: si hemos realizado cambios importantes en el paquete y no
+existe una compatibilidad hacia atr\'as y esto puede afectar a los usuarios, lo usual
+ser\'ia un n\'umero de versi\'on como 1.0.0.
+\end{itemize}
+
+Compatibilidad hacia atr\'as.
+Dado que la mayor\'ia de usuarios actualizan sus paquetes sin tener en cuenta que la nueva
+versi\'on pueda dejar de ser compatible con alguna funci\'on que usan habitualmente es
+importante ser cautelosos a la hora de introducir grandes cambios en la compatibilidad hacia
+atr\'as de nuestro paquete.
+La importancia de la compatibilidad hacia atr\'as de nuestro paquete es directamente
+proporcional al n\'umero de usuarios del mismo. Por otro lado, cuanto m\'as tiempo dediquemos
+al mantenimiento de esta compatibilidad m\'as dif\'icil ser\'a de a\~nadir nuevas funcionalidades,
+de arreglar bugs y de mantener nuestro c\'odigo. Es por ello, que, aunque no debemos dejar
+de lado esta compatibilidad, tampoco tiene que paralizarnos.
+Dado que hay casos en los que es necesario romper con esta compatibilidad, lo mejor es
+hacerlo gradualmente, por ello, se van a detallar algunas t\'ecnicas/consejos:
+
+\begin{itemize}
+    \item En lugar de eliminar autom\'aticamente una funci\'on, depreciarla primero y eliminarla un
+par de versiones despu\'es, por ejemplo. Para ello, usamos .Deprecated().
+
+Figura 19
+
+Figura 20
+
+    \item De igual forma, advertir al usuario si vamos a eliminar un argumento
+
+Figura 21
+
+Figura 22
+
+    \item En el caso de que queramos depreciar mucho c\'odigo, podemos incluir una funci\'on de
+ayuda que autom\'aticamente se encargue de emitir los mensajes de error o de aviso
+como hace el paquete ggplot2 con su funci\'on gg\_dep.
+    \item Cambios significantes en una funci\'on tienen que ser bien planificados y realizados de
+forma gradual, advirtiendo el usuario, para causar el menor da\~no posible.
+    \item Por \'ultimo, podemos realizar una comprobaci\'on antes de ejecutar la funci\'on, de forma
+que compruebe que versi\'on del paquete tiene el usuario y as\'i ejecutar una versi\'on de
+nuestra funci\'on u otra.
+
+Figura 23
+\end{itemize}
+
+Comentarios CRAN.
+Debemos recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
+libre a revisar los paquetes que se suben, por tanto, cuanto m\'as f\'acil les hagamos el trabajo,
+m\'as posibilidades hay de que nuestro paquete sea aceptado sin ning\'un problema.
+Por ello, es recomendable a\~nadir a nuestro paquete una serie de comentarios que faciliten la
+tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado cran-comments.md, veamos
+un ejemplo (ggplot2):
+
+\begin{itemize}
+    \item Figura 24
+
+    \item Test environments: indica en qu\'e plataformas se ha comprobado el paquete. Dado
+que R est\'a en continua evoluci\'on, es recomendable usar siempre la \'ultima versi\'on de
+desarrollo del lenguaje y comprobar que nuestro paquete funciona correctamente en
+al menos dos plataformas (Windows, Linux o MAC).
+    \item Check results: contendr\'a una lista de errores, advertencias o notas, aunque debemos
+asegurarnos de que no hay errores o advertencias (ya que, de ser as\'i, no ser\'a
+aceptado en CRAN).
+En el caso de que hubiera alguna nota que no hayamos podido arreglar, incluir\'iamos
+el mensaje obtenido con la nota y una explicaci\'on de por qu\'e no est\'a arreglada o
+porque consideramos que no afecta al correcto funcionamiento del paquete.
+Es importante eliminar las notas, ya que de esta forma es m\'as probable que nuestro
+paquete no requiera revisi\'on humana y el proceso de subida sea m\'as r\'apido.
+    \item Reverse dependencies: sirve para indicar que si hay errores de dependencias con
+otros paquetes en el caso de que estemos subiendo una nueva versi\'on de nuestro
+paquete y los cambios hayan provocado errores en las dependencias con otros
+paquetes. En ese caso, podemos contactar con el autor del paquete para indicar lo
+que ocurre y buscar una soluci\'on.
+\end{itemize}
+
+Las pol\'iticas en CRAN.
+Existen ciertas pol\'iticas que debemos cumplir a la hora de subir nuestro paquete a CRAN,
+estas son comprobadas manualmente. Los voluntarios de CRAN comprueban que nuestro
+paquete cumple estas pol\'iticas rigurosamente, especialmente si es la primera vez que lo
+subimos.
+Algunos problemas comunes son:
+\begin{itemize}
+    \item Ausencia del email del mantenedor del paquete. Este email es la \'unica v\'ia de contacto
+que tiene CRAN en caso de alg\'un problema con nuestro paquete. En caso de que no
+haya email de contacto, ante cualquier problema, el paquete ser\'a retirado de CRAN.
+    \item Es importante dejar claro los propietarios del copyright y si hemos usado c\'odigo
+externo, comprobar que la licencia es compatible.
+    \item Paquetes que no funcionan en al menos dos plataformas no ser\'an considerados.
+    \item No hacer cambios externos sin permiso del usuario: cambiar opciones, instalar
+paquetes, abrir software externo, cerrar R, etc.
+    \item No subir actualizaciones del paquete muy frecuentemente. La pol\'itica sugiere hacerlo
+cada 1 o 2 meses como mucho.
+\end{itemize}
+
+Archivos importantes.
+Una vez que nuestro paquete ya est\'a listo para subirlo, debemos tener en cuenta dos archivos
+importantes m\'as, README.md, el cual proporciona una descripci\'on de nuestro paquete y su
+funcionamiento y uso, y NEWS.md, el cual describe los cambios con respecto a la versi\'on
+anterior de nuestro paquete. Dado que estos dos archivos no son soportados por CRAN no
+hay que a\~nadirlos a la hora de construir el paquete (devtools::use\_build\_ignore("NEWS.md"),
+devtools::use\_build\_ignore("README.md"))
+
+Lanzamiento.
+Lleg\'o la hora de construir nuestro paquete y subirlo a CRAN. Para construir nuestro paquete
+usamos devtools::release(). Esto se encarga de volver a comprobar el paquete una \'ultima
+vez y nos hace una serie de preguntas acerca de buenas pr\'acticas a modo de comprobaci\'on,
+devtools::release(), autom\'aticamente, sube el paquete a CRAN.
+Una vez subido, recibiremos un email de confirmaci\'on a los pocos minutos pidi\'endonos
+confirmar nuestro email. Despu\'es los voluntarios de CRAN comprobar\'an el paquete y nos
+devolver\'an los resultados, esto normalmente tarda desde 24h hasta 5 d\'ias.
+En caso de fallo, este vendr\'a descrito en los resultados de la comprobaci\'on, en este caso,
+debemos arreglar el fallo, incluir en cran-coments un comentario indicando que vamos a
+hacer una resubida, actualizar las dependencias en caso de que sea necesario y ejecutar
+devtools::submit\_cran() para evitar contestar de nuevo todas las preguntas de
+devtools::release().
+Una vez que CRAN ha aceptado nuestro paquete, construir\'a el paquete para las distintas
+plataformas, esto puede dar lugar a nuevos errores que debemos arreglar en un parche y
+volver a subir.

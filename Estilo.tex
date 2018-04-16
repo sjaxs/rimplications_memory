@@ -1,0 +1,34 @@
+%\renewcommand{\familydefault}{\sfdefault}
+\usepackage{setspace}
+\spacing{1.5}
+
+\newlength{\realoddsidemargin}	  % \oddsidemargin menos 1 in.
+\newlength{\realevensidemargin}		% \evensidemargin menos 1 in.
+\newlength{\realtopmargin}				% \topmargin menos 1 in.
+%
+% Asignaci�n de m�rgenes de p�gina
+% ASIGNESE en caso de querer cambiarlo
+\setlength{\realtopmargin}{2cm}			% REAL top margin.
+\setlength{\realoddsidemargin}{2.5cm}		% REAL oddside margin.
+\setlength{\realevensidemargin}{2.5cm}	% REAL evenside margin.
+\setlength{\hoffset}{0cm}
+\setlength{\voffset}{0cm}
+%
+% Substracci�n de 1 pulgada de compensaci�n
+%  (v�ase ``Page Layout.png'' para m�s informaci�n)
+\addtolength{\realoddsidemargin}{-1in}	% 1 inch = 2.54 cm.
+\addtolength{\realevensidemargin}{-1in}
+\addtolength{\realtopmargin}{-1in}
+%
+% Asignaci�n de anchuras y m�rgenes
+% No hay notas al margen
+\setlength{\marginparsep}{0cm} % No van a existir notas al margen
+\setlength{\marginparwidth}{0cm} % No van a existir notas al margen
+%
+% Asignaci�n de anchura de texto
+\setlength{\textwidth}{16cm}	% Anchura neta del texto (globalmente).
+%
+% Asignaci�n de m�rgenes par, impar y en altura
+\setlength{\oddsidemargin}{\realoddsidemargin}	% odd-page left margin (global).
+\setlength{\evensidemargin}{\realoddsidemargin}	% even-page left margin (global).
+\setlength{\topmargin}{\realtopmargin}					% top margin (Global).
