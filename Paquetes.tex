@@ -296,14 +296,15 @@ Figura 12
 Una vez completado esto, presionamos \textbf{Ctrl/Cmd + Shift + B}, esto reconstruir\'a
 completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a nuestro
 paquete. Ya podemos proceder a ver la documentaci\'on generada con ?. Repetiremos este
-proceso hasta que la documentaci\'on quede como deseamos.
-Comentarios \textbf{roxygen}
-Estos comentarios comienzan con \#' y se colocan delante de cada funci\'on formando lo que
-se llama un bloque. Estos bloques se dividen en tags (@NombreDelTag), el contenido de un
-tag se extiende desde el final del nombre del tag hasta el inicio del siguiente o el final del
+proceso hasta que la documentaci\'on quede como deseamos.\\
+
+\textbf{Comentarios roxygen} \\
+Estos comentarios comienzan con \textbf{\#'} y se colocan delante de cada funci\'on formando lo que
+se llama un \textbf{bloque}. Estos bloques se dividen en \textbf{tags} (@NombreDelTag), el contenido de un
+\textbf{tag} se extiende desde el final del nombre del tag hasta el inicio del siguiente o el final del
 bloque.
-Nota: dado que el car\'acter @ tiene un significado especial para \textbf{roxygen}, en caso de querer
-introducir un @ en el texto (para un email, por ejemplo), deber\'iamos escribir @@. Lo mismo
+\textbf{Nota}: dado que el car\'acter \textbf{@} tiene un significado especial para \textbf{roxygen}, en caso de querer
+introducir un \textbf{@} en el texto (para un email, por ejemplo), deber\'iamos escribir \textbf{@@}. Lo mismo
 ocurre con “%” y “\”, los cuales tienen un significado especial en Latex, para usarlos debemos
 escribir “\%” y “\\” respectivamente.
 Adem\'as, cada bloque incluye texto previo al primer tag, esto se denomina la introducci\'on y
@@ -316,7 +317,7 @@ una l\'inea y acabar en punto.
     \item El segundo p\'arrafo es la descripci\'on, se muestra inmediatamente despu\'es del t\'itulo y
 debe dar una breve descripci\'on de lo que hace la funci\'on.
     \item Por \'ultimo, el resto de p\'arrafos, si los hubiera, corresponden a una descripci\'on m\'as
-detallada del funcionamiento de la funci\'on. Tambi\'en podemos usar el tag @section
+detallada del funcionamiento de la funci\'on. Tambi\'en podemos usar el tag \textbf{@section}
 para dividir los detalles de la funci\'on en distintas secciones.
 \end{itemize}
 
@@ -326,48 +327,49 @@ las l\'ineas para facilitar la lectura.
 Existen otros tags que facilitan la navegaci\'on entre los documentos de ayuda:
 
 \begin{itemize}
-    \item @seealso, que nos permite enlazar con otros recursos, como puede ser una p\'agina
+    \item \textbf{@seealso}, que nos permite enlazar con otros recursos, como puede ser una p\'agina
 web, otra funci\'on de nuestro paquete o incluso de otro paquete.
-    \item @family, que sirve para identificar funciones que pertenecen a la misma familia
-    \item @aliases, permite a\~nadir distintos “alias” a nuestro paquete/funci\'on, de forma que
-sea posible encontrarlo buscando distintas palabras con “?”.
+    \item \textbf{@family}, que sirve para identificar funciones que pertenecen a la misma familia
+    \item \textbf{@aliases}, permite a\~nadir distintos “\textbf{alias}” a nuestro paquete/funci\'on, de forma que
+sea posible encontrarlo buscando distintas palabras con “\textbf{?}”.
 \end{itemize}
 
 Existen m\'as tags que son situacionales, es decir, est\'an basados en el objeto el cual estamos
 documentando. A continuaci\'on, vamos a estudiar estos tags en funci\'on del objeto al que
-documentan.
-Documentando funciones
+documentan. \\
+\textbf{Documentando funciones} \\
 Adem\'as del bloque introductorio y los tags ya mencionados, las funciones cuentan con una
 serie de tags propios:
 \begin{itemize}
-    \item @param compuesto por un nombre y una descripci\'on. Sirve para describir los
+    \item \textbf{@param} compuesto por un nombre y una descripci\'on. Sirve para describir los
 par\'ametros de entrada de la funci\'on, su nombre, su tipo y para qu\'e se utilizan.
 La descripci\'on debe comenzar con letra may\'uscula y acabar en un punto, puede
 abarcar varias l\'ineas y no debe quedar ning\'un par\'ametro sin documentar.
 Se pueden documentar al mismo tiempo par\'ametros similares y/o del mismo tipo
 separando sus nombres con comas.
-    \item @examples sirve para proveer c\'odigo en R que muestre un ejemplo de c\'omo funciona
+    \item \textbf{@example}s sirve para proveer c\'odigo en R que muestre un ejemplo de c\'omo funciona
 la funci\'on. El c\'odigo debe funcionar sin errores. Esto es importante ya que muchos
 usuarios miran primero los ejemplos.
-    \item @return descripci\'on de la salida de la funci\'on, no siempre es necesario, pero es
+    \item \textbf{@return} descripci\'on de la salida de la funci\'on, no siempre es necesario, pero es
 bueno incluirlo si, por ejemplo, la funci\'on devuelve distintos tipos de salida en funci\'on
 de los par\'ametros de entrada o si estamos devolviendo un objeto S3, S4 o RC.
 \end{itemize}
 
-Documentando datasets
-Ver datos externos.
-Documentando paquetes
+\textbf{Documentando datasets}\\
+Ver datos externos.\\
+\textbf{Documentando paquetes}\\
+
 Podemos usar \textbf{roxygen} para crear una p\'agina de ayuda propia del paquete, no asociada a
 una funci\'on en particular. Esta p\'agina es accesible mediante package?nombreDelPaquete y
 puede ser usada para describir los componentes m\'as importantes del paquete o las
 dependencias que tiene, por ejemplo.
 En este caso, dado que no se corresponde con un objeto en concreto, debemos etiquetarlo
-manualmente como @docType package y @name nombreDelPaquete y poner un NULL al
+manualmente como \textbf{@docType package} y \textbf{@name} nombreDelPaquete y poner un \textbf{NULL} al
 final.
 
-Figura 13
+Figura 13\\
 
-Documentaci\'on repetida
+\textbf{Documentaci\'on repetida}\\
 Dado que es muy probable que muchas veces tengamos que documentar funciones con los
 mismos par\'ametros o incluso distintas versiones de una misma funci\'on, \textbf{roxygen} nos
 proporciona dos mecanismos para que no tengamos que repetir de nuevo la misma
@@ -375,29 +377,29 @@ documentaci\'on, uno de ellos es la herencia de par\'ametros y el otro consiste 
 varias funciones en el mismo archivo.
 
 \begin{itemize}
-    \item Heredando par\'ametros: podemos hacer que una funci\'on herede la descripci\'on de
-ciertos par\'ametros usando el tag @inheritParams nombreFuncion. Este tag traer\'a
+    \item \textbf{Heredando par\'ametros}: podemos hacer que una funci\'on herede la descripci\'on de
+ciertos par\'ametros usando el \textbf{tag @inheritParams} nombreFuncion. Este \textbf{tag} traer\'a
 toda la informaci\'on de los par\'ametros que no est\'an documentados en nuestra funci\'on,
 pero s\'i en la funci\'on a la que referenciamos en nombreFuncion.
 La funci\'on puede ser del mismo paquete o de otro paquete de la forma
-paquete::@inheritParams nombreFuncion
+\textbf{paquete::@inheritParams} nombreFuncion
 
 Figura 14
 
-Nota: la herencia no se encadena, esto es, la funci\'on referenciada debe definir los
+\textbf{Nota}: la herencia no se encadena, esto es, la funci\'on referenciada debe definir los
 par\'ametros expl\'icitamente, no podemos encadenar funciones hasta llegar a una que
 los defina.
-    \item Documentando varias funciones en el mismo archivo: podemos documentar
-varias funciones en el mismo archivo usando @either o @describedIn. Esto debe ser
+    \item \textbf{Documentando varias funciones en el mismo archivo}: podemos documentar
+varias funciones en el mismo archivo usando \textbf{@either} o \textbf{@describedIn}. Esto debe ser
 usado con precauci\'on, ya que documentar muchas funciones en un mismo archivo
 puede dar lugar a documentaci\'on confusa, por ello se deben documentar funciones
-con argumentos similares o funcionalidad similar o complementaria.
-@describedIn genera una nueva secci\'on en la documentaci\'on con una lista donde
+con argumentos similares o funcionalidad similar o complementaria.\\
+\textbf{@describedIn} genera una nueva secci\'on en la documentaci\'on con una lista donde
 describe cada una de las funciones.
 
 Figura 15
 
-@rdname sobreescribe el nombre por defecto que genera \textbf{roxygen} y une
+\textbf{@rdname} sobreescribe el nombre por defecto que genera \textbf{roxygen} y une
 documentaci\'on de m\'ultiples funciones en un mismo archivo.
 \end{itemize}
 
