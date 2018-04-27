@@ -6,6 +6,33 @@
 \usepackage[spanish,activeacute]{babel}
 \usepackage{mathtools}
 \usepackage{csquotes}
+\usepackage{listings,lstautogobble}
+\usepackage[usenames,dvipsnames]{color}
+
+
+\lstset{
+    language=R,
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\ttfamily\color{OliveGreen},
+    numbers=left,
+    numberstyle=\ttfamily\color{blue}\footnotesize,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+    escapeinside={},
+    stringstyle=\ttfamily\color{OliveGreen},
+    keywordstyle={\color{blue}},
+    morekeywords={}
+}
 
 \input{Estilo.tex}
 
@@ -20,6 +47,8 @@
 \input{Motivacion.tex}
 \input{Objetivos.tex}
 \input{EstudioDelArte.tex}
+\input{Algoritmos.tex}
 \input{Paquetes.tex}
+\input{Manual.tex}
 
 \end{document}
