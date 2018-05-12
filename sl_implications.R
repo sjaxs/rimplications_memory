@@ -5,19 +5,6 @@ apply.reduction.eq <- function(Sigma){
 }#End apply.reduction.eq
 
 
-apply.composition.eq.old <- function(Sigma){
-  delete <- c()
-  for (k in seq(Sigma)){
-    for (l in seq(Sigma))
-      if (k<l){ 
-        Sigma <- composition.eq(Sigma,k,l)
-      }
-  }
-  Sigma <- delete.set.of.IS(Sigma)
-  return(Sigma)
-}#End apply.composition.eq.old
-
-
 apply.composition.eq <- function(Sigma){
   for (k in seq(Sigma)){
     if(k > length(Sigma)){
