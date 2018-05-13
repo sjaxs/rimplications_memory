@@ -17,14 +17,65 @@ Cuando se comienza a realizar un algoritmo que se necesita que
 sea r\'apido y est\'e optimizado, una de las cosas m\'as importantes 
 es decidir qu\'e estructura de datos se va a utilizar.
 Ya que, dependiendo de qu\'e queramos hacer, elegir bien, nos puede 
-ayudar a ganar tiempo en el algoritmo.
+ayudar a que el algoritmo se ejecute en el menor tiempo posible.
 \\
 \\
-Por ello, para la gran mayor\'ia de algoritmos que vamos a realizar 
+Por ello, para la gran mayor\'ia de algoritmos que se van a realizar 
 en este TFG se va a utilizar la estructura ItemMatrix, perteneciente al paquete 
 arules.
 
- %Librería básica
+La clase ItemMatrix es la estructura b\'asica para las transacciones, los 
+conjuntos de elementos y las reglas.
+La clase contiene una representaci\'on de una matriz dispersa de elementos 
+y las etiquetas correspondientes a dichos elementos.
+
+Los conjuntos de elementos se representan como matrices binarias dispersas. 
+Si se trabaja con varios ItemMatrix al mismo tiempo, la codificaci\'on 
+en los diferentes ItemMatrix es importante, ya que ambos elementos deben tener 
+las mismas etiquetas para poder trabajar con ellos.
+
+Cada ItemMatrix tiene la siguiente informaci\'on:
+
+
+data:\\
+Objeto de la clase ngCMatrix que almacena las ocurrencias de elementos en 
+representaci\'on dispersa. Hay que tener en cuenta que ngCMatrix est\'a orientado 
+a columnas, e ItemMatrix a filas, y cada una de dichas filas representa un elemento.
+Como resultado, el ngCMatrix en este caso siempre ser\'a una versi\'on transpuesta 
+de la matriz de incidencia binaria en ItemMatrix.
+
+
+itemInfo:\\
+Es un data.frame que contiene vectores de longitud igual al n\'umero de elementos que 
+hay en el conjunto. Si no est\'a vac\'io, el primer elementodel data.frama debe tener 
+"labels" como nombre, y contener un vector de car\'acteres con las etiquetas de los 
+elementos utilizados para representar dicho elemento. Adem\'as de estas etiquetas, el 
+data.frame puede contener vectores con nombre arbitrario, para representar, por ejemplo, 
+nombres de varialbes y valores que se usaron para crear los elementos binarios o 
+informaci\'on de categor\'ia jer\'arquica asociada con cada etiqueta.
+
+
+itemsetInfo:\\
+Es un data.frame que puede contener informaci\'on adicional para las filas en la matriz.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%Librería básica
 \subsection{Librer\'ia b\'asica para sistemas de implicaciones}
 
 
