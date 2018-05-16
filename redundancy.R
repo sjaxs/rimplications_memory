@@ -1,9 +1,8 @@
+
 apply.remove.redundancy <- function(Sigma){
   fixpoint <- FALSE
   fuera <- FALSE
-  
   longitud <- length(Sigma)
-  
   while (!fixpoint){
     fixpoint <- TRUE
     k <- 1
@@ -37,47 +36,22 @@ apply.remove.redundancy <- function(Sigma){
           next #salgo
         }else if (is.empty(D)){
           Sigma <- Sigma[-l] #regla vacia, borro
-          # fuera <- TRUE # tengo que salir dos veces
           next #salgo
         } 
         # SIMPLIFICACION
-        if (is.included(A,C) ){ #si A esta contenido en C
-          CB <- difference.sets(C,B)
-          DB <- difference.sets(D,B)
-          if (is.empty(CB) | is.empty(DB)) { 
-            # si la regla es igual en alguno de los lados borro l
-            Sigma <- Sigma[-l] #regla vacia, borro
-            fixpoint <- FALSE
-            next #salgo
-          }else{
-            if (!equals.sets(CB,C) | !equals.sets(DB,D)){
-              #si es distinta la sustituyo por la nueva 
-              Sigma <- substitute.imp(Sigma,l,CB,DB)
-              if(equals.sets(CB,A)){
-                Sigma <- composition.eq(Sigma,k,l)
-                Sigma <- Sigma[-l]
-                fixpoint <- FALSE
-                next #salgo
-              }
-              fixpoint <- FALSE
-            }#END IF
-          }#end else
-        }#end if is.included
+        S <- simplification(Sigma, A,B,C,D,k,l)
+        Sigma <- S$Sol
+        fixpoint <- S$Fixpoint
+        fuera <- S$Fuera
+        N <- S$N
+        if(N)next
         # R-SIMPLIFICACION
-        CD <- union.sets(C,D)
-        if (is.included(A,CD) ){
-          DB <- difference.sets(D,B)
-          if (is.empty(DB)) {
-            Sigma <- Sigma[-l] #regla vacia, borro
-            fixpoint <- FALSE
-            next #salgo
-          }else{
-            if (!equals.sets(DB,D)){
-              Sigma <- substitute.imp(Sigma,l,C,DB)
-              fixpoint <- FALSE
-            }#END IF
-          }#end else
-        }#end if is.included
+        RS <- rsimplification(Sigma, A,B,C,D,k,l)
+        Sigma <- RS$Sol
+        fixpoint <- RS$Fixpoint
+        fuera <- RS$Fuera
+        N <- RS$N
+        if(N)next
         l <- l+1
       }#end while l
       k <- k+1
@@ -87,5 +61,3 @@ apply.remove.redundancy <- function(Sigma){
   Sigma <- transG(Sigma)
   return(Sigma)
 }#End apply.remove.redundancy
-
- 
