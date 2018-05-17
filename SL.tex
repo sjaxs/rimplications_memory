@@ -6,5 +6,37 @@ Por ello, la libreria contiene definida una funci\'on por cada regla de la l\'og
 La union de reglas parte de la base de que si tenemos dos reglas cuyos antecedentes son iguales, podemos inferir una nueva regla que tendra como antecedente el mismo y como consecuente la union de los consecuentes de ambas reglas, es decir:
 
 \lstinputlisting{r_code/composition.R}
+El primer paso del desarrollo de este projecto consiste en la creaci\'on de una peque\~na libreria de funciones
+orientadas a aplicar la l\'ogica de simplificaciones a los conjuntos de reglas con los se trabaja. Como 
+puede ser la composici\'on de reglas, la reducci\'on, la uni\'on y la simplificaci\'on.
+
+Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos permiten reducir el n\'umero de 
+reglas y la complejidad de las mismas con el objetivo de minimizar los requisitos computacionales y de tiempo
+necesarios para la ejecuci\'on de los algoritmos.
+
+Esta l\'ogica de simplificaciones esta basada en los axiomas de Amstrong.
+
+\textbf{Axioma de Reflexividad}
+
+\begin{center}
+    \(Y \subseteq X \implies X \to Y \)
+\end{center}
+
+\textbf{Axioma de Aumentatividad}
+
+\begin{center}
+    \(X \to Y \implies XZ \to YZ \) para cualquier Z
+\end{center}
+
+\textbf{Axioma de Transitividad}
+
+\begin{center}
+    \(X \to Y \wedge Y \to Z \implies X \to Z \)
+\end{center}
+
+
+
+\subsubsection{Contexto NO} 
+\newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/sl_implications.R}
