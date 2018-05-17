@@ -17,34 +17,6 @@ apply.composition.eq.old <- function(Sigma){
   return(Sigma)
 }#End apply.composition.eq.old
 
-
-apply.composition.eq <- function(Sigma){
-  for (k in seq(Sigma)){
-    if(k > length(Sigma)){
-      break
-    }
-    A <- read.left(Sigma,k)
-    B <- read.right(Sigma,k) 
-    l <- k + 1
-    while (l <= length(Sigma)){
-      if(l > length(Sigma)){
-        break
-      }
-      C <- read.left(Sigma,l)
-      D <- read.right(Sigma,l) 
-      if(equals.sets(A,C) & !is.empty(B) & !is.empty(D)){
-        B <- union.sets(B,D)
-        Sigma <- substitute.imp(Sigma,k,A,B)
-        Sigma <- Sigma[-l]
-        l <- l - 1
-      }#end if
-      l <- l + 1
-    }
-  }
-  return(Sigma)
-}#End apply.composition.eq
-
-
 apply.union.eq <- function(A,B,Sigma){
   for (k in seq(Sigma)){
     C <- Sigma[k]$lhs
@@ -58,45 +30,55 @@ apply.union.eq <- function(A,B,Sigma){
   return(Sigma)         
 }#End apply.union.eq
 
-simplification.eq <-function(Sigma,k,l){
-# browser()
-  mi.left <- read.left(Sigma,l)
-  mi.right <- read.right(Sigma,k)
-  if(included.left(Sigma,k,l)) {
-    newL <- difference.sets(mi.left, mi.right)
-    if (is.empty(newL)) {
-      Impl <- remove.imp(Sigma,l)
-      return(Sigma)
-    } 
-    else{
-    newR <- difference.sets(read.right(Sigma,l), read.right(Sigma,k))
-    if (is.empty(newR)) {
-      Sigma <- remove.imp(Sigma,l)
-      return(Sigma)
-    }}#else
- #   browser()
-    if (!(equals.sets(mi.left,newL) | equals.sets(mi.right,newR)) )
-        Sigma <- substitute.imp(Sigma,l,newL,newR)
-  }#end if
-  return(Sigma)
-}#End simplification.eq
+simplification <- function(Sigma, A,B,C,D,k,l){
+  N<-FALSE
+  fuera <- FALSE
+  fixpoint <- TRUE
+  if (is.included(A,C) ){ #si A esta contenido en C
+    CB <- difference.sets(C,B)
+    DB <- difference.sets(D,B)
+    if (is.empty(CB) | is.empty(DB)) { # si la regla es 
+      # igual en alguno de los lados borro l
+      Sigma <- Sigma[-l] #regla vacia, borro
+      fixpoint <- FALSE
+      N <- TRUE
+    }else{
+      if (!equals.sets(CB,C) | !equals.sets(DB,D)){
+        Sigma <-substitute.imp(Sigma,l,CB,DB)
+        if(equals.sets(CB,A)){
+          Sigma <- composition.eq(Sigma,k,l)
+          Sigma <- Sigma[-l]
+          fixpoint <- FALSE
+          N <- TRUE
+        }
+        fixpoint <- FALSE
+      }#END IF
+    }#end else
+  }#end if is.included
+  return(list("Sol" = Sigma, "Fixpoint" = fixpoint, "Fuera" = fuera, "Next" = N))
+}
 
+rsimplification <- function(Sigma, A,B,C,D,k,l){
+  N<-FALSE
+  fuera <- FALSE
+  fixpoint <- TRUE
+  CD <- union.sets(C,D)
+  if (is.included(A,CD) ){
+    DB <- difference.sets(D,B)
+    if (is.empty(DB)) {
+      Sigma <- Sigma[-l] #regla vacia, borro
+      fixpoint <- FALSE
+      N <- TRUE
+    }else{
+      if ( !equals.sets(DB,D)){
+        Sigma <-substitute.imp(Sigma,l,C,DB)
+        fixpoint <- FALSE
+      }#END IF
+    }#end else
+  }#end if is.included
+  return(list("Sol" = Sigma, "Fixpoint" = fixpoint, "Fuera" = fuera, "Next" = N))
+}
 
-rsimplification.eq <- function(Sigma,k,l){
-  mi.left <- read.left(Sigma,l)
-  mi.right <- read.right(Sigma,k)
-  if(included.left.right(Sigma,k,l)) {
-    newR <- difference.sets(mi.right,mi.left)
-    if (is.empty(newR)) {
-      Sigma <- remove.imp(Sigma,l)
-      return(Sigma)
-    }
-    #   browser()
-    if (!(equals.sets(mi.right,newR)) )
-      Sigma <- substitute.imp(Sigma,l,mi.left,newR)
-  }#end if
-  return(Sigma)
-}#End rsimplification.eq
 
 
 composition.eq <- function(Sigma,k,l){
@@ -142,6 +124,27 @@ sSimp <- function(Sigma,k,l){
   return(Sigma)
 }#End sSimp
 
+### Reduction Method ###
+apply.ssimp <- function(A,B,GammaP){
+  newGammaP <- GammaP[0]
+  for(l in seq(GammaP)){
+    C <- read.left(GammaP, l)
+    D <- read.right(GammaP, l)
+    newA <- union.sets(A, difference.sets(C, B)) 
+    newB <- difference.sets(D,union.sets(A, B)) 
+    newGammaP <- add.imp(newGammaP, newA, newB)
+  }
+  newGammaP <- delete.set.of.IS(newGammaP)
+  newGammaP <- apply.composition.eq(newGammaP)
+  return(newGammaP)
+}#End apply.ssimp
+
+
+lSimp <- function(OmegaB, A, B){
+  K_B <- difference.sets(OmegaB,B)
+  newK <- union.sets(A,K_B)
+  return(newK)
+}#End lSimp
 
 transG <- function(Sigma){
   fuera <- FALSE

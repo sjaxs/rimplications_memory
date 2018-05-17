@@ -1,5 +1,10 @@
 \subsubsection{Descripci\'on} 
-\subsubsection{Contexto NO} 
-\newpage
+El primer paso del desarrollo del projecto consiste en la creaci\'on de una peque\!~na libreria de rutinas que seran usadas en los algoritmos a desarrollar con el fin de aplicar la logica de simplificaciones cuando sea necesario y para mantener el codigo de dichos algoritmos limpio.
+
+Por ello, la libreria contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las mas relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on o la uni\'on de reglas.\\
+\textbf{Uni\'on}
+La union de reglas parte de la base de que si tenemos dos reglas cuyos antecedentes son iguales, podemos inferir una nueva regla que tendra como antecedente el mismo y como consecuente la union de los consecuentes de ambas reglas, es decir:
+
+\lstinputlisting{r_code/composition.R}
 \subsubsection{C\'odigo} 
-\lstinputlisting{sl_implications.R}
+\lstinputlisting{r_code/sl_implications.R}
