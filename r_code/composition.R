@@ -1,4 +1,4 @@
-apply.composition.eq <- function(Sigma){
+apply.union.eq <- function(Sigma){
   for (k in seq(Sigma)){
     if(k > length(Sigma)){
       break
@@ -22,4 +22,4 @@ apply.composition.eq <- function(Sigma){
     }
   }
   return(Sigma)
-}#End apply.composition.eq
+}#End apply.union.eq
