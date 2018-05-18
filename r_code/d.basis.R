@@ -57,6 +57,7 @@ d.basis <- function(M,Sigma){
   Sigma.D <- Sigma[0]
   for(k in seq(C)){
     mga <- C[[k]]$set
+    #Calculo de los minimal covers
     mga <- minimal.covers(mga,Sigma)
     for(l in seq(mga)){
       g <- mga[l]
@@ -79,52 +80,4 @@ add.dbasis <- function(a.mg,C){
   }
   ag <- list("label"=a,"set"=g)
   return(ag)
-}
-
-minimal.covers <- function(L,Gamma){
-  k <- 1
-  while(k <= length(L)){
-    if(k > length(L)) break
-    g <- L[k]
-    l <- 1
-    while(l <= length(L)){
-      if(l > length(L)) break
-      if(k == l) {
-        l <- l + 1
-        next()
-        }
-      h <- L[l]
-      uc <- aclosure(g,Gamma)
-      if(is.included(h,g)){
-        L <- L[-k]
-        k <- k - 1
-        break
-      }else if(size(g)!=1 && is.included(h,uc)){
-        L <- L[-k]
-        k <- k - 1
-        break
-      }
-      l <- l + 1
-    }
-    k <- k + 1
-  }
-  return(L)
-}
-
-aclosure <- function(X,Sigma){
-  # Union de todos los cierres atomicos de x ¢ X con respecto a Sigma
-  labels <- itemLabels(X)
-  ac <- NULL
-  X <- as(X, "list")
-  for (k in seq(X[[1]])) {
-    x <- encode(X[[1]][k],labels)
-    xc <- apply.closure(Sigma,x)
-    xc <- xc$closure
-    if(is.null(ac)){
-      ac <- xc
-    }else{
-      ac <- union.sets(ac,xc)
-    }
-  }
-  return(ac)
 }

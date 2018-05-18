@@ -2,18 +2,11 @@ reduction.method <- function(Omega, Gamma, flag = TRUE){
   aotg <- addMtoGamma(Omega,Gamma,TRUE)
   Omega <- aotg$M
   Gamma <- aotg$Gamma
-  # browser()
   OmegaB <- body(Omega,Gamma)
-  # browser()
   GammaP <- compact(OmegaB,Gamma)
-  # browser()
   K <- enumerate.keys(OmegaB, GammaP, flag)
-  # print(length(K))
-  # browser()
   K <- minimals(K)
-  # browser()
   OmegaC <- core(Omega,Gamma)
-  # browser()
   newK <- union.keys(OmegaC,K)
   return(newK)
 }#End reduction.method
@@ -98,7 +91,9 @@ enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
       
       A <- read.left(GammaP, k)
       B <- read.right(GammaP, k)
+      # Aplicamos a lsimplificacion
       newK <- lSimp(OmegaB, A, B) 
+      #Aplicamos la simplificacion fuerte
       newGammaP <- apply.ssimp(A,B,GammaP) )
       key <- enumerate.keys(newK, newGammaP, flag, visited))
       if(!is.null(key)){
@@ -121,22 +116,4 @@ enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
   return(listKeys)
 }#End enumerate.keys
 
-apply.ssimp <- function(A,B,GammaP){
-  newGammaP <- GammaP[0]
-  for(l in seq(GammaP)){
-    C <- read.left(GammaP, l)
-    D <- read.right(GammaP, l)
-    newA <- union.sets(A, difference.sets(C, B)) 
-    newB <- difference.sets(D,union.sets(A, B)) 
-    newGammaP <- add.imp(newGammaP, newA, newB)
-  }
-  newGammaP <- delete.set.of.IS(newGammaP)
-  newGammaP <- apply.composition.eq(newGammaP)
-  return(newGammaP)
-}#End apply.ssimp
 
-lSimp <- function(OmegaB, A, B){
-  K_B <- difference.sets(OmegaB,B)
-  newK <- union.sets(A,K_B)
-  return(newK)
-}#End lSimp
