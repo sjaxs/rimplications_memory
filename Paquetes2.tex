@@ -88,7 +88,7 @@ vamos a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'
     \centering
     \includegraphics[scale=1]{Imagen_2}
     \caption{Ejemplo roxygen2   }
-    \label{fig:figura1}
+    \label{fig:roxygen}
 \end{figure} 
 
 Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
@@ -97,7 +97,7 @@ Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
     \centering
     \includegraphics[scale=1]{Imagen_1}
     \caption{Configuraci\'on Build Tools }
-    \label{fig:figura1}
+    \label{fig:build_tools}
 \end{figure} 
 
 Mas adelante hablaremos del uso del paquete \textbf{roxygen2} para generar la documentación de nuestro paquete
@@ -110,7 +110,12 @@ tratar de un paquete, este autom\'aticamente genera una plantilla del archivo \t
 con los campos m\'inimamente necesarios. De igual forma, si creamos el paquete haciendo uso de la herramienta \textbf{devtools}, obtendremos
 una plantilla similar.
 
-Figura 5
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{pkge_metadata_1}
+    \caption{Ejemplo Archivo DESCRIPTION }
+    \label{fig:description}
+\end{figure}
 
 Este archivo usa un formato simple denominado Debian control format (DCF) cuya estructura
 es muy simple, cada l\'inea consiste en un campo y un valor separados por \enquote*{:}, cuando el valor
@@ -123,7 +128,12 @@ Los principales campos de este archivo son: Package, Type, Title, Version, Autho
 La forma m\'as f\'acil de a\~nadir un paquete a \textbf{Imports} y \textbf{Suggests} es mediante el uso de
 \textbf{devtools}, otra forma es haci\'endolo a mano en el archivo \textbf{DESCRIPTION}.
 
-Figura 11
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.9]{pkge_metadata_6}
+    \caption{Imports y Suggests con devtools }
+    \label{fig:import_suggest}
+\end{figure}
 
 \subsubsection{Documentaci\'on de objetos}
 
@@ -137,7 +147,12 @@ de datos.
 Para crear esta documentaci\'on, lo primero que debemos hacer es a\~nadir comentarios
 \textbf{roxygen} a nuestras archivos \textbf{.R}, como, por ejemplo
 
-Figura 12
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{Imagen_2}
+    \caption{Ejemplo roxygen2   }
+    \label{fig:roxygen2}
+\end{figure} 
 
 Una vez completado esto, presionamos \textbf{Ctrl/Cmd + Shift + B}, esto reconstruir\'a
 completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a nuestro
@@ -189,7 +204,12 @@ En este caso, dado que no se corresponde con un objeto en concreto, debemos etiq
 manualmente como \textbf{@docType package} y \textbf{@name} nombreDelPaquete y poner un \textbf{NULL} al
 final.
 
-Figura 13\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{od_1}
+    \caption{Ejemplo documentacion paquete }
+    \label{fig:paquete}
+\end{figure} 
 
 \subsubsection{Datos externos}
 
@@ -253,7 +273,12 @@ usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspond
 haya modificado correctamente.
 Ejemplo de archivo NAMESPACE generado por \textbf{roxygen2}:
 
-Figura 17
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{namespace_2}
+    \caption{Ejemplo NAMESPACE }
+    \label{fig:namespace}
+\end{figure} 
 
 \textbf{Exports}
 Para que una funci\'on sea usable fuera de nuestro paquete debemos exportarla. Las funciones que se exporten deben estar documentadas.
