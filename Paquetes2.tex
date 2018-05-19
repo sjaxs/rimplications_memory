@@ -5,17 +5,11 @@
 El lenguaje R es un lenguaje que est\'a muy fundamentado en la comunidad, dispone de una gran comunidad que 
 contribuye al desarrollo, mejora y extensi\'on de este lenguaje. La unidad fundamental a la hora de compartir 
 nuestro trabajo con la comunidad es el paquete. Es por ello por lo cual se va a desarrollar un estudio sobre 
-c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que este\'e disponible para toda la 
+c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que est\'e disponible para toda la 
 comunidad y contribuir al desarrollo de este lenguaje.
 
-CRAN es el principal repositorio de paquetes estables de R, del cual se descargarán la mayoría de los paquetes necesarios para un proyecto.
+CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios para un proyecto.
 
-\'a
-\'e
-\'i
-\'o
-\'u
-\~n
 
 \subsection{Estructura de paquetes en R}
 
@@ -24,20 +18,27 @@ conforme a una estructura bien definida y f\'acilmente accesible para R.
 Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
 nuevas.
 Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambie\'in incorpora m\'as ficheros, 
-los cuales se van a detallar a continuaci\'on.
-La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{\textbf{DESCRIPTION}}, donde podemos ver qu\'e hace 
-el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la 
-documentaci\'on... entre otros datos.
+los cuales se van a detallar a continuaci\'on.\\
+
+La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{DESCRIPTION}, donde podemos ver qu\'e hace 
+el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la documentaci\'on... entre otros datos.
+
 En el fichero \textbf{NAMESPACE} se deber\'an especificar todos aquellos objetos que ser\'an importados o exportados del paquete.
-En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.
+
+En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.\\
+
 Para finalizar con los ficheros, podremos encontrar en algunos casos uno llamado \textbf{NEWS}, en el cual estar\'an 
 incluidos los cambios que se realizan de una versi\'on a otra.
+\\
+
 La carpeta \textbf{R} es el n\'ucleo de la estructura, aqui\'i se encuentran todos los archivos \textbf{\textbf{.R}} con el c\'odigo de las funciones que incluya dicho paquete.
 Es recomendable no aglutinar todo el c\'odigo en un mismo archivo sino separar las funciones que tienen relaci\'on 
-o que cumplen cierta funcionalidad en archivos separados, as\'i como dar un nombre descriptivo a los archivos.
-La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos paquetes compondr\'an el “Manual de referencia” 
+o que cumplen cierta funcionalidad en archivos separados, as\'i como dar un nombre descriptivo a los archivos.\\
+
+La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos paquetes compondr\'an el \enquote*{Manual de referencia} 
 del paquete. Cada uno de estos ficheros, se debe corresponder a cada uno de los archivos que se encuentran 
-en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.
+en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.\\
+
 En la carpeta data se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
 de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
 Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que deseemos que se instalen con el paquete.
@@ -72,14 +73,15 @@ contenidos los archivos de nuestro proyecto.
 Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
 estructura necesaria para que R pueda construir el paquete.
 
-Una vez ajustada la configuración, pinchamos en \textbf{Install and Restart} de la pestaña \textbf{Build}, esto hará que \textbf{roxygen2} genere automáticamente el archivo \textbf{.rd} de ayuda de nuestra función en la carpeta \textbf{man}.
+Una vez ajustada la configuraci\'on, pinchamos en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de nuestra funci\'on en la carpeta \textbf{man}.
 
 \subsection{Documentaci\'on}
 
-La documentaci\'on es una de las partes m\'as importantes del paquete en R, esta sirve para
+La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para
 ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
 incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian
 sus funciones.
+
 Para que R pueda generar autom\'aticamente el archivo de ayuda para nuestras funciones
 vamos a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'on de una serie de tags relacionados con el objetivo y descripci\'on de la funci\'on y/o paquete 
 
@@ -100,14 +102,14 @@ Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
     \label{fig:build_tools}
 \end{figure} 
 
-Mas adelante hablaremos del uso del paquete \textbf{roxygen2} para generar la documentación de nuestro paquete
+Mas adelante hablaremos del uso del paquete \textbf{roxygen2} para generar la documentaci\'on de nuestro paquete
 
 \subsubsection{Archivo DESCRIPTION}
 
 En primer lugar, el archivo \textbf{DESCRIPTION} es lo que indica a R Studio que el directorio que lo
 contiene es un paquete. Cuando creamos un proyecto e indicamos a R Studio que se va a
 tratar de un paquete, este autom\'aticamente genera una plantilla del archivo \textbf{DESCRIPTION}
-con los campos m\'inimamente necesarios. De igual forma, si creamos el paquete haciendo uso de la herramienta \textbf{devtools}, obtendremos
+con los campos necesarios. De igual forma, si creamos el paquete haciendo uso de la herramienta \textbf{devtools}, obtendremos
 una plantilla similar.
 
 \begin{figure}[H]
@@ -117,7 +119,7 @@ una plantilla similar.
     \label{fig:description}
 \end{figure}
 
-Este archivo usa un formato simple denominado Debian control format (DCF) cuya estructura
+Este archivo usa un formato simple denominado \textit{Debian control format (DCF)} cuya estructura
 es muy simple, cada l\'inea consiste en un campo y un valor separados por \enquote*{:}, cuando el valor
 ocupa m\'as de una l\'inea hay que tabular las l\'ineas.
 
@@ -141,9 +143,10 @@ En este caso vamos a detallar la documentaci\'on de los distintos elementos que 
 paquete.
 Este tipo de documentaci\'on es accesible a trav\'es de \textbf{?} o \textbf{help()} y funciona como un
 diccionario, permitiendo al usuario obtener informaci\'on sobre una funci\'on, paquete o conjunto
-de datos.
+de datos.\\
 
 \textbf{Crear la documentaci\'on}
+
 Para crear esta documentaci\'on, lo primero que debemos hacer es a\~nadir comentarios
 \textbf{roxygen} a nuestras archivos \textbf{.R}, como, por ejemplo
 
@@ -179,8 +182,8 @@ para dividir los detalles de la funci\'on en distintas secciones.
 \end{itemize}
 
 El t\'itulo y la descripci\'on son obligatorios, mientras que los detalles son opcionales.
-\textbf{text}{Nota}: cada l\'inea de \textbf{roxygen} no debe superar los 80 caracteres y es recomendable tabular
-las l\'ineas para facilitar la lectura.
+\textbf{Nota}: cada l\'inea de \textbf{roxygen} no debe superar los 80 caracteres y es recomendable tabular
+las l\'ineas para facilitar la lectura.\\
 
 \textbf{Documentando funciones} \\
 Adem\'as del bloque introductorio y los tags ya mencionados, las funciones cuentan con una
@@ -195,14 +198,13 @@ usuarios miran primero los ejemplos.
 \end{itemize}
 
 \textbf{Documentando paquetes}\\
-
 Podemos usar \textbf{roxygen} para crear una p\'agina de ayuda propia del paquete, no asociada a
-una funci\'on en particular. Esta p\'agina es accesible mediante package?nombreDelPaquete y
+una funci\'on en particular. Esta p\'agina es accesible mediante\\ \textbf{package?}\textit{nombreDelPaquete} y
 puede ser usada para describir los componentes m\'as importantes del paquete o las
 dependencias que tiene, por ejemplo.
+
 En este caso, dado que no se corresponde con un objeto en concreto, debemos etiquetarlo
-manualmente como \textbf{@docType package} y \textbf{@name} nombreDelPaquete y poner un \textbf{NULL} al
-final.
+manualmente como \textbf{@docType package} y \textbf{@name} \textit{nombreDelPaquete} y poner un \textbf{NULL} al final.
 
 \begin{figure}[H]
     \centering
@@ -218,60 +220,63 @@ hacer con ellos o qui\'en debe usarlos:
 
 \begin{itemize}
     \item Si se quiere almacenar datos binarios y que est\'en disponibles para los usuarios, se
-deben poner en el directorio data/. Este es el mejor sitio para los datasets.
+deben poner en el directorio \textbf{data/}. Este es el mejor sitio para los datasets.
     \item Si lo que se quiere es almacenar datos de an\'alisis, pero que los dem\'as usuarios no
-los tengan disponibles, se deben colocar en R/sysdata\textbf{.R}da. En este caso es el mejor
+los tengan disponibles, se deben colocar en \textbf{R/sysdata.Rda}. En este caso es el mejor
 sitio para los datos que necesiten nuestras funciones.
     \item Por \'ultimo, si queremos almacenar datos raw, se deben almacenar en el directorio
-inst/data.
+\textbf{inst/data}.
 \end{itemize}
 
 Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\'an de forma
-“Lazy”. Es decir, que no ocupar\'an memoria hasta que se usen, \textbf{devtools::cr\'eate()} establece
-LazyData a true autom\'aticamente.
+\enquote*{Lazy}. Es decir, que no ocupar\'an memoria hasta que se usen, \textbf{devtools::cr\'eate()} establece
+\textbf{LazyData} a true autom\'aticamente.
 
 \subsubsection{NAMESPACE}
 
 El archivo NAMESPACE es muy importante en nuestro paquete, ya que nos va a ayudar a
 encapsular nuestro paquete y que no falle por las dependencias que pueda tener de otros, ni
 interfiera en otros que usen el nuestro si lo actualizamos.
-Como su nombre indica, NAMESPACE proporciona “espacios” para “nombres”. Por ejemplo,
+
+Como su nombre indica, \textbf{NAMESPACE} proporciona \enquote*{espacios para nombres}. Por ejemplo,
 cuando importamos dos paquetes que ambos contienen una funci\'on con el mismo nombre,
-podemos desambiguarla con el operador “::”. Por ejemplo, si usamos los paquetes plyr ys
-Hmisc, ambos tienen la funci\'on sumarize(), por lo que, dependiendo de cu\'al queramos usar,
+podemos desambiguarla con el operador \enquote*{::}. Por ejemplo, si usamos los paquetes \textit{plyr} ys
+\textit{Hmisc}, ambos tienen la funci\'on \textbf{sumarize()}, por lo que, dependiendo de cu\'al queramos usar,
 usaremos \textbf{plyr::sumarize()} o \textbf{Hmisc::sumarize()}.
-NAMESPACE hace nuestro paquete autocontenido, tanto con los \textbf{Imports}, como con los
+
+\textbf{NAMESPACE} hace nuestro paquete autocontenido, tanto con los \textbf{Imports}, como con los
 exports. Los \textbf{Imports}, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
 otro. Los \textbf{exports}, nos ayudan a evitar los conflictos con otros paquetes especificando qu\'e
 funciones se pueden usar fuera de nuestro paquete.
 
 \textbf{El archivo NAMESPACE}
-Cada l\'inea contiene una directriz: S3method(), export(), exportClasses(), adem\'as de otros.
+Cada l\'inea contiene una directriz: \textbf{S3method(), export(), exportClasses()}, adem\'as de otros.
 Cada una de estas directivas describe un objeto de R, que nos indica si se exporta desde
 nuestro paquete para ser usado por los dem\'as o si se importa para usarlo de forma local.
 En total hay ocho directrices. Cuatro de ellas describen las exportaciones:
 
 \begin{itemize}
-    \item export(): exporta una funci\'on.
-    \item exportPattern(): exporta todas las funciones que coinciden con un patr\'on.
-    \item exportClasses(), exportMethods(): exporta las clases S4 y sus m\'etodos.
-    \item S3method(): exporta los m\'etodos de S3.
+    \item \textbf{ export()}: exporta una funci\'on.
+    \item \textbf{ exportPattern()}: exporta todas las funciones que coinciden con un patr\'on.
+    \item \textbf{ exportClasses(), exportMethods()}: exporta las clases S4 y sus m\'etodos.
+    \item \textbf{ S3method()}: exporta los m\'etodos de S3.
 \end{itemize}
 
 Y las cuatro restantes describen las importaciones:
 \begin{itemize}
-    \item import(): importa todas las funciones de un paquete.
-    \item importFrom(): importa las funciones seleccionadas.
-    \item importClassesFrom(), importMethodsFrom(): importa las clases S4 y sus
+    \item \textbf{import()}: importa todas las funciones de un paquete.
+    \item \textbf{importFrom()}: importa las funciones seleccionadas.
+    \item \textbf{importClassesFrom(), importMethodsFrom()}: importa las clases S4 y sus
 m\'etodos.
-    \item useDynLib(): importa una funci\'on de C.
+    \item \textbf{useDynLib()}: importa una funci\'on de C.
 \end{itemize}
 
 Generar el namespace con \textbf{roxygen2} es como generar la documentaci\'on para las funciones,
 usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspondiente, ejecutamos
-\textbf{devtools}::document() (o, Ctrl + Shift +D)y comprobamos que el archivo NAMESPACE se
+\textbf{devtools::document()} (o, \textbf{Ctrl + Shift +D})y comprobamos que el archivo \textbf{NAMESPACE} se
 haya modificado correctamente.
-Ejemplo de archivo NAMESPACE generado por \textbf{roxygen2}:
+
+Ejemplo de archivo \textbf{NAMESPACE} generado por \textbf{roxygen2}:
 
 \begin{figure}[H]
     \centering
@@ -284,40 +289,37 @@ Ejemplo de archivo NAMESPACE generado por \textbf{roxygen2}:
 Para que una funci\'on sea usable fuera de nuestro paquete debemos exportarla. Las funciones que se exporten deben estar documentadas.
 
 \textbf{Imports}
-NAMESPACE tambi\'en controla las funciones externas que pueden ser usadas en nuestro
-paquete sin usar “::”.
+\textbf{NAMESPACE} tambi\'en controla las funciones externas que pueden ser usadas en nuestro
+paquete sin usar \enquote*{::}.
 
 \subsection{Comprobando el paquete}
 
 Una parte importante del desarrollo de un paquete es comprobar que el c\'odigo y la
 documentaci\'on no presenten problemas, especialmente si se planea distribuir p\'ublicamente
-el paquete. Para ello contamos con la herramienta R CMD check.
-R CMD check es el nombre del comando que se usa desde una terminal, pero en nuestro
-caso vamos a usar la herramienta que nos proporciona devtools, en concreto,
+el paquete. Para ello contamos con la herramienta que nos proporciona \textbf{devtools}, en concreto,
 \textbf{devtools::check()} o, equivalentemente, \textbf{Ctrl + Shift + E} en R Studio.
 Esta herramienta se encarga de que toda la documentaci\'on del paquete este actualizada, ya
 que ejecuta \textbf{devtools::document()} de manera autom\'atica.
+
 Encapsula el paquete antes de realizar las comprobaciones. Esto asegura que la
 comprobaci\'on del paquete se hace desde un estado limpio ya que el encapsulamiento no
 contiene ning\'un posible archivo temporal que se haya podido acumular y que pueda interferir
-en las comprobaciones.
+en las comprobaciones.\\
+
 La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
 
 \begin{itemize}
-    \item Ejecutar devtools::check() o Ctrl + Shift + E en R Studio.
+    \item Ejecutar \textbf{devtools::check()} o \textbf{Ctrl + Shift + E} en R Studio.
     \item Arreglar el primer problema.
     \item Repetir los dos anteriores hasta que no haya m\'as problemas.
 \end{itemize}
 
-R CMD check devuelve tres tipos de problemas distintos:
+\textbf{devtools::check()} devuelve tres tipos de problemas distintos:
 
 \begin{itemize}
-    \item Error: Problema grave que deber ser arreglado, aunque no planeemos subir el
-paquete a CRAN.
-    \item Warning: Problema medio que debe ser arreglado en caso de que planeemos subir
-el paquete a CRAN.
-    \item Note: Problema medio que deber\'iamos arreglar en caso de querer subir el paquete a
-CRAN incluso si se trata de un falso positivo.
+    \item \textbf{Error}: Problema grave que deber ser arreglado, aunque no planeemos subir el paquete a CRAN.
+    \item \textbf{Warning}: Problema medio que debe ser arreglado en caso de que planeemos subir el paquete a CRAN.
+    \item \textbf{Note}: Problema medio que deber\'iamos arreglar en caso de querer subir el paquete a CRAN incluso si se trata de un falso positivo.
 \end{itemize}
 
 
@@ -326,31 +328,32 @@ CRAN incluso si se trata de un falso positivo.
 Si queremos que nuestro paquete tenga cierta trascendencia en la comunidad de R,
 necesitamos subirlo a CRAN, ya que la mayor\'ia de usuarios descargan e instalan sus
 paquetes desde CRAN.
-A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir nuestro paquete a
-en CRAN.
+A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir nuestro paquete a en CRAN. \\
 
-
-\textbf{Comentarios CRAN}
+\textbf{Comentarios CRAN}\\
 Debemos recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
 libre a revisar los paquetes que se suben, por tanto, cuanto m\'as f\'acil les hagamos el trabajo,
 m\'as posibilidades hay de que nuestro paquete sea aceptado sin ning\'un problema.
 Por ello, es recomendable a\~nadir a nuestro paquete una serie de comentarios que faciliten la
-tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado cran-comments.md, veamos
-un ejemplo (ggplot2):
+tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado \textbf{cran-comments.md}.
 
-Figura 24
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.9]{rp_6}
+    \caption{Comentarios CRAN}
+    \label{fig:comentarios}
+\end{figure} 
 \begin{itemize}
 
-    \item Test environments: indica en qu\'e plataformas se ha comprobado el paquete.
-    \item Check results: contendr\'a una lista de errores, advertencias o notas.
-    \item Reverse dependencies: sirve para indicar que si hay errores de dependencias con
+    \item \textbf{Test environments}: indica en qu\'e plataformas se ha comprobado el paquete.
+    \item \textbf{Check results}: contendr\'a una lista de errores, advertencias o notas.
+    \item \textbf{Reverse dependencies}: sirve para indicar que si hay errores de dependencias con
 otros paquetes en el caso de que estemos subiendo una nueva versi\'on de nuestro
 paquete y los cambios hayan provocado errores en las dependencias con otros
 paquetes.
 \end{itemize}
 
-Las pol\'iticas en CRAN.
+\textbf{Las pol\'iticas en CRAN}\\
 Existen ciertas pol\'iticas que debemos cumplir a la hora de subir nuestro paquete a CRAN,
 estas son comprobadas manualmente.
 Algunos problemas comunes son:
@@ -365,22 +368,22 @@ paquetes, abrir software externo, cerrar R, etc.
 cada 1 o 2 meses como mucho.
 \end{itemize}
 
-Archivos importantes.
+\textbf{Archivos importantes}\\
 Una vez que nuestro paquete ya est\'a listo para subirlo, debemos tener en cuenta dos archivos
 importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on de nuestro paquete y su
 funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respecto a la versi\'on
 anterior de nuestro paquete. Dado que estos dos archivos no son soportados por CRAN no
-hay que a\~nadirlos a la hora de construir el paquete (\textbf{devtools::use\_build\_ignore("NEWS.md"),
+hay que a\~nadirlos a la hora de construir el paquete\\ (\textbf{devtools::use\_build\_ignore("NEWS.md"),
 devtools::use\_build\_ignore("README.md")})
 
-Lanzamiento.
+\textbf{Lanzamiento}\\
 Lleg\'o la hora de construir nuestro paquete y subirlo a CRAN. Para construir nuestro paquete
-usamos devtools::release(). Esto se encarga de volver a comprobar el paquete una \'ultima
+usamos \textbf{devtools::release()}. Esto se encarga de volver a comprobar el paquete una \'ultima
 vez y nos hace una serie de preguntas acerca de buenas pr\'acticas a modo de comprobaci\'on,
-devtools::release(), autom\'aticamente, sube el paquete a CRAN.
+\textbf{devtools::release()}, autom\'aticamente, sube el paquete a CRAN.
 Una vez subido los voluntarios de CRAN comprobar\'an el paquete y nos
 devolver\'an los resultados.
-En caso de fallo, debemos resolver los problemas, y ejecutar \textbf{devtools::submit\_cran()} para evitar contestar de nuevo todas las preguntas de
+En caso de fallo, debemos resolver los problemas, y ejecutar \textbf{devtools::submit\_cran()} para evitar contestar de nuevo todas las preguntas de \\
 \textbf{devtools::release()}.
 
 \newpage
