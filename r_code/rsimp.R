@@ -7,7 +7,6 @@ rsimplification <- function(Sigma, A,B,C,D,k,l){
     }else{
       if ( !equals.sets(DB,D)){
         Sigma <-substitute.imp(Sigma,l,C,DB)
-
       }#END IF
     }#end else
   }#end if is.included

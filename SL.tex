@@ -50,14 +50,30 @@ La simplificaci\'on de reglas se basa en que si disponemos de dos reglas \\ (\(X
 \lstinputlisting{r_code/simplification.R}
 
 \textbf{Rsimplificaci\'on}\\
+La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se simplifica la parte derecha de la regla, es decir, su consecuente:
+
+\begin{center}
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ reglas \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies U \to (U - Y)\)
+    % \(U \to V \implies (U - Y) \to (U - Y) \)
+\end{center}
 
 \lstinputlisting{r_code/rsimp.R}
 
+% \textbf{Lsimplificaci\'on}\\
+
+% \lstinputlisting{r_code/lsimp.R}
+\newpage
 \textbf{Simplificaci\'on fuerte}\\
 
+EXPLICACION?
+
+\begin{center}
+    \(Siendo \ A \to B \ y \ C\to D \ dos \ reglas \ | D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
+\end{center}
+
+\begin{center}
+    \(\implies A(C-B) \to D - (AB)\)
+\end{center}
+
 \lstinputlisting{r_code/ssimp.R}
-
-\textbf{Lsimplificaci\'on}\\
-
-\lstinputlisting{r_code/lsimp.R}
 
