@@ -16,13 +16,13 @@
 Cuando se comienza a realizar un algoritmo que se necesita que 
 sea r\'apido y est\'e optimizado, una de las cosas m\'as importantes 
 es decidir qu\'e estructura de datos se va a utilizar.
-Ya que, dependiendo de qu\'e queramos hacer, elegir bien, nos puede 
+Ya que, dependiendo de qu\'e queramos hacer, elegir bien nos puede 
 ayudar a que el algoritmo se ejecute en el menor tiempo posible.
-\\
-\\
-Por ello, para la gran mayor\'ia de algoritmos que se van a realizar 
+
+Por ello, en la gran mayor\'ia de algoritmos que se van a realizar 
 en este TFG se va a utilizar la estructura ItemMatrix, perteneciente al paquete 
 arules.
+\\
 
 La clase ItemMatrix es la estructura b\'asica para las transacciones, los 
 conjuntos de elementos y las reglas.
@@ -35,9 +35,9 @@ en los diferentes ItemMatrix es importante, ya que ambos elementos deben tener
 las mismas etiquetas para poder trabajar con ellos.
 
 Cada ItemMatrix tiene la siguiente informaci\'on:
+\begin{itemize}
 
-
-data:\\
+\item data:
 Objeto de la clase ngCMatrix que almacena las ocurrencias de elementos en 
 representaci\'on dispersa. Hay que tener en cuenta que ngCMatrix est\'a orientado 
 a columnas, e ItemMatrix a filas, y cada una de dichas filas representa un elemento.
@@ -45,21 +45,35 @@ Como resultado, el ngCMatrix en este caso siempre ser\'a una versi\'on transpues
 de la matriz de incidencia binaria en ItemMatrix.
 
 
-itemInfo:\\
+\item itemInfo:
 Es un data.frame que contiene vectores de longitud igual al n\'umero de elementos que 
-hay en el conjunto. Si no est\'a vac\'io, el primer elementodel data.frama debe tener 
-"labels" como nombre, y contener un vector de car\'acteres con las etiquetas de los 
+hay en el conjunto. Si no est\'a vac\'io, el primer elemento del data.frama debe tener 
+\textit{labels} como nombre, y contener un vector de car\'acteres con las etiquetas de los 
 elementos utilizados para representar dicho elemento. Adem\'as de estas etiquetas, el 
 data.frame puede contener vectores con nombre arbitrario, para representar, por ejemplo, 
 nombres de varialbes y valores que se usaron para crear los elementos binarios o 
 informaci\'on de categor\'ia jer\'arquica asociada con cada etiqueta.
 
 
-itemsetInfo:\\
+\item itemsetInfo:
 Es un data.frame que puede contener informaci\'on adicional para las filas en la matriz.
 
+\end{itemize}
 
 
+
+Esta estructura de datos, es bastante \'util para trabajar con conjuntos, ya que se pueden 
+realizar todas las operaciones de forma eficiente, como por ejemplo, uni\'on o intersecci\'on.
+Adem\'as, si se quiere obtener un conjunto de implicaciones de un dataset, al usar la funci\'on 
+apriori del paquete arules, nos devolver\'a un conjunto en un ItemMatrix, por lo que nos va a 
+resultar m\'as sencillo trabajar con este tipo de estructura en general, ya que es la m\'as 
+extendida a nivel general. Por lo que a la hora de publicar el paquete de funciones, cuando otras 
+personas quieran usar nuestros algoritmos, lo podr\'an realizar con facilidad, ya que se ajusta 
+a c\'omo se trabaja ahora en an\'alisis de datos.
+
+As\'i que, debido a la estructura de esta clase, la facilidad de uso, y la adecuaci\'on a 
+los datos que se van a utilizar a lo largo de este TFG, se ha elegido la estructura ItemMatrix 
+como la principal a usar. 
 
 
 
