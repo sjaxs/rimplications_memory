@@ -29,24 +29,24 @@ La estructura de datos rules est\'a formada por cuatro slots, es decir, por
 cuatro campos de informaci\'on diferentes:
 
 \begin{itemize}
-    \item lhs:
+    \item \textbf{lhs:}
     Lista de objetos de la clase ItemMatrix, en la cual se profundizar\'a m\'as 
     adelante. En este slot encontraremos todas las partes izquierdas de las 
     implicaciones, cada una de ellas con varios slots m\'as debido a que son de la 
     clase ItemMatrix. 
 
-    \item rhs:
+    \item \textbf{rhs:}
     De nuevo, es una lista de objetos de la clase ItemMatrix. S\'olo que en este 
     slot encontraremos las partes derechas de las implicaciones.
 
-    \item quality:
+    \item \textbf{quality:}
     Objeto de la clase data.frame. En \'el se puede consultar la confianza de cada 
     una de las reglas. La confianza se define como el porcentaje de transacciones 
     que dan soporte a la regla con respecto a todas las transacciones que dan 
     soporte al cuerpo de regla. Una transacci\'on da soporte al cuerpo de regla si 
     contiene todos los items del cuerpo de regla.
 
-    \item info:
+    \item \textbf{info:}
     Lista con varios campos con informaci\'on del conjunto de implicaciones. Se puede 
     encontrar el nombre del dataset al que pertenecen, el n\'umero de transacciones, 
     el soporte o la confianza.
@@ -70,7 +70,7 @@ las mismas etiquetas para poder trabajar con ellos.
 Cada ItemMatrix tiene la siguiente informaci\'on:
 \begin{itemize}
 
-    \item data:
+    \item \textbf{data:}
     Objeto de la clase ngCMatrix que almacena las ocurrencias de elementos en 
     representaci\'on dispersa. Hay que tener en cuenta que ngCMatrix est\'a orientado 
     a columnas, e ItemMatrix a filas, y cada una de dichas filas representa un elemento.
@@ -78,7 +78,7 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
     de la matriz de incidencia binaria en ItemMatrix.
 
 
-    \item itemInfo:
+    \item \textbf{itemInfo:}
     Es un data.frame que contiene vectores de longitud igual al n\'umero de elementos que 
     hay en el conjunto. Si no est\'a vac\'io, el primer elemento del data.frame debe tener 
     \textit{labels} como nombre, y contener un vector de car\'acteres con las etiquetas de los 
@@ -88,7 +88,7 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
     informaci\'on de categor\'ia jer\'arquica asociada con cada etiqueta.
 
 
-    \item itemsetInfo:
+    \item \textbf{itemsetInfo:}
     Es un data.frame que puede contener informaci\'on adicional para las filas en la matriz.
 
 \end{itemize}
@@ -96,68 +96,64 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
 
 Veamos un ejemplo:
 
-Si tenemos las siguientes implicaciones guardadas en la variable rules:
+Si tenemos las siguientes implicaciones guardadas en la variable \textbf{rules}:
+\begin{verbatim}
+    a -> b
+    c -> a
+    d -> e
+\end{verbatim}
 
-a -> b
 
-c -> a
-
-d -> e
-
-Si ejecutamos el comando rules@@lhs@@data vamos a obtener una matriz dispersa de la clase 
+Si ejecutamos el comando \textbf{rules@lhs@data} vamos a obtener una matriz dispersa de la clase 
 ngCMatrix en la que podremos observar qu\'e elementos se encuentran en la parte derecha de 
 nuestras implicaciones.
 
-5 x 3 sparse Matrix of class "ngCMatrix"
-          
-[1,] | . .
-
-[2,] . . .
-
-[3,] . | .
-
-[4,] . . |
-
-[5,] . . .
+\begin{verbatim}
+    5 x 3 sparse Matrix of class "ngCMatrix"
+    [1,] | . .
+    [2,] . . .
+    [3,] . | .
+    [4,] . . |
+    [5,] . . .
+\end{verbatim}
 
 Es decir, las columnas son los diferentes elementos que tenemos en todas las reglas, y las 
 filas son cada una de las implicaciones.
 
-Al ejecutar rules@@lhs@@itemInfo, vamos a obtener el nombre de cada uno de los elementos que 
+
+Al ejecutar \textbf{rules@lhs@itemInfo}, vamos a obtener el nombre de cada uno de los elementos que 
 tiene nuestro conjunto de implicaciones. 
 
-labels
-1      a
-2      b
-3      c
-4      d
-5      e
+\begin{verbatim}
+    labels
+    1      a
+    2      b
+    3      c
+    4      d
+    5      e
+\end{verbatim}
 
 
-Por \'ultimo, si ejecutamos rules@@lhs@@itemsetInfo, se obtiene el n\'umero de columnas y filas 
+Por \'ultimo, si ejecutamos \textbf{rules@lhs@itemsetInfo}, se obtiene el n\'umero de columnas y filas 
 que tiene el data.frame de info. 
-Como en este caso no tiene ninguna informaci\'on, obtenemos lo siguiente.
-
-data frame with 0 columns and 0 rows
-
+Como en este caso no tiene ninguna informaci\'on, obtenemos lo siguiente:
+\begin{verbatim}
+    data frame with 0 columns and 0 rows
+\end{verbatim}
 
 
 Esta estructura de datos, es bastante \'util para trabajar con conjuntos, ya que se pueden 
 realizar todas las operaciones de forma eficiente, como por ejemplo, uni\'on o intersecci\'on.
 Adem\'as, si se quiere obtener un conjunto de implicaciones de un dataset, al usar la funci\'on 
 apriori del paquete arules, nos devolver\'a un conjunto en un ItemMatrix, por lo que nos va a 
-resultar m\'as sencillo trabajar con este tipo de estructura en general, ya que es la m\'as 
+resultar m\'as sencillo trabajar con este tipo de estructura, ya que es la m\'as 
 extendida a nivel general. Por lo que a la hora de publicar el paquete de funciones, cuando otras 
 personas quieran usar nuestros algoritmos, lo podr\'an realizar con facilidad, ya que se ajusta 
-a c\'omo se trabaja ahora en an\'alisis de datos.
+a c\'omo se trabaja en la actualidad en an\'alisis de datos.
 
 As\'i que, debido a la estructura de esta clase, la facilidad de uso, y la adecuaci\'on a 
-los datos que se van a utilizar a lo largo de este TFG, se ha elegido la estructura ItemMatrix 
-como la principal a usar. 
-
-
-
-
+los datos que se van a utilizar a lo largo de este TFG, se ha elegido la estructura rules, compuesta de ItemMatrix 
+como la principal a usar.
 
 
 
