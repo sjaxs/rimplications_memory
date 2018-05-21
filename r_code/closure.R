@@ -40,7 +40,6 @@ apply.closure <- function(Sigma,Xmas){
       k <- k+1
     }#end while
   }#end while
-  
   return(list("closure"=union.sets(Xmas,Xmas2), "implications"=Sigma))
 }#End apply.closure
 
