@@ -4,7 +4,34 @@ Dados un conjunto de atributos X y un conjunto de dependencias funcionales Gamma
 Por ello, se ha desarrollado un algoritmo de cierre basado en la l\'ogica de implicaciones, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
 
 De nuevo, se dispon\'ia de una primera implementaci\'on del algoritmo, la cual ha sido mejorada y optimizada con el fin de reducir el coste computacional del c\'alculo del cierre.
+
+Si comparamos esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura podemos ver que se consigue una mejora considerable:
+
+\begin{center}
+    \begin{tabular}{c c}
+        \hline
+        M\'etodo & Tiempo Medio (ms) \\
+        \hline
+        Diederich Closure & 4.593,48 \\   
+        Beeri Closure & 7.013,56 \\   
+        Paredaens Closure & 5.863,35 \\  
+        SLFD -Closure & 1.262,41 \\  
+    \end{tabular}
+\end{center}
+\newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/closure.R}
 \subsubsection{Ejemplo} 
 \subsubsection{Comparativa/Versiones} 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.75]{closure}
+    \caption{Pruebas apply.closure}
+    \label{fig:closure}
+\end{figure} 
+
+En la figura \ref{fig:closure} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo.
+
+En este caso, dado que el coste computacional de esta funci\'on no es demasiado grande, las diferencias de rendimiento tampoco lo son si el n\'umero de reglas no es demasiado grande.
+
