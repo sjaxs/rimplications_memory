@@ -15,7 +15,6 @@ d.basis <- function(M,Sigma){
       C[[cont]] <- c(ad)
       cont <- cont + 1
     }
-   
   }
   cont <- length(C) + 1
   fixpoint <- FALSE
@@ -68,7 +67,6 @@ d.basis <- function(M,Sigma){
   Sigma.D <- apply.composition.eq(Sigma.D)
   return(Sigma.D)
 }
-
 add.dbasis <- function(a.mg,C){
   a <- a.mg$label
   mg <- a.mg$set
@@ -78,6 +76,5 @@ add.dbasis <- function(a.mg,C){
       g <- c(g,mg[k])
     }
   }
-  ag <- list("label"=a,"set"=g)
-  return(ag)
+  return(list("label"=a,"set"=g))
 }
