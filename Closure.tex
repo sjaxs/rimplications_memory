@@ -1,5 +1,8 @@
 \subsubsection{Descripci\'on} 
-Dados un conjunto de atributos X y un conjunto de dependencias funcionales Gamma, el c\'alculo del cierre de X respecto a Gamma, denotado como X+, es muy usado en inteligencia artificial y bases de datos, ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
+
+Dado un conjunto de atrinutos \( M \) y un conjunto de implicaciones (o dependencias funcionales) \( \Sigma \) sobre \( M \) y sea \( X \subseteq M \), el cierre de \( X \) con respecto a \( \Sigma \), \( X^+_{\Sigma} \), es el subconjunto de \( M \) mas grande que cumple que \( \Sigma \vdash X \to X^+_{\Sigma} \).
+
+El cierre es muy usado en inteligencia artificial y bases de datos, ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
 
 Por ello, se ha desarrollado un algoritmo de cierre basado en la l\'ogica de implicaciones, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
 
