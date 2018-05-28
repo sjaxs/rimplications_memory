@@ -30,10 +30,17 @@ Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un minimal proper cove
 \end{itemize}
 
 \textbf{DBasis}\\
+Podemos definir la DBasis para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), donde:
+
+\begin{itemize}
+    \item \(\Sigma_a = \{y \to x | y \in M, x \in X^+_{\Sigma}, x \neq y \} \)
+    \item \(\Sigma_n = \{X \to x | X \subseteq M, x \in X, X \ minimal \ proper \ cover \ de \ x\} \)
+
+\end{itemize}
 
 \textbf{Teor\'ema}\\
-
-
+Sea \(\Sigma\) un sistema implicacional. Si \(<\Sigma_a, \Sigma_n>\) es DBasis de \(\Sigma\) y \(\Sigma_d = \Sigma_a\cup \Sigma_n\) de forma que las implicaciones de \(\Sigma_a\) aparecen antes que las de \(\Sigma_n\), entonces \(\Sigma_d\) es una base ordenada directa de forma que \(\Sigma_d \equiv \Sigma\).
+\textbf{Comentar el algoritmo a partire de todo esto}
 \newpage 
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/d.basis.R}
