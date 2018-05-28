@@ -1,13 +1,33 @@
 \subsubsection{Descripci\'on} 
 Antes de entrar en el concepto de D-Basis, se detallar\'an otros conceptos con el fin de entrar en contexto.
 
-Partimos de un conjunto de reglas, \( \Sigma \), y un conjunto de atributos \( M \).\\
+Se parte de un conjunto de reglas, \( \Sigma \), y un conjunto de atributos \( M \).\\
 
 \textbf{Operador de cierre at\'omico}\\
+Se parte de que \(\Sigma\) cumple las siguientes propiedades:
+\begin{itemize}
+    \item \(\oslash^+_{\Sigma} = \oslash\), es decir, el cierre del vac\'io con respecto a \(\Sigma\) es el vac\'io.
+    \item \(\forall x,y \in M, \{x\}^+_{\Sigma} = \{y\}^+_{\Sigma} \implies x = y\)
+\end{itemize}
+Se define el operador de cierre at\'omico como: \\
+\begin{center}
+    \((-)^*_{\Sigma}::2^M \to 2^M \) \\
+    \(X^*_{\Sigma} = \cup_{\substack{x \in X}} \{x\}^+_{\Sigma} \ \forall \ X \subseteq M \)
+\end{center}
+
+
+\textbf{Covers}\\
+Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un cover de \(x\) si \(x \in X^+_{\Sigma} \setminus X\), denotado por \(x \sim X\)
 
 \textbf{Propers covers} \\
+Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un proper cover de \(x\) si \(x \in X^+_{\Sigma} \setminus X^*_{\Sigma}\), denotado por \(x \dot\sim X\)
 
-\textbf{Minimals covers}\\
+\textbf{Minimals propers covers}\\
+Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un minimal proper cover de \(x\) si de cumple que:
+\begin{itemize}
+    \item \(x \dot\sim X\)
+    \item \(x \dot\sim Z\) y \(Z \subseteq X^*_{\Sigma} \implies X \subseteq Z\)
+\end{itemize}
 
 \textbf{DBasis}\\
 

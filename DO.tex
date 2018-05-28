@@ -1,5 +1,23 @@
 \subsubsection{Descripci\'on} 
-\subsubsection{Contexto NO} 
+Una vez que hemos conseguido un algoritmo para el c\'alculo del cierre eficiente y optimizado, el siguiente paso para reducir el coste del c\'alculo del cierre es optimizar todo lo posible el sistema implicacional de entrada. Es aqu\'i donde entran en juego nuevos conceptos como son por ejemplo el de base directa \'optima. A continuac\'on se van a detallar algunos de estos conceptos.
+
+\textbf{Base}
+
+Un sistema implicacional \( \Sigma \) se dice que es:
+\begin{itemize}
+    \item una base minimal cuando,  \( para \ todo \ A \to B \in \Sigma \ se \ tiene \ que \ \Sigma \setminus \{A \to B\} \not\equiv \Sigma\)
+
+    \item una base m\'inima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ |\Sigma| \leq |\Sigma'|\)
+
+    \item una base \'optima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ \|\Sigma\| \leq \|\Sigma'\| \\ donde \ \|\Sigma\| = 
+    \sum_{\substack{A \to B \in \Sigma}} (|A|+|B|) \).
+\end{itemize}
+
+\textbf{Directo}
+
+Un sistema implicacional \( \Sigma \) se dice que es directo  cuando, \( para \ todo \ X \subseteq S \ se \ tiene \ que \\ X^+_{\Sigma} =  X \cup \bigcup\{ B | A \to B \in \Sigma \ para \ algun \ A \subseteq X \} \). Esto se traduce en que se puede calcular el cierre de un conjunto de atributos con una sola pasada y que ninguna de las implicaciones puede ser eliminada sin perder esta propiedad.
+
+Por tanto, ya se esta en condiciones de conocer que es una base directa \'optima.
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
