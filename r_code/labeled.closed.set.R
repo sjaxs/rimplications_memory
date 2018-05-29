@@ -99,13 +99,9 @@ labeled.closed.set <- function(M, Gamma, Label = NULL, Cicerone = NULL, Flag = T
     }
     LCS2 <- labeled.closed.set(M,Gamma,newLabel,newCicerone,FALSE)
     LCS <- union.minimal.sets(LCS,LCS2)
-  }
-  
-  return(LCS)
-    
+  } 
+  return(LCS) 
 }#End labeled.closed.set
-
-
 
 nc <- function(subs,mnl){
   if(length(subs) !=0){
@@ -127,7 +123,6 @@ nc <- function(subs,mnl){
   }else{
     ncList <- list()
   }
-  
   return(ncList)
 }#End nc
 
@@ -150,6 +145,5 @@ mnl <- function(Gamma){
   }else{
     lista <- list()
   }
-  
   return(lista)
 }#End mnl
