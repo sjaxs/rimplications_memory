@@ -9,7 +9,7 @@
 
 
 
-
+\clearpage
 %Estructura de datos
 \subsection{Estructura de datos}
 
@@ -74,7 +74,7 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
     Objeto de la clase ngCMatrix que almacena las ocurrencias de elementos en 
     representaci\'on dispersa. Hay que tener en cuenta que ngCMatrix est\'a orientado 
     a columnas, e ItemMatrix a filas, y cada una de dichas filas representa un elemento.
-    Como resultado, el ngCMatrix en este caso siempre ser\'a una versi\'on transpuesta 
+    Como resultado, el ngCMatrix en este caso siempre ser\'a una versi\'on traspuesta 
     de la matriz de incidencia binaria en ItemMatrix.
 
 
@@ -84,7 +84,7 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
     \textit{labels} como nombre, y contener un vector de car\'acteres con las etiquetas de los 
     elementos utilizados para representar dicho elemento. Adem\'as de estas etiquetas, el 
     data.frame puede contener vectores con nombre arbitrario, para representar, por ejemplo, 
-    nombres de varialbes y valores que se usaron para crear los elementos binarios o 
+    nombres de variables y valores que se usaron para crear los elementos binarios o 
     informaci\'on de categor\'ia jer\'arquica asociada con cada etiqueta.
 
 
@@ -105,7 +105,7 @@ Si tenemos las siguientes implicaciones guardadas en la variable \textbf{rules}:
 
 
 Si ejecutamos el comando \textbf{rules@lhs@data} vamos a obtener una matriz dispersa de la clase 
-ngCMatrix en la que podremos observar qu\'e elementos se encuentran en la parte derecha de 
+ngCMatrix en la que podremos observar qu\'e elementos se encuentran en la parte izquierda de 
 nuestras implicaciones.
 
 \begin{verbatim}
@@ -117,8 +117,8 @@ nuestras implicaciones.
     [5,] . . .
 \end{verbatim}
 
-Es decir, las columnas son los diferentes elementos que tenemos en todas las reglas, y las 
-filas son cada una de las implicaciones.
+Es decir, las filas son los diferentes elementos que tenemos en todas las reglas, y las 
+columnas son cada una de las implicaciones.
 
 
 Al ejecutar \textbf{rules@lhs@itemInfo}, vamos a obtener el nombre de cada uno de los elementos que 
@@ -156,7 +156,7 @@ los datos que se van a utilizar a lo largo de este TFG, se ha elegido la estruct
 como la principal a usar.
 
 
-
+\clearpage
 
 
 
@@ -167,15 +167,64 @@ como la principal a usar.
 
 %Librer\'ia b\'asica
 \subsection{Librer\'ia b\'asica para sistemas de implicaciones}
+Se va a intentar que este paquete de funciones pueda perdurar en el tiempo, y para ello, 
+se a realizado una librer\'ia b\'asica para intentar modularizar el c\'odigo y que sea lo 
+m\'as legible posible a la hora de poder comprenderlo.
 
+En esta librer\'ia b\'asica se encuentran diferentes funciones que se usan bastante, a continuaci\'on 
+se van a detallar una a una.
+
+
+
+
+%%% initialize.setOfAttributes %%%
+
+\subsubsection{Descripci\'on}
+
+Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, le vamos a pasar un subconjunto 
+de todos los atributos que componen a un grupo de implicaciones, adem\'as de todos los atributos. Dentro de esta 
+se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix y de esta 
+forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
+
+
+\subsubsection{Ejemplo}
+Para que se entienda mejor, se va a plantear un ejemplo. 
+
+Si tenemos el conjunto de implicaciones siguiente: 
+
+
+
+\subsubsection{C\'odigo}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
 
 %Conjuntos aleatorios
 \subsection{Random Implications Generator}
 
 
+
+\clearpage
+
 %Data mining
 \subsection{Data mining}
 
+
+
+
+\clearpage
 
 
 
