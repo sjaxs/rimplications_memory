@@ -9,10 +9,10 @@ Se parte de que \(\Sigma\) cumple las siguientes propiedades:
     \item \(\oslash^+_{\Sigma} = \oslash\), es decir, el cierre del vac\'io con respecto a \(\Sigma\) es el vac\'io.
     \item \(\forall x,y \in M, \{x\}^+_{\Sigma} = \{y\}^+_{\Sigma} \implies x = y\)
 \end{itemize}
-Se define el operador de cierre at\'omico como: \\
+Se define el operador de cierre at\'omico como: 
 \begin{center}
     \((-)^*_{\Sigma}::2^M \to 2^M \) \\
-    \(X^*_{\Sigma} = \cup_{\substack{x \in X}} \{x\}^+_{\Sigma} \ \forall \ X \subseteq M \)
+    \(X^*_{\Sigma} = \cup_{\substack{x \in X}} \{x\}^+_{\Sigma}, \ \forall \ X \subseteq M \)
 \end{center}
 
 
@@ -40,7 +40,12 @@ Podemos definir la DBasis para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), 
 
 \textbf{Teor\'ema}\\
 Sea \(\Sigma\) un sistema implicacional. Si \(<\Sigma_a, \Sigma_n>\) es DBasis de \(\Sigma\) y \(\Sigma_d = \Sigma_a\cup \Sigma_n\) de forma que las implicaciones de \(\Sigma_a\) aparecen antes que las de \(\Sigma_n\), entonces \(\Sigma_d\) es una base ordenada directa de forma que \(\Sigma_d \equiv \Sigma\).
-\textbf{Comentar el algoritmo a partire de todo esto}
+
+De este teor\'ema radica la importancia de tener un algoritmo para el c\'alculo de la DBasis de un sistema implicacional \(\Sigma\), ya que a partir de esta, se podr\'a obtener una base ordenada directa, que como ya se ha dicho con anterioridad, permite que el c\'alculo del cierre de \(\Sigma\) sea mucho m\'as r\'apido y eficiente.\\
+
+\textbf{Covers y generadores minimales¿?¿?¿¿?}
+
+Existe una estrecha relaci\'on entre los covers de un atributo y los generadores minimales de estos covers.
 \newpage 
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/d.basis.R}
