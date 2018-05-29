@@ -33,12 +33,9 @@ se van a detallar una a una.
 
 
 
-
-
-
-
-\subsubsection{}
-
+%%% set.of.attributes %%%
+\subsubsection{Conjunto de atributos}
+    ¿Esto se ha usado alguna vez?
     \textbf{Descripci\'on}
     
 
@@ -49,11 +46,19 @@ se van a detallar una a una.
 
 
 
-
-\subsubsection{}
+%%% is.singleton %%%
+\subsubsection{Conjunto unitario}
 
     \textbf{Descripci\'on}
     
+    Un conjunto unitario es aquel que tiene un s\'olo elemento. Por lo que esta funci\'on 
+    devolver\'a TRUE si la longitud del par\'ametro que le pasemos es igual a 1, o FALSE en caso 
+    contrario.
+
+    \'Esta es una función a la que se le puede pasar por par\'ametro una lista, un vector, 
+    un conjunto de reglas o cualquier otro conjunto de elementos al que se le pueda aplicar la funci\'on 
+    length().
+
 
     \textbf{C\'odigo}
 
@@ -62,12 +67,93 @@ se van a detallar una a una.
 
 
 
-\subsubsection{}
+%%% union.sets %%% 
+\subsubsection{Uni\'on}
 
     \textbf{Descripci\'on}
+
+    La uni\'on de dos conjuntos es una operaci\'on que devolver\'a otro conjunto formado por 
+    todos los elementos de los dos conjuntos iniciales. Si un elemento se encuentra en los dos 
+    conjuntos, s\'olo aparecer\'a una vez en el resultante.
+    
+    De nuevo, esta funci\'on, podr\'a ser usada por la mayor\'ia de las estructuras de datos, ya que en 
+    nuestra funci\'on, lo que se usa es itemUnion, una funci\'on perteneciente al paquete arules.
+
+    \textbf{C\'odigo}
+
+    
+    \textbf{Ejemplo}
+
+
+
+
+%%% intersection.sets %%% 
+\subsubsection{Intersecci\'on}
+
+    \textbf{Descripci\'on}
+    
+    La intersecci\'on de dos conjuntos devolver\'a otro conjunto resultante con los elementos 
+    que se encuentren en ambos conjuntos iniciales. En este caso, tambi\'en se podr\'a usar con las 
+    estructuras de datos que se necesite.
+
+    \textbf{C\'odigo}
+
+    
+    \textbf{Ejemplo}
+
+
+
+
+%%% difference.sets %%% 
+\subsubsection{Diferencia}
+
+    \textbf{Descripci\'on}
+    La diferencia de dos conjuntos da como resultado otro conjunto con los elementos que resultan de 
+    restar a los elementos que forman el primer conjunto, los del segundo. Es decir, se obtendr\'ian 
+    todos elementos del  primer conjunto que no est\'an en el segundo.
+
+    De nuevo, en nuestra funci\'on se usa una del paquete arules para poder utilizar la gran mayor\'ia de estructuras 
+    que sean compatibles con restar elementos.
     
 
     \textbf{C\'odigo}
 
     
+    \textbf{Ejemplo}
+
+
+%%% is.included %%% 
+\subsubsection{Incluido}
+
+    \textbf{Descripci\'on}
+    Un conjunto A est\'a incluido en un conjunto B, si A es subconjunto de B. Por lo que \'esta funci\'on 
+    devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso comtrario.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% is.empty %%% 
+\subsubsection{Vac\'io}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+    %%% is.empty %%% 
+\subsubsection{Vac\'io}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
     \textbf{Ejemplo}
