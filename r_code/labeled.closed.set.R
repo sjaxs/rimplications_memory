@@ -45,11 +45,11 @@ labeled.closed.set <- function(M, Gamma, Label = NULL, Cicerone = NULL, Flag = T
     M <- difference.sets(M,Cicerone)
     if(!is.empty(M)){
       subs <- gen.all.subsets(M)$sub
-    }else{
-      subs <- list()
-    }
+    }else{ subs <- list() }
   }
+  #A subconjunto de M que cumple que A -> B pertenece a Gamma
   Mnl <- mnl(Gamma)
+  #Subconjuntos de M que no contienen a ningun A de Mnl
   NC <- nc(subs,Mnl)
   LCS <- list() 
   if(length(NC) != 0){
@@ -72,12 +72,8 @@ labeled.closed.set <- function(M, Gamma, Label = NULL, Cicerone = NULL, Flag = T
       if(length(Label)!=0){
         if(((as(X, "list"))[[1]])!="empty"){
           set <- union.sets(Label,X)
-        }else{
-          set <- Label
-        }
-      }else{
-        set <- X
-      }
+        }else{ set <- Label }
+      }else{ set <- X }
       List <- list(list("label"=newX, "set"=set)) 
       LCS <- union.minimal.sets(LCS,List)
     }
@@ -102,48 +98,3 @@ labeled.closed.set <- function(M, Gamma, Label = NULL, Cicerone = NULL, Flag = T
   } 
   return(LCS) 
 }#End labeled.closed.set
-
-nc <- function(subs,mnl){
-  if(length(subs) !=0){
-    cont <- 1
-    ncList <- subs[0]
-    for(k in seq(subs)){
-      included <- FALSE
-      for(l in seq(mnl)){
-        if(is.included(mnl[[l]],subs[[k]])){
-          included <- TRUE
-          break
-        }
-      }
-      if(!included){
-        ncList[[cont]] <- subs[[k]]
-        cont <- cont + 1
-      }
-    }
-  }else{
-    ncList <- list()
-  }
-  return(ncList)
-}#End nc
-
-mnl <- function(Gamma){
-  if(length(Gamma) != 0){
-    lista <- list(Gamma[1]@lhs)
-    for(k in seq(Gamma)){
-      A <- read.left(Gamma,k)
-      superset  <- FALSE
-      for(l in seq(lista)){
-        if(is.included(lista[[l]],A)){
-          superset <- TRUE
-        }
-      }
-      if(!superset){
-        lista2 <- list(A)
-        lista <- c(lista, lista2)
-      }
-    }
-  }else{
-    lista <- list()
-  }
-  return(lista)
-}#End mnl

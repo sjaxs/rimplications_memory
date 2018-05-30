@@ -11,8 +11,6 @@ reduction.method <- function(Omega, Gamma, flag = TRUE){
   return(newK)
 }#End reduction.method
 
-
-
 minimals <- function(keys){
   keys <- unique(keys)
   fixpoint <- FALSE
@@ -55,8 +53,6 @@ compact <- function(Omega,Gamma){
   return(newGamma)
 }#End compact
 
-
-
 union.keys <- function(OmegaC,K){
   newK <- K[0]
   for(k in seq(K)){
@@ -67,8 +63,6 @@ union.keys <- function(OmegaC,K){
   return(newK)
 }#End union.keys
 
-
-
 enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
   listKeys <- c()
   # browser()
@@ -77,10 +71,8 @@ enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
       visited <- GammaP[0]
     }
   }
- 
   if(length(GammaP)>0){
     for(k in seq(GammaP)){
-      
       if (flag){
         if(is.element(GammaP[k],visited)){
           next
@@ -88,7 +80,6 @@ enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
           visited <- c(visited, GammaP[k])
         }
       }
-      
       A <- read.left(GammaP, k)
       B <- read.right(GammaP, k)
       # Aplicamos a lsimplificacion
