@@ -35,7 +35,7 @@ se van a detallar una a una.
 
 %%% set.of.attributes %%%
 \subsubsection{Conjunto de atributos}
-    ¿Esto se ha usado alguna vez?
+    Esto se ha usado alguna vez?
     \textbf{Descripci\'on}
     
 
@@ -108,6 +108,7 @@ se van a detallar una a una.
 \subsubsection{Diferencia}
 
     \textbf{Descripci\'on}
+
     La diferencia de dos conjuntos da como resultado otro conjunto con los elementos que resultan de 
     restar a los elementos que forman el primer conjunto, los del segundo. Es decir, se obtendr\'ian 
     todos elementos del  primer conjunto que no est\'an en el segundo.
@@ -126,6 +127,7 @@ se van a detallar una a una.
 \subsubsection{Incluido}
 
     \textbf{Descripci\'on}
+
     Un conjunto A est\'a incluido en un conjunto B, si A es subconjunto de B. Por lo que \'esta funci\'on 
     devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso contrario.
 
@@ -142,6 +144,7 @@ se van a detallar una a una.
 \subsubsection{Vac\'io}
 
     \textbf{Descripci\'on}
+
     Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si su el tama\~no del conjunto es 0, 
     podemos decir que est\'a vac\'io. Esta funci\'on se podr\'a utilizar con cualquier estructura de datos 
     que se peuda medir su longitud.
@@ -156,6 +159,7 @@ se van a detallar una a una.
 \subsubsection{Igualdad}
 
     \textbf{Descripci\'on}
+
     Dos conjuntos A y B son iguales si su longitud es la misma, y si para cada elemento de A, existe uno igual 
     en B y para cada elemento de B existe uno igual en A.
 
@@ -172,6 +176,7 @@ se van a detallar una a una.
 \subsubsection{Eliminar implicaci\'on}
 
     \textbf{Descripci\'on}
+
     Una de las tareas m\'as importantes de este TFG es trabajar con implicaciones. Una de las operaciones m\'as habituales 
     va a ser la de eliminar una implicaci\'on de un conjunto. Para ello, se ha definido la siguiente funci\'on, pas\'andole 
     como par\'ametros el conjunto de implicaciones y la posici\'on de la que se desea eliminar, devolver\'a un conjunto sin 
@@ -188,6 +193,7 @@ se van a detallar una a una.
 \subsubsection{Vaciar conjunto}
 
     \textbf{Descripci\'on}
+
     Otra funci\'on que puede ser \'util es vaciar un conjunto. Se podr\'ia pensar que igualando el conjunto a nulo, 
     se podr\'ia obtener el resultado que se quiere conseguir. Pero no es as\'i, ya que lo que se quiere es un conjunto sin 
     elementos, pero que siga manteniendo su estructura de conjunto, no algo nulo. 
@@ -208,6 +214,7 @@ se van a detallar una a una.
 \subsubsection{A\~nadir implicaci\'on en posici\'on}
 
     \textbf{Descripci\'on}
+
     Igual que se puede querer eliminar una implicaci\'on, tambi\'en ser\'a posible a\~nadir una nueva en una determinada posici\'on 
     del conjunto. Para esta funci\'on necesitamos como par\'ametros, el conjunto que se quiere ampliar, la parte izquierda de la nueva 
     implicaci\'on, la derecha y la posici\'on que queremos que ocupe en el conjunto.
@@ -228,6 +235,7 @@ se van a detallar una a una.
 \subsubsection{A\~nadir implicaci\'on}
 
     \textbf{Descripci\'on}
+
     Al igual que en el caso anterior se quer\'ia a\~nadir una implicaci\'on en una determinada posici\'on, puede que d\'e igual 
     el lugar en el que se inserte. Por lo que esta funci\'on, inserta la nueva implicaci\'on en la \'ultima posici\'on del 
     conjunto. Como par\'ametros necesita los mismos que en el anterior caso, excepto la posici\'on a insertar.
@@ -247,6 +255,22 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    Cnn esta funci\'on, vamos a insertar una nueva implicaci\'on, al igual que en los dos puntos anteriores, pero esta vez 
+    de una forma un poco m\'as compleja. Ya que, en este caso, se van a realizar varias comprobaciones.
+
+    Para cada implicaci\'on perteneciente al conjunto, se va a comprobar si el antecedente es igual al que se quiere insertar.
+    En caso negativo, se continuar\'a con la siguiente implicaci\'on; y en caso afirmativo, se comprobar\'a si los consecuentes son 
+    iguales. En caso de que se cumplan ambas afirmaciones, quiere decir que la implicaci\'on que intentamos insertar en el conjunto, 
+    ya se encuentra en \'el, por lo que se devolver\'a el conjunto inicial sin ning\'un cambio.
+
+    En el caso de que los antecedentes sean iguales, y los consecuentes no, se sustituir\'a esa regla por una nueva, en la que el antecedente 
+    queda igual, y el consecuente estar\'a formado por la uni\'on del que ya estaba en el conjunto, y el nuevo que se quiere insertar. Y con 
+    esto, se devolevr\'ia el nuevo conjunto.
+
+    El \'ultimo caso que se podr\'ia dar, es aquel en el que ninguna implicaci\'on del conjunto tenga el mismo antecedente que el que se 
+    quiere insertar, por lo que al finalizar la iteraci\'on por todo el conjunto, se insertar\'ia la nueva regla y devolver\'ia el conjunto 
+    resultante.
+
 
     \textbf{C\'odigo}
 
@@ -259,6 +283,9 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    Otra de las funciones b\'asicas a la hora de trabajar con implicaciones es poder obtener el antecedente de una determinada 
+    implicaci\'on. Para ello, pas\'andole a esta funci\'on el conjunto que contiene a la implicaci\'on que queremos obtener, y su 
+    posici\'on, nos devolver\'a el antecedente deseado.
 
     \textbf{C\'odigo}
 
@@ -270,7 +297,9 @@ se van a detallar una a una.
 \subsubsection{Leer consecuente}
 
     \textbf{Descripci\'on}
-
+    
+    De igual forma que en el anterior punto, se puede querer obtener el consecuente de una implicaci\'on, luego, con el conjunto de 
+    implicaciones y su posici\'on, esta funci\'on devolver\'a el consecuente de dicha implicaci\'on.
 
     \textbf{C\'odigo}
 
@@ -283,10 +312,13 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    La sustituci\'on de una implicaci\'on es una operaci\'on bastante \'util, ya que cuando se quieren unir dos implicaciones, puede que 
+    se quiera que la nueva permanezca en un lugar determinado, para ello, esta funci\'on inserta la nueva implicaci\'on en el lugar que 
+    se le indique. Como par\'ametros, necesita el conjunto de implicaciones, la posici\'on a cambiar, y los nuevos antedecente y consecuente.
 
     \textbf{C\'odigo}
 
-
+    %% Hay que revisar muy muy bien, como lo hace, creo que no sustituye, sino que añade y listo. 
     \textbf{Ejemplo}
 
 
@@ -295,8 +327,13 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    Si tenemos dos implicaciones A y B y se quiere comprobar si el antecedente de A est\'a incluido en el de B, se debe usar 
+    esta funci\'on. Le pasamos como par\'ametros un conjunto de implicaciones, y dos posiciones de dicho conjunto. Se usar\'an 
+    las funciones is.included y read.left para comprobar si un antecedente est\'a incluido en otro, deovlver\'a TRUE en caso 
+    afirmativo, y FALSE en el contrario.
 
     \textbf{C\'odigo}
+
 
 
     \textbf{Ejemplo}
@@ -308,6 +345,11 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    En una implicaci\'on, si el antecedente est\'a incluido en el consecuente se puede simplificar el consecuente, ya que 
+    esto es algo trivial. Esta funci\'on, devolver\'a TRUE en el caso de que el antecedente est\'e incluido en el consecuente o 
+    FALSE en el caso contrario. Para ello...
+
+    ACLARAR QU\'E ES EXACTAMENTE LO QUE HACE, NO LO ENTIENDO
 
     \textbf{C\'odigo}
 
@@ -320,6 +362,10 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    Si se tiene un conjunto de implicaciones y alguna de ellas tiene su consecuente vac\'io, esta implicaci\'on no va a 
+    aportar ning\'un tipo de conocimiento a este conjunto, por lo que se deben eliminar. Para ello, se usar\'ia esta funci\'on, 
+    la cual, pas\'andole como par\'ametro dicho conjunto, nos devolver\'a uno nuevo eliminando las implicaciones con su consecuente 
+    vac\'io.
 
     \textbf{C\'odigo}
 
@@ -331,6 +377,10 @@ se van a detallar una a una.
 \subsubsection{Tama\~no del conjunto}
 
     \textbf{Descripci\'on}
+
+    Por tama\~no del conjunto, se entiende el n\'umero de elementos, repetidos o no, que lo componen. 
+    Es decir, para calcular el tama\~no de un conjunto, se va a realizar la suma de los tama\~nos de cada una de 
+    las implicaciones que forman el conjunto.
 
 
     \textbf{C\'odigo}
@@ -344,6 +394,9 @@ se van a detallar una a una.
 \subsubsection{Cardinalidad del conjunto}
 
     \textbf{Descripci\'on}
+
+    La cardinalidad de un conjunto, se entiende como el n\'umero de implicaciones que lo componen. Es decir, lo que 
+    tambin\'en se suele denominar como longitud del conjunto.
 
 
     \textbf{C\'odigo}
@@ -359,6 +412,15 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    A esta funci\'on se le pasa un conjunto de atributos Omega, junto con un conjunto de implicaciones Gamma. 
+    Devolver\'a un conjunto de datos resultante de eliminar de Omega todos los atributos que se encuentren en los 
+    consecuentes de las implicaciones que forman Gamma. 
+    
+    \'Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
+    en el algoritmo de claves minimales realizado en el segundo tomo de este TFG.
+
+
+
 
     \textbf{C\'odigo}
 
@@ -373,6 +435,11 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
+    Al igual que en el punto anterior, esta funci\'on se utilizar\'a en el algoritmo para calcular claves minimales, aunque junto con 
+    el anterior, se han incluido aqu\'i.
+
+    Siendo Omega un conjunto de atributos, y Gamma un conjunto de implicaciones, se define la funci\'on body como la diferencia 
+    de la uni\'on de los antecedentes de Gamma, menos el cierre del core de Omega y Gamma. 
 
     \textbf{C\'odigo}
 
