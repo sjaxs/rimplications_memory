@@ -55,7 +55,7 @@ se van a detallar una a una.
     devolver\'a TRUE si la longitud del par\'ametro que le pasemos es igual a 1, o FALSE en caso 
     contrario.
 
-    \'Esta es una función a la que se le puede pasar por par\'ametro una lista, un vector, 
+    \'Esta es una funci\'on a la que se le puede pasar por par\'ametro una lista, un vector, 
     un conjunto de reglas o cualquier otro conjunto de elementos al que se le pueda aplicar la funci\'on 
     length().
 
@@ -127,7 +127,10 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
     Un conjunto A est\'a incluido en un conjunto B, si A es subconjunto de B. Por lo que \'esta funci\'on 
-    devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso comtrario.
+    devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso contrario.
+
+    Se puede utilizar esta funci\'on con todas aquellas estructuras de datos a las que se le pueda aplicar 
+    la teor\'ia de conjuntos.
 
     \textbf{C\'odigo}
 
@@ -139,6 +142,79 @@ se van a detallar una a una.
 \subsubsection{Vac\'io}
 
     \textbf{Descripci\'on}
+    Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si su el tama\~no del conjunto es 0, 
+    podemos decir que est\'a vac\'io. Esta funci\'on se podr\'a utilizar con cualquier estructura de datos 
+    que se peuda medir su longitud.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+    %%% equlas.sets %%% 
+\subsubsection{Igualdad}
+
+    \textbf{Descripci\'on}
+    Dos conjuntos A y B son iguales si su longitud es la misma, y si para cada elemento de A, existe uno igual 
+    en B y para cada elemento de B existe uno igual en A.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% remove.imp %%% 
+\subsubsection{Eliminar implicaci\'on}
+
+    \textbf{Descripci\'on}
+    Una de las tareas m\'as importantes de este TFG es trabajar con implicaciones. Una de las operaciones m\'as habituales 
+    va a ser la de eliminar una implicaci\'on de un conjunto. Para ello, se ha definido la siguiente funci\'on, pas\'andole 
+    como par\'ametros el conjunto de implicaciones y la posici\'on de la que se desea eliminar, devolver\'a un conjunto sin 
+    dicha implicaci\'on.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+%%% remove.all %%% 
+\subsubsection{Vaciar conjunto}
+
+    \textbf{Descripci\'on}
+    Otra funci\'on que puede ser \'util es vaciar un conjunto. Se podr\'ia pensar que igualando el conjunto a nulo, 
+    se podr\'ia obtener el resultado que se quiere conseguir. Pero no es as\'i, ya que lo que se quiere es un conjunto sin 
+    elementos, pero que siga manteniendo su estructura de conjunto, no algo nulo. 
+    
+    Para ello, en esta funci\'on, vamos a devolver la posici\'on 0 del conjunto que se quiere vaciar. Recordemos, que en el 
+    lenguaje R los arrays, listas y dem\'as estructuras de conjuntos comienzan en 1 y no en 0 como la gran mayor\'ia de lenguajes.
+    Por lo que al devolver esta posici\'on, el resultado que se obtiene es el conjunto que se le hab\'ia pasado, pero sin ning\'un 
+    elemento.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+%%% add.imp.k %%% 
+\subsubsection{A\~nadir implicaci\'on en posici\'on}
+
+    \textbf{Descripci\'on}
+    Igual que se puede querer eliminar una implicaci\'on, tambi\'en ser\'a posible a\~nadir una nueva en una determinada posici\'on 
+    del conjunto. Para esta funci\'on necesitamos como par\'ametros, el conjunto que se quiere ampliar, la parte izquierda de la nueva 
+    implicaci\'on, la derecha y la posici\'on que queremos que ocupe en el conjunto.
+
+    Luego, en dicha funci\'on, lo primero que se hace es crear una nueva regla, con las dos partes que le hemos pasado. A continuaci\'on, 
+    unimos en un mismo conjunto, todas las implicaciones que se ten\'ian en las posiciones anteriores a la nueva que se quiere insertar, 
+    la nueva implicaci\'on, y las restantes que se encontraban en posiciones posteriores. Y finalmente, se devuelve este conjunto.
 
 
     \textbf{C\'odigo}
@@ -147,8 +223,27 @@ se van a detallar una a una.
     \textbf{Ejemplo}
 
 
-    %%% is.empty %%% 
-\subsubsection{Vac\'io}
+
+%%% add.imp %%% 
+\subsubsection{A\~nadir implicaci\'on}
+
+    \textbf{Descripci\'on}
+    Al igual que en el caso anterior se quer\'ia a\~nadir una implicaci\'on en una determinada posici\'on, puede que d\'e igual 
+    el lugar en el que se inserte. Por lo que esta funci\'on, inserta la nueva implicaci\'on en la \'ultima posici\'on del 
+    conjunto. Como par\'ametros necesita los mismos que en el anterior caso, excepto la posici\'on a insertar.
+
+    As\'i que, se crea la nueva implicaci\'on, con las dos partes que se le pasan como par\'ametros, y se le concatena al conjunto 
+    inicial para devolver un conjunto ampliado con una nueva implicaci\'on.
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+%%% new.imp %%% 
+\subsubsection{Nueva implicaci\'on}
 
     \textbf{Descripci\'on}
 
@@ -157,3 +252,131 @@ se van a detallar una a una.
 
 
     \textbf{Ejemplo}
+
+
+%%% read.left %%% 
+\subsubsection{Leer antecedente}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% read.right %%% 
+\subsubsection{Leer consecuente}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% substitute.imp %%% 
+\subsubsection{Sustituir implicaci\'on}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% included.left %%% 
+\subsubsection{Incluido en antecedente}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+%%% included.left.right %%% 
+\subsubsection{Antecedente incluido en consecuente}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% delete.set.of.IS %%% 
+\subsubsection{Eliminar implicaciones con consecuente vac\'io}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+%%% size.set %%% 
+\subsubsection{Tama\~no del conjunto}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+%%% cadinality.set %%% 
+\subsubsection{Cardinalidad del conjunto}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+
+%%% core %%% 
+\subsubsection{Core}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
+
+
+%%% body %%% 
+\subsubsection{Body}
+
+    \textbf{Descripci\'on}
+
+
+    \textbf{C\'odigo}
+
+
+    \textbf{Ejemplo}
+
+
