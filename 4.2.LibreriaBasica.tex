@@ -3,7 +3,7 @@ Se va a intentar que este paquete de funciones pueda perdurar en el tiempo, y pa
 se a realizado una librer\'ia b\'asica para intentar modularizar el c\'odigo y que sea lo 
 m\'as legible posible a la hora de poder comprenderlo.
 
-En esta librer\'ia b\'asica se encuentran diferentes funciones que se usan bastante, a continuaci\'on 
+En esta librer\'ia b\'asica se encuentran diferentes funciones que se usar\'an bastante a lo largo de este TFG, a continuaci\'on 
 se van a detallar una a una.
 
 
@@ -14,17 +14,23 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
-    Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, le vamos a pasar un subconjunto 
-    de todos los atributos que componen a un grupo de implicaciones, adem\'as de todos los atributos. Dentro de esta 
-    se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix y de esta 
+    Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar un subconjunto 
+    de todos los atributos que componen a un grupo de implicaciones, adem\'as de todos los atributos. 
+    
+    Dentro de esta se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
     forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
 
+    Es decir, con esta funci\'on lo que se consigue es tener un conjunto de atributos con la estructura adecuada para poder trabajar con \'el.
+    \\
 
+    
     \textbf{C\'odigo}
-
-
-
+    
+    \lstinputlisting{r_code/basicLibrary/initialize.setOfAttributes.R}
+    
+    
     \textbf{Ejemplo}
+
     Para que se entienda mejor, se va a plantear un ejemplo. 
 
     Si tenemos el conjunto de implicaciones siguiente: 
@@ -52,15 +58,18 @@ se van a detallar una a una.
     \textbf{Descripci\'on}
     
     Un conjunto unitario es aquel que tiene un s\'olo elemento. Por lo que esta funci\'on 
-    devolver\'a TRUE si la longitud del par\'ametro que le pasemos es igual a 1, o FALSE en caso 
+    devolver\'a TRUE si la longitud del conjunto que se le pase es igual a 1, o FALSE en caso 
     contrario.
 
-    \'Esta es una funci\'on a la que se le puede pasar por par\'ametro una lista, un vector, 
+    Esta es una funci\'on a la que se le puede pasar por par\'ametro una lista, un vector, 
     un conjunto de reglas o cualquier otro conjunto de elementos al que se le pueda aplicar la funci\'on 
     length().
+    \\
 
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/is.singleton.R}
 
     
     \textbf{Ejemplo}
@@ -75,12 +84,20 @@ se van a detallar una a una.
     La uni\'on de dos conjuntos es una operaci\'on que devolver\'a otro conjunto formado por 
     todos los elementos de los dos conjuntos iniciales. Si un elemento se encuentra en los dos 
     conjuntos, s\'olo aparecer\'a una vez en el resultante.
+
+    \[
+    A \cup B = \{x\in U ~ | ~ x\in A ~ \'o ~ x\in B \}
+    \]
     
+
     De nuevo, esta funci\'on, podr\'a ser usada por la mayor\'ia de las estructuras de datos, ya que en 
     nuestra funci\'on, lo que se usa es itemUnion, una funci\'on perteneciente al paquete arules.
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/union.sets.R}
     
     \textbf{Ejemplo}
 
@@ -92,12 +109,21 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
     
-    La intersecci\'on de dos conjuntos devolver\'a otro conjunto resultante con los elementos 
-    que se encuentren en ambos conjuntos iniciales. En este caso, tambi\'en se podr\'a usar con las 
-    estructuras de datos que se necesite.
+    La intersecci\'on de dos conjuntos A y B devolver\'a otro conjunto resultante U con los elementos 
+    que se encuentren en ambos conjuntos iniciales. Es decir, el conjunto U estar\'a formado por los elementos 
+    que est\'en tanto en A como en B.
+
+    \[
+    A \cap B = \{x\in U ~ | ~ x\in A ~ y ~ x\in B \}
+    \]
+
+    En este caso, tambi\'en se podr\'a usar con las estructuras de datos que se necesite.
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/intersection.sets.R}
     
     \textbf{Ejemplo}
 
@@ -110,31 +136,45 @@ se van a detallar una a una.
     \textbf{Descripci\'on}
 
     La diferencia de dos conjuntos da como resultado otro conjunto con los elementos que resultan de 
-    restar a los elementos que forman el primer conjunto, los del segundo. Es decir, se obtendr\'ian 
-    todos elementos del  primer conjunto que no est\'an en el segundo.
+    eliminar a los elementos que forman el primer conjunto, los del segundo. Es decir, se obtendr\'ian 
+    todos elementos del primer conjunto que no est\'an en el segundo.
+
+    \[
+    A - B = \{x\in A ~ y ~ x\notin B \}
+    \]
 
     De nuevo, en nuestra funci\'on se usa una del paquete arules para poder utilizar la gran mayor\'ia de estructuras 
     que sean compatibles con restar elementos.
-    
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/difference.sets.R}
     
     \textbf{Ejemplo}
 
 
 %%% is.included %%% 
-\subsubsection{Incluido}
+\subsubsection{Inclusi\'on}
 
     \textbf{Descripci\'on}
 
-    Un conjunto A est\'a incluido en un conjunto B, si A es subconjunto de B. Por lo que \'esta funci\'on 
+    Un conjunto A est\'a incluido en un conjunto B, si A es subconjunto de B. Por lo que esta funci\'on 
     devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso contrario.
+
+    \[
+    A \subseteq B ~ | ~  \forall ~ x \in A \to x \in B 
+    \]
 
     Se puede utilizar esta funci\'on con todas aquellas estructuras de datos a las que se le pueda aplicar 
     la teor\'ia de conjuntos.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/is.included.R}
 
 
     \textbf{Ejemplo}
@@ -147,23 +187,35 @@ se van a detallar una a una.
 
     Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si su el tama\~no del conjunto es 0, 
     podemos decir que est\'a vac\'io. Esta funci\'on se podr\'a utilizar con cualquier estructura de datos 
-    que se peuda medir su longitud.
+    que se pueda medir su longitud.
+
+    \[
+    A = \{ \} = \emptyset
+    \]
+
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/is.empty.R}
 
     \textbf{Ejemplo}
 
 
-    %%% equlas.sets %%% 
+    %%% equals.sets %%% 
 \subsubsection{Igualdad}
 
     \textbf{Descripci\'on}
 
     Dos conjuntos A y B son iguales si su longitud es la misma, y si para cada elemento de A, existe uno igual 
     en B y para cada elemento de B existe uno igual en A.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/equals.sets.R}
 
 
     \textbf{Ejemplo}
@@ -181,8 +233,12 @@ se van a detallar una a una.
     va a ser la de eliminar una implicaci\'on de un conjunto. Para ello, se ha definido la siguiente funci\'on, pas\'andole 
     como par\'ametros el conjunto de implicaciones y la posici\'on de la que se desea eliminar, devolver\'a un conjunto sin 
     dicha implicaci\'on.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/remove.imp.R}
 
 
     \textbf{Ejemplo}
@@ -202,9 +258,12 @@ se van a detallar una a una.
     lenguaje R los arrays, listas y dem\'as estructuras de conjuntos comienzan en 1 y no en 0 como la gran mayor\'ia de lenguajes.
     Por lo que al devolver esta posici\'on, el resultado que se obtiene es el conjunto que se le hab\'ia pasado, pero sin ning\'un 
     elemento.
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/remove.all.R}
 
     \textbf{Ejemplo}
 
@@ -222,10 +281,12 @@ se van a detallar una a una.
     Luego, en dicha funci\'on, lo primero que se hace es crear una nueva regla, con las dos partes que le hemos pasado. A continuaci\'on, 
     unimos en un mismo conjunto, todas las implicaciones que se ten\'ian en las posiciones anteriores a la nueva que se quiere insertar, 
     la nueva implicaci\'on, y las restantes que se encontraban en posiciones posteriores. Y finalmente, se devuelve este conjunto.
+    \\
 
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/add.imp.k.R}
 
     \textbf{Ejemplo}
 
@@ -238,12 +299,16 @@ se van a detallar una a una.
 
     Al igual que en el caso anterior se quer\'ia a\~nadir una implicaci\'on en una determinada posici\'on, puede que d\'e igual 
     el lugar en el que se inserte. Por lo que esta funci\'on, inserta la nueva implicaci\'on en la \'ultima posici\'on del 
-    conjunto. Como par\'ametros necesita los mismos que en el anterior caso, excepto la posici\'on a insertar.
+    conjunto. Como par\'ametros necesita los mismos que en el punto anterior, excepto la posici\'on a insertar.
 
     As\'i que, se crea la nueva implicaci\'on, con las dos partes que se le pasan como par\'ametros, y se le concatena al conjunto 
     inicial para devolver un conjunto ampliado con una nueva implicaci\'on.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/add.imp.R}
 
 
     \textbf{Ejemplo}
@@ -255,7 +320,7 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
-    Cnn esta funci\'on, vamos a insertar una nueva implicaci\'on, al igual que en los dos puntos anteriores, pero esta vez 
+    Con esta funci\'on, vamos a insertar una nueva implicaci\'on, al igual que en los dos puntos anteriores, pero esta vez 
     de una forma un poco m\'as compleja. Ya que, en este caso, se van a realizar varias comprobaciones.
 
     Para cada implicaci\'on perteneciente al conjunto, se va a comprobar si el antecedente es igual al que se quiere insertar.
@@ -265,14 +330,17 @@ se van a detallar una a una.
 
     En el caso de que los antecedentes sean iguales, y los consecuentes no, se sustituir\'a esa regla por una nueva, en la que el antecedente 
     queda igual, y el consecuente estar\'a formado por la uni\'on del que ya estaba en el conjunto, y el nuevo que se quiere insertar. Y con 
-    esto, se devolevr\'ia el nuevo conjunto.
+    esto, se devolver\'ia el nuevo conjunto.
 
     El \'ultimo caso que se podr\'ia dar, es aquel en el que ninguna implicaci\'on del conjunto tenga el mismo antecedente que el que se 
     quiere insertar, por lo que al finalizar la iteraci\'on por todo el conjunto, se insertar\'ia la nueva regla y devolver\'ia el conjunto 
     resultante.
+    \\
 
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/new.imp.R}
 
 
     \textbf{Ejemplo}
@@ -286,8 +354,12 @@ se van a detallar una a una.
     Otra de las funciones b\'asicas a la hora de trabajar con implicaciones es poder obtener el antecedente de una determinada 
     implicaci\'on. Para ello, pas\'andole a esta funci\'on el conjunto que contiene a la implicaci\'on que queremos obtener, y su 
     posici\'on, nos devolver\'a el antecedente deseado.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/read.left.R}
 
 
     \textbf{Ejemplo}
@@ -300,9 +372,12 @@ se van a detallar una a una.
     
     De igual forma que en el anterior punto, se puede querer obtener el consecuente de una implicaci\'on, luego, con el conjunto de 
     implicaciones y su posici\'on, esta funci\'on devolver\'a el consecuente de dicha implicaci\'on.
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/read.right.R}
 
     \textbf{Ejemplo}
 
@@ -315,8 +390,12 @@ se van a detallar una a una.
     La sustituci\'on de una implicaci\'on es una operaci\'on bastante \'util, ya que cuando se quieren unir dos implicaciones, puede que 
     se quiera que la nueva permanezca en un lugar determinado, para ello, esta funci\'on inserta la nueva implicaci\'on en el lugar que 
     se le indique. Como par\'ametros, necesita el conjunto de implicaciones, la posici\'on a cambiar, y los nuevos antedecente y consecuente.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/substitute.imp.R}
 
     %% Hay que revisar muy muy bien, como lo hace, creo que no sustituye, sino que añade y listo. 
     \textbf{Ejemplo}
@@ -329,12 +408,14 @@ se van a detallar una a una.
 
     Si tenemos dos implicaciones A y B y se quiere comprobar si el antecedente de A est\'a incluido en el de B, se debe usar 
     esta funci\'on. Le pasamos como par\'ametros un conjunto de implicaciones, y dos posiciones de dicho conjunto. Se usar\'an 
-    las funciones is.included y read.left para comprobar si un antecedente est\'a incluido en otro, deovlver\'a TRUE en caso 
+    las funciones is.included y read.left para comprobar si un antecedente est\'a incluido en otro, devolver\'a TRUE en caso 
     afirmativo, y FALSE en el contrario.
+    \\
+
 
     \textbf{C\'odigo}
 
-
+    \lstinputlisting{r_code/basicLibrary/included.left.R}
 
     \textbf{Ejemplo}
 
@@ -350,8 +431,12 @@ se van a detallar una a una.
     FALSE en el caso contrario. Para ello...
 
     ACLARAR QU\'E ES EXACTAMENTE LO QUE HACE, NO LO ENTIENDO
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/included.left.right.R}
 
 
     \textbf{Ejemplo}
@@ -366,8 +451,12 @@ se van a detallar una a una.
     aportar ning\'un tipo de conocimiento a este conjunto, por lo que se deben eliminar. Para ello, se usar\'ia esta funci\'on, 
     la cual, pas\'andole como par\'ametro dicho conjunto, nos devolver\'a uno nuevo eliminando las implicaciones con su consecuente 
     vac\'io.
+    \\
+
 
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/delete.set.of.IS.R}
 
 
     \textbf{Ejemplo}
@@ -381,10 +470,12 @@ se van a detallar una a una.
     Por tama\~no del conjunto, se entiende el n\'umero de elementos, repetidos o no, que lo componen. 
     Es decir, para calcular el tama\~no de un conjunto, se va a realizar la suma de los tama\~nos de cada una de 
     las implicaciones que forman el conjunto.
+    \\
 
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/size.set.R}
 
     \textbf{Ejemplo}
 
@@ -396,11 +487,13 @@ se van a detallar una a una.
     \textbf{Descripci\'on}
 
     La cardinalidad de un conjunto, se entiende como el n\'umero de implicaciones que lo componen. Es decir, lo que 
-    tambin\'en se suele denominar como longitud del conjunto.
+    tambi\'en se suele denominar como longitud del conjunto.
+    \\
 
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/cardinality.set.R}
 
     \textbf{Ejemplo}
 
@@ -416,14 +509,14 @@ se van a detallar una a una.
     Devolver\'a un conjunto de datos resultante de eliminar de Omega todos los atributos que se encuentren en los 
     consecuentes de las implicaciones que forman Gamma. 
     
-    \'Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
+    Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
     en el algoritmo de claves minimales realizado en el segundo tomo de este TFG.
-
-
+    \\
 
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/core.R}
 
     \textbf{Ejemplo}
 
@@ -440,9 +533,12 @@ se van a detallar una a una.
 
     Siendo Omega un conjunto de atributos, y Gamma un conjunto de implicaciones, se define la funci\'on body como la diferencia 
     de la uni\'on de los antecedentes de Gamma, menos el cierre del core de Omega y Gamma. 
+    \\
+
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/body.R}
 
     \textbf{Ejemplo}
 
