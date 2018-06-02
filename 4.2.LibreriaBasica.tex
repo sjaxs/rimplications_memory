@@ -15,7 +15,7 @@ se van a detallar una a una.
     \textbf{Descripci\'on}
 
     Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar un subconjunto 
-    de todos los atributos que componen a un grupo de implicaciones, adem\'as de todos los atributos. 
+    de todos los atributos que componen a un grupo de implicaciones, adem\'as del conjunto completo de los atributos. 
     
     Dentro de esta se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
     forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
@@ -31,11 +31,21 @@ se van a detallar una a una.
     
     \textbf{Ejemplo}
 
-    Para que se entienda mejor, se va a plantear un ejemplo. 
+    Para que se entienda mejor esta funci\'on, se va a plantear un ejemplo:
 
-    Si tenemos el conjunto de implicaciones siguiente: 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{InicializarConj}
+        \caption{Ejemplo de inicializar conjunto de atributos}
+        \label{fig:InicializarConj}
+    \end{figure}
 
-
+    En la variable implications se tiene un conjunto de 4 reglas y el conjunto de atributos que las componen.
+    Al usar la funci\'on descrita en este punto, pas\'andole un subconjunto de todos los atributos, en este caso \{a,c,f\}, y 
+    el conjunto total de los atributos, nos devuelve un itemMatrix. 
+    
+    Dicho itemMatrix est\'a compuesto s\'olo por esos tres atributos, aunque va a contener la informaci\'on de todos los que 
+    componen las reglas; ya que deben estar para poder usar algunas funciones como uni\'on o intersecci\'on.
 
 
 
@@ -74,7 +84,23 @@ se van a detallar una a una.
     
     \textbf{Ejemplo}
 
+    En este caso, se van a proponer tres ejemplos diferentes para poder entender el comportamiento de esta funci\'on:
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{singleton}
+        \caption{Ejemplos de conjuntos unitarios}
+        \label{fig:singleton}
+    \end{figure}
+
+    En el primero ejemplo, se puede observar que el conjunto es unitario porque est\'a compuesto por una sola cadena de caracteres. 
+    Es decir, no cuenta caracter a caracter, sino la cadena, luego est\'a formado por un solo elemento y el resultado es TRUE.
+
+    En el segundo ejemplo, tenemos una lista vac\'ia, por lo que como no tiene ning\'un elemento, el resultado es FALSE porque no es unitario.
+
+    Por \'ultimo, se tiene una lista que contiene a otra lista con tres elementos dentro de ella. En este caso, se podr\'ia pensar que 
+    no es unitario al ver los tres elementos, pero no, ya que el elemento que estamos estudiando es el primero, y este contiene solo una lista 
+    en \'el, por lo que el resultado es TRUE, ya que s\'i es unitario.
 
 %%% union.sets %%% 
 \subsubsection{Uni\'on}
@@ -193,9 +219,6 @@ se van a detallar una a una.
     A = \{ \} = \emptyset
     \]
 
-    \\
-
-
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/is.empty.R}
@@ -210,7 +233,12 @@ se van a detallar una a una.
 
     Dos conjuntos A y B son iguales si su longitud es la misma, y si para cada elemento de A, existe uno igual 
     en B y para cada elemento de B existe uno igual en A.
-    \\
+
+    Ya que, seg\'un el axima de extensionalidad:
+
+    \[
+    \forall A, B : \forall x, (x \in A \Leftrightarrow x \in B) \to A = B
+    \]
 
 
     \textbf{C\'odigo}
