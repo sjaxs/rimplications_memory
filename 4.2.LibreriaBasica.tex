@@ -49,19 +49,6 @@ se van a detallar una a una.
 
 
 
-%%% set.of.attributes %%%
-\subsubsection{Conjunto de atributos}
-    Esto se ha usado alguna vez?
-    \textbf{Descripci\'on}
-    
-
-    \textbf{C\'odigo}
-
-    
-    \textbf{Ejemplo}
-
-
-
 %%% is.singleton %%%
 \subsubsection{Conjunto unitario}
 
@@ -102,6 +89,8 @@ se van a detallar una a una.
     no es unitario al ver los tres elementos, pero no, ya que el elemento que estamos estudiando es el primero, y este contiene solo una lista 
     en \'el, por lo que el resultado es TRUE, ya que s\'i es unitario.
 
+
+
 %%% union.sets %%% 
 \subsubsection{Uni\'on}
 
@@ -116,8 +105,8 @@ se van a detallar una a una.
     \]
     
 
-    De nuevo, esta funci\'on, podr\'a ser usada por la mayor\'ia de las estructuras de datos, ya que en 
-    nuestra funci\'on, lo que se usa es itemUnion, una funci\'on perteneciente al paquete arules.
+    Esta funci\'on se usar\'a para la uni\'on de elementos de la clase itemMatrix, ya que lo que 
+    se usa es itemUnion, una funci\'on perteneciente al paquete arules.
     \\
 
 
@@ -126,6 +115,25 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/union.sets.R}
     
     \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{union}
+        \caption{Ejemplo de uni\'on de conjuntos}
+        \label{fig:union}
+    \end{figure}
+
+    A continuaci\'on se va a explicar el anterior ejemplo paso a paso, ya que en \'el se han realizado varios pasos.
+
+    Primero, se ha comenzado declarando tres vectores diferentes. Los dos primeros van a ser los dos conjuntos a unir, y el 
+    tercero es la uni\'on de todas las variables. Despu\'es, se utiliza la funci\'on explicada anteriormente para convertir ambos 
+    vectores en itemMatrix.
+
+    Segundo, se observa que ambos conjuntos son de la estructura itemMatrix, con el mismo n\'umero de columnas. Esto es algo muy 
+    importante, y por eso se ha usado la funci\'on initialize.setOfAttributes, ya que para utilizar la uni\'on, los elementos deben 
+    estar en los dos conjuntos como informaci\'on, tal y como se vi\'o en la estructura de datos itemMatrix.
+
+    Por \'ultimo, se realiza la uni\'on e inspeccionamos la variable resultante, y se comprueba que se ha realizado correctamente.
 
 
 
@@ -143,7 +151,8 @@ se van a detallar una a una.
     A \cap B = \{x\in U ~ | ~ x\in A ~ y ~ x\in B \}
     \]
 
-    En este caso, tambi\'en se podr\'a usar con las estructuras de datos que se necesite.
+    En este caso, tambi\'en se usar\'a con la estructura de datos itemMatrix que es la usada mayoritariamente con implicaciones 
+    como ya se ha especificado antes.
     \\
 
 
@@ -152,6 +161,20 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/intersection.sets.R}
     
     \textbf{Ejemplo}
+
+    Para el ejemplo de esta funci\'on se van a utilizar los mismos conjuntos del ejemplo de la anterior funci\'on:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{interseccion}
+        \caption{Ejemplo de intersecci\'on de conjuntos}
+        \label{fig:interseccion}
+    \end{figure}
+
+    Para comenzar el ejemplo, se han realizado los mismos pasos que en el anterior, se declaran las variables y se convierten a 
+    itemMatrix. 
+    Por \'ultimo, se realiza la intersecci\'on de ambos conjuntos y vemos como el resultado es \'unicamente del elemento que se encuentra 
+    en ambos conjuntos.
 
 
 
@@ -180,6 +203,21 @@ se van a detallar una a una.
     
     \textbf{Ejemplo}
 
+    Para ilustrar bien esta funci\'on, vamos a volver a utilizar los conjuntos usados en la uni\'on e intersecci\'on para comprobar 
+    cu\'al ser\'ia el resultado al realizar la diferencia de estos conjuntos.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{diferencia}
+        \caption{Ejemplo de diferencia de conjuntos}
+        \label{fig:diferencia}
+    \end{figure}
+
+    En este caso, se vuelve a realizar todo de la mismo forma que en los anteriores casos, pero usamos la funci\'on difference.sets, y 
+    con ella obtenemos como resultado un nuevo conjunto, en el que se encuentran los elementos del primer conjunto, eliminando los que 
+    tambi\'en est\'en en el segundo.
+
+
 
 %%% is.included %%% 
 \subsubsection{Inclusi\'on}
@@ -193,8 +231,7 @@ se van a detallar una a una.
     A \subseteq B ~ | ~  \forall ~ x \in A \to x \in B 
     \]
 
-    Se puede utilizar esta funci\'on con todas aquellas estructuras de datos a las que se le pueda aplicar 
-    la teor\'ia de conjuntos.
+    De nuevo, esta funci\'on se utilizar\'a con elementos de la clase itemMatrix.
     \\
 
 
@@ -205,25 +242,51 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{inclusion}
+        \caption{Ejemplos de inclusi\'on de conjuntos}
+        \label{fig:inclusion}
+    \end{figure}
 
-%%% is.empty %%% 
+    En este caso, se van a proponer dos ejemplos:
+
+    En el primero no se cumple que el set1 est\'e incluido en el set2, aunque s\'i se cumplir\'ia al contrario, pero la inclusi\'on no es 
+    una funci\'on que cumpla la propiedad sim\'etrica, luego en este caso el resultado es FALSE.
+
+    En el segundo ejemplo s\'i que se cumple que el primer conjunto est\'e incluido en el segundo. Como se puede observar da igual el orden 
+    en el que es\'en los elementos.
+
+
+
+%%% is.empty.set %%% 
 \subsubsection{Vac\'io}
 
     \textbf{Descripci\'on}
 
     Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si su el tama\~no del conjunto es 0, 
-    podemos decir que est\'a vac\'io. Esta funci\'on se podr\'a utilizar con cualquier estructura de datos 
-    que se pueda medir su longitud.
-
+    podemos decir que est\'a vac\'io. 
     \[
     A = \{ \} = \emptyset
     \]
 
     \textbf{C\'odigo}
 
-    \lstinputlisting{r_code/basicLibrary/is.empty.R}
+    \lstinputlisting{r_code/basicLibrary/is.empty.set.R}
 
     \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{vacio}
+        \caption{Ejemplos de conjuntos vac\'ios}
+        \label{fig:vacio}
+    \end{figure}
+
+    En el primer ejemplo, se puede ver que la funci\'on devuelve FALSE porque el conjunto contiene elementos.
+
+    En cambio, en el segundo, el vector no contiene elementos, por lo que la funci\'on devuelve TRUE porque el conjunto no tiene 
+    elementos.
 
 
     %%% equals.sets %%% 
@@ -248,6 +311,18 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{igualdad}
+        \caption{Ejemplos de igualdad de conjuntos}
+        \label{fig:igualdad}
+    \end{figure}
+
+    De nuevo, se plantean dos ejemplos. En el primero, el resultado es TRUE, ya que visualmente se puede comprobar que ambos conjuntos son 
+    iguales.
+
+    En el segundo caso, la funci\'n devuelve FALSE porque los conjuntos no son iguales.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -270,6 +345,19 @@ se van a detallar una a una.
 
 
     \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{removeImp}
+        \caption{Ejemplo de eliminar implicaci\'on}
+        \label{fig:removeImp}
+    \end{figure}
+
+    En este ejemplo, tenemos un conjunto inicial implications con cuatro implicaciones diferentes. A continuaci\'on se usa la 
+    funci\'on remove.imp y con ella eliminamos la tercera.
+
+    Finalizamos comprobando que efectivamente, en el nuevo conjunto solo se tienen tres implicaciones, quitando la tercera del conjunto 
+    inicial.
 
 
 
@@ -294,6 +382,17 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/remove.all.R}
 
     \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{removeAll}
+        \caption{Ejemplo de vaciar conjunto}
+        \label{fig:removeAll}
+    \end{figure}
+
+    En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado el vac\'io ya que el nuevo 
+    conjunto resultante no contiene ninguna implcaci\'on.
+
 
 
 
