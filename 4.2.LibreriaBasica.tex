@@ -396,37 +396,14 @@ se van a detallar una a una.
 
 
 
-%%% add.imp.k %%% 
-\subsubsection{A\~nadir implicaci\'on en posici\'on}
-
-    \textbf{Descripci\'on}
-
-    Igual que se puede querer eliminar una implicaci\'on, tambi\'en ser\'a posible a\~nadir una nueva en una determinada posici\'on 
-    del conjunto. Para esta funci\'on necesitamos como par\'ametros, el conjunto que se quiere ampliar, la parte izquierda de la nueva 
-    implicaci\'on, la derecha y la posici\'on que queremos que ocupe en el conjunto.
-
-    Luego, en dicha funci\'on, lo primero que se hace es crear una nueva regla, con las dos partes que le hemos pasado. A continuaci\'on, 
-    unimos en un mismo conjunto, todas las implicaciones que se ten\'ian en las posiciones anteriores a la nueva que se quiere insertar, 
-    la nueva implicaci\'on, y las restantes que se encontraban en posiciones posteriores. Y finalmente, se devuelve este conjunto.
-    \\
-
-
-    \textbf{C\'odigo}
-
-    \lstinputlisting{r_code/basicLibrary/add.imp.k.R}
-
-    \textbf{Ejemplo}
-
-
-
 %%% add.imp %%% 
 \subsubsection{A\~nadir implicaci\'on}
 
     \textbf{Descripci\'on}
 
-    Al igual que en el caso anterior se quer\'ia a\~nadir una implicaci\'on en una determinada posici\'on, puede que d\'e igual 
-    el lugar en el que se inserte. Por lo que esta funci\'on, inserta la nueva implicaci\'on en la \'ultima posici\'on del 
-    conjunto. Como par\'ametros necesita los mismos que en el punto anterior, excepto la posici\'on a insertar.
+    Igual que se puede querer eliminar una implicaci\'on, tambi\'en ser\'a posible a\~nadir una nueva. Por lo que esta funci\'on, 
+    inserta la nueva implicaci\'on en la \'ultima posici\'on del conjunto. Como par\'ametros necesita el conjunto que se quiere ampliar, 
+    el antecedente de la nueva implicaci\'on y el consecuente.
 
     As\'i que, se crea la nueva implicaci\'on, con las dos partes que se le pasan como par\'ametros, y se le concatena al conjunto 
     inicial para devolver un conjunto ampliado con una nueva implicaci\'on.
@@ -440,6 +417,17 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{addImp}
+        \caption{Ejemplo de a\~nadir implicaci\'on}
+        \label{fig:addImp}
+    \end{figure}
+
+    En este ejemplo tenemos un conjunto de 4 implicaciones en la variable implications, en newRule tenemos una \'unica regla que va 
+    a ser la nueva a insertar. 
+
+    Usando la funci\'on add.imp a\~nadimos la nueva regla como se puede observar en el nuevo conjunto implications.
 
 
 %%% new.imp %%% 
@@ -447,7 +435,7 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
-    Con esta funci\'on, vamos a insertar una nueva implicaci\'on, al igual que en los dos puntos anteriores, pero esta vez 
+    Con esta funci\'on, vamos a insertar una nueva implicaci\'on, al igual que en el punto anterior, pero esta vez 
     de una forma un poco m\'as compleja. Ya que, en este caso, se van a realizar varias comprobaciones.
 
     Para cada implicaci\'on perteneciente al conjunto, se va a comprobar si el antecedente es igual al que se quiere insertar.
@@ -473,6 +461,21 @@ se van a detallar una a una.
     \textbf{Ejemplo}
 
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{newImp}
+        \caption{Ejemplo de a\~nadir implicaci\'on}
+        \label{fig:newImp}
+    \end{figure}
+
+    Aunque con esta funci\'on se podr\'ian realizar varios ejemplos seg\'un la implicaci\'on que se quiera a\~nadir, en este caso se 
+    va a insertar una nueva en la que el antecedente ya se encuentra en el conjunto y el consecuente es nuevo.
+
+    En la variable implications tenemos un conjunto de tres implicaciones, y en newRule, est\'a la nueva a insertar. Como se puede 
+    observar, el antecedente de la nueva es igual al de la tercera implicaci\'on del conjunto. Se realiza la operaci\'on de a\~nadir 
+    y vemos como en el conjunto resultante ha cambiado el consecuente de la \'ultima implicaci\'on tal y como se esperaba.
+
+
 %%% read.left %%% 
 \subsubsection{Leer antecedente}
 
@@ -491,6 +494,17 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    Aunque esta funci\'on ya se ha utilizado en algunos ejemplos anteriores, veamos su resultado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{readL}
+        \caption{Ejemplo de leer antecedente}
+        \label{fig:readL}
+    \end{figure}
+
+    Luego, en este ejemplo, tenemos un conjunto de tres implicaciones y con esta funci\'on leemos, en este caso, el antecedente de 
+    la segunda implicaci\'on. 
 
 %%% read.right %%% 
 \subsubsection{Leer consecuente}
@@ -508,6 +522,20 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    Al igual que en el anterior punto, esta funci\'on ya se a usado en ejemplos anteriores, pero observemos cual es su resultado.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{readR}
+        \caption{Ejemplo de leer consecuente}
+        \label{fig:readR}
+    \end{figure}
+
+    Para este ejemplo, se ha usado el mismo conjunto de implicaciones que en el anterior, y leemos el consecuente de la misma 
+    implicaci\'on que en el punto anterior.
+
+
+
 
 %%% substitute.imp %%% 
 \subsubsection{Sustituir implicaci\'on}
@@ -517,15 +545,30 @@ se van a detallar una a una.
     La sustituci\'on de una implicaci\'on es una operaci\'on bastante \'util, ya que cuando se quieren unir dos implicaciones, puede que 
     se quiera que la nueva permanezca en un lugar determinado, para ello, esta funci\'on inserta la nueva implicaci\'on en el lugar que 
     se le indique. Como par\'ametros, necesita el conjunto de implicaciones, la posici\'on a cambiar, y los nuevos antedecente y consecuente.
+    Para la utilizaci\'on de esta funci\'on se debe llamar a sustitute.imp, aunque esta, a su vez har\'a uso de add.imp.k, cuyos codigos se 
+    muestran a continuaci\'on. 
     \\
 
 
     \textbf{C\'odigo}
 
+    \lstinputlisting{r_code/basicLibrary/add.imp.k.R}
+
     \lstinputlisting{r_code/basicLibrary/substitute.imp.R}
 
     %% Hay que revisar muy muy bien, como lo hace, creo que no sustituye, sino que añade y listo. 
     \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{readL}
+        \caption{Ejemplo de leer antecedente}
+        \label{fig:readL}
+    \end{figure}
+
+    Comenzamos con un conjunto de tres implicaciones en la variable implications, en newRule se tiene la implicaci\'on que se va 
+    a insertar en el conjunto. Realizamos la operaci\'on de sustituir, en este caso la segunda implicaci\'on del conjunto, por la nueva. 
+    Tal y como se observa en el conjunto resultante, se a sustituido la anterior, por la nueva, tal y como se esperaba.
 
 
 %%% included.left %%% 
@@ -546,6 +589,17 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{incluidoL}
+        \caption{Ejemplo de leer antecedente}
+        \label{fig:incluidoL}
+    \end{figure}
+
+    Para este ejemplo tenemos un conjunto con tres implicaciones. Primero se comprueba si el antecedente de la primera implicaci\'on 
+    est\'a incluido en el de la segunda, el resultado obtenido es TRUE, ya que se cumple la inclusi\'on.
+
+    En cambio, en el segundo caso, se prueba el consecuente de la segunda, con el de la tercera, y como no se cumple, el resultado es FALSE.
 
 
 %%% included.left.right %%% 
@@ -588,6 +642,17 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{deleteIS}
+        \caption{Ejemplo de eliminar implicaciones con consecuente vac\'io}
+        \label{fig:deleteIS}
+    \end{figure}
+
+    Comenzamos con un conjunto de seis implicaciones, en el que dos de ellas tienen su consecuente vac\'io. Al realizar la 
+    operaci\'on de borrar los consecuentes vacios, obtenemos un nuevo conjunto con cuatro implicaciones, ya que las que ten\'ian 
+    sus consecuentes sin elementos, han sido eliminadas.
+
 
 %%% size.set %%% 
 \subsubsection{Tama\~no del conjunto}
@@ -606,6 +671,18 @@ se van a detallar una a una.
 
     \textbf{Ejemplo}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{size}
+        \caption{Ejemplo de tama\~no de conjunto}
+        \label{fig:size}
+    \end{figure}
+
+    En este ejemplo se tiene un conjunto con tres implicaciones, su tama\~no, tal y como muestra el ejemplo es de 10. 
+    Este resultado viene de sumar cu\'antos elementos tiene cada implicaci\'on, en este caso:
+    \[
+        4 + 3 + 3 = 10    
+    \]
 
 
 %%% cadinality.set %%% 
@@ -625,6 +702,15 @@ se van a detallar una a una.
     \textbf{Ejemplo}
 
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{cardinality}
+        \caption{Ejemplo de cardinalidad de conjunto}
+        \label{fig:cardinality}
+    \end{figure}
+
+    La cardinalidad, tal y como se ha explicado arriba es el n\'umero de implicaciones que tiene un conjunto, por lo que como 
+    se puede observar en este ejemplo, como tiene tres implicaciones, su cardinalidad es tres.
 
 
 %%% core %%% 
@@ -635,6 +721,10 @@ se van a detallar una a una.
     A esta funci\'on se le pasa un conjunto de atributos Omega, junto con un conjunto de implicaciones Gamma. 
     Devolver\'a un conjunto de datos resultante de eliminar de Omega todos los atributos que se encuentren en los 
     consecuentes de las implicaciones que forman Gamma. 
+
+    \[
+        core(\Omega , \Gamma ) = \Omega ~ \textbackslash ~ ( \bigcup_{A \to B \in \Gamma} B )    
+    \]
     
     Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
     en el algoritmo de claves minimales realizado en el segundo tomo de este TFG.
@@ -648,6 +738,17 @@ se van a detallar una a una.
     \textbf{Ejemplo}
 
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{core}
+        \caption{Ejemplo de core de un conjunto}
+        \label{fig:core}
+    \end{figure}
+
+    En el ejemplo, tenemos como punto de partida un conjunto con cinco implicaciones y todos los elementos de ese conjunto en 
+    un itemMatrix. Realizamos la operaci\'on core y se obtiene como resultado un itemMatrix con dos de los elementos de las implicaciones. 
+    Tal y como se ha explicado anteriormente, este resultado se obtiene de restar de todos los atributos, los que est\'an en los consecuentes 
+    de las implicaciones.
 
 
 %%% body %%% 
@@ -660,8 +761,10 @@ se van a detallar una a una.
 
     Siendo Omega un conjunto de atributos, y Gamma un conjunto de implicaciones, se define la funci\'on body como la diferencia 
     de la uni\'on de los antecedentes de Gamma, menos el cierre del core de Omega y Gamma. 
-    \\
 
+    \[
+        body(\Omega , \Gamma ) = ( \bigcup_{A \to B \in \Gamma} B ) ~ \textbackslash ~ core(\Omega , \Gamma )^+
+    \]
 
     \textbf{C\'odigo}
 
@@ -670,3 +773,15 @@ se van a detallar una a una.
     \textbf{Ejemplo}
 
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics{body}
+        \caption{Ejemplo de body de un conjunto}
+        \label{fig:body}
+    \end{figure}
+
+    Para este ejemplo, se usa el mismo conjunto de implicaciones que en el anterior punto. Sin embargo, el resultado en este caso es 
+    el conjunto vac\'io, ya que es el resultado de restar de todos los elementos que se encuentran en los antecedentes de las implicaciones, 
+    el resultado de el cierre del core de Omega y Gamma.
+
+    
