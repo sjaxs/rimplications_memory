@@ -7,8 +7,6 @@ En esta librer\'ia b\'asica se encuentran diferentes funciones que se usar\'an b
 se van a detallar una a una.
 
 
-
-
 %%% initialize.setOfAttributes %%%
 \subsubsection{Inicializar conjunto de atributos}
 
@@ -27,7 +25,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
     
     \lstinputlisting{r_code/basicLibrary/initialize.setOfAttributes.R}
-    
+    \bigskip
     
     \textbf{Ejemplo}
 
@@ -67,8 +65,8 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/is.singleton.R}
+    \bigskip
 
-    
     \textbf{Ejemplo}
 
     En este caso, se van a proponer tres ejemplos diferentes para poder entender el comportamiento de esta funci\'on:
@@ -80,7 +78,7 @@ se van a detallar una a una.
         \label{fig:singleton}
     \end{figure}
 
-    En el primero ejemplo, se puede observar que el conjunto es unitario porque est\'a compuesto por una sola cadena de caracteres. 
+    En el primer ejemplo, se puede observar que el conjunto es unitario porque est\'a compuesto por una sola cadena de caracteres. 
     Es decir, no cuenta caracter a caracter, sino la cadena, luego est\'a formado por un solo elemento y el resultado es TRUE.
 
     En el segundo ejemplo, tenemos una lista vac\'ia, por lo que como no tiene ning\'un elemento, el resultado es FALSE porque no es unitario.
@@ -101,9 +99,8 @@ se van a detallar una a una.
     conjuntos, s\'olo aparecer\'a una vez en el resultante.
 
     \[
-    A \cup B = \{x\in U ~ | ~ x\in A ~ \'o ~ x\in B \}
+    A \cup B = \{x\in U ~ | ~ x\in A ~ o ~ x\in B \}
     \]
-    
 
     Esta funci\'on se usar\'a para la uni\'on de elementos de la clase itemMatrix, ya que lo que 
     se usa es itemUnion, una funci\'on perteneciente al paquete arules.
@@ -113,7 +110,8 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/union.sets.R}
-    
+    \clearpage
+
     \textbf{Ejemplo}
 
     \begin{figure}[H]
@@ -137,7 +135,6 @@ se van a detallar una a una.
 
 
 
-
 %%% intersection.sets %%% 
 \subsubsection{Intersecci\'on}
 
@@ -148,7 +145,7 @@ se van a detallar una a una.
     que est\'en tanto en A como en B.
 
     \[
-    A \cap B = \{x\in U ~ | ~ x\in A ~ y ~ x\in B \}
+        A \cap B = \{x\in U ~ | ~ x\in A ~ y ~ x\in B \}
     \]
 
     En este caso, tambi\'en se usar\'a con la estructura de datos itemMatrix que es la usada mayoritariamente con implicaciones 
@@ -159,7 +156,8 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/intersection.sets.R}
-    
+    \bigskip
+
     \textbf{Ejemplo}
 
     Para el ejemplo de esta funci\'on se van a utilizar los mismos conjuntos del ejemplo de la anterior funci\'on:
@@ -176,8 +174,7 @@ se van a detallar una a una.
     Por \'ultimo, se realiza la intersecci\'on de ambos conjuntos y vemos como el resultado es \'unicamente del elemento que se encuentra 
     en ambos conjuntos.
 
-
-
+    \clearpage
 
 %%% difference.sets %%% 
 \subsubsection{Diferencia}
@@ -189,7 +186,7 @@ se van a detallar una a una.
     todos elementos del primer conjunto que no est\'an en el segundo.
 
     \[
-    A - B = \{x\in A ~ y ~ x\notin B \}
+        A - B = \{x\in A ~ y ~ x\notin B \}
     \]
 
     De nuevo, en nuestra funci\'on se usa una del paquete arules para poder utilizar la gran mayor\'ia de estructuras 
@@ -200,7 +197,8 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/difference.sets.R}
-    
+    \bigskip
+
     \textbf{Ejemplo}
 
     Para ilustrar bien esta funci\'on, vamos a volver a utilizar los conjuntos usados en la uni\'on e intersecci\'on para comprobar 
@@ -216,7 +214,7 @@ se van a detallar una a una.
     En este caso, se vuelve a realizar todo de la mismo forma que en los anteriores casos, pero usamos la funci\'on difference.sets, y 
     con ella obtenemos como resultado un nuevo conjunto, en el que se encuentran los elementos del primer conjunto, eliminando los que 
     tambi\'en est\'en en el segundo.
-
+    \clearpage
 
 
 %%% is.included %%% 
@@ -228,17 +226,16 @@ se van a detallar una a una.
     devolver\'a TRUE si cumple dicha propiedad, o FALSE en caso contrario.
 
     \[
-    A \subseteq B ~ | ~  \forall ~ x \in A \to x \in B 
+        A \subseteq B ~ | ~  \forall ~ x \in A \to x \in B 
     \]
 
     De nuevo, esta funci\'on se utilizar\'a con elementos de la clase itemMatrix.
     \\
 
-
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/is.included.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -255,7 +252,7 @@ se van a detallar una a una.
     una funci\'on que cumpla la propiedad sim\'etrica, luego en este caso el resultado es FALSE.
 
     En el segundo ejemplo s\'i que se cumple que el primer conjunto est\'e incluido en el segundo. Como se puede observar da igual el orden 
-    en el que es\'en los elementos.
+    en el que est\'en los elementos.
 
 
 
@@ -264,15 +261,17 @@ se van a detallar una a una.
 
     \textbf{Descripci\'on}
 
-    Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si su el tama\~no del conjunto es 0, 
+    Un conjunto es vac\'io si no contiene ning\'un elemento. Es decir, si el tama\~no del conjunto es 0, 
     podemos decir que est\'a vac\'io. 
+
     \[
-    A = \{ \} = \emptyset
+        A = \{ \} = \emptyset
     \]
 
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/is.empty.set.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -289,6 +288,7 @@ se van a detallar una a una.
     elementos.
 
 
+
     %%% equals.sets %%% 
 \subsubsection{Igualdad}
 
@@ -297,17 +297,17 @@ se van a detallar una a una.
     Dos conjuntos A y B son iguales si su longitud es la misma, y si para cada elemento de A, existe uno igual 
     en B y para cada elemento de B existe uno igual en A.
 
-    Ya que, seg\'un el axima de extensionalidad:
+    Ya que, seg\'un el axioma de extensionalidad:
 
     \[
-    \forall A, B : \forall x, (x \in A \Leftrightarrow x \in B) \to A = B
+        \forall A, B : \forall x, (x \in A \Leftrightarrow x \in B) \to A = B
     \]
 
 
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/equals.sets.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -321,10 +321,12 @@ se van a detallar una a una.
     De nuevo, se plantean dos ejemplos. En el primero, el resultado es TRUE, ya que visualmente se puede comprobar que ambos conjuntos son 
     iguales.
 
-    En el segundo caso, la funci\'n devuelve FALSE porque los conjuntos no son iguales.
+    En el segundo caso, la funci\'on devuelve FALSE porque los conjuntos no son iguales.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%% remove.imp %%% 
@@ -342,7 +344,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/remove.imp.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -380,6 +382,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/remove.all.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -390,9 +393,8 @@ se van a detallar una a una.
         \label{fig:removeAll}
     \end{figure}
 
-    En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado el vac\'io ya que el nuevo 
+    En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado es vac\'io ya que el nuevo 
     conjunto resultante no contiene ninguna implcaci\'on.
-
 
 
 
@@ -413,7 +415,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/add.imp.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -428,6 +430,7 @@ se van a detallar una a una.
     a ser la nueva a insertar. 
 
     Usando la funci\'on add.imp a\~nadimos la nueva regla como se puede observar en el nuevo conjunto implications.
+
 
 
 %%% new.imp %%% 
@@ -452,11 +455,12 @@ se van a detallar una a una.
     resultante.
     \\
 
+    \clearpage
 
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/new.imp.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -476,6 +480,7 @@ se van a detallar una a una.
     y vemos como en el conjunto resultante ha cambiado el consecuente de la \'ultima implicaci\'on tal y como se esperaba.
 
 
+
 %%% read.left %%% 
 \subsubsection{Leer antecedente}
 
@@ -490,7 +495,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/read.left.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -506,6 +511,8 @@ se van a detallar una a una.
     Luego, en este ejemplo, tenemos un conjunto de tres implicaciones y con esta funci\'on leemos, en este caso, el antecedente de 
     la segunda implicaci\'on. 
 
+
+
 %%% read.right %%% 
 \subsubsection{Leer consecuente}
 
@@ -519,10 +526,11 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/read.right.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
-    Al igual que en el anterior punto, esta funci\'on ya se a usado en ejemplos anteriores, pero observemos cual es su resultado.
+    Al igual que en el anterior punto, esta funci\'on ya se ha usado en ejemplos anteriores, pero observemos cual es su resultado.
 
     \begin{figure}[H]
         \centering
@@ -534,8 +542,7 @@ se van a detallar una a una.
     Para este ejemplo, se ha usado el mismo conjunto de implicaciones que en el anterior, y leemos el consecuente de la misma 
     implicaci\'on que en el punto anterior.
 
-
-
+    \clearpage
 
 %%% substitute.imp %%% 
 \subsubsection{Sustituir implicaci\'on}
@@ -555,8 +562,8 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/add.imp.k.R}
 
     \lstinputlisting{r_code/basicLibrary/substitute.imp.R}
+    \bigskip
 
-    %% Hay que revisar muy muy bien, como lo hace, creo que no sustituye, sino que añade y listo. 
     \textbf{Ejemplo}
 
     \begin{figure}[H]
@@ -568,7 +575,7 @@ se van a detallar una a una.
 
     Comenzamos con un conjunto de tres implicaciones en la variable implications, en newRule se tiene la implicaci\'on que se va 
     a insertar en el conjunto. Realizamos la operaci\'on de sustituir, en este caso la segunda implicaci\'on del conjunto, por la nueva. 
-    Tal y como se observa en el conjunto resultante, se a sustituido la anterior, por la nueva, tal y como se esperaba.
+    Tal y como se observa en el conjunto resultante, se ha sustituido la anterior, por la nueva, tal y como se esperaba.
 
 
 %%% included.left %%% 
@@ -586,6 +593,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/included.left.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -601,26 +609,6 @@ se van a detallar una a una.
 
     En cambio, en el segundo caso, se prueba el consecuente de la segunda, con el de la tercera, y como no se cumple, el resultado es FALSE.
 
-
-%%% included.left.right %%% 
-\subsubsection{Antecedente incluido en consecuente}
-
-    \textbf{Descripci\'on}
-
-    En una implicaci\'on, si el antecedente est\'a incluido en el consecuente se puede simplificar el consecuente, ya que 
-    esto es algo trivial. Esta funci\'on, devolver\'a TRUE en el caso de que el antecedente est\'e incluido en el consecuente o 
-    FALSE en el caso contrario. Para ello...
-
-    ACLARAR QU\'E ES EXACTAMENTE LO QUE HACE, NO LO ENTIENDO
-    \\
-
-
-    \textbf{C\'odigo}
-
-    \lstinputlisting{r_code/basicLibrary/included.left.right.R}
-
-
-    \textbf{Ejemplo}
 
 
 %%% delete.set.of.IS %%% 
@@ -638,7 +626,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/delete.set.of.IS.R}
-
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -652,6 +640,7 @@ se van a detallar una a una.
     Comenzamos con un conjunto de seis implicaciones, en el que dos de ellas tienen su consecuente vac\'io. Al realizar la 
     operaci\'on de borrar los consecuentes vacios, obtenemos un nuevo conjunto con cuatro implicaciones, ya que las que ten\'ian 
     sus consecuentes sin elementos, han sido eliminadas.
+
 
 
 %%% size.set %%% 
@@ -668,6 +657,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/size.set.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -685,6 +675,7 @@ se van a detallar una a una.
     \]
 
 
+
 %%% cadinality.set %%% 
 \subsubsection{Cardinalidad del conjunto}
 
@@ -698,6 +689,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/cardinality.set.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -711,6 +703,7 @@ se van a detallar una a una.
 
     La cardinalidad, tal y como se ha explicado arriba es el n\'umero de implicaciones que tiene un conjunto, por lo que como 
     se puede observar en este ejemplo, como tiene tres implicaciones, su cardinalidad es tres.
+
 
 
 %%% core %%% 
@@ -734,6 +727,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/core.R}
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -749,6 +743,7 @@ se van a detallar una a una.
     un itemMatrix. Realizamos la operaci\'on core y se obtiene como resultado un itemMatrix con dos de los elementos de las implicaciones. 
     Tal y como se ha explicado anteriormente, este resultado se obtiene de restar de todos los atributos, los que est\'an en los consecuentes 
     de las implicaciones.
+
 
 
 %%% body %%% 
@@ -769,6 +764,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/body.R}
+    \clearpage
 
     \textbf{Ejemplo}
 
