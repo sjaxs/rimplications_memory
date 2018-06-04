@@ -26,45 +26,152 @@ A continuaci\'on se van a detallar ambas funciones:
         \item \textbf{numAttributes:}
 
         Aqu\'i se debe especificar cu\'antos atributos diferentes se quiere que tengan las implicaciones que se van a generar. Es un 
-        par\'ametro obligatorio para la utilizaci\'on de esta funci\'on. Como se ha comentado anteriormente, los atributos serán de la 
+        par\'ametro obligatorio para la utilizaci\'on de esta funci\'on. Como se ha comentado anteriormente, los atributos ser\'an de la 
         forma a0, a1, a2... El valor de este par\'ametro debe ser mayor que 0.
 
-        
+
         \item \textbf{numDependencies:}
 
-        Otro par\'ametro obligatorio es el número de dependencias que se quieren obtener, si se elige obtener m\'as de un archivo 
+        Otro par\'ametro obligatorio es el n\'umero de dependencias que se quieren obtener, si se elige obtener m\'as de un archivo 
         con diferentes sistemas de implicaciones, como se ver\'a m\'as adelante, cada uno de dichos ficheros incluir\'a el n\'umero 
         de implicaciones que se le indique aqu\'i. Por supuesto, el valor de este par\'ametro tambi\'en debe ser mayor que 0.
 
 
         \item \textbf{difference:}
 
-        Este pa\'ametro opcional indica el n\'umero m\'aximo de diferencia de elementos entre el antecedente y el consecuente. Se puede 
+        Este par\'ametro opcional indica el n\'umero m\'aximo de diferencia de elementos entre el antecedente y el consecuente. Se puede 
         insertar un n\'umero negativo, lo que indicar\'a que se desea que haya m\'as atributos en el consecuente. Por lo que si el n\'umero 
         es positivo, el antecedente tendr\'a m\'as atributos.
 
         En este caso, hay que tener en cuenta de que el valor absoluto del n\'umero insertado en este par\'ametro, debe ser menor 
         que el n\'umero total de atributos.
 
+        En caso de no especificar nada, la diferencia de atributos entre antecedente y consecuente ser\'a aleatoria.
+
 
         \item \textbf{percentage:}
 
+        Este par\'ametro es bastante parecido al anterior, solo que en este caso, se trata de el m\'aximo porcentaje de diferencia entre 
+        el antecedente y el consecuente. Al igual que en el anterior, si el porcentaje es negativo, el consecuente ser\'a mayor, y en caso de 
+        ser positivo, el antecedente tendr\'a m\'as atributos que el consecuente. Al ser un porcentaje, el valor debe ser menor estricto que 
+        100.
+
+        Cabe especificar, que tanto este par\'ametro, como el anterior, se tratan de tama\~os m\'aximos, es decir, que no todas las implicaciones 
+        van a tener la diferencia exacta que se le especifique entre antecedente y consecuente, sino que el n\'umero o porcentaje ser\'a la 
+        mayor diferencia que se encontrar\'a en el sistema de implicaciones.
+
+
         \item \textbf{maxLeftSize:}
+
+        Con este par\'ametro opcional, se puede especificar el n\'umero de elementos m\'aximo que se quiere que se tenga el antecedente, como 
+        es de esperar, no debe superar al n\'umero total de atributos.
+
 
         \item \textbf{maxRightSize:}
 
+        Junto con el anterior, podemos especificar, en este caso, el n\'umero de elementos m\'aximo del consecuente. Ambos son par\'ametros 
+        opcionales, pero si el usuario decide especificar el tama\~no m\'aximo del antecedente, tambi\'en deber\'a hacer lo mismo con el 
+        consecuente y viceversa.
+
+
         \item \textbf{nameExitFile:}
+
+        Este se trata de un par\'ametro obligatorio, se le debe pasar una cadena de caracteres sin la extensi\'on del archivo, ya que 
+        la funci\'on devolver\'a un archivo con extensi\'on .R.
+
 
         \item \textbf{numFiles:}
 
-
+        Por \'ultimo, un par\'ametro opcional en el que se puede especificar cu\'antos ficheros se quiere que se generen. Si no se especifica, 
+        solo se generar\'a un archivo, en caso contrario, los archivos tendr\'an como nombre el especificado seguido de in guion bajo y un n\'umero 
+        para distinguirlos.
 
     \end{itemize}
 
+    Hay que precisar, que algunos de los par\'ametros anteriores son excluyentes. Es decir, si se especifica el par\'ametro difference, tanto 
+    percentage, como maxLeftSize y maxRightSize deben dejarse nulos. O si se especifica percentage, deber\'an quedar vac\'ios difference y 
+    maxLeftSize y maxRightSize. 
+    En cambio, maxLeftSize siempre debe ir acompa\~nado de maxRightSize y viceversa, aunque en caso de especificarlos, difference y percentage, 
+    deben estar nulos.
+    Los par\'ametros que siempre se le deben pasar a la funci\'on son: numAttributes, numDependencies y nameExitFile.
+
+    Por \'ultimo, hay que especificar que el sistema o sistemas de implicaciones que se obtengan, no tendr\'an redundancias y se habr\'a aplicado 
+    la funci\'on de composici\'on, por lo que al realizar todas estas operaciones, si el n\'umero de implicaciones que se quiere obtener es 
+    alto, el tiempo que tardar\'a el algoritmo en obtener dicho sistema, tambi\'en ser\'a alto.
+    \\
+
+    \bigskip
+
     \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/randomGenerators/randomImp.R}
+    \clearpage
 
 
     \textbf{Ejemplo}
+
+    Como se ha visto anteriormente, este algoritmo se puede utilizar con muchas combinaciones diferentes dependiendo de los par\'ametros 
+    que se utilicen. As\'i que, se van a proponer tres ejemplos diferentes de c\'omo usar esta funci\'on, aunque las posibilidades 
+    son mucho mayores.
+
+    \bigskip
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{randomImp1}
+        \caption{Ejemplo 1 de sistemas de implicaciones aleatorios}
+        \label{fig:randomImp1}
+    \end{figure}
+
+    En este primer ejemplo, se va a generar un sistema con cuatro implicaciones, utilizando 6 atributos diferentes, con una diferencia m\'axima 
+    de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a ejemplo1.
+    
+    En dicho fichero se ha escrito lo siguiente:
+
+    \begin{verbatim}
+        a1 a3 a4 a6 -> a5 
+        a1 a2 a4 a5 -> a6 
+        a3 a6 -> a4 
+        a1 a2 a6 -> a3    
+    \end{verbatim}
+
+    \clearpage
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{randomImp2}
+        \caption{Ejemplo 2 de sistemas de implicaciones aleatorios}
+        \label{fig:randomImp2}
+    \end{figure}
+
+    En este segundo ejemplo se han generado con 10 atributos, 6 implicaciones, con un tama\~no m\'aximo de 4 para el antecedente y 3 para el 
+    consecuente. El nombre del fichero de salida ser\'a ejemplo2.
+
+    \begin{verbatim}
+        a1 a10 a6 a7 -> a9 
+        a5 -> a4 
+        a10 a3 a6 a8 -> a9 
+        a8 -> a9 
+        a1 a10 a6 -> a7 
+        a3 a7 a9 -> a4 
+    \end{verbatim}
+    Como se puede observar, la salida cumple todos los requisitos que le hemos puesto. En este caso, se observa que solo se han usado 9 de 
+    los 10 atributos que se ped\'ian, ya que con la simplificaci\'on del conjunto, se ha llegado a perder el atributo a2.
+    \\
+    
+    \bigskip
+
+    Por \'ultimo, se ejecuta una tercera vez esta funci\'on para comprobar c\'omo es el error que se produce, en este caso, al pasarle vac\'io 
+    el nombre del fichero de salida:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{randomImp3}
+        \caption{Ejemplo 3 de sistemas de implicaciones aleatorios}
+        \label{fig:randomImp3}
+    \end{figure}
+
+    
 
 
     
