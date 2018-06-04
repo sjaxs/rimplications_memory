@@ -18,26 +18,25 @@ conforme a una estructura bien definida y f\'acilmente accesible para R.
 Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
 nuevas.
 Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambi\'en incorpora m\'as ficheros, 
-los cuales se van a detallar a continuaci\'on.\\
+los cuales se van a detallar a continuaci\'on.
 
 La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{DESCRIPTION}, donde se puede ver qu\'e hace 
 el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la documentaci\'on... entre otros datos.
 
 En el fichero \textbf{NAMESPACE} se deber\'an especificar todos aquellos objetos que ser\'an importados o exportados del paquete.
 
-En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.\\
+En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.
 
 Para finalizar con los ficheros, podremos encontrar en algunos casos uno llamado \textbf{NEWS}, en el cual estar\'an 
 incluidos los cambios que se realizan de una versi\'on a otra.
-\\
 
 La carpeta \textbf{R} es el n\'ucleo de la estructura, aqu\'i se encuentran todos los archivos \textbf{\textbf{.R}} con el c\'odigo de las funciones que incluya dicho paquete.
 Es recomendable no aglutinar todo el c\'odigo en un mismo archivo, sino separar las funciones que tienen relaci\'on 
-o que cumplen cierta funcionalidad en archivos separados, as\'i como dar un nombre descriptivo a los archivos.\\
+o que cumplen cierta funcionalidad en archivos separados, as\'i como dar un nombre descriptivo a los archivos.
 
 La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos paquetes compondr\'an el \enquote*{Manual de referencia} 
 del paquete. Cada uno de estos ficheros, se debe corresponder a cada uno de los archivos que se encuentran 
-en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.\\
+en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.
 
 En la carpeta \textbf{data} se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
 de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
@@ -247,9 +246,9 @@ se usar\'a \textbf{plyr::sumarize()} o \textbf{Hmisc::sumarize()}.
 \textbf{NAMESPACE} hace el paquete autocontenido, tanto con los \textbf{Imports}, como con los
 exports. Los \textbf{Imports}, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
 otro. Los \textbf{exports}, ayudan a evitar los conflictos con otros paquetes especificando qu\'e
-funciones se pueden usar fuera de nuestro paquete.
+funciones se pueden usar fuera de nuestro paquete.\\
 
-\textbf{El archivo NAMESPACE}\\
+\textbf{El archivo NAMESPACE}
 
 Cada l\'inea contiene una directriz: \textbf{S3method(), export(), exportClasses()}, adem\'as de otros.
 Cada una de estas directivas describe un objeto de R, que nos indica si se exporta desde
@@ -279,12 +278,10 @@ usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspond
 \textbf{devtools::document()} (o, \textbf{Ctrl + Shift +D}) y se comprueba que el archivo \textbf{NAMESPACE} se
 haya modificado correctamente.\\
 
-Ejemplo de archivo \textbf{NAMESPACE} generado por \textbf{roxygen2}:
-
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{namespace_2}
-    \caption{Ejemplo NAMESPACE }
+    \caption{Ejemplo de archivo NAMESPACE generado por roxygen2 }
     \label{fig:namespace}
 \end{figure} 
 
@@ -378,8 +375,9 @@ funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respe
 anterior de nuestro paquete. Dado que estos dos archivos no son soportados por CRAN no
 hay que a\~nadirlos a la hora de construir el paquete\\ (\textbf{devtools::use\_build\_ignore("NEWS.md"),
 devtools::use\_build\_ignore("README.md")})
+\newpage
+\textbf{Lanzamiento}
 
-\textbf{Lanzamiento}\\
 Lleg\'o la hora de construir nuestro paquete y subirlo a CRAN. Para construir nuestro paquete
 usamos \textbf{devtools::release()}. Esto se encarga de volver a comprobar el paquete una \'ultima
 vez y nos hace una serie de preguntas acerca de buenas pr\'acticas a modo de comprobaci\'on,
