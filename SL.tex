@@ -8,7 +8,7 @@ Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos p
 reglas y la complejidad de las mismas, con el objetivo de minimizar los requisitos computacionales y de tiempo
 necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el c\'odigo de los algoritmos.
 
-Esta l\'ogica de simplificaciones esta basada en los axiomas de Amstrong.
+Esta l\'ogica de simplificaciones esta basada en los axiomas de Amstrong.\\
 
 \textbf{Axioma de Reflexividad}
 
@@ -38,7 +38,7 @@ La uni\'on de reglas parte de la base de que si tenemos dos reglas (\(X \to Y , 
 \end{center}
 
 \lstinputlisting{r_code/composition.R}
-
+\bigskip
 \textbf{Simplificaci\'on}\\
 La simplificaci\'on de reglas se basa en que si disponemos de dos reglas \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) podemos simplificar la otra regla de la siguiente forma:
 
@@ -48,7 +48,7 @@ La simplificaci\'on de reglas se basa en que si disponemos de dos reglas \\ (\(X
 \end{center}
 
 \lstinputlisting{r_code/simplification.R}
-
+\bigskip
 \textbf{Rsimplificaci\'on}\\
 La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se simplifica la parte derecha de la regla, es decir, su consecuente:
 
@@ -58,11 +58,10 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se 
 \end{center}
 
 \lstinputlisting{r_code/rsimp.R}
-
+\bigskip
 % \textbf{Lsimplificaci\'on}\\
 
 % \lstinputlisting{r_code/lsimp.R}
-\newpage
 \textbf{Simplificaci\'on fuerte}\\
 
 EXPLICACION?
