@@ -50,4 +50,25 @@ Existe una estrecha relaci\'on entre los covers de un atributo y los generadores
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/d.basis.R}
 \newpage
-\subsubsection{Ejemplo} 
+\subsubsection{Ejemplo}
+A continuaci\'on se muestra un peque\~no ejemplo de ejecuci\'on del algoritmo. Para ello se parte del conjunto de atributos \(M\) y del conjunto de implicaciones \(\Gamma\) que se puede ver en la imagen \ref{fig:dbasis_2}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{dbasis_2}
+    \caption{Ejemplo DBasis 1}
+    \label{fig:dbasis_2}
+\end{figure} 
+Aqu\'i se puede ver el resultado:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{dbasis_3}
+    \caption{Ejemplo DBasis 2}
+    \label{fig:dbasis_3}
+\end{figure} 
+Aunque el ejemplo expuesto tiene un conjunto reducido de reglas y atributos, se puede apreciar la mejora de rendimiento a la hora del calc\'ulo del cierre si se hace sobre una base, en comparaci\'on a si se hace con el conjunto de implicaciones inicial.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{dbasis_4}
+    \caption{Comparativa de calculo del cierre}
+    \label{fig:dbasis_4}
+\end{figure} 
