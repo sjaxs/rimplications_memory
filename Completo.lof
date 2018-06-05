@@ -1,23 +1,23 @@
 \babel@toc {spanish}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Reglas Mushroom}}{16}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Reglas Mushroom no redundates}}{17}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces C\'alculo del cierre}}{18}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Tiempos de c\'alculo del cierre}}{18}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Pruebas remove.redundancy}}{21}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo apply.closure}}{24}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Pruebas apply.closure}}{25}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Ejemplo DBasis 1}}{35}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Ejemplo DBasis 2}}{35}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Comparativa de calculo del cierre}}{36}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces Ejemplo LCS 1}}{40}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Ejemplo LCS 2}}{40}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Ejemplo LCS 3}}{41}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Ejemplo Reduction}}{46}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Ejemplo roxygen2 }}{51}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Configuraci\'on Build Tools }}{51}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Ejemplo Archivo DESCRIPTION }}{52}{figure.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Imports y Suggests con devtools }}{52}{figure.18}
-\contentsline {figure}{\numberline {19}{\ignorespaces Ejemplo roxygen2 }}{53}{figure.19}
-\contentsline {figure}{\numberline {20}{\ignorespaces Ejemplo documentaci\'on paquete }}{55}{figure.20}
-\contentsline {figure}{\numberline {21}{\ignorespaces Ejemplo de archivo NAMESPACE generado por roxygen2 }}{57}{figure.21}
-\contentsline {figure}{\numberline {22}{\ignorespaces Comentarios CRAN}}{59}{figure.22}
+\contentsline {figure}{\numberline {1}{\ignorespaces Reglas Mushroom}}{15}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Reglas Mushroom no redundates}}{16}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces C\'alculo del cierre}}{17}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Tiempos de c\'alculo del cierre}}{17}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Pruebas remove.redundancy}}{20}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo apply.closure}}{23}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Pruebas apply.closure}}{24}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Ejemplo DBasis 1}}{34}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Ejemplo DBasis 2}}{34}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Comparativa de calculo del cierre}}{35}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Ejemplo LCS 1}}{39}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Ejemplo LCS 2}}{39}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Ejemplo LCS 3}}{40}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Ejemplo Reduction}}{45}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Ejemplo roxygen2 }}{49}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Configuraci\'on Build Tools }}{50}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Ejemplo Archivo DESCRIPTION }}{51}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Imports y Suggests con devtools }}{51}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ejemplo roxygen2 }}{52}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Ejemplo documentaci\'on paquete }}{54}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Ejemplo de archivo NAMESPACE generado por roxygen2 }}{56}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Comentarios CRAN}}{58}{figure.22}
