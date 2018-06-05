@@ -43,7 +43,7 @@ A continuaci\'on se van a detallar ambas funciones:
         insertar un n\'umero negativo, lo que indicar\'a que se desea que haya m\'as atributos en el consecuente. Por lo que si el n\'umero 
         es positivo, el antecedente tendr\'a m\'as atributos.
 
-        En este caso, hay que tener en cuenta de que el valor absoluto del n\'umero insertado en este par\'ametro, debe ser menor 
+        En este caso, hay que tener en cuenta que el valor absoluto del n\'umero insertado en este par\'ametro, debe ser menor 
         que el n\'umero total de atributos.
 
         En caso de no especificar nada, la diferencia de atributos entre antecedente y consecuente ser\'a aleatoria.
@@ -51,19 +51,19 @@ A continuaci\'on se van a detallar ambas funciones:
 
         \item \textbf{percentage:}
 
-        Este par\'ametro es bastante parecido al anterior, solo que en este caso, se trata de el m\'aximo porcentaje de diferencia entre 
+        Este par\'ametro es bastante parecido al anterior, solo que en este caso, se trata del m\'aximo porcentaje de diferencia entre 
         el antecedente y el consecuente. Al igual que en el anterior, si el porcentaje es negativo, el consecuente ser\'a mayor, y en caso de 
         ser positivo, el antecedente tendr\'a m\'as atributos que el consecuente. Al ser un porcentaje, el valor debe ser menor estricto que 
         100.
 
-        Cabe especificar, que tanto este par\'ametro, como el anterior, se tratan de tama\~os m\'aximos, es decir, que no todas las implicaciones 
+        Cabe especificar, que tanto este par\'ametro, como el anterior, se tratan de tama\~nos m\'aximos, es decir, que no todas las implicaciones 
         van a tener la diferencia exacta que se le especifique entre antecedente y consecuente, sino que el n\'umero o porcentaje ser\'a la 
         mayor diferencia que se encontrar\'a en el sistema de implicaciones.
 
 
         \item \textbf{maxLeftSize:}
 
-        Con este par\'ametro opcional, se puede especificar el n\'umero de elementos m\'aximo que se quiere que se tenga el antecedente, como 
+        Con este par\'ametro opcional, se puede especificar el n\'umero de elementos m\'aximo que se quiere que tenga el antecedente, como 
         es de esperar, no debe superar al n\'umero total de atributos.
 
 
@@ -83,7 +83,7 @@ A continuaci\'on se van a detallar ambas funciones:
         \item \textbf{numFiles:}
 
         Por \'ultimo, un par\'ametro opcional en el que se puede especificar cu\'antos ficheros se quiere que se generen. Si no se especifica, 
-        solo se generar\'a un archivo, en caso contrario, los archivos tendr\'an como nombre el especificado seguido de in guion bajo y un n\'umero 
+        solo se generar\'a un archivo, en caso contrario, los archivos tendr\'an como nombre el especificado seguido de un guion bajo y un n\'umero 
         para distinguirlos.
 
     \end{itemize}
@@ -180,6 +180,109 @@ A continuaci\'on se van a detallar ambas funciones:
 
     \textbf{Descripci\'on}
 
+    Un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G x M \). Los elementos 
+    de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) son una relaci\'on I, se escribir\'a 
+    \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
+
+    \textcolor{red}{A\~nadir referencia paper}
+
+    La manera habitual de representar un contexto formal es mediante una tabla, la cual contar\'a con una fila para cada objeto y una columna 
+    para cada atributo, con una cruz en la intersecci\'on entre una fila g con una columna m sii el objeto g tiene un atributo m, \(g,m) \in 
+    I \).
+
+    Por ello, la estructura m\'as sencilla a la hora de programar un algoritmo para contextos formales en R ser\'a un data.frame.
+    \\
+
+
+    Luego, en este caso, esta funci\'on va a generar un contexto formal siguiendo algunos par\'ametros que se pueden elegir a la 
+    hora de ejecutar dicha funci\'on para obtener el contexto lo m\'as adecuado posible para lo que se desee.
+
+    Los objetos del contexto se van a representar como obj1, obj2... y los atributos como att1, att2... Ambos comenzando en 1, de forma 
+    consecutiva hasta el n\'umero que el usuario indique.
+    \\
+
+    Los par\'ametros de esta funci\'on son:
+
+    \begin{itemize}
+        \item \textbf{num.obj:}
+
+        Con este par\'ametro obligatorio se indicar\'a el n\'umero de objetos que debe tener el contexto, o lo que es lo mismo, 
+        cu\'antas filas tendr\'a el data.frame. Este par\'ametro debe ser mayor que uno, 
+        ya que no tendr\'ia sentido crear un contexto sin objetos.
+
+
+        \item \textbf{num.attr:}
+
+        Este par\'ametro obligatorio indicar\'a cual ser\'a el n\'umero de atributos del contexto, es decir, las columnas que tendr\'a el 
+        data.frame. De nuevo, debe ser un n\'umero mayor que uno, ya que tampoco tendr\'ia sentido en este caso crear un contexto sin 
+        atributos.
+
+        \item \textbf{sparness:}
+
+        Como par\'ametro opcional, tenemos la dispersi\'on, es decir la probabilidad de que un objeto tenga un atributo, o lo que es 
+        lo mismo a la hora de programarlo, que en el cruce de columna y fila, haya un uno.
+        Como este par\'ametro se trata de una probabilidad, su valor debe estar entre 0 y 1.
+
+    \end{itemize}
+
+
+    Cuando se utilice la funci\'on, esta devolver\'a un data.frame, siendo los nombres de filas los objetos, y los de las columnas 
+    los atributos.
+
+
+    \bigskip
+
     \textbf{C\'odigo}
 
+    A la hora de optimizar el c\'odigo, si el par\'ametro sparness no est\'a vac\'io, se ha decidido generar aleatoriamente el n\'umero de 
+    unos o ceros dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro sparness 0.2, con 4 objetos 
+    y 5 atributos, esto querr\'a decir que debe haber cuatro unos entre los 20 elementos a generar aleatoriamente. Por lo que en este caso, 
+    el n\'umero de unos ser\'a menor que el de ceros, as\'i que se colocar\'an cuatro unos aleatoriamente, rellenando las dem\'as posiciones 
+    del data.frame de ceros.
+
+    Como el algoritmo se va a ejecutar de formas diferentes dependiendo de las entradas que elija el usuario, se ha decidido modularizarlo 
+    para poder comprenderlo bien. Veamos las diferentes partes:
+
+    \clearpage
+
+    Aqu\'i tenemos el algoritmo principal, que ser\'a el que el usuario utilice:
+
+    \lstinputlisting{r_code/randomGenerators/context.R}
+    \bigskip
+
+    En el caso de que el usuario no especifique el par\'ametro sparness, el contexto se generar\'a totalmente de forma aleatoria:
+
+    \lstinputlisting{r_code/randomGenerators/noSpar.R}
+    \clearpage
+
+    Y como se ha especificado anteriormente, dependiendo de cu\'al sea la probabilidad de dispersi\'on elegida por el usuario, se generar\'an 
+    los unos o los ceros:
+
+    \lstinputlisting{r_code/randomGenerators/ones.R}
+    \bigskip
+    \lstinputlisting{r_code/randomGenerators/zeros.R}
+    \bigskip
+
     \textbf{Ejemplo}
+
+    Como primer ejemplo, se va a generar un contexto sin el par\'ametro sparness, con 4 objetos y 5 atributos:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{randomC1}
+        \caption{Ejemplo 1 de contexto aleatorios}
+        \label{fig:randomC1}
+    \end{figure}
+
+    \bigskip
+    Y como segundo ejemplo, un contexto con 6 objetos y 8 atributos, con 0.5 de sparness:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{randomC2}
+        \caption{Ejemplo 2 de contexto aleatorios}
+        \label{fig:randomC2}
+    \end{figure}
+
+    Como podemos observar, el n\'umero de ceros y unos es el mismo, ya que se ha elegido como par\'ametro de esparness 0.5.
+    
