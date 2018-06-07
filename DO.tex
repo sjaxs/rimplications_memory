@@ -1,14 +1,9 @@
 \subsubsection{Descripci\'on} 
 
-\textbf{
-K. Bertet [Bertet 2010] proposed the so called direct-optimal basis.
-K. Adaricheva [Adaricheva 2012] proposed the so called D-basis as a subset of direct-optimal basis.
-Open problem: Improving the computation of these basis (or something similar) to reduce massive closures computations in a second stage.}
-
-
 \textbf{Direct-optimal basis computation by means of the fusion of Simplification rules, E. Rodr ́ıguez-Lorenzo et.al., Last review Discrete Appl. Math (2017)}
 
 Una vez que hemos conseguido un algoritmo para el c\'alculo del cierre eficiente y optimizado, el siguiente paso para reducir el coste del c\'alculo del cierre es optimizar todo lo posible el sistema implicacional de entrada. Es aqu\'i donde entran en juego nuevos conceptos como son por ejemplo el de base directa \'optima. A continuac\'on se van a detallar algunos de estos conceptos.
+
 
 \textbf{Base}
 
@@ -24,9 +19,17 @@ Un sistema implicacional \( \Sigma \) se dice que es:
 
 \textbf{Directo}
 
-Un sistema implicacional \( \Sigma \) se dice que es directo  cuando, \( para \ todo \ X \subseteq S \ se \ tiene \ que \\ X^+_{\Sigma} =  X \cup \bigcup\{ B | A \to B \in \Sigma \ para \ algun \ A \subseteq X \} \). Esto se traduce en que se puede calcular el cierre de un conjunto de atributos con una sola pasada y que ninguna de las implicaciones puede ser eliminada sin perder esta propiedad.
+Un sistema implicacional \( \Sigma \) se dice que es directo cuando, \( para \ todo \ X \subseteq S \ se \ tiene \ que \\ X^+_{\Sigma} =  X \cup \bigcup\{ B | A \to B \in \Sigma \ para \ algun \ A \subseteq X \} \). Esto se traduce en que se puede calcular el cierre de un conjunto de atributos con una sola pasada y que ninguna de las implicaciones puede ser eliminada sin perder esta propiedad.
 
-Por tanto, ya se esta en condiciones de conocer que es una base directa \'optima.
+Por tanto, ya se esta en condiciones de conocer que es una base directa \'optima.\\
+
+\textbf{Teor\'ema}\cite{Bertet04} 
+
+Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \)
+
+K. Bertet \cite{BERTET20102155} propuso la llamada base directa optima como primera aproximaci\'on para reducir el coste del c\'alculo del cierre. Mientras que  K. Adaricheva \cite{Adaricheva} propuso la llamada D-Base como un subconjunto de la base directa optimal. Esto supon\'ia un problema abierto: Mejorar el c\'alculo de estas bases (o algo similar) para reducir el coste del c\'alculo del cierre en consecuencia.
+
+Como soluci\'on al c\'alculo de bases directas optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo \cite{DO2}, llamado SLgetdo en el cu\'al se aplicanlas reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\) 
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
@@ -36,7 +39,7 @@ A continuaci\'on, se muestra un ejemplo del c\'alculo de una base directa optima
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.75]{do_1}
-    \caption{Ejemplo SLgetDO 1}
+    \caption{Ejemplo SLgetdo 1}
     \label{fig:do_1}
 \end{figure} 
 
@@ -44,7 +47,7 @@ Aqu\'i se puede ver el resultado:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.75]{do_2}
-    \caption{Ejemplo SLgetDO 2}
+    \caption{Ejemplo SLgetdo 2}
     \label{fig:do_2}
 \end{figure} 
 Y, como era de esperar, el hecho de usar una base directa optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, d\'onde el c\'alculo es practicamente inmediato.
