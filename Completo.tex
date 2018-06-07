@@ -12,6 +12,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[pdftex,bookmarksnumbered,hidelinks]{hyperref} %hyper-references%
 \usepackage{float}
+\usepackage[nottoc]{tocbibind}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
@@ -50,16 +51,18 @@
 \newpage
 \tableofcontents
 \newpage
+\listoffigures
+\newpage
 \input{Introduccion.tex}
+\input{Paquetes2.tex}
 % \input{Motivacion.tex}
 % \input{Objetivos.tex}
 % \input{EstudioDelArte.tex}
 \input{Algoritmos.tex}
-\input{Paquetes2.tex}
 \input{Manual.tex}
+\input{Bibliografia.tex}
 
 
 
-\listoffigures
 
 \end{document}

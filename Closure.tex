@@ -1,14 +1,22 @@
 \subsubsection{Descripci\'on} 
 
+\textbf{The SLFD logic allows us to develop several automated deduction methods:
+Algorithm for redundancy elimination - CAEPIA 2003 (not complete)
+Algorithm for obtaining the closure of a set of attributes - CAEPIA 2005 - International Journal of Computer Mathematics 2011}
+
+\textbf{K. Bertet points to a good direction in [Bertet 2004] where Implicational Systems (IS) are highlighted as convenient tools to handle a closure system.
+K. Adaricheva [Adaricheva 2012] affirms that the search for the efficiency in the set closure computation is a major challenge.}
+
 Dado un conjunto de atrinutos \( M \) y un conjunto de implicaciones (o dependencias funcionales) \( \Sigma \) sobre \( M \) y sea \( X \subseteq M \), el cierre de \( X \) con respecto a \( \Sigma \), \( X^+_{\Sigma} \), es el subconjunto de \( M \) mas grande que cumple que \( \Sigma \vdash X \to X^+_{\Sigma} \).
 
+\textbf{N. Caspard and B. Monjardet cite in [Discrete Mathematics 2003]}
 El cierre es muy usado en inteligencia artificial y bases de datos, ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
 
-Por ello, se ha desarrollado un algoritmo de cierre basado en la l\'ogica de implicaciones, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
+Por ello, se ha desarrollado un algoritmo de cierre basado en la L\'ogica de Simplicaciones \cite{Mora2012a}, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
 
 De nuevo, se dispon\'ia de una primera implementaci\'on del algoritmo, la cual ha sido mejorada y optimizada con el fin de reducir el coste computacional del c\'alculo del cierre.
 
-Si comparamos esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura podemos ver que se consigue una mejora considerable:
+Si se compara esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura podemos ver que se consigue una mejora considerable \cite{Mora2012a}:
 
 \begin{center}
     \begin{tabular}{c c}

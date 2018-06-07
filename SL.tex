@@ -1,14 +1,6 @@
 \subsubsection{Descripci\'on} 
 
-El primer paso del desarrollo de este projecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
-orientadas a aplicar la l\'ogica de simplificaciones a los conjuntos de reglas con los que se trabaja. Como 
-puede ser la composici\'on de reglas, la reducci\'on, la uni\'on y la simplificaci\'on.
-
-Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos permiten reducir el n\'umero de 
-reglas y la complejidad de las mismas, con el objetivo de minimizar los requisitos computacionales y de tiempo
-necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el c\'odigo de los algoritmos.
-
-Esta l\'ogica de simplificaciones esta basada en los axiomas de Amstrong.\\
+La base de este projecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'logica deriva de los axiomas de Amstrong, los c\'uales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
 
 \textbf{Axioma de Reflexividad}
 
@@ -27,6 +19,43 @@ Esta l\'ogica de simplificaciones esta basada en los axiomas de Amstrong.\\
 \begin{center}
     \(X \to Y \wedge Y \to Z \implies X \to Z \)
 \end{center}
+
+Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deduccion automatica. De ahi el uso de la logica de simplificaciones en su lugar. El conjunto de axiomas y reglas de inferencias de esta logica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancias en los sistemas de implicaciones, es decir,simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un metodo de deduccion automatica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]
+
+
+
+
+El primer paso del desarrollo de este projecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
+orientadas a aplicar la l\'ogica de simplificaciones a los conjuntos de reglas con los que se trabaja. Como 
+puede ser la composici\'on de reglas, la reducci\'on, la uni\'on y la simplificaci\'on.
+
+Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos permiten reducir el n\'umero de 
+reglas y la complejidad de las mismas, con el objetivo de minimizar los requisitos computacionales y de tiempo
+necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el c\'odigo de los algoritmos.
+
+Los axiomas de Amstrong constituyen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
+
+\textbf{Axioma de Reflexividad}
+
+\begin{center}
+    \(Y \subseteq X \implies X \to Y \)
+\end{center}
+
+\textbf{Axioma de Aumentatividad}
+
+\begin{center}
+    \(X \to Y \implies XZ \to YZ \ para \ cualquier \ Z \)
+\end{center}
+
+\textbf{Axioma de Transitividad}
+
+\begin{center}
+    \(X \to Y \wedge Y \to Z \implies X \to Z \)
+\end{center}
+
+PROBLEMA DE LOS AXIOMAS DE AMSTRONG
+
+De estos axiomas se derivan las reglas de la l\'ogica de simplificaciones que han servido como base para el desarrollo de este projecto, siendo equivalentes a los axiomas de Amstrong.
 
 Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on o la uni\'on de reglas.\\
 

@@ -36,8 +36,7 @@ SLgetDO <- function(Sigma){
             }
             Gamma <- add.imp(Gamma, C, D)
             #Aplicamos la simplificacion fuerte
-            aux <- add.sSimpBoth(A,B,C,D,Sigma)
-            
+            aux <- add.sSimpBoth(A,B,C,D,Sigma) 
             if(cardinality.set(aux) != 0){
               Gamma <- add.imp(Gamma, read.left(aux,1), read.right(aux,1))
               if(cardinality.set(aux) == 2){
@@ -58,15 +57,11 @@ SLgetDO <- function(Sigma){
     }
   }
   SigmaDO <- apply.composition.eq(SigmaDO)
-  
   return(SigmaDO)
 }#end function SLgetDO
 
-
-
 simplify <- function(Sigma){
   fixpoint <- FALSE
-  
   while (!fixpoint){
     fixpoint <- TRUE
     SigmaS <- Sigma
@@ -103,12 +98,10 @@ simplify <- function(Sigma){
         Sigma <- Gamma
       }
     }#end for k
-    
     if(!equals.sets(Sigma, SigmaS)){
       fixpoint <- FALSE
     }
   }#end while
-  
   return(SigmaS)
 }#end function simplify
 

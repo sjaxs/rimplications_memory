@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{Cordero2002}
+Pablo Cordero, Manuel~Manolo Enciso, Angel Mora, Inman P{\'{e}}rez~InmaculadaP.
+  de~Guzm{\'{a}}n, {\'{A}}ngel Mora, and I~{P{\'{e}}rez de Guzman}.
+\newblock {SLFD Logic: Elimination of Data Redundancy in Knowledge
+  Representation}.
+\newblock 2527:141--150, 2002.
+
+\bibitem{Mora2012a}
+A.~Mora, P.~Cordero, M.~Enciso, I.~Fortes, and G.~Aguilera.
+\newblock {Closure via functional dependence simplification}.
+\newblock {\em International Journal of Computer Mathematics}, 89(4):510--526,
+  2012.
+
+\bibitem{DBasis}
+Estrella Rodr\'iguez-Lorenzo, Kira Adaricheva, Pablo Cordero, Manuel Enciso,
+  and Angel Mora.
+\newblock {D-basis algorithm: From an implicational system to its corresponding
+  D-basis}.
+\newblock CLA 2015: 217--228, 2015.
+
+\end{thebibliography}
