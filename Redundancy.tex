@@ -12,39 +12,39 @@ volume = {3040},
 year = {2003}
 }
 
-El objetivo de este algoritmo es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las reglas redundantes de un dataset de reglas antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.
+El objetivo de este algoritmo es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.
 
-El proceso de eliminar reglas redundantes se basa en aplicar la l\'ogica de implicaciones que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de reglas cuya parte derecha este vac\'ia y unir reglas que compartan parte izquierda (consecuente).
+El proceso de eliminar implicaciones redundantes se basa en aplicar la l\'ogica de implicaciones que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
-Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de reglas de forma repetida hasta que se alcance un punto fijo, es decir, no se puedan simplificar m\'as reglas.
+Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma repetida hasta que se alcance un punto fijo, es decir, no se puedan simplificar m\'as implicaciones.
 
-El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar reglas que puedan ser inferidas transitivamente a partir de otras.
+El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.
 
-Para ilustrar la importancia de este algoritmo vamos a ver algunos ejemplos donde se pueda apreciar el n\'umero de reglas que se eliminan y su importancia en la reducci\'on de coste computacional.
+Para ilustrar la importancia de este algoritmo vamos a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
 \subsubsection{Ejemplo}
 
-Para ilustrar este ejemplo, vamos a partir de un conjunto de 200 reglas generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
+Para ilustrar este ejemplo, vamos a partir de un conjunto de 200 implicaciones generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{red_1}
-    \caption{Reglas Mushroom}
+    \caption{Implicaciones Mushroom}
     \label{fig:red_1}
 \end{figure} 
 
-A este conjunto le aplicamos el algoritmo y vemos cuantas reglas no redundantes se obtienen a partir del conjunto inicial.
+A este conjunto le aplicamos el algoritmo y vemos cuantas implicaciones no redundantes se obtienen a partir del conjunto inicial.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{red_2}
-    \caption{Reglas Mushroom no redundates}
+    \caption{Implicaciones Mushroom no redundates}
     \label{fig:red_2}
 \end{figure} 
 
-Como se puede ver, de 200 reglas iniciales, se consigue reducir a 38 reglas, lo que supone una reducci\'on nada despreciable del 81 \% .
+Como se puede ver, de 200 implicaciones iniciales, se consigue reducir a 38 implicaciones, lo que supone una reducci\'on nada despreciable del 81 \% .
 
-Si probamos a utilizar estos conjuntos de reglas con otros algoritmos se podr\'a ver la reducci\'on del coste computacional. En este caso se va a probar el algoritmo que calcula el cerrado de un conjunto de reglas a partir de un conjunto de atributos.
+Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se podr\'a ver la reducci\'on del coste computacional. En este caso se va a probar el algoritmo que calcula el cerrado de un conjunto de implicaciones a partir de un conjunto de atributos.
 
 \begin{figure}[H]
     \centering
@@ -77,4 +77,4 @@ Aunque, en este caso pueda parecer que la diferencia de tiempo es poca, se debe 
 
 En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo.
 
-C\'omo se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de reglas.
+C\'omo se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de implicaciones.

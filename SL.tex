@@ -26,11 +26,11 @@ Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mec
 
 
 El primer paso del desarrollo de este projecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
-orientadas a aplicar la l\'ogica de simplificaciones a los conjuntos de reglas con los que se trabaja. Como 
-puede ser la composici\'on de reglas, la reducci\'on, la uni\'on y la simplificaci\'on.
+orientadas a aplicar la l\'ogica de simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
+puede ser la composici\'on de implicaciones, la reducci\'on, la uni\'on y la simplificaci\'on.
 
 Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos permiten reducir el n\'umero de 
-reglas y la complejidad de las mismas, con el objetivo de minimizar los requisitos computacionales y de tiempo
+implicaciones y la complejidad de las mismas, con el objetivo de minimizar los requisitos computacionales y de tiempo
 necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el c\'odigo de los algoritmos.
 
 Los axiomas de Amstrong constituyen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
@@ -57,10 +57,10 @@ PROBLEMA DE LOS AXIOMAS DE AMSTRONG
 
 De estos axiomas se derivan las reglas de la l\'ogica de simplificaciones que han servido como base para el desarrollo de este projecto, siendo equivalentes a los axiomas de Amstrong.
 
-Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on o la uni\'on de reglas.\\
+Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on o la uni\'on de implicaciones.\\
 
 \textbf{Uni\'on}\\
-La uni\'on de reglas parte de la base de que si tenemos dos reglas (\(X \to Y , X \to Z\)) cuyos antecedentes son iguales, podemos inferir una nueva regla que tendr\'a como antecedente el m\'ismo y como consecuente la uni\'on de los consecuentes de ambas reglas, es decir:
+La uni\'on de implicaciones parte de la base de que si tenemos dos implicaciones (\(X \to Y , X \to Z\)) cuyos antecedentes son iguales, podemos inferir una nueva regla que tendr\'a como antecedente el m\'ismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:
 
 \begin{center}
     \(X \to Y \wedge X \to Z \implies X \to YZ \)
@@ -69,10 +69,10 @@ La uni\'on de reglas parte de la base de que si tenemos dos reglas (\(X \to Y , 
 \lstinputlisting{r_code/composition.R}
 \bigskip
 \textbf{Simplificaci\'on}\\
-La simplificaci\'on de reglas se basa en que si disponemos de dos reglas \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) podemos simplificar la otra regla de la siguiente forma:
+La simplificaci\'on de implicaciones se basa en que si disponemos de dos implicaciones \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) podemos simplificar la otra regla de la siguiente forma:
 
 \begin{center}
-    \(Siendo \ X \to Y \ y \ U\to V \ dos \ reglas \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (U - Y)\)
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (U - Y)\)
     % \(U \to V \implies (U - Y) \to (U - Y) \)
 \end{center}
 
@@ -82,7 +82,7 @@ La simplificaci\'on de reglas se basa en que si disponemos de dos reglas \\ (\(X
 La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se simplifica la parte derecha de la regla, es decir, su consecuente:
 
 \begin{center}
-    \(Siendo \ X \to Y \ y \ U\to V \ dos \ reglas \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies U \to (U - Y)\)
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies U \to (U - Y)\)
     % \(U \to V \implies (U - Y) \to (U - Y) \)
 \end{center}
 
@@ -96,7 +96,7 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se 
 EXPLICACION?
 
 \begin{center}
-    \(Siendo \ A \to B \ y \ C\to D \ dos \ reglas \ | D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
+    \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
 \end{center}
 
 \begin{center}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Cordero2002}
 Pablo Cordero, Manuel~Manolo Enciso, Angel Mora, Inman P{\'{e}}rez~InmaculadaP.
@@ -36,6 +36,13 @@ Estrella Rodr\'iguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso, and
 \newblock Direct-optimal basis computation by means of the fusion of
   simplification rules.
 \newblock {\em Discrete Applied Mathematics}, 04 2018.
+
+\bibitem{doSimp}
+Estrella Rodríguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso, Angel
+  Mora-Bonilla, and Manuel Ojeda-Aciego.
+\newblock From implicational systems to direct-optimal bases: A logic-based
+  approach.
+\newblock 9:305--317, 01 2015.
 
 \bibitem{DBasis}
 Estrella Rodr\'iguez-Lorenzo, Kira Adaricheva, Pablo Cordero, Manuel Enciso,

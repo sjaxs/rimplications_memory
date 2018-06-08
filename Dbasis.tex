@@ -1,14 +1,15 @@
 \subsubsection{Descripci\'on} 
 
-\textbf{Motivation
-D-basis: Ordered direct implicational basis of a finite closure system, K. Adaricheva, et.al., Discrete Applied Mathematics, 161 (6): 707-723, 2013
-Compromise between the size of the implicational set and the efficiency of its management
-}
-\cite{DBasis}
+% \textbf{Motivation
+% D-basis: Ordered direct implicational basis of a finite closure system, K. Adaricheva, et.al., Discrete Applied Mathematics, 161 (6): 707-723, 2013
+% Compromise between the size of the implicational set and the efficiency of its management
+% }
 
-Antes de entrar en el concepto de D-Basis, se detallar\'an otros conceptos con el fin de entrar en contexto.
+Este algoritmo \cite{DBasis} se desarroll\'o con el objetivo  de reducir el coste computacional del c\'alculo del cierre haciendo uso del concepto de D-Base presentado por K. Adaricheva \cite{Adaricheva}
 
-Se parte de un conjunto de reglas, \( \Sigma \), y un conjunto de atributos \( M \).\\
+Antes de entrar en el concepto de D-Base, se detallar\'an otros conceptos con el fin de entrar en contexto.\\
+
+Se parte de un conjunto de implicaciones, \( \Sigma \), y un conjunto de atributos \( M \).\\
 
 \textbf{Operador de cierre at\'omico}\\
 Se parte de que \(\Sigma\) cumple las siguientes propiedades:
@@ -30,14 +31,14 @@ Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un cover de \(x\) si \
 Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un proper cover de \(x\) si \(x \in X^+_{\Sigma} \setminus X^*_{\Sigma}\), denotado por \(x \dot\sim X\)
 
 \textbf{Minimals propers covers}\\
-Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un minimal proper cover de \(x\) si de cumple que:
+Sea \(X \subseteq M\) y \(x \in X\), se dice que \(X\) es un minimal proper cover de \(x\) si se cumple que:
 \begin{itemize}
     \item \(x \dot\sim X\)
     \item \(x \dot\sim Z\) y \(Z \subseteq X^*_{\Sigma} \implies X \subseteq Z\)
 \end{itemize}
 
-\textbf{DBasis}\\
-Podemos definir la DBasis para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), donde:
+\textbf{D-Base}\\
+Podemos definir la D-Base para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), donde:
 
 \begin{itemize}
     \item \(\Sigma_a = \{y \to x | y \in M, x \in X^+_{\Sigma}, x \neq y \} \)
@@ -46,13 +47,11 @@ Podemos definir la DBasis para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), 
 \end{itemize}
 
 \textbf{Teor\'ema}\\
-Sea \(\Sigma\) un sistema implicacional. Si \(<\Sigma_a, \Sigma_n>\) es DBasis de \(\Sigma\) y \(\Sigma_d = \Sigma_a\cup \Sigma_n\) de forma que las implicaciones de \(\Sigma_a\) aparecen antes que las de \(\Sigma_n\), entonces \(\Sigma_d\) es una base ordenada directa de forma que \(\Sigma_d \equiv \Sigma\).
+Sea \(\Sigma\) un sistema implicacional. Si \(<\Sigma_a, \Sigma_n>\) es D-Base de \(\Sigma\) y \(\Sigma_d = \Sigma_a\cup \Sigma_n\) de forma que las implicaciones de \(\Sigma_a\) aparecen antes que las de \(\Sigma_n\), entonces \(\Sigma_d\) es una base ordenada directa de forma que \(\Sigma_d \equiv \Sigma\).
 
-De este teor\'ema radica la importancia de tener un algoritmo para el c\'alculo de la DBasis de un sistema implicacional \(\Sigma\), ya que a partir de esta, se podr\'a obtener una base ordenada directa, que como ya se ha dicho con anterioridad, permite que el c\'alculo del cierre de \(\Sigma\) sea mucho m\'as r\'apido y eficiente.\\
+De este teor\'ema radica la importancia de tener un algoritmo para el c\'alculo de la D-Base de un sistema implicacional \(\Sigma\), ya que a partir de esta, se podr\'a obtener una base ordenada directa, que como ya se ha dicho con anterioridad, permite que el c\'alculo del cierre de \(\Sigma\) sea mucho m\'as r\'apido y eficiente.\\
 
-\textbf{Covers y generadores minimales¿?¿?¿¿?}
 
-Existe una estrecha relaci\'on entre los covers de un atributo y los generadores minimales de estos covers.
 \newpage 
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/d.basis.R}
@@ -62,20 +61,22 @@ A continuaci\'on se muestra un peque\~no ejemplo de ejecuci\'on del algoritmo. P
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{dbasis_2}
-    \caption{Ejemplo DBasis 1}
+    \caption{Ejemplo D-Base 1}
     \label{fig:dbasis_2}
 \end{figure} 
 Aqu\'i se puede ver el resultado:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{dbasis_3}
-    \caption{Ejemplo DBasis 2}
+    \caption{Ejemplo D-Base 2}
     \label{fig:dbasis_3}
 \end{figure} 
-Aunque el ejemplo expuesto tiene un conjunto reducido de reglas y atributos, se puede apreciar la mejora de rendimiento a la hora del calc\'ulo del cierre si se hace sobre una base, en comparaci\'on a si se hace con el conjunto de implicaciones inicial.
+Aunque el ejemplo expuesto tiene un conjunto reducido de implicaciones y atributos, se puede apreciar la mejora de rendimiento a la hora del calc\'ulo del cierre si se hace sobre una base, en comparaci\'on a si se hace con el conjunto de implicaciones inicial.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{dbasis_4}
     \caption{Comparativa de calculo del cierre}
     \label{fig:dbasis_4}
 \end{figure} 
+
+Teniendo en cuenta que existen problemas en los que se requieren el c\'alculo masivo de cierres, cualquier peque\~na mejora puede suponer una reducci\'on de tiempo y recursos necesarios considerable.

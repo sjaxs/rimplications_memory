@@ -1,13 +1,13 @@
 \subsubsection{Descripci\'on} 
 
-\textbf{The SLFD logic allows us to develop several automated deduction methods:
-Algorithm for redundancy elimination - CAEPIA 2003 (not complete)
-Algorithm for obtaining the closure of a set of attributes - CAEPIA 2005 - International Journal of Computer Mathematics 2011}
+% \textbf{The SLFD logic allows us to develop several automated deduction methods:
+% Algorithm for redundancy elimination - CAEPIA 2003 (not complete)
+% Algorithm for obtaining the closure of a set of attributes - CAEPIA 2005 - International Journal of Computer Mathematics 2011}
 
-\textbf{K. Bertet points to a good direction in [Bertet 2004] where Implicational Systems (IS) are highlighted as convenient tools to handle a closure system.
-K. Adaricheva [Adaricheva 2012] affirms that the search for the efficiency in the set closure computation is a major challenge.}
+% \textbf{K. Bertet points to a good direction in [Bertet 2004] where Implicational Systems (IS) are highlighted as convenient tools to handle a closure system.
+% K. Adaricheva [Adaricheva 2012] affirms that the search for the efficiency in the set closure computation is a major challenge.}
 
-\textbf{N. Caspard et B. Monjardet, \"The lattices of closure systems, closure operators, and implicational systems on a finite set: a survey\", Discrete Applied Mathematics, 2003, vol. 127, pp. 241-269.}
+% \textbf{N. Caspard et B. Monjardet, \"The lattices of closure systems, closure operators, and implicational systems on a finite set: a survey\", Discrete Applied Mathematics, 2003, vol. 127, pp. 241-269.}
 El campo de aplicaci\'on de los sistemas de cierre va desde \'areas te\'oricas, como el algebra o la geometria, a \'areas practicas como en inteligencia artificial y bases de datos.
 
 Dado un conjunto de atrinutos \( M \) y un conjunto de implicaciones (o dependencias funcionales) \( \Sigma \) sobre \( M \) y sea \( X \subseteq M \), el cierre de \( X \) con respecto a \( \Sigma \), \( X^+_{\Sigma} \), es el subconjunto de \( M \) mas grande que cumple que \( \Sigma \vdash X \to X^+_{\Sigma} \).
@@ -43,7 +43,7 @@ Si se compara esta versi\'on del algoritmo con las principales versiones que pod
     \label{fig:closure_ejemplo}
 \end{figure} 
 
-Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de reglas (mush), en este caso de 1000 reglas, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de reglas.
+Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de implicaciones (mush), en este caso de 1000 implicaciones, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de implicaciones.
 \subsubsection{Comparativa/Versiones} 
 
 \begin{figure}[H]
@@ -55,5 +55,5 @@ Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de reglas (m
 
 En la figura \ref{fig:closure} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo.
 
-En este caso, dado que el coste computacional de esta funci\'on no es demasiado grande, las diferencias de rendimiento tampoco lo son si el n\'umero de reglas no es demasiado grande.
+En este caso, dado que el coste computacional de esta funci\'on no es demasiado grande, las diferencias de rendimiento tampoco lo son si el n\'umero de implicaciones no es demasiado grande.
 
