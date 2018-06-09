@@ -7,18 +7,19 @@ Pablo Cordero, Manuel~Manolo Enciso, Angel Mora, Inman P{\'{e}}rez~InmaculadaP.
   Representation}.
 \newblock 2527:141--150, 2002.
 
+\bibitem{Mora2003}
+{\'{A}}ngel Mora, Manuel Enciso, Pablo Cordero, and Inmaculada
+  Perez~P{\'{e}}rez de~Guzm{\'{a}}n.
+\newblock {An Efficient Preprocessing Transformation for Functional
+  Dependencies Sets Based on the Substitution Paradigm}.
+\newblock volume 3040 of {\em Lecture Notes in Computer Science}, pages
+  136--146. 2003.
+
 \bibitem{Mora2012a}
 A.~Mora, P.~Cordero, M.~Enciso, I.~Fortes, and G.~Aguilera.
 \newblock {Closure via functional dependence simplification}.
 \newblock {\em International Journal of Computer Mathematics}, 89(4):510--526,
   2012.
-
-\bibitem{Bertet04}
-Karell Bertet and Mirabelle Nebut.
-\newblock {Efficient Algorithms on the Family Associated to an Implicational
-  System}.
-\newblock {\em Discrete Mathematics {\&} Theoretical Computer Science},
-  6(2):315--338, 01 2004.
 
 \bibitem{BERTET20102155}
 K.~Bertet and B.~Monjardet.
@@ -38,8 +39,8 @@ Estrella Rodr\'iguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso, and
 \newblock {\em Discrete Applied Mathematics}, 04 2018.
 
 \bibitem{doSimp}
-Estrella Rodríguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso, Angel
-  Mora-Bonilla, and Manuel Ojeda-Aciego.
+Estrella Rodr\'iguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso,
+  Angel Mora-Bonilla, and Manuel Ojeda-Aciego.
 \newblock From implicational systems to direct-optimal bases: A logic-based
   approach.
 \newblock 9:305--317, 01 2015.

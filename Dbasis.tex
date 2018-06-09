@@ -5,7 +5,7 @@
 % Compromise between the size of the implicational set and the efficiency of its management
 % }
 
-Este algoritmo \cite{DBasis} se desarroll\'o con el objetivo  de reducir el coste computacional del c\'alculo del cierre haciendo uso del concepto de D-Base presentado por K. Adaricheva \cite{Adaricheva}
+Este algoritmo se desarroll\'o por E. Rodr\'iguez-Lorenzo et al. en \cite{DBasis} con el objetivo  de reducir el coste computacional del c\'alculo del cierre haciendo uso del concepto de D-Base presentado por K. Adaricheva \cite{Adaricheva}
 
 Antes de entrar en el concepto de D-Base, se detallar\'an otros conceptos con el fin de entrar en contexto.\\
 
@@ -46,10 +46,10 @@ Podemos definir la D-Base para \(\Sigma\) como el par \(<\Sigma_a, \Sigma_n>\), 
 
 \end{itemize}
 
-\textbf{Teor\'ema}\\
+\textbf{Teorema}(\cite{Adaricheva})\\
 Sea \(\Sigma\) un sistema implicacional. Si \(<\Sigma_a, \Sigma_n>\) es D-Base de \(\Sigma\) y \(\Sigma_d = \Sigma_a\cup \Sigma_n\) de forma que las implicaciones de \(\Sigma_a\) aparecen antes que las de \(\Sigma_n\), entonces \(\Sigma_d\) es una base ordenada directa de forma que \(\Sigma_d \equiv \Sigma\).
 
-De este teor\'ema radica la importancia de tener un algoritmo para el c\'alculo de la D-Base de un sistema implicacional \(\Sigma\), ya que a partir de esta, se podr\'a obtener una base ordenada directa, que como ya se ha dicho con anterioridad, permite que el c\'alculo del cierre de \(\Sigma\) sea mucho m\'as r\'apido y eficiente.\\
+De este teorema radica la importancia de tener un algoritmo para el c\'alculo de la D-Base de un sistema implicacional \(\Sigma\), ya que a partir de esta, se podr\'a obtener una base ordenada directa, que como ya se ha dicho con anterioridad, permite que el c\'alculo del cierre de \(\Sigma\) sea mucho m\'as r\'apido y eficiente.\\
 
 
 \newpage 
@@ -75,7 +75,7 @@ Aunque el ejemplo expuesto tiene un conjunto reducido de implicaciones y atribut
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{dbasis_4}
-    \caption{Comparativa de calculo del cierre}
+    \caption{Comparativa de c\'alculo del cierre}
     \label{fig:dbasis_4}
 \end{figure} 
 

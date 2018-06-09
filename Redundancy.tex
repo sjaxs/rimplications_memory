@@ -1,30 +1,20 @@
 \subsubsection{Descripci\'on} 
 
-[REFERENCIA :  
-SLFD Logic: Elimination of Data Redundancy in Knowledge Representation, P. Cordero, et.al., LNCS 2527, pp. 141-150, 2002]
+El objetivo de este algoritmo desarrollado por A. Mora et al. en \cite{Mora2003} es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.
 
-@incollection{Mora2003,
-author = {Mora, {\'{A}}ngel and Enciso, Manuel and Cordero, Pablo and de Guzm{\'{a}}n, Inmaculada Perez P{\'{e}}rez},
-pages = {136--146},
-series = {Lecture Notes in Computer Science},
-title = {{An Efficient Preprocessing Transformation for Functional Dependencies Sets Based on the Substitution Paradigm}},
-volume = {3040},
-year = {2003}
-}
-
-El objetivo de este algoritmo es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.
-
-El proceso de eliminar implicaciones redundantes se basa en aplicar la l\'ogica de implicaciones que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
+El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
 Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma repetida hasta que se alcance un punto fijo, es decir, no se puedan simplificar m\'as implicaciones.
 
-El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.
+El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.\\
 
-Para ilustrar la importancia de este algoritmo vamos a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
+\textit{Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional. Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.}\\
+
+Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
 \subsubsection{Ejemplo}
 
-Para ilustrar este ejemplo, vamos a partir de un conjunto de 200 implicaciones generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
+Para ilustrar este ejemplo, se parte de un conjunto de 200 implicaciones generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
 
 \begin{figure}[H]
     \centering

@@ -2,7 +2,13 @@
 
 \textbf{Direct-optimal basis computation by means of the fusion of Simplification rules, E. Rodr ́ıguez-Lorenzo et.al., Last review Discrete Appl. Math (2017)}
 
-Una vez que hemos conseguido un algoritmo para el c\'alculo del cierre eficiente y optimizado, el siguiente paso para reducir el coste del c\'alculo del cierre es optimizar todo lo posible el sistema implicacional de entrada. Es aqu\'i donde entran en juego nuevos conceptos como son por ejemplo el de base directa \'optima. A continuac\'on se van a detallar algunos de estos conceptos.
+Una vez que hemos conseguido un algoritmo para el c\'alculo del cierre eficiente y optimizado, el siguiente paso para reducir el coste del c\'alculo del cierre es optimizar todo lo posible el sistema implicacional de entrada. Es aqu\'i donde entran en juego nuevos conceptos como son por ejemplo el de base directa \'optima.
+
+K. Bertet \cite{BERTET20102155} propuso la llamada base directa optima como primera aproximaci\'on para reducir el coste del c\'alculo del cierre. Mientras que  K. Adaricheva \cite{Adaricheva} propuso la llamada D-Base como un subconjunto de la base directa optimal. Esto supon\'ia un problema abierto: Mejorar el c\'alculo de estas bases (o algo similar) para reducir el coste del c\'alculo del cierre en consecuencia.
+
+La importancia del c\'alculo de bases directas de sistemas implicacionales ha sido remarcada por diferentes autores en \'areas diferentes ya que su uso es crucial en problemas donde se requiere el c\'alculo de gran cantidad de cierres. Por lo tanto, cuanto mas eficiente sea el c\'alculo de estas bases, mejor rendimiento tendr\'an los m\'etodos de resoluci\'on de esos problemas. 
+
+A continuac\'on se van a detallar algunos de estos conceptos.\\
 
 
 \textbf{Base}
@@ -23,13 +29,10 @@ Un sistema implicacional \( \Sigma \) se dice que es directo cuando, \( para \ t
 
 Por tanto, ya se esta en condiciones de conocer que es una base directa \'optima.\\
 
-\textbf{Teor\'ema}\cite{Bertet04} 
-
+El teorema 2 de \cite{DO2} nos dice que: 
 Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \)\\
 
-K. Bertet \cite{BERTET20102155} propuso la llamada base directa optima como primera aproximaci\'on para reducir el coste del c\'alculo del cierre. Mientras que  K. Adaricheva \cite{Adaricheva} propuso la llamada D-Base como un subconjunto de la base directa optimal. Esto supon\'ia un problema abierto: Mejorar el c\'alculo de estas bases (o algo similar) para reducir el coste del c\'alculo del cierre en consecuencia.\\
-
-Como soluci\'on al c\'alculo de bases directas optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\). Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo \cite{doSimp}, llamado [doSimp] tambi\'en basado en la L\'ogica de Simplicaciones, apicando la simplificaci\'on (Si-Eq) y la composici\'on (Co-Eq) para simplifcar el sistema implicacional, [sSimp] para completarlo y (rSi-Eq) y (Co-Eq) para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que [SLgetdo] lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
+Como soluci\'on al c\'alculo de bases directas optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo et al. \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\). Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado [doSimp] tambi\'en basado en la L\'ogica de Simplificaciones, apicando la simplificaci\'on (Si-Eq) y la composici\'on (Co-Eq) para simplifcar el sistema implicacional, [sSimp] para completarlo y (rSi-Eq) y (Co-Eq) para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que [SLgetdo] lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
@@ -60,6 +63,6 @@ Y, como era de esperar, el hecho de usar una base directa optima para el c\'alcu
 
 Esta reducci\'on de tiempo se acent\'ua conforme crece el tama\~no del conjunto de implicaciones.
 
-Si se tiene en cuenta que para resolver determinados problemas, el c\'calculo de multitud de cierres (del orden de millones) es parte fundamental,\cite{Adaricheva} el impacto de cualquier peque\~na mejora en el c\'alculo de cada uno de esos cierres, puede suponer una diferencia abismal. De ah\'i radica la importancia de este algoritmo.
+Si se tiene en cuenta que para resolver determinados problemas, el c\'alculo de multitud de cierres (del orden de millones) es parte fundamental,\cite{Adaricheva} el impacto de cualquier peque\~na mejora en el c\'alculo de cada uno de esos cierres, puede suponer una diferencia abismal. De ah\'i radica la importancia de este algoritmo.
 
 % \subsubsection{Comparativa/Versiones} 
