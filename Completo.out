@@ -26,8 +26,22 @@
 \BOOKMARK [2][-]{subsection.2.3}{2.3 Generadores aleatorios}{section.2}% 26
 \BOOKMARK [3][-]{subsubsection.2.3.1}{2.3.1 Sistemas de implicaciones aleatorios}{subsection.2.3}% 27
 \BOOKMARK [3][-]{subsubsection.2.3.2}{2.3.2 Contextos aleatorios}{subsection.2.3}% 28
-\BOOKMARK [2][-]{subsection.2.4}{2.4 Data mining}{section.2}% 29
-\BOOKMARK [1][-]{section.3}{3 Manual de usuario}{}% 30
-\BOOKMARK [2][-]{subsection.3.1}{3.1 Requistos y dependencias}{section.3}% 31
-\BOOKMARK [2][-]{subsection.3.2}{3.2 Instalaci\363n}{section.3}% 32
-\BOOKMARK [2][-]{subsection.3.3}{3.3 Uso}{section.3}% 33
+\BOOKMARK [2][-]{subsection.2.4}{2.4 Librer\355a de An\341lis de Conceptos Formales}{section.2}% 29
+\BOOKMARK [3][-]{subsubsection.2.4.1}{2.4.1 Leer concepto}{subsection.2.4}% 30
+\BOOKMARK [3][-]{subsubsection.2.4.2}{2.4.2 Operador de derivaci\363n de atributos a objetos}{subsection.2.4}% 31
+\BOOKMARK [3][-]{subsubsection.2.4.3}{2.4.3 Operador de derivaci\363n de objetos a atributos}{subsection.2.4}% 32
+\BOOKMARK [3][-]{subsubsection.2.4.4}{2.4.4 Crear contexto}{subsection.2.4}% 33
+\BOOKMARK [3][-]{subsubsection.2.4.5}{2.4.5 Concepto formal}{subsection.2.4}% 34
+\BOOKMARK [3][-]{subsubsection.2.4.6}{2.4.6 .... G iguales}{subsection.2.4}% 35
+\BOOKMARK [3][-]{subsubsection.2.4.7}{2.4.7 \315nfimo}{subsection.2.4}% 36
+\BOOKMARK [3][-]{subsubsection.2.4.8}{2.4.8 Supremo}{subsection.2.4}% 37
+\BOOKMARK [3][-]{subsubsection.2.4.9}{2.4.9 ...object.concept.fc}{subsection.2.4}% 38
+\BOOKMARK [3][-]{subsubsection.2.4.10}{2.4.10 Objetos de un concepto}{subsection.2.4}% 39
+\BOOKMARK [3][-]{subsubsection.2.4.11}{2.4.11 ...attribute.concept.fc}{subsection.2.4}% 40
+\BOOKMARK [3][-]{subsubsection.2.4.12}{2.4.12 Atributos de un concepto}{subsection.2.4}% 41
+\BOOKMARK [3][-]{subsubsection.2.4.13}{2.4.13 ... all.fc}{subsection.2.4}% 42
+\BOOKMARK [2][-]{subsection.2.5}{2.5 Minimal generator}{section.2}% 43
+\BOOKMARK [1][-]{section.3}{3 Manual de usuario}{}% 44
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Requistos y dependencias}{section.3}% 45
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Instalaci\363n}{section.3}% 46
+\BOOKMARK [2][-]{subsection.3.3}{3.3 Uso}{section.3}% 47
