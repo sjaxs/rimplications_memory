@@ -21,6 +21,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/read.fc.R}
 
         \textbf{Ejemplo}
 
@@ -31,59 +32,122 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{Descripci\'on}
 
-        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on a la funci\'on \( ^\uparrow : 2^G \rightarrow 2^M \)
+        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de atributos a objetos a la 
+        funci\'on \( ^\uparrow : 2^G \rightarrow 2^M \)
 
         \( ^\uparrow = { m \in M | <g,m> \in I ~ para ~ todo ~ g \in A } \)
 
-        El conjunto es el de los atributos compartidos por todos los objetos de A.
+        El conjunto \( A^\uparrow \) es el de los atributos compartidos por todos los objetos de A, es decir, este operador devolver\'a 
+        un conjunto de attributos que ser\'an los que contiene un determinado objeto.
+
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/mp.R}
+
 
         \textbf{Ejemplo}
+
+
+    \subsubsection{Operador de doble derivaci\'on de atributos a objetos}
+
+        \textbf{Descripci\'on}
+
+        El conjunto que devuelve el operador \( A^\uparrow \) tambi\'en se suele representar como \( A' \), por lo que en este caso, 
+        el operador de doble derivaci\'on de atributos a objetos se representar\'a como \( A'' \).
+
+
+        \( A'' = (A^\uparrow)^\downarrow \)
+
+        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de atributos a objetos, se le aplica el operador 
+        de derivaci\'on de objetos a atributos.
+
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/mp2.R}
+
+
+        \textbf{Ejemplo}
+
 
     %Gp y Gp2
     \subsubsection{Operador de derivaci\'on de objetos a atributos}
 
         \textbf{Descripci\'on}
 
+        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de objetos a atributos a la 
+        funci\'on \( ^\downarrow : 2^M \rightarrow 2^G \)
+
+        \( ^\downarrow = { g \in G | <g,m> \in I ~ para ~ todo ~ m \in B } \)
+
+        El conjunto \( B^\downarrow \) es el de los objetos compartidos por todos los atributos de B, en este caso, este operador devolver\'a 
+        un conjunto de objetos que ser\'an los que contiene un determinado atributo.
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/gp.R}
 
         \textbf{Ejemplo}
+
+
+    \subsubsection{Operador de doble derivaci\'on de objetos a atributos}
+
+        \textbf{Descripci\'on}
+
+        El conjunto que devuelve el operador \( B^\downarrow \) tambi\'en se suele representar como \( B' \), por lo que en este caso, 
+        el operador de doble derivaci\'on de objetos a atributos se representar\'a como \( B'' \).
+
+
+        \( B'' = (B^\downarrow)^\uparrow \)
+
+        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de objetos a atributos, se le aplica el operador 
+        de derivaci\'on de atributos a objetos.
+
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/gp2.R}
+
+
+        \textbf{Ejemplo}
+
+
 
     \subsubsection{Crear contexto}
 
         \textbf{Descripci\'on}
 
+        En esta librer\'ia, un contexto consta de una lista con dos vectores diferentes. Luego, con esta funci\'on, se puede crear un contexto 
+        pas\'andole como par\'ametros dos vectores diferentes.
+        Cada uno de dichos vectores, tendr\'a como nombre g y m en este orden, y representar\'an los objetos y atributos.
+
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/create.context.R}
 
         \textbf{Ejemplo}
+
+
 
     \subsubsection{Concepto formal}
 
     
         \textbf{Descripci\'on}
 
-
-        \textbf{C\'odigo}
-
-
-        \textbf{Ejemplo}
-
-    \subsubsection{.... G iguales}
-
+        Dado un contexto formal \( K = (G, M, I) \), donde \( A \subseteq G ~ y ~ B \subseteq M \). Se dice que un par \( <A,B> \) es un 
+        concepto formal de \(K\) si \( A^\uparrow = B ~ y ~ B^\downarrow = A\).
         
-        \textbf{Descripci\'on}
-
+        Es decir, \( <A,B> \) ser\'a un concepto formal se A contiene exactamente todos los objetos que compoarten los atributos de B, y a su 
+        vez, B contiene exactamente todos los atributos que comparten los objetos de A.
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/is.formal.concept.R}
 
         \textbf{Ejemplo}
+
 
 
     %infimum.fc y infimum.set.fc
@@ -92,11 +156,20 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
+        Siendo \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el \'infimo como:
+
+        El superconcepto com\'un m\'as peque\~no de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
+
+        \( (A_{1}, B_{1}) \vee (A_{2}, B_{2}) = ((A_{1} \cup A_{2})'', ~ B_{1}\cap B_{2}) \)
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/infimum.R}
+
+        \lstinputlisting{r_code/FCA/infimum.set.fc.R}
 
         \textbf{Ejemplo}
+
 
 
     %supremum.fc y supremum.set.fc
@@ -105,11 +178,22 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
+        Siendo \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el supremo como:
+
+        El subconcepto com\'un m\'as grande de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
+
+        \( (A_{1}, B_{1}) \wedge (A_{2}, B_{2}) = (A_{1} \cap A_{2}'', ~ (B_{1}\cup B_{2})'') \)
+
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/supremum.R}
+
+        \lstinputlisting{r_code/FCA/supremum.set.fc.R}
+
 
         \textbf{Ejemplo}
+
 
 
     \subsubsection{...object.concept.fc}
@@ -117,11 +201,17 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
+        Si se tiene un contexto y un objeto, se pueden extraer los atributos de dicho objeto en el contexto. Esto es precisamente lo que hace 
+        esta funci\'on, ya que crea un nuevo contexto a partir de uno inicial y un objeto con ayuda de los operadores de derivaci\'on.
+
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/object.concept.fc.R}
+
 
         \textbf{Ejemplo}
+
 
 
     \subsubsection{Objetos de un concepto}
@@ -129,23 +219,34 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
+        Esta funci\'on devolver\'a todos los objetos de un concepto...
+
 
         \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/all.object.concept.R}
 
 
         \textbf{Ejemplo}
 
 
+
     \subsubsection{...attribute.concept.fc}
 
+        En este caso, si se tiene un contexto y un atributo, se pueden extraer los objetos de dicho atributo en el contexto. 
+        Esto es lo que hace esta funci\'on, crea un nuevo contexto a partir de uno inicial y un atributo con ayuda de los operadores 
+        de derivaci\'on.
     
         \textbf{Descripci\'on}
 
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/attribute.concept.fc.R}
+
 
         \textbf{Ejemplo}
+
 
 
     \subsubsection{Atributos de un concepto}
@@ -153,11 +254,14 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
+        Esta funci\'on devolver\'a todos los atributos de un concepto...
 
         \textbf{C\'odigo}
 
+        \lstinputlisting{r_code/FCA/all.attribute.concept.fc.R}
 
         \textbf{Ejemplo}
+
 
 
     \subsubsection{... all.fc}
@@ -167,6 +271,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
 
         \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/all.fc.R}
 
 
         \textbf{Ejemplo}
@@ -186,3 +292,4 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
 
     \textbf{Ejemplo}
+
