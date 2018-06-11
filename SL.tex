@@ -1,4 +1,6 @@
-\subsubsection{Descripci\'on} 
+\section{L\'ogica de simplificaciones para sistemas implicacionales}
+
+% \subsubsection{Descripci\'on} 
 
 La base de este projecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'ogica deriva de los axiomas de Amstrong, los c\'uales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
 
@@ -72,7 +74,7 @@ La uni\'on de implicaciones parte de la base de que si tenemos dos implicaciones
 La simplificaci\'on de implicaciones se basa en que si disponemos de dos implicaciones \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) podemos simplificar la otra regla de la siguiente forma:
 
 \begin{center}
-    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (U - Y)\)
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (V - Y)\)
     % \(U \to V \implies (U - Y) \to (U - Y) \)
 \end{center}
 
@@ -96,7 +98,7 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se 
 EXPLICACION?
 
 \begin{center}
-    \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
+    \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | \ D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
 \end{center}
 
 \begin{center}
@@ -104,4 +106,11 @@ EXPLICACION?
 \end{center}
 
 \lstinputlisting{r_code/ssimp.R}
+\bigskip
 
+\textbf{Transitividad generalizada}\\
+
+La transitividad generalizada nos permite eliminar implicaciones que pueden ser inferidas transitivamente a partir de otras. Dadas tres implicaciones, \(X \to Y\), \(Z \to U\) y \(V \to W\), si se cumple que \(Z \subseteq XY \), \( X \subseteq V \) y \( W \subseteq UV \) entonces se tiene que  \(X \to Y\), \(Z \to U\) \( \vdash V \to W\) y, por tanto, se puede eliminar \(V \to W\) del conjunto de implicaciones.\\
+
+\lstinputlisting{r_code/transG.R}
+\newpage

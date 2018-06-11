@@ -7,6 +7,32 @@ Pablo Cordero, Manuel~Manolo Enciso, Angel Mora, Inman P{\'{e}}rez~InmaculadaP.
   Representation}.
 \newblock 2527:141--150, 2002.
 
+\bibitem{rcore}
+R~Core Team.
+\newblock Writing r extensions, 2012.
+\newblock \url{https://cran.r-project.org/doc/manuals/R-exts.html}.
+
+\bibitem{book}
+Hadley Wickman.
+\newblock {\em R Packages}.
+\newblock O’Reilly, 2015.
+
+\bibitem{librR}
+Angelo Santana and C.~Hern\'andez~Nieves.
+\newblock Liber\'ias en r, 2016.
+\newblock
+  \url{http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/5-librerias.html}.
+
+\bibitem{rParaTodos}
+Estructura de un paquete, 2012.
+\newblock \url{https://rparatodos.wordpress.com/}.
+
+\bibitem{datavu}
+A~Chougule.
+\newblock Datavu. how to create and publish r package on cran: Step-by-step
+  guide, 2015.
+\newblock \url{https://datavu.blogspot.com.es/}.
+
 \bibitem{Mora2003}
 {\'{A}}ngel Mora, Manuel Enciso, Pablo Cordero, and Inmaculada
   Perez~P{\'{e}}rez de~Guzm{\'{a}}n.
@@ -20,6 +46,19 @@ A.~Mora, P.~Cordero, M.~Enciso, I.~Fortes, and G.~Aguilera.
 \newblock {Closure via functional dependence simplification}.
 \newblock {\em International Journal of Computer Mathematics}, 89(4):510--526,
   2012.
+
+\bibitem{LCS}
+Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, Manuel Ojeda-Aciego, and
+  Carlos Rossi.
+\newblock Knowledge discovery in social networks by using a logic-based
+  treatment of implications.
+\newblock {\em Knowledge-Based Systems}, 87:16 -- 25, 07 2015.
+
+\bibitem{Reduction}
+Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
+  de~Guzm{\'{a}}n.
+\newblock A tableaux-like method to infer all minimal keys.
+\newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
 
 \bibitem{BERTET20102155}
 K.~Bertet and B.~Monjardet.
@@ -51,18 +90,5 @@ Estrella Rodr\'iguez-Lorenzo, Kira Adaricheva, Pablo Cordero, Manuel Enciso,
 \newblock {D-basis algorithm: From an implicational system to its corresponding
   D-basis}.
 \newblock CLA 2015: 217--228, 2015.
-
-\bibitem{LCS}
-Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, Manuel Ojeda-Aciego, and
-  Carlos Rossi.
-\newblock Knowledge discovery in social networks by using a logic-based
-  treatment of implications.
-\newblock {\em Knowledge-Based Systems}, 87:16 -- 25, 07 2015.
-
-\bibitem{Reduction}
-Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
-  de~Guzm{\'{a}}n.
-\newblock A tableaux-like method to infer all minimal keys.
-\newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
 
 \end{thebibliography}

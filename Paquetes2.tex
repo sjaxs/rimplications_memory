@@ -10,15 +10,16 @@ comunidad y contribuir al desarrollo de este lenguaje.
 
 CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios para un proyecto.
 
-
+Para mas informaci\'on a cerca de los paquetes de R ver \cite{rcore} y \cite{book}, de donde se ha obtenido al mayor parte de la informaci\'on necesaria para este estudio.
 \subsection{Estructura de paquetes en R}
 
 Un paquete (\textbf{package}) es una colecci\'on de funciones, datos y c\'odigo R que se almacenan en una carpeta 
-conforme a una estructura bien definida y f\'acilmente accesible para R.
+conforme a una estructura bien definida y f\'acilmente accesible para R \cite{librR}.
+
 Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
 nuevas.
 Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambi\'en incorpora m\'as ficheros, 
-los cuales se van a detallar a continuaci\'on.
+los cuales se van a detallar a continuaci\'on.\cite{rParaTodos}
 
 La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{DESCRIPTION}, donde se puede ver qu\'e hace 
 el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la documentaci\'on... entre otros datos.
@@ -41,8 +42,6 @@ en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\
 En la carpeta \textbf{data} se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
 de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
 Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que deseemos que se instalen con el paquete.
-
-
 \subsection{Requisitos previos}
 
 \begin{itemize}
@@ -70,12 +69,12 @@ estrictamente necesario a\~nadirlos ahora se pueden a\~nadir despu\'es).
 Se ind\'ica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an
 contenidos los archivos de nuestro proyecto. 
 Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
-estructura necesaria para que R pueda construir el paquete.
+estructura necesaria para que R pueda construir el paquete \cite{datavu}.
 
 Una vez ajustada la configuraci\'on, pinchamos en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de nuestra funci\'on en la carpeta \textbf{man}.
 
 \subsection{Documentaci\'on}
-
+\textbf{[R Packages Hadley Wickman]}
 La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para
 ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
 incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian
@@ -373,9 +372,13 @@ Una vez que nuestro paquete ya est\'a listo para subirlo, debemos tener en cuent
 importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on de nuestro paquete y su
 funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respecto a la versi\'on
 anterior de nuestro paquete. Dado que estos dos archivos no son soportados por CRAN no
-hay que a\~nadirlos a la hora de construir el paquete\\ (\textbf{devtools::use\_build\_ignore("NEWS.md"),
-devtools::use\_build\_ignore("README.md")})
-\newpage
+hay que a\~nadirlos a la hora de construir el paquete
+\begin{center}
+    \textbf{devtools::use\_build\_ignore("NEWS.md")
+    devtools::use\_build\_ignore("README.md")}
+\end{center}
+
+
 \textbf{Lanzamiento}
 
 Lleg\'o la hora de construir nuestro paquete y subirlo a CRAN. Para construir nuestro paquete
