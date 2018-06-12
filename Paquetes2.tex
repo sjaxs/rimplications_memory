@@ -25,7 +25,7 @@ En el fichero \textbf{NAMESPACE} se deber\'an especificar todos aquellos objetos
 
 En \textbf{LICENSE}, se incluir\'a una copia de la licencia para informar al usuario.
 
-Para finalizar con los ficheros, podremos encontrar en algunos casos uno llamado \textbf{NEWS}, en el cual estar\'an 
+Para finalizar con los ficheros, se podr\'a encontrar en algunos casos uno llamado \textbf{NEWS}, en el cual estar\'an 
 incluidos los cambios que se realizan de una versi\'on a otra.
 
 La carpeta \textbf{R} es el n\'ucleo de la estructura, aqu\'i se encuentran todos los archivos \textbf{\textbf{.R}} con el c\'odigo de las funciones que incluya dicho paquete.
@@ -38,7 +38,7 @@ en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\
 
 En la carpeta \textbf{data} se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
 de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
-Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que deseemos que se instalen con el paquete.
+Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que se quiera que se instalen con el paquete.
 \subsection{Requisitos previos}
 
 \begin{itemize}
@@ -50,8 +50,8 @@ Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que 
 
 \subsection{Crear proyecto R}
 
-En este caso se podemos hacer tanto con R Studio, como se muestra a continuaci\'on,
-como con \textbf{devtools::create(}\enquote*{ruta/del/paquete/nombreDelPaquete}\textbf{)}, ambas opciones nos
+En este caso se puede hacer tanto con R Studio, como se muestra a continuaci\'on,
+como con \textbf{devtools::create(}\enquote*{ruta/del/paquete/nombreDelPaquete}\textbf{)}, ambas opciones
 proporcionar\'an un \enquote*{esqueleto} del paquete con los archivos imprescindibles.
 Una vez abierto R Studio, lo primero que se debe hacer es crear un nuevo proyecto, para
 ellos vamos a: 
@@ -59,16 +59,16 @@ ellos vamos a:
     \textbf{file > new project > new directory > r package} 
 \end{center}
 
-En la casilla \textbf{Package name:} especificamos el nombre de nuestro proyecto; en la casilla
+En la casilla \textbf{Package name:} se debe especificar el nombre del  proyecto; en la casilla
 \textbf{Create package based on source files} se pueden a\~nadir (pinchar en el bot\'on \textbf{Add}) los
-archivos \textbf{.R} que contengan nuestras funciones, si los hemos generado previamente (no es
+archivos \textbf{.R} que contengan nuestras funciones, si se han generado previamente (no es
 estrictamente necesario a\~nadirlos ahora se pueden a\~nadir despu\'es).
 Se ind\'ica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an
-contenidos los archivos de nuestro proyecto. 
+contenidos los archivos del proyecto. 
 Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
 estructura necesaria para que R pueda construir el paquete \cite{datavu}.
 
-Una vez ajustada la configuraci\'on, pinchamos en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de nuestra funci\'on en la carpeta \textbf{man}.
+Una vez ajustada la configuraci\'on, hay que pinchar en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de nuestra funci\'on en la carpeta \textbf{man}.
 
 \subsection{Documentaci\'on}
 \textbf{[R Packages Hadley Wickman]}
@@ -88,7 +88,7 @@ se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'
     \label{fig:roxygen}
 \end{figure} 
 
-Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
+Para ello se deben configurar las \textbf{Build Tools} de nuestro proyecto:
 
 \begin{figure}[H]
     \centering
@@ -97,7 +97,7 @@ Para ello debemos configurar las \textbf{Build Tools} de nuestro proyecto:
     \label{fig:build_tools}
 \end{figure} 
 
-M\'as adelante se hablar\'a del uso del paquete \textbf{roxygen2} para generar la documentaci\'on de nuestro paquete
+M\'as adelante se hablar\'a del uso del paquete \textbf{roxygen2} para generar la documentaci\'on del paquete
 
 \subsubsection{Archivo DESCRIPTION}
 
@@ -142,8 +142,8 @@ de datos.\\
 
 \textbf{Crear la documentaci\'on}
 
-Para crear esta documentaci\'on, lo primero que debemos hacer es a\~nadir comentarios
-\textbf{roxygen} a nuestras archivos \textbf{.R}, como, por ejemplo:
+Para crear esta documentaci\'on, lo primero que se debe hacer es a\~nadir comentarios
+\textbf{roxygen} a los archivos \textbf{.R}, como, por ejemplo:
 
 \begin{figure}[H]
     \centering
@@ -167,12 +167,12 @@ se estructura de la siguiente forma:
 
 \begin{itemize}
     \item La primera frase se corresponde con el t\'itulo de la documentaci\'on, es lo primero que
-se ve cuando consultamos la ayuda de un paquete o funci\'on. Debe constar de solo
+se ve cuando se consulta la ayuda de un paquete o funci\'on. Debe constar de solo
 una l\'inea y acabar en punto.
     \item El segundo p\'arrafo es la descripci\'on, se muestra inmediatamente despu\'es del t\'itulo y
 debe dar una breve descripci\'on de lo que hace la funci\'on.
     \item Por \'ultimo, el resto de p\'arrafos, si los hubiera, corresponden a una descripci\'on m\'as
-detallada del funcionamiento de la funci\'on. Tambi\'en podemos usar el tag \textbf{@section}
+detallada del funcionamiento de la funci\'on. Tambi\'en se puede usar el tag \textbf{@section}
 para dividir los detalles de la funci\'on en distintas secciones.
 \end{itemize}
 
@@ -229,9 +229,8 @@ Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\
 
 \subsubsection{NAMESPACE}
 
-El archivo \textbf{NAMESPACE} es muy importante en nuestro paquete, ya que nos va a ayudar a
-encapsular el paquete y que no falle por las dependencias que pueda tener de otros, ni
-interfiera en otros que usen el nuestro si lo actualizamos.
+El archivo \textbf{NAMESPACE} es muy importante en eñ paquete, ya que  ayuda a encapsular el paquete y que no falle por las dependencias que pueda tener de otros, ni
+interfiera en otros que lo usen si lo actualizamos.
 
 Como su nombre indica, \textbf{NAMESPACE} proporciona \enquote*{espacios para nombres}. Por ejemplo,
 cuando se importan dos paquetes que ambos contienen una funci\'on con el mismo nombre,
@@ -270,7 +269,7 @@ m\'etodos.
 \end{itemize}
 
 Generar el namespace con \textbf{roxygen2} es como generar la documentaci\'on para las funciones,
-usamos los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspondiente, ejecutamos
+se usan los bloques y tags, a\~nadiendo los comentarios al \textbf{.R} correspondiente, se ejecuta
 \textbf{devtools::document()} (o, \textbf{Ctrl + Shift +D}) y se comprueba que el archivo \textbf{NAMESPACE} se
 haya modificado correctamente.\\
 
@@ -313,25 +312,22 @@ La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
 \textbf{devtools::check()} devuelve tres tipos de problemas distintos:
 
 \begin{itemize}
-    \item \textbf{Error}: Problema grave que deber ser arreglado, aunque no planeemos subir el paquete a CRAN.
-    \item \textbf{Warning}: Problema medio que debe ser arreglado en caso de que planeemos subir el paquete a CRAN.
-    \item \textbf{Note}: Problema medio que deber\'iamos arreglar en caso de querer subir el paquete a CRAN incluso si se trata de un falso positivo.
+    \item \textbf{Error}: Problema grave que deber ser arreglado, aunque no se planee subir el paquete a CRAN.
+    \item \textbf{Warning}: Problema medio que debe ser arreglado en caso de que se planee subir el paquete a CRAN.
+    \item \textbf{Note}: Problema medio que se deber\'ia arreglar en caso de querer subir el paquete a CRAN incluso si se trata de un falso positivo.
 \end{itemize}
 
 
 \subsection{Liberando el paquete}
 
-Si se quiere que nuestro paquete tenga cierta trascendencia en la comunidad de R,
-necesitamos subirlo a CRAN, ya que la mayor\'ia de usuarios descargan e instalan sus
-paquetes desde CRAN.
-A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir nuestro paquete a en CRAN. \\
+Si se quiere que el paquete tenga cierta trascendencia en la comunidad de R, es necesario subirlo a CRAN, ya que la mayor\'ia de usuarios descargan e instalan sus paquetes desde CRAN.
+A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir el paquete a en CRAN. \\
 
 \textbf{Comentarios CRAN}\\
 Debemos recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
-libre a revisar los paquetes que se suben, por tanto, cuanto m\'as f\'acil les hagamos el trabajo,
-m\'as posibilidades hay de que nuestro paquete sea aceptado sin ning\'un problema.
-Por ello, es recomendable a\~nadir a nuestro paquete una serie de comentarios que faciliten la
-tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado \textbf{cran-comments.md}.
+libre a revisar los paquetes que se suben, por tanto, cuanto m\'as f\'acil se les haga el trabajo,
+m\'as posibilidades hay de que el paquete sea aceptado sin ning\'un problema.
+Por ello, es recomendable a\~nadir al paquete una serie de comentarios que faciliten la tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado \textbf{cran-comments.md}.
 
 \begin{figure}[H]
     \centering
@@ -344,31 +340,22 @@ tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado \textbf{cran
     \item \textbf{Test environments}: indica en qu\'e plataformas se ha comprobado el paquete.
     \item \textbf{Check results}: contendr\'a una lista de errores, advertencias o notas.
     \item \textbf{Reverse dependencies}: sirve para indicar que si hay errores de dependencias con
-otros paquetes en el caso de que estemos subiendo una nueva versi\'on de nuestro
-paquete y los cambios hayan provocado errores en las dependencias con otros
-paquetes.
+otros paquetes en el caso de que se este  subiendo una nueva versi\'on del paquete y los cambios hayan provocado errores en las dependencias con otros paquetes.
 \end{itemize}
 
 \textbf{Las pol\'iticas en CRAN}\\
-Existen ciertas pol\'iticas que debemos cumplir a la hora de subir nuestro paquete a CRAN,
-estas son comprobadas manualmente.
-Algunos problemas comunes son:
+Existen ciertas pol\'iticas que debemos cumplir a la hora de subir el paquete a CRAN, estas son comprobadas manualmente. Algunos problemas comunes son:
 \begin{itemize}
     \item Ausencia del email del mantenedor del paquete. 
-    \item Es importante dejar claro los propietarios del copyright y si hemos usado c\'odigo
-externo, comprobar que la licencia es compatible.
+    \item Es importante dejar claro los propietarios del copyright y si se ha usado c\'odigo externo, comprobar que la licencia es compatible.
     \item Paquetes que no funcionan en al menos dos plataformas no ser\'an considerados.
-    \item No hacer cambios externos sin permiso del usuario: cambiar opciones, instalar
-paquetes, abrir software externo, cerrar R, etc.
-    \item No subir actualizaciones del paquete muy frecuentemente. La pol\'itica sugiere hacerlo
-cada 1 o 2 meses como mucho.
+    \item No hacer cambios externos sin permiso del usuario: cambiar opciones, instalar paquetes, abrir software externo, cerrar R, etc.
+    \item No subir actualizaciones del paquete muy frecuentemente. La pol\'itica sugiere hacerlo cada 1 o 2 meses como mucho.
 \end{itemize}
 
 \textbf{Archivos importantes}\\
-Una vez que nuestro paquete ya est\'a listo para subirlo, debemos tener en cuenta dos archivos
-importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on de nuestro paquete y su
-funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respecto a la versi\'on
-anterior de nuestro paquete. Dado que estos dos archivos no son soportados por CRAN no
+Una vez que el paquete ya est\'a listo para subirlo, se deben  tener en cuenta dos archivos importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on del paquete y su
+funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respecto a la versi\'on anterior del paquete. Dado que estos dos archivos no son soportados por CRAN no
 hay que a\~nadirlos a la hora de construir el paquete
 \begin{center}
     \textbf{devtools::use\_build\_ignore("NEWS.md")
@@ -378,13 +365,13 @@ hay que a\~nadirlos a la hora de construir el paquete
 
 \textbf{Lanzamiento}
 
-Lleg\'o la hora de construir nuestro paquete y subirlo a CRAN. Para construir nuestro paquete
+Lleg\'o la hora de construir el paquete y subirlo a CRAN. Para construir el paquete
 usamos \textbf{devtools::release()}. Esto se encarga de volver a comprobar el paquete una \'ultima
 vez y nos hace una serie de preguntas acerca de buenas pr\'acticas a modo de comprobaci\'on,
 \textbf{devtools::release()}, autom\'aticamente, sube el paquete a CRAN.
-Una vez subido, los voluntarios de CRAN comprobar\'an el paquete y nos
+Una vez subido, los voluntarios de CRAN comprobar\'an el paquete y
 devolver\'an los resultados.
-En caso de fallo, debemos resolver los problemas, y ejecutar \textbf{devtools::submit\_cran()} para evitar contestar de nuevo todas las preguntas de \\
+En caso de fallo, se deben resolver los problemas, y ejecutar \textbf{devtools::submit\_cran()} para evitar contestar de nuevo todas las preguntas de \\
 \textbf{devtools::release()}.
 
 \newpage
