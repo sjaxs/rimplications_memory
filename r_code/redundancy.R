@@ -6,8 +6,7 @@ apply.remove.redundancy <- function(Sigma){
   while (!fixpoint){
     fixpoint <- TRUE
     k <- 1
-    # si comparamos A -> B con C -> D, no comparamos C -> D con A -> B
-    while(k  <= longitud){    # A -> B
+    while(k <= longitud){    
       if(fuera){
         fuera <- FALSE
         next
@@ -15,8 +14,8 @@ apply.remove.redundancy <- function(Sigma){
       if(k > length(Sigma)){
         break
       }
-      l <- k+1 # no repetimos comparaciones 
-      while(l <= longitud){  # C -> D
+      l <- k+1 
+      while(l <= longitud){  
         if(l > length(Sigma)){
           break
         }
@@ -28,24 +27,22 @@ apply.remove.redundancy <- function(Sigma){
           Sigma <- composition.eq(Sigma,k,l)
           Sigma <- Sigma[-l]
           fixpoint <- FALSE
-          next #salgo
+          next 
         }
         if (is.empty(B)){
-          Sigma <- Sigma[-k] #regla vacia, borro
-          fuera <- TRUE # tengo que salir dos veces
-          next #salgo
+          Sigma <- Sigma[-k] 
+          fuera <- TRUE 
+          next 
         }else if (is.empty(D)){
-          Sigma <- Sigma[-l] #regla vacia, borro
-          next #salgo
+          Sigma <- Sigma[-l] 
+          next 
         } 
-        # SIMPLIFICACION
         S <- simplification(Sigma, A,B,C,D,k,l)
         Sigma <- S$Sol
         fixpoint <- S$Fixpoint
         fuera <- S$Fuera
         N <- S$N
         if(N)next
-        # R-SIMPLIFICACION
         RS <- rsimplification(Sigma, A,B,C,D,k,l)
         Sigma <- RS$Sol
         fixpoint <- RS$Fixpoint
@@ -53,11 +50,10 @@ apply.remove.redundancy <- function(Sigma){
         N <- RS$N
         if(N)next
         l <- l+1
-      }#end while l
+      }
       k <- k+1
-    }#end while k
-  }#end while
-  # Aplicar transisitvidad generalizada al final
+    }
+  }
   Sigma <- transG(Sigma)
   return(Sigma)
 }#End apply.remove.redundancy

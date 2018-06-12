@@ -2,7 +2,7 @@
 
 El concepto de clave es importante en cualquier modelo de datos y aparece con multitud de nombres en las distintas \'areas: generadores minimales en FCA o \textit{key sets} en Data Mining, por ejemplo.
 
-El problema de la b\'usqueda de claves aparece en distintas \'areas de la computaci\'on, siendo las bases de datos el \'area en la que mayor atenci\'on se le presta. Este algoritmo desarrollado por P. Cordero et al. en  \cite{Reduction} busca resolver este problema lo mas eficientemente posible. Para ello trata de simplificar lo m\'aximo posible el conjunto de implicaciones del cual se quieren obtener las claves, aplicando la L\'ogica de Simplificaciones \cite{Cordero2002}.
+El problema de la b\'usqueda de claves aparece en distintas \'areas de la computaci\'on, siendo las bases de datos el \'area en la que mayor atenci\'on se le presta. Este algoritmo desarrollado por P. Cordero et al. en  \cite{Reduction} busca resolver este problema lo m\'as eficientemente posible. Para ello trata de simplificar lo m\'aximo posible el conjunto de implicaciones del cual se quieren obtener las claves, aplicando la L\'ogica de Simplificaciones \cite{Cordero2002}.
 
 El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjuto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.
 
@@ -15,7 +15,7 @@ Siendo \(\Omega\) un conjunto de atributos, \(\Gamma\) un conjunto de implicacio
     \(core(\Omega,\Gamma) = \Omega \setminus \big(\bigcup_{\substack{A \to B \in \Gamma}} B\big) \ \ \ \ \)
     \(body(\Omega,\Gamma) = \big(\bigcup_{\substack{A \to B \in \Gamma}} A\big) \setminus (core(\Omega,\Gamma))^+\)
 \end{center}
-Ambos permitir\'an simplificar \(\Gamma\) y as\'i agilizar el proceso de obtenci\'on de las claves. Adem\'as se tiene que, si \(K\) es una clave minimal, cumple que 
+Ambos permitir\'an simplificar \(\Gamma\) y as\'i agilizar el proceso de obtenci\'on de las claves. Adem\'as se tiene que, si \(K\) es una clave minimal, cumple que: 
 \begin{center}
     \(core(\Omega,\Gamma) \subseteq K \subseteq core(\Omega,\Gamma) \cup body(\Omega,\Gamma)\)
 \end{center}
@@ -31,4 +31,4 @@ Ambos permitir\'an simplificar \(\Gamma\) y as\'i agilizar el proceso de obtenci
     \label{fig:reduction_1}
 \end{figure}
 \subsubsection{Comparativa/Versiones} 
-La implementaci\'on inicial del algoritmo ha sido mejorada con un poda que reduce el n\'umero que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.
+La implementaci\'on inicial del algoritmo ha sido mejorada con una poda que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.

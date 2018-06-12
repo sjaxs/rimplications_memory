@@ -13,11 +13,11 @@ SLgetDO <- function(Sigma){
     fixpoint <- TRUE
     SigmaDO <- Sigma
     Sigma <- Sigma[0]
-    for(k in seq(SigmaDO)){ # A -> B
+    for(k in seq(SigmaDO)){
       Gamma <- Sigma[0]
       A <- read.left(SigmaDO,k)
       B <- read.right(SigmaDO,k)
-      for(l in seq(Sigma)){ # C -> D
+      for(l in seq(Sigma)){
         C <- read.left(Sigma,l)
         D <- read.right(Sigma,l)
         if((is.included(C,A) & is.included(A,union.sets(C,D))) |
@@ -35,7 +35,7 @@ SLgetDO <- function(Sigma){
               B <- difference.sets(B,D)
             }
             Gamma <- add.imp(Gamma, C, D)
-            #Aplicamos la simplificacion fuerte
+            # ssimp
             aux <- add.sSimpBoth(A,B,C,D,Sigma) 
             if(cardinality.set(aux) != 0){
               Gamma <- add.imp(Gamma, read.left(aux,1), read.right(aux,1))
@@ -45,32 +45,32 @@ SLgetDO <- function(Sigma){
             }
           }
         }
-      }#End for l
+      }
       if(is.empty(B)){
         Sigma <- Gamma
       }else{
         Sigma <- add.imp(Gamma, A, B)
       }
-    }#End for k
+    }
     if(!equals.sets(SigmaDO, Sigma)){
       fixpoint <- FALSE 
     }
   }
   SigmaDO <- apply.composition.eq(SigmaDO)
   return(SigmaDO)
-}#end function SLgetDO
+}#End SLgetDO
 
 simplify <- function(Sigma){
   fixpoint <- FALSE
   while (!fixpoint){
     fixpoint <- TRUE
     SigmaS <- Sigma
-    Sigma <- Sigma[0] #Empty Sigma
-    for (k in seq(SigmaS)){  # A -> B
-      Gamma <- SigmaS[0] #Empty Gamma
+    Sigma <- Sigma[0]
+    for (k in seq(SigmaS)){  
+      Gamma <- SigmaS[0] 
       A <- read.left(SigmaS,k)
       B <- read.right(SigmaS,k) 
-      for (l in seq(Sigma)){ # C -> D
+      for (l in seq(Sigma)){ 
         C <- read.left(Sigma,l)
         D <- read.right(Sigma,l) 
         if((is.included(C,A) & is.included(A,union.sets(C,D))) |
@@ -88,20 +88,20 @@ simplify <- function(Sigma){
               B <- difference.sets(B,D)
             }
             Gamma <- add.imp(Gamma, C, D)
-          }#end if
-        }#end if
-      }#end for l
+          }
+        }
+      }
       if(is.empty(B)){
         Sigma <- Gamma
       }else{
         Gamma <- add.imp(Gamma, A, B)
         Sigma <- Gamma
       }
-    }#end for k
+    }
     if(!equals.sets(Sigma, SigmaS)){
       fixpoint <- FALSE
     }
-  }#end while
+  }
   return(SigmaS)
-}#end function simplify
+}#End simplify
 

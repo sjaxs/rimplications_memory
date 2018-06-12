@@ -56,7 +56,7 @@ d.basis <- function(M,Sigma){
   Sigma.D <- Sigma[0]
   for(k in seq(C)){
     mga <- C[[k]]$set
-    #Calculo de los minimal covers
+    # minimal covers
     mga <- minimal.covers(mga,Sigma)
     for(l in seq(mga)){
       g <- mga[l]
@@ -77,4 +77,4 @@ add.dbasis <- function(a.mg,C){
     }
   }
   return(list("label"=a,"set"=g))
-}
+}#End d.basis

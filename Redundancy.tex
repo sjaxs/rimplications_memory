@@ -4,7 +4,7 @@ El objetivo de este algoritmo desarrollado por A. Mora et al. en \cite{Mora2003}
 
 El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
-Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma repetida hasta que se alcance un punto fijo, es decir, no se puedan simplificar m\'as implicaciones.
+Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma repetida hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
 
 El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.\\
 
@@ -28,7 +28,7 @@ A este conjunto le aplicamos el algoritmo y vemos cuantas implicaciones no redun
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{red_2}
-    \caption{Implicaciones Mushroom no redundates}
+    \caption{Implicaciones Mushroom no redundantes}
     \label{fig:red_2}
 \end{figure} 
 
@@ -50,7 +50,7 @@ Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se 
     \label{fig:red_4}
 \end{figure}
 
-Aunque, en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En esta caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%.
+Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%.
 
 \newpage
 \subsubsection{C\'odigo} 
@@ -67,4 +67,4 @@ Aunque, en este caso pueda parecer que la diferencia de tiempo es poca, se debe 
 
 En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo.
 
-C\'omo se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de implicaciones.
+Como se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de implicaciones.

@@ -7,6 +7,6 @@ union.eq <- function(Sigma,k,l){
     BD <- union.sets(B,D)
     Sigma <- substitute.imp(Sigma,k,A,BD)
     Sigma <- remove.imp(Sigma,l)
-  }#end if
+  }
   return(Sigma)  
 }#End union.eq

@@ -1,8 +1,8 @@
 \begin{thebibliography}{10}
 
 \bibitem{Cordero2002}
-Pablo Cordero, Manuel~Manolo Enciso, Angel Mora, Inman P{\'{e}}rez~InmaculadaP.
-  de~Guzm{\'{a}}n, {\'{A}}ngel Mora, and I~{P{\'{e}}rez de Guzman}.
+Pablo Cordero, Manuel~Manolo Enciso, \'Angel Mora, and Inmaculada~P{\'{e}}rez
+  de~Guzm{\'{a}}n.
 \newblock {SLFD Logic: Elimination of Data Redundancy in Knowledge
   Representation}.
 \newblock 2527:141--150, 2002.
@@ -15,7 +15,7 @@ R~Core Team.
 \bibitem{book}
 Hadley Wickman.
 \newblock {\em R Packages}.
-\newblock O’Reilly, 2015.
+\newblock O'Reilly, 2015.
 
 \bibitem{librR}
 Angelo Santana and C.~Hern\'andez~Nieves.
@@ -34,8 +34,8 @@ A~Chougule.
 \newblock \url{https://datavu.blogspot.com.es/}.
 
 \bibitem{Mora2003}
-{\'{A}}ngel Mora, Manuel Enciso, Pablo Cordero, and Inmaculada
-  Perez~P{\'{e}}rez de~Guzm{\'{a}}n.
+{\'{A}}ngel Mora, Manuel Enciso, Pablo Cordero, and Inmaculada~P{\'{e}}rez
+  de~Guzm{\'{a}}n.
 \newblock {An Efficient Preprocessing Transformation for Functional
   Dependencies Sets Based on the Substitution Paradigm}.
 \newblock volume 3040 of {\em Lecture Notes in Computer Science}, pages
@@ -48,14 +48,14 @@ A.~Mora, P.~Cordero, M.~Enciso, I.~Fortes, and G.~Aguilera.
   2012.
 
 \bibitem{LCS}
-Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, Manuel Ojeda-Aciego, and
+Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, Manuel Ojeda~Aciego, and
   Carlos Rossi.
 \newblock Knowledge discovery in social networks by using a logic-based
   treatment of implications.
 \newblock {\em Knowledge-Based Systems}, 87:16 -- 25, 07 2015.
 
 \bibitem{Reduction}
-Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
+Pablo Cordero, Manuel Enciso, \'~Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
   de~Guzm{\'{a}}n.
 \newblock A tableaux-like method to infer all minimal keys.
 \newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
@@ -72,7 +72,7 @@ Kira Adaricheva, James Nation, and Robert Rand.
 
 \bibitem{DO2}
 Estrella Rodr\'iguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso, and
-  Angel Mora-Bonilla.
+  \'Angel Mora-Bonilla.
 \newblock Direct-optimal basis computation by means of the fusion of
   simplification rules.
 \newblock {\em Discrete Applied Mathematics}, 04 2018.
@@ -86,7 +86,7 @@ Estrella Rodr\'iguez-Lorenzo, Karell Bertet, Pablo Cordero, Manuel Enciso,
 
 \bibitem{DBasis}
 Estrella Rodr\'iguez-Lorenzo, Kira Adaricheva, Pablo Cordero, Manuel Enciso,
-  and Angel Mora.
+  and \'Angel Mora.
 \newblock {D-basis algorithm: From an implicational system to its corresponding
   D-basis}.
 \newblock CLA 2015: 217--228, 2015.

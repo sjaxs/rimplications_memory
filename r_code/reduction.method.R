@@ -39,6 +39,7 @@ minimals <- function(keys){
   return(keys)
 }#End minimals
 
+
 compact <- function(Omega,Gamma){
   newGamma <- Gamma[0]
   for(k in seq(Gamma)){

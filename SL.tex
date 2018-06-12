@@ -2,7 +2,7 @@
 
 % \subsubsection{Descripci\'on} 
 
-La base de este projecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'ogica deriva de los axiomas de Amstrong, los c\'uales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
+La base de este proyecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'ogica deriva de los axiomas de Amstrong, los cuales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
 
 \textbf{Axioma de Reflexividad}
 
@@ -22,12 +22,12 @@ La base de este projecto se sit\'ua sobre la L\'ogica de Simplificaciones para D
     \(X \to Y \wedge Y \to Z \implies X \to Z \)
 \end{center}
 
-Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on automatica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancias en los sistemas de implicaciones, es decir,simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]\\
+Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancias en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]\\
 
 
 
 
-El primer paso del desarrollo de este projecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
+El primer paso del desarrollo de este proyecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
 orientadas a aplicar esta L\'ogica de simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
 puede ser la composici\'on de implicaciones, la reducci\'on, la uni\'on y la simplificaci\'on.
 
@@ -57,12 +57,12 @@ necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el 
 
 % PROBLEMA DE LOS AXIOMAS DE AMSTRONG
 
-% De estos axiomas se derivan las reglas de la l\'ogica de Simplificaciones que han servido como base para el desarrollo de este projecto, siendo equivalentes a los axiomas de Amstrong.
+% De estos axiomas se derivan las reglas de la l\'ogica de Simplificaciones que han servido como base para el desarrollo de este proyecto, siendo equivalentes a los axiomas de Amstrong.
 
-Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on o la uni\'on de implicaciones.\\
+Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on y la uni\'on de implicaciones.\\
 
 \textbf{Uni\'on}\\
-La uni\'on de implicaciones parte de la base de que si tenemos dos implicaciones (\(X \to Y , X \to Z\)) cuyos antecedentes son iguales, podemos inferir una nueva regla que tendr\'a como antecedente el m\'ismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:
+La uni\'on de implicaciones parte de la base de que se tienen dos implicaciones (\(X \to Y, \ X \to Z\)) cuyos antecedentes son iguales, se puede inferir una nueva regla que tendr\'a como antecedente el mismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:
 
 \begin{center}
     \(X \to Y \wedge X \to Z \implies X \to YZ \)
@@ -71,7 +71,7 @@ La uni\'on de implicaciones parte de la base de que si tenemos dos implicaciones
 \lstinputlisting{r_code/composition.R}
 \bigskip
 \textbf{Simplificaci\'on}\\
-La simplificaci\'on de implicaciones se basa en que si disponemos de dos implicaciones \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) podemos simplificar la otra regla de la siguiente forma:
+La simplificaci\'on de implicaciones se basa en que si se dispone de dos implicaciones \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) se puede simplificar la otra regla de la siguiente forma:
 
 \begin{center}
     \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (V - Y)\)

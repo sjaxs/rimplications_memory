@@ -11,15 +11,15 @@ Warning--empty journal in doSimp
 Warning--empty booktitle in DBasis
 You've used 15 entries,
             1791 wiz_defined-function locations,
-            540 strings with 6223 characters,
-and the built_in function-call counts, 3304 in all, are:
+            540 strings with 6164 characters,
+and the built_in function-call counts, 3278 in all, are:
 = -- 264
-> -- 176
+> -- 170
 < -- 2
-+ -- 65
-- -- 50
-* -- 226
-:= -- 528
++ -- 63
+- -- 48
+* -- 222
+:= -- 522
 add.period$ -- 45
 call.type$ -- 15
 change.case$ -- 14
@@ -27,8 +27,8 @@ chr.to.int$ -- 0
 cite$ -- 21
 duplicate$ -- 133
 empty$ -- 328
-format.name$ -- 50
-if$ -- 727
+format.name$ -- 48
+if$ -- 723
 int.to.chr$ -- 0
 int.to.str$ -- 15
 missing$ -- 12
