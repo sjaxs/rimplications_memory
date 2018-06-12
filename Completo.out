@@ -1,48 +1,46 @@
 \BOOKMARK [1][-]{section.1}{1 Introducci\363n}{}% 1
-\BOOKMARK [1][-]{section.2}{2 Algoritmos}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{2.1 Estructura de datos}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{2.2 Librer\355a b\341sica para sistemas de implicaciones}{section.2}% 4
-\BOOKMARK [3][-]{subsubsection.2.2.1}{2.2.1 Inicializar conjunto de atributos}{subsection.2.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.2.2}{2.2.2 Conjunto unitario}{subsection.2.2}% 6
-\BOOKMARK [3][-]{subsubsection.2.2.3}{2.2.3 Uni\363n}{subsection.2.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.2.4}{2.2.4 Intersecci\363n}{subsection.2.2}% 8
-\BOOKMARK [3][-]{subsubsection.2.2.5}{2.2.5 Diferencia}{subsection.2.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.6}{2.2.6 Inclusi\363n}{subsection.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.2.7}{2.2.7 Vac\355o}{subsection.2.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.2.8}{2.2.8 Igualdad}{subsection.2.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.2.9}{2.2.9 Eliminar implicaci\363n}{subsection.2.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.2.10}{2.2.10 Vaciar conjunto}{subsection.2.2}% 14
-\BOOKMARK [3][-]{subsubsection.2.2.11}{2.2.11 A\361adir implicaci\363n}{subsection.2.2}% 15
-\BOOKMARK [3][-]{subsubsection.2.2.12}{2.2.12 Nueva implicaci\363n}{subsection.2.2}% 16
-\BOOKMARK [3][-]{subsubsection.2.2.13}{2.2.13 Leer antecedente}{subsection.2.2}% 17
-\BOOKMARK [3][-]{subsubsection.2.2.14}{2.2.14 Leer consecuente}{subsection.2.2}% 18
-\BOOKMARK [3][-]{subsubsection.2.2.15}{2.2.15 Sustituir implicaci\363n}{subsection.2.2}% 19
-\BOOKMARK [3][-]{subsubsection.2.2.16}{2.2.16 Incluido en antecedente}{subsection.2.2}% 20
-\BOOKMARK [3][-]{subsubsection.2.2.17}{2.2.17 Eliminar implicaciones con consecuente vac\355o}{subsection.2.2}% 21
-\BOOKMARK [3][-]{subsubsection.2.2.18}{2.2.18 Tama\361o del conjunto}{subsection.2.2}% 22
-\BOOKMARK [3][-]{subsubsection.2.2.19}{2.2.19 Cardinalidad del conjunto}{subsection.2.2}% 23
-\BOOKMARK [3][-]{subsubsection.2.2.20}{2.2.20 Core}{subsection.2.2}% 24
-\BOOKMARK [3][-]{subsubsection.2.2.21}{2.2.21 Body}{subsection.2.2}% 25
-\BOOKMARK [2][-]{subsection.2.3}{2.3 Generadores aleatorios}{section.2}% 26
-\BOOKMARK [3][-]{subsubsection.2.3.1}{2.3.1 Sistemas de implicaciones aleatorios}{subsection.2.3}% 27
-\BOOKMARK [3][-]{subsubsection.2.3.2}{2.3.2 Contextos aleatorios}{subsection.2.3}% 28
-\BOOKMARK [2][-]{subsection.2.4}{2.4 Librer\355a de An\341lis de Conceptos Formales}{section.2}% 29
-\BOOKMARK [3][-]{subsubsection.2.4.1}{2.4.1 Leer concepto}{subsection.2.4}% 30
-\BOOKMARK [3][-]{subsubsection.2.4.2}{2.4.2 Operador de derivaci\363n de atributos a objetos}{subsection.2.4}% 31
-\BOOKMARK [3][-]{subsubsection.2.4.3}{2.4.3 Operador de doble derivaci\363n de atributos a objetos}{subsection.2.4}% 32
-\BOOKMARK [3][-]{subsubsection.2.4.4}{2.4.4 Operador de derivaci\363n de objetos a atributos}{subsection.2.4}% 33
-\BOOKMARK [3][-]{subsubsection.2.4.5}{2.4.5 Operador de doble derivaci\363n de objetos a atributos}{subsection.2.4}% 34
-\BOOKMARK [3][-]{subsubsection.2.4.6}{2.4.6 Crear contexto}{subsection.2.4}% 35
-\BOOKMARK [3][-]{subsubsection.2.4.7}{2.4.7 Concepto formal}{subsection.2.4}% 36
-\BOOKMARK [3][-]{subsubsection.2.4.8}{2.4.8 \315nfimo}{subsection.2.4}% 37
-\BOOKMARK [3][-]{subsubsection.2.4.9}{2.4.9 Supremo}{subsection.2.4}% 38
-\BOOKMARK [3][-]{subsubsection.2.4.10}{2.4.10 ...object.concept.fc}{subsection.2.4}% 39
-\BOOKMARK [3][-]{subsubsection.2.4.11}{2.4.11 Objetos de un concepto}{subsection.2.4}% 40
-\BOOKMARK [3][-]{subsubsection.2.4.12}{2.4.12 ...attribute.concept.fc}{subsection.2.4}% 41
-\BOOKMARK [3][-]{subsubsection.2.4.13}{2.4.13 Atributos de un concepto}{subsection.2.4}% 42
-\BOOKMARK [3][-]{subsubsection.2.4.14}{2.4.14 ... all.fc}{subsection.2.4}% 43
-\BOOKMARK [2][-]{subsection.2.5}{2.5 Minimal generator}{section.2}% 44
-\BOOKMARK [1][-]{section.3}{3 Manual de usuario}{}% 45
-\BOOKMARK [2][-]{subsection.3.1}{3.1 Requistos y dependencias}{section.3}% 46
-\BOOKMARK [2][-]{subsection.3.2}{3.2 Instalaci\363n}{section.3}% 47
-\BOOKMARK [2][-]{subsection.3.3}{3.3 Uso}{section.3}% 48
+\BOOKMARK [1][-]{section.2}{2 Estructura de datos}{}% 2
+\BOOKMARK [1][-]{section.3}{3 Librer\355a b\341sica para sistemas de implicaciones}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Inicializar conjunto de atributos}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Conjunto unitario}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{3.3 Uni\363n}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{3.4 Intersecci\363n}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{3.5 Diferencia}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.6}{3.6 Inclusi\363n}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.7}{3.7 Vac\355o}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.8}{3.8 Igualdad}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.9}{3.9 Eliminar implicaci\363n}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.10}{3.10 Vaciar conjunto}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.11}{3.11 A\361adir implicaci\363n}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.12}{3.12 Nueva implicaci\363n}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.13}{3.13 Leer antecedente}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.14}{3.14 Leer consecuente}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.15}{3.15 Sustituir implicaci\363n}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.16}{3.16 Incluido en antecedente}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.17}{3.17 Eliminar implicaciones con consecuente vac\355o}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.18}{3.18 Tama\361o del conjunto}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.19}{3.19 Cardinalidad del conjunto}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.20}{3.20 Core}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.21}{3.21 Body}{section.3}% 24
+\BOOKMARK [1][-]{section.4}{4 Generadores aleatorios}{}% 25
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Sistemas de implicaciones aleatorios}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Contextos aleatorios}{section.4}% 27
+\BOOKMARK [1][-]{section.5}{5 Librer\355a de An\341lisis de Conceptos Formales}{}% 28
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Leer concepto}{section.5}% 29
+\BOOKMARK [2][-]{subsection.5.2}{5.2 Operador de derivaci\363n de atributos a objetos}{section.5}% 30
+\BOOKMARK [2][-]{subsection.5.3}{5.3 Operador de derivaci\363n de objetos a atributos}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.4}{5.4 Operador de doble derivaci\363n de atributos a objetos}{section.5}% 32
+\BOOKMARK [2][-]{subsection.5.5}{5.5 Operador de doble derivaci\363n de objetos a atributos}{section.5}% 33
+\BOOKMARK [2][-]{subsection.5.6}{5.6 Concepto formal}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.7}{5.7 Crear concepto}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.8}{5.8 Supremo}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.9}{5.9 \315nfimo}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.10}{5.10 Objeto concepto}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.11}{5.11 Atributo concepto}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.12}{5.12 Todos los objetos conceptos y atributos conceptos}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.13}{5.13 Next closure}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.14}{5.14 Minimal generator}{section.5}% 42
+\BOOKMARK [1][-]{section.6}{6 Manual de usuario}{}% 43
+\BOOKMARK [2][-]{subsection.6.1}{6.1 Requistos y dependencias}{section.6}% 44
+\BOOKMARK [2][-]{subsection.6.2}{6.2 Instalaci\363n}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.3}{6.3 Uso}{section.6}% 46

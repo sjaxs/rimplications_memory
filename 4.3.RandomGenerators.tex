@@ -1,16 +1,18 @@
-\subsection{Generadores aleatorios}
+\section{Generadores aleatorios}
 
-\subsubsection{Sistemas de implicaciones aleatorios}
+\subsection{Sistemas de implicaciones aleatorios}
 
     \textbf{Introducci\'on}
 
-    Cuando se quieren realizar pruebas conun algoritmo, se aconseja utilizar conjuntos generados de forma aleatoria, para que, por ejemplo, 
+    Cuando se quieren realizar pruebas con un algoritmo, se aconseja utilizar conjuntos generados de forma aleatoria, para que, por ejemplo, 
     en los an\'alisis de tiempo, los resultados no sean influidos por dichos conjuntos. Actualmente, hasta donde se conoce, no existe un 
     generador aleatorio de sistemas de implicaciones en ninguna de las diferentes \'areas, como pueden ser data mining, machine learning, 
     IA, sistemas inteligentes, redes neuronales...
 
     Luego, debido a esto, se ha decidido realizar una funci\'on que pueda ser usada para este fin y ponerla a disposici\'on de toda la comunidad 
     junto a este paquete.
+    \\ 
+
 
     \textbf{Descripci\'on}
     
@@ -18,9 +20,7 @@
     hora de ejecutar dicha funci\'on para obtener el conjunto como sea m\'as adecuado a lo que se desee hacer.
 
     Los atributos de las implicaciones van a ser del tipo a0, a1... Comenzando en 0, de forma consecutiva hasta el n\'umero que sea 
-    necesario para tener todos los atributos que el usuario quiera.
-
-    Los par\'ametros de esta funci\'on son:
+    necesario para tener todos los atributos que el usuario quiera. Los par\'ametros de esta funci\'on son:
 
     \begin{itemize}
         \item \textbf{numAttributes:}
@@ -29,6 +29,7 @@
         par\'ametro obligatorio para la utilizaci\'on de esta funci\'on. Como se ha comentado anteriormente, los atributos ser\'an de la 
         forma a0, a1, a2... El valor de este par\'ametro debe ser mayor que 0.
 
+        \clearpage
 
         \item \textbf{numDependencies:}
 
@@ -36,11 +37,11 @@
         con diferentes sistemas de implicaciones, como se ver\'a m\'as adelante, cada uno de dichos ficheros incluir\'a el n\'umero 
         de implicaciones que se le indique aqu\'i. Por supuesto, el valor de este par\'ametro tambi\'en debe ser mayor que 0.
 
-
+        
         \item \textbf{difference:}
 
         Este par\'ametro opcional indica el n\'umero m\'aximo de diferencia de elementos entre el antecedente y el consecuente. Se puede 
-        insertar un n\'umero negativo, lo que indicar\'a que se desea que haya m\'as atributos en el consecuente. Por lo que si el n\'umero 
+        insertar un n\'umero negativo, lo que indicar\'a que se desea que haya m\'as atributos en el consecuente. Por lo que, si el n\'umero 
         es positivo, el antecedente tendr\'a m\'as atributos.
 
         En este caso, hay que tener en cuenta que el valor absoluto del n\'umero insertado en este par\'ametro, debe ser menor 
@@ -135,7 +136,6 @@
         a1 a2 a6 -> a3    
     \end{verbatim}
 
-    \clearpage
 
     \begin{figure}[H]
         \centering
@@ -171,15 +171,15 @@
         \label{fig:randomImp3}
     \end{figure}
 
-    
+    \clearpage
 
 
-\subsubsection{Contextos aleatorios}
+\subsection{Contextos aleatorios}
 
     \textbf{Introducci\'on}
 
     En este caso, al igual que en el anterior, hasta donde se sabe, en la comunidad de FCA tampoco existe ning\'un generador aleatorio de 
-    contextos, y son bastante necesarios para, como se a nombrado antes, por ejemplo, realizar pruebas de los diferentes algoritmos.
+    contextos, y son bastante necesarios para, como se ha nombrado antes, por ejemplo, realizar pruebas de los diferentes algoritmos.
 
     As\'i que, se decide realizar un algoritmo de este tipo para a\~nadirlo a este paquete para que toda persona interesada pueda 
     utilizarlo.
@@ -188,13 +188,13 @@
     \textbf{Descripci\'on}
 
     Un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G x M \). Los elementos 
-    de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) son una relaci\'on I, se escribir\'a 
+    de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
     \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
 
     \textcolor{red}{A\~nadir referencia paper}
 
     La manera habitual de representar un contexto formal es mediante una tabla, la cual contar\'a con una fila para cada objeto y una columna 
-    para cada atributo, con una cruz en la intersecci\'on entre una fila g con una columna m sii el objeto g tiene un atributo m, \(g,m) \in 
+    para cada atributo, con una cruz en la intersecci\'on entre una fila g con una columna m sii el objeto g tiene un atributo m, \( (g,m) \in 
     I \).
 
     Por ello, la estructura m\'as sencilla a la hora de programar un algoritmo para contextos formales en R ser\'a un data.frame.
@@ -242,15 +242,14 @@
     \textbf{C\'odigo}
 
     A la hora de optimizar el c\'odigo, si el par\'ametro sparness no est\'a vac\'io, se ha decidido generar aleatoriamente el n\'umero de 
-    unos o ceros dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro sparness 0.2, con 4 objetos 
-    y 5 atributos, esto querr\'a decir que debe haber cuatro unos entre los 20 elementos a generar aleatoriamente. Por lo que en este caso, 
-    el n\'umero de unos ser\'a menor que el de ceros, as\'i que se colocar\'an cuatro unos aleatoriamente, rellenando las dem\'as posiciones 
-    del data.frame de ceros.
+    TRUE o FALSE dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro sparness 0.2, con 4 objetos 
+    y 5 atributos, esto querr\'a decir que debe haber cuatro TRUE entre los 20 elementos a generar aleatoriamente. Por lo que en este caso, 
+    el n\'umero de TRUE ser\'a menor que el de FALSE, as\'i que se colocar\'an cuatro TRUE aleatoriamente, rellenando las dem\'as posiciones 
+    del data.frame de FALSE.
 
     Como el algoritmo se va a ejecutar de formas diferentes dependiendo de las entradas que elija el usuario, se ha decidido modularizarlo 
     para poder comprenderlo bien. Veamos las diferentes partes:
 
-    \clearpage
 
     Aqu\'i tenemos el algoritmo principal, que ser\'a el que el usuario utilice:
 
@@ -263,7 +262,7 @@
     \clearpage
 
     Y como se ha especificado anteriormente, dependiendo de cu\'al sea la probabilidad de dispersi\'on elegida por el usuario, se generar\'an 
-    los unos o los ceros:
+    los TRUE o los FALSE:
 
     \lstinputlisting{r_code/randomGenerators/ones.R}
     \bigskip
@@ -277,7 +276,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics{randomC1}
-        \caption{Ejemplo 1 de contexto aleatorios}
+        \caption{Ejemplo 1 de contextos aleatorios}
         \label{fig:randomC1}
     \end{figure}
 
@@ -287,9 +286,9 @@
     \begin{figure}[H]
         \centering
         \includegraphics{randomC2}
-        \caption{Ejemplo 2 de contexto aleatorios}
+        \caption{Ejemplo 2 de contextos aleatorios}
         \label{fig:randomC2}
     \end{figure}
 
-    Como podemos observar, el n\'umero de ceros y unos es el mismo, ya que se ha elegido como par\'ametro de esparness 0.5.
+    Como podemos observar, el n\'umero de FALSE y TRUE es el mismo, ya que se ha elegido como par\'ametro de esparness 0.5.
     

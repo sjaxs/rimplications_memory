@@ -18,5 +18,8 @@ context <- function(num.obj, num.attr, sparness=NULL) {
   }
   colnames(mi.df) <- as.vector(sapply(1:num.attr,label.att))
   rownames(mi.df) <- as.vector(sapply(1:num.obj,label.obj))
+  for(k in seq(dim(mi.df)[2])){
+    mi.df[,k] <- as.logical(mi.df[,k])
+  }
   return(mi.df)
 }#End context

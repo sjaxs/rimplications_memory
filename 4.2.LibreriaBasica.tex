@@ -1,4 +1,4 @@
-\subsection{Librer\'ia b\'asica para sistemas de implicaciones}
+\section{Librer\'ia b\'asica para sistemas de implicaciones}
 Se va a intentar que este paquete de funciones pueda perdurar en el tiempo, y para ello, 
 se a realizado una librer\'ia b\'asica para intentar modularizar el c\'odigo y que sea lo 
 m\'as legible posible a la hora de poder comprenderlo.
@@ -8,17 +8,17 @@ se van a detallar una a una.
 
 
 %%% initialize.setOfAttributes %%%
-\subsubsection{Inicializar conjunto de atributos}
+\subsection{Inicializar conjunto de atributos}
 
     \textbf{Descripci\'on}
 
     Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar un subconjunto 
     de todos los atributos que componen a un grupo de implicaciones, adem\'as del conjunto completo de los atributos. 
     
-    Dentro de esta se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
+    Dentro de esta, se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
     forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
 
-    Es decir, con esta funci\'on lo que se consigue es tener un conjunto de atributos con la estructura adecuada para poder trabajar con \'el.
+    Es decir, con esta funci\'on, lo que se consigue es tener un conjunto de atributos con la estructura adecuada para poder trabajar con \'el.
     \\
 
     
@@ -48,7 +48,7 @@ se van a detallar una a una.
 
 
 %%% is.singleton %%%
-\subsubsection{Conjunto unitario}
+\subsection{Conjunto unitario}
 
     \textbf{Descripci\'on}
     
@@ -90,7 +90,7 @@ se van a detallar una a una.
 
 
 %%% union.sets %%% 
-\subsubsection{Uni\'on}
+\subsection{Uni\'on}
 
     \textbf{Descripci\'on}
 
@@ -129,14 +129,14 @@ se van a detallar una a una.
 
     Segundo, se observa que ambos conjuntos son de la estructura itemMatrix, con el mismo n\'umero de columnas. Esto es algo muy 
     importante, y por eso se ha usado la funci\'on initialize.setOfAttributes, ya que para utilizar la uni\'on, los elementos deben 
-    estar en los dos conjuntos como informaci\'on, tal y como se vi\'o en la estructura de datos itemMatrix.
+    estar en los dos conjuntos como informaci\'on, tal y como se vio en la estructura de datos itemMatrix.
 
     Por \'ultimo, se realiza la uni\'on e inspeccionamos la variable resultante, y se comprueba que se ha realizado correctamente.
 
 
 
 %%% intersection.sets %%% 
-\subsubsection{Intersecci\'on}
+\subsection{Intersecci\'on}
 
     \textbf{Descripci\'on}
     
@@ -148,7 +148,7 @@ se van a detallar una a una.
         A \cap B = \{x\in U ~ | ~ x\in A ~ y ~ x\in B \}
     \]
 
-    En este caso, tambi\'en se usar\'a con la estructura de datos itemMatrix que es la usada mayoritariamente con implicaciones 
+    En este caso, tambi\'en se utilizar\'a con la estructura de datos itemMatrix que es la usada mayoritariamente con implicaciones 
     como ya se ha especificado antes.
     \\
 
@@ -156,7 +156,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/intersection.sets.R}
-    \bigskip
+    \clearpage
 
     \textbf{Ejemplo}
 
@@ -177,7 +177,7 @@ se van a detallar una a una.
     \clearpage
 
 %%% difference.sets %%% 
-\subsubsection{Diferencia}
+\subsection{Diferencia}
 
     \textbf{Descripci\'on}
 
@@ -211,14 +211,14 @@ se van a detallar una a una.
         \label{fig:diferencia}
     \end{figure}
 
-    En este caso, se vuelve a realizar todo de la mismo forma que en los anteriores casos, pero usamos la funci\'on difference.sets, y 
+    En este caso, se vuelve a realizar todo de la misma forma que en los anteriores casos, pero usamos la funci\'on difference.sets, y 
     con ella obtenemos como resultado un nuevo conjunto, en el que se encuentran los elementos del primer conjunto, eliminando los que 
     tambi\'en est\'en en el segundo.
     \clearpage
 
 
 %%% is.included %%% 
-\subsubsection{Inclusi\'on}
+\subsection{Inclusi\'on}
 
     \textbf{Descripci\'on}
 
@@ -251,13 +251,12 @@ se van a detallar una a una.
     En el primero no se cumple que el set1 est\'e incluido en el set2, aunque s\'i se cumplir\'ia al contrario, pero la inclusi\'on no es 
     una funci\'on que cumpla la propiedad sim\'etrica, luego en este caso el resultado es FALSE.
 
-    En el segundo ejemplo s\'i que se cumple que el primer conjunto est\'e incluido en el segundo. Como se puede observar da igual el orden 
-    en el que est\'en los elementos.
+    En el segundo ejemplo s\'i que se cumple que el primer conjunto est\'e incluido en el segundo.
 
 
 
 %%% is.empty.set %%% 
-\subsubsection{Vac\'io}
+\subsection{Vac\'io}
 
     \textbf{Descripci\'on}
 
@@ -290,7 +289,7 @@ se van a detallar una a una.
 
 
     %%% equals.sets %%% 
-\subsubsection{Igualdad}
+\subsection{Igualdad}
 
     \textbf{Descripci\'on}
 
@@ -330,7 +329,7 @@ se van a detallar una a una.
 
 
 %%% remove.imp %%% 
-\subsubsection{Eliminar implicaci\'on}
+\subsection{Eliminar implicaci\'on}
 
     \textbf{Descripci\'on}
 
@@ -364,7 +363,7 @@ se van a detallar una a una.
 
 
 %%% remove.all %%% 
-\subsubsection{Vaciar conjunto}
+\subsection{Vaciar conjunto}
 
     \textbf{Descripci\'on}
 
@@ -394,12 +393,12 @@ se van a detallar una a una.
     \end{figure}
 
     En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado es vac\'io ya que el nuevo 
-    conjunto resultante no contiene ninguna implcaci\'on.
+    conjunto resultante no contiene ninguna implicaci\'on.
 
 
 
 %%% add.imp %%% 
-\subsubsection{A\~nadir implicaci\'on}
+\subsection{A\~nadir implicaci\'on}
 
     \textbf{Descripci\'on}
 
@@ -434,7 +433,7 @@ se van a detallar una a una.
 
 
 %%% new.imp %%% 
-\subsubsection{Nueva implicaci\'on}
+\subsection{Nueva implicaci\'on}
 
     \textbf{Descripci\'on}
 
@@ -482,7 +481,7 @@ se van a detallar una a una.
 
 
 %%% read.left %%% 
-\subsubsection{Leer antecedente}
+\subsection{Leer antecedente}
 
     \textbf{Descripci\'on}
 
@@ -514,7 +513,7 @@ se van a detallar una a una.
 
 
 %%% read.right %%% 
-\subsubsection{Leer consecuente}
+\subsection{Leer consecuente}
 
     \textbf{Descripci\'on}
     
@@ -545,7 +544,7 @@ se van a detallar una a una.
     \clearpage
 
 %%% substitute.imp %%% 
-\subsubsection{Sustituir implicaci\'on}
+\subsection{Sustituir implicaci\'on}
 
     \textbf{Descripci\'on}
 
@@ -553,7 +552,7 @@ se van a detallar una a una.
     se quiera que la nueva permanezca en un lugar determinado, para ello, esta funci\'on inserta la nueva implicaci\'on en el lugar que 
     se le indique. Como par\'ametros, necesita el conjunto de implicaciones, la posici\'on a cambiar, y los nuevos antedecente y consecuente.
     Para la utilizaci\'on de esta funci\'on se debe llamar a sustitute.imp, aunque esta, a su vez har\'a uso de add.imp.k, cuyos codigos se 
-    muestran a continuaci\'on. 
+    muestran a continuaci\'on.
     \\
 
 
@@ -562,7 +561,7 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/add.imp.k.R}
 
     \lstinputlisting{r_code/basicLibrary/substitute.imp.R}
-    \bigskip
+    \clearpage
 
     \textbf{Ejemplo}
 
@@ -579,7 +578,7 @@ se van a detallar una a una.
 
 
 %%% included.left %%% 
-\subsubsection{Incluido en antecedente}
+\subsection{Incluido en antecedente}
 
     \textbf{Descripci\'on}
 
@@ -588,7 +587,7 @@ se van a detallar una a una.
     las funciones is.included y read.left para comprobar si un antecedente est\'a incluido en otro, devolver\'a TRUE en caso 
     afirmativo, y FALSE en el contrario.
     \\
-
+    \clearpage
 
     \textbf{C\'odigo}
 
@@ -612,7 +611,7 @@ se van a detallar una a una.
 
 
 %%% delete.set.of.IS %%% 
-\subsubsection{Eliminar implicaciones con consecuente vac\'io}
+\subsection{Eliminar implicaciones con consecuente vac\'io}
 
     \textbf{Descripci\'on}
 
@@ -621,7 +620,7 @@ se van a detallar una a una.
     la cual, pas\'andole como par\'ametro dicho conjunto, nos devolver\'a uno nuevo eliminando las implicaciones con su consecuente 
     vac\'io.
     \\
-
+    \clearpage
 
     \textbf{C\'odigo}
 
@@ -638,13 +637,13 @@ se van a detallar una a una.
     \end{figure}
 
     Comenzamos con un conjunto de seis implicaciones, en el que dos de ellas tienen su consecuente vac\'io. Al realizar la 
-    operaci\'on de borrar los consecuentes vacios, obtenemos un nuevo conjunto con cuatro implicaciones, ya que las que ten\'ian 
+    operaci\'on de borrar los consecuentes vac\'ios, obtenemos un nuevo conjunto con cuatro implicaciones, ya que las que ten\'ian 
     sus consecuentes sin elementos, han sido eliminadas.
 
 
 
 %%% size.set %%% 
-\subsubsection{Tama\~no del conjunto}
+\subsection{Tama\~no del conjunto}
 
     \textbf{Descripci\'on}
 
@@ -677,7 +676,7 @@ se van a detallar una a una.
 
 
 %%% cadinality.set %%% 
-\subsubsection{Cardinalidad del conjunto}
+\subsection{Cardinalidad del conjunto}
 
     \textbf{Descripci\'on}
 
@@ -691,6 +690,7 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/cardinality.set.R}
     \bigskip
 
+    \clearpage
     \textbf{Ejemplo}
 
 
@@ -701,18 +701,18 @@ se van a detallar una a una.
         \label{fig:cardinality}
     \end{figure}
 
-    La cardinalidad, tal y como se ha explicado arriba es el n\'umero de implicaciones que tiene un conjunto, por lo que como 
+    La cardinalidad, tal y como se ha explicado arriba es el n\'umero de implicaciones que tiene un conjunto, por lo que, como 
     se puede observar en este ejemplo, como tiene tres implicaciones, su cardinalidad es tres.
 
 
 
 %%% core %%% 
-\subsubsection{Core}
+\subsection{Core}
 
     \textbf{Descripci\'on}
 
     A esta funci\'on se le pasa un conjunto de atributos Omega, junto con un conjunto de implicaciones Gamma. 
-    Devolver\'a un conjunto de datos resultante de eliminar de Omega todos los atributos que se encuentren en los 
+    Devolver\'a el conjunto de datos resultante de eliminar de Omega todos los atributos que se encuentren en los 
     consecuentes de las implicaciones que forman Gamma. 
 
     \[
@@ -722,6 +722,8 @@ se van a detallar una a una.
     Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
     en el algoritmo de claves minimales realizado en el segundo tomo de este TFG.
     \\
+
+    \clearpage
 
 
     \textbf{C\'odigo}
@@ -745,9 +747,10 @@ se van a detallar una a una.
     de las implicaciones.
 
 
+    \clearpage
 
 %%% body %%% 
-\subsubsection{Body}
+\subsection{Body}
 
     \textbf{Descripci\'on}
 

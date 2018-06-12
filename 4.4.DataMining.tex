@@ -1,45 +1,73 @@
-\subsection{Librer\'ia de An\'alis de Conceptos Formales}
+\section{Librer\'ia de An\'alisis de Conceptos Formales}
 
 \textbf{Introducci\'on}
 
-El ana\'alis de conceptos formales es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
+El an\'alisis de conceptos formales es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
 como una relaci\'on binaria entre objetos y atributos.
 
-Como se ha explicado anteriormente, un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G x M \). Los elementos 
-de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) son una relaci\'on I, se escribir\'a 
+Como se ha explicado anteriormente, un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G \times M \). Los elementos 
+de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
 \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
 
 Para trabajar con contextos se utilizan varias funciones que se van a desgranar una a una en los siguientes puntos:
 
-    \subsubsection{Leer concepto}
+    \subsection{Leer concepto}
 
         \textbf{Descripci\'on}
 
         Como primera funci\'on se tiene la de obtener un concepto formal con su estructura adecuada teniendo la informaci\'on en un fichero. A la 
         hora de utilizar esta funci\'on se pueden usar ficheros xls, txt o r, ya que el resultado ser\'a el mismo, una variable de tipo data.frame 
         con toda la informaci\'on del fichero de entrada.
+        \\
+
+        \clearpage
 
         \textbf{C\'odigo}
 
         \lstinputlisting{r_code/FCA/read.fc.R}
+        \bigskip
 
         \textbf{Ejemplo}
 
+        Se va a proponer un ejemplo en el que se leer\'a de un fichero txt que contiene lo siguiente:
 
+        \begin{verbatim}
+            1 2 3 4 5
+            Compose Even ODD
+            0 0 1
+            0 1 0
+            0 0 1
+            1 1 0
+            0 0 1
+        \end{verbatim}
 
-    %Mp y mp2
-    \subsubsection{Operador de derivaci\'on de atributos a objetos}
+        \begin{figure}[H]
+            \centering
+            \includegraphics{readfc}
+            \caption{Ejemplo de leer de fichero un concepto formal}
+            \label{fig:readfc}
+        \end{figure}
+
+        Como se puede observar en la imagen de arriba, lo primero que se ejecuta es la funci\'on read.fc, que tal y como se ha comentado 
+        antes, es la encargada de leer el fichero. A continuaci\'on, se extrae el formato de la variable en la que se ha guardado la 
+        salida de la funci\'on que se est\'a probando, y se observa, que tal y como se esperaba es un data.frame.
+
+        Por \'ultimo, vemos que en la variable ejemplo se ha guardado la informaci\'on que se ten\'ia en el archivo txt.
+
+    \subsection{Operador de derivaci\'on de atributos a objetos}
 
         \textbf{Descripci\'on}
 
         Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de atributos a objetos a la 
         funci\'on \( ^\uparrow : 2^G \rightarrow 2^M \)
 
-        \( ^\uparrow = { m \in M | <g,m> \in I ~ para ~ todo ~ g \in A } \)
+        \[ A^\uparrow = { m \in M | <g,m> \in I ~ para ~ todo ~ g \in A } \]
 
         El conjunto \( A^\uparrow \) es el de los atributos compartidos por todos los objetos de A, es decir, este operador devolver\'a 
-        un conjunto de attributos que ser\'an los que contiene un determinado objeto.
-
+        un conjunto de atributos que ser\'an los que contiene un determinado objeto.
+        \\
+        
+        \clearpage
 
         \textbf{C\'odigo}
 
@@ -48,8 +76,72 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{Ejemplo}
 
+        Para los ejemplos de este apartado y los tres siguientes, se va a usar un mismo contexto que se generar\'a de forma aleatoria:
 
-    \subsubsection{Operador de doble derivaci\'on de atributos a objetos}
+        Comencemos generado dicho contexto:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{mp1}
+            \caption{Generaci\'on de contexto a usar}
+            \label{fig:mp1}
+        \end{figure}
+
+
+        A partir de ese contexto, se aplica la funci\'on de derivaci\'on de atributos a objetos. Le pasamos el contexto y el atributo 4, y 
+        como podemos observar en la salida, obtenemos los objetos 1, 2 y 3.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{mpej}
+            \caption{Ejemplo de derivaci\'on de atributos a objetos}
+            \label{fig:mpej}
+        \end{figure}
+
+
+    \subsection{Operador de derivaci\'on de objetos a atributos}
+
+        \textbf{Descripci\'on}
+
+        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de objetos a atributos a la 
+        funci\'on \( ^\downarrow : 2^M \rightarrow 2^G \)
+
+        \[ B^\downarrow = { g \in G | <g,m> \in I ~ para ~ todo ~ m \in B } \]
+
+        El conjunto \( B^\downarrow \) es el de los objetos compartidos por todos los atributos de B, en este caso, este operador devolver\'a 
+        un conjunto de objetos que ser\'an los que contiene un determinado atributo.
+        \\
+
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/gp.R}
+
+        \clearpage
+
+        \textbf{Ejemplo}
+
+        Comenzamos recordando cu\'al es el contexto que se va a usar:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{context}
+            \caption{Contexto que se va a usar}
+            \label{fig:context}
+        \end{figure}
+
+        A continuaci\'on, se aplica la funci\'on de derivaci\'on de objetos a atributos. Le pasamos el contexto y en este caso, el objeto 4, y 
+        como podemos observar en la salida, obtenemos los atributos 2 y 3.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{gpej}
+            \caption{Ejemplo de derivaci\'on de objetos a atributos}
+            \label{fig:gpej}
+        \end{figure}
+
+
+    \subsection{Operador de doble derivaci\'on de atributos a objetos}
 
         \textbf{Descripci\'on}
 
@@ -57,41 +149,37 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         el operador de doble derivaci\'on de atributos a objetos se representar\'a como \( A'' \).
 
 
-        \( A'' = (A^\uparrow)^\downarrow \)
+        \[ A'' = (A^\uparrow)^\downarrow \]
 
         Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de atributos a objetos, se le aplica el operador 
         de derivaci\'on de objetos a atributos.
 
 
+        \clearpage
+
         \textbf{C\'odigo}
 
         \lstinputlisting{r_code/FCA/mp2.R}
 
+        \bigskip
 
         \textbf{Ejemplo}
 
+        Usando el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de atributos a objetos a dicho 
+        contexto y al objeto4, de nuevo.
 
-    %Gp y Gp2
-    \subsubsection{Operador de derivaci\'on de objetos a atributos}
+        Y obtenemos como resultado los atributos 3 y 4.
 
-        \textbf{Descripci\'on}
-
-        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de objetos a atributos a la 
-        funci\'on \( ^\downarrow : 2^M \rightarrow 2^G \)
-
-        \( ^\downarrow = { g \in G | <g,m> \in I ~ para ~ todo ~ m \in B } \)
-
-        El conjunto \( B^\downarrow \) es el de los objetos compartidos por todos los atributos de B, en este caso, este operador devolver\'a 
-        un conjunto de objetos que ser\'an los que contiene un determinado atributo.
-
-        \textbf{C\'odigo}
-
-        \lstinputlisting{r_code/FCA/gp.R}
-
-        \textbf{Ejemplo}
+        \begin{figure}[H]
+            \centering
+            \includegraphics{mp2ej}
+            \caption{Ejemplo de doble derivaci\'on de atributos a objetos}
+            \label{fig:mp2ej}
+        \end{figure}
 
 
-    \subsubsection{Operador de doble derivaci\'on de objetos a atributos}
+
+    \subsection{Operador de doble derivaci\'on de objetos a atributos}
 
         \textbf{Descripci\'on}
 
@@ -99,186 +187,343 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         el operador de doble derivaci\'on de objetos a atributos se representar\'a como \( B'' \).
 
 
-        \( B'' = (B^\downarrow)^\uparrow \)
+        \[ B'' = (B^\downarrow)^\uparrow \]
 
         Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de objetos a atributos, se le aplica el operador 
         de derivaci\'on de atributos a objetos.
 
+        \clearpage
 
         \textbf{C\'odigo}
 
         \lstinputlisting{r_code/FCA/gp2.R}
 
+        \bigskip
 
         \textbf{Ejemplo}
 
+        Por \'ultima vez, se usa el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de 
+        objetos a atributos al contexto y al atributo4 para terminar de observar el comportamiento de los cuatro operadores.
 
+        Y obtenemos como resultado los objetos 2 y 4.
 
-    \subsubsection{Crear contexto}
-
-        \textbf{Descripci\'on}
-
-        En esta librer\'ia, un contexto consta de una lista con dos vectores diferentes. Luego, con esta funci\'on, se puede crear un contexto 
-        pas\'andole como par\'ametros dos vectores diferentes.
-        Cada uno de dichos vectores, tendr\'a como nombre g y m en este orden, y representar\'an los objetos y atributos.
-
-
-        \textbf{C\'odigo}
-
-        \lstinputlisting{r_code/FCA/create.context.R}
-
-        \textbf{Ejemplo}
+        \begin{figure}[H]
+            \centering
+            \includegraphics{gp2ej}
+            \caption{Ejemplo de doble derivaci\'on de objetos a atributos}
+            \label{fig:gp2ej}
+        \end{figure}
 
 
 
-    \subsubsection{Concepto formal}
+    \subsection{Concepto formal}
 
     
         \textbf{Descripci\'on}
 
-        Dado un contexto formal \( K = (G, M, I) \), donde \( A \subseteq G ~ y ~ B \subseteq M \). Se dice que un par \( <A,B> \) es un 
-        concepto formal de \(K\) si \( A^\uparrow = B ~ y ~ B^\downarrow = A\).
+        Dado un contexto formal \( K = (G, M, I) \), se dice que un par \( <A,B> \) es un 
+        concepto formal de \(K\) si \( A^\uparrow = B ~ y ~ B^\downarrow = A\), donde \( A \subseteq G ~ y ~ B \subseteq M \).
         
-        Es decir, \( <A,B> \) ser\'a un concepto formal se A contiene exactamente todos los objetos que compoarten los atributos de B, y a su 
+        Es decir, \( <A,B> \) ser\'a un concepto formal si A contiene exactamente todos los objetos que comparten los atributos de B, y a su 
         vez, B contiene exactamente todos los atributos que comparten los objetos de A.
+        \\
+
+        \clearpage
 
         \textbf{C\'odigo}
 
         \lstinputlisting{r_code/FCA/is.formal.concept.R}
 
+        \bigskip
+
         \textbf{Ejemplo}
 
+        Para este ejemplo, se va utilizar el contexto creado en el anterior ejemplo y el concepto del siguiente fichero excel:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{excel}
+            \caption{Contexto}
+            \label{fig:excel}
+        \end{figure}
 
 
-    %infimum.fc y infimum.set.fc
-    \subsubsection{\'Infimo}
+        Con los dos elementos anteriores, se va a ejecutar la funci\'on para ver si efectivamente es un concepto formal del contexto o no:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{isformal}
+            \caption{Ejemplo de contexto formal}
+            \label{fig:isformal}
+        \end{figure}
+
+        \clearpage
+
+
+
+    \subsection{Crear concepto}
+
+        \textbf{Descripci\'on}
+
+        En esta librer\'ia, un concepto consta de una lista con dos vectores diferentes. Luego, con esta funci\'on, se puede crear un concepto 
+        pas\'andole como par\'ametros dos vectores diferentes.
+        Cada uno de dichos vectores, tendr\'a como nombre g y m en este orden, y representar\'an los objetos y atributos.
+        \\
+        
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/create.context.R}
+
+        \bigskip
+
+        \textbf{Ejemplo}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{createContext}
+            \caption{Ejemplo de crear concepto}
+            \label{fig:createContext}
+        \end{figure}
+
+
+
+
+    \subsection{Supremo}
+
+
+        \textbf{Introducci\'on}
+    
+        En este caso, se a comenzar con unas definiciones necesarias para los dos pr\'oximos puntos.
+        \\
+
+        Dado un contexto formal \( K = (G, M, I) \), se llama ret\'iculo de conceptos de \(K\), y se denota por \( B (K) \), al ret\'iculo 
+        formado por los conceptos con la relaci\'on de orden:
+
+        \( (A_{1}, B_{1}) \leq (A_{2}, B_{2}) ~ si ~ y ~ solo ~ si ~ A_{1} \subseteq A_{2} \)
+        \( o ~ equivalentemente, ~ B_{1} \supseteq B_{2} \)
+
+        \bigskip
+
+
+        El orden establecido entre los conceptos formales indica cu\'al de ellos es m\'as espec\'ifico. Luego,  \( (A_{1}, B_{1}) \leq (A_{2}, B_{2})\) 
+        quiere decir que  \( (A_{1}, B_{1}) \) es m\'as espec\'ifico que \( (A_{2}, B_{2}) \) denomin\'andose subconcepto o, igualmente, que  
+        \( (A_{2}, B_{2}) \) es m\'as general denomin\'andose superconcepto.
+
+        \bigskip
+
+
+        \textbf{Descripci\'on}
+
+        Siendo \((A_{1}, B_{1}) \) y \((A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el supremo como:
+
+        El superconcepto com\'un m\'as peque\~no de \((A_{1}, B_{1}) \) y \((A_{2}, B_{2})\):
+
+        \[ (A_{1}, B_{1}) \vee (A_{2}, B_{2}) = ((A_{1} \cup A_{2})'', ~ B_{1}\cap B_{2}) \]
+
+        \bigskip
+        \textbf{C\'odigo}
+
+        En este caso, se han desarrollado dos funciones diferentes. Una que obtiene el supremo de dos conceptos:
+
+        \lstinputlisting{r_code/FCA/supremum.R}
+
+        Y otra, que de un conjunto de conceptos, obtiene su supremo:
+
+        \lstinputlisting{r_code/FCA/supremum.set.fc.R}
+
+        \clearpage
+
+        \textbf{Ejemplo}
+
+        En este ejemplo, se realiza el supremo entre dos conceptos:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{supremum}
+            \caption{Ejemplo de supremo de dos conceptos}
+            \label{fig:supremum}
+        \end{figure}
+
+
+    \subsection{\'Infimo}
 
     
         \textbf{Descripci\'on}
 
         Siendo \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el \'infimo como:
 
-        El superconcepto com\'un m\'as peque\~no de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
+        El subconcepto com\'un m\'as grande de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
 
-        \( (A_{1}, B_{1}) \vee (A_{2}, B_{2}) = ((A_{1} \cup A_{2})'', ~ B_{1}\cap B_{2}) \)
+        \[ (A_{1}, B_{1}) \wedge (A_{2}, B_{2}) = (A_{1} \cap A_{2}'', ~ (B_{1}\cup B_{2})'') \]
+
+        \clearpage
 
         \textbf{C\'odigo}
+
+        En este caso, tambi\'en tenemos dos funciones. El \'infimo de dos conceptos:
 
         \lstinputlisting{r_code/FCA/infimum.R}
 
+        Y otra, que de un conjunto de conceptos, obtiene su \'infimo:
+
         \lstinputlisting{r_code/FCA/infimum.set.fc.R}
 
+        \bigskip
+
         \textbf{Ejemplo}
 
+        Este ejemplo corresponde con la primera funci\'on, en la que se calcula el \'infimo de dos conceptos:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{infimum}
+            \caption{Ejemplo de \'infimo de dos conceptos}
+            \label{fig:infimum}
+        \end{figure}
 
 
-    %supremum.fc y supremum.set.fc
-    \subsubsection{Supremo}
+
+    \subsection{Objeto concepto}
 
     
         \textbf{Descripci\'on}
 
-        Siendo \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el supremo como:
+        Siendo \( (G, M, I) \) un contexto formal. Entonces para cada objeto \( g \in G\), el correspondiente objeto concepto es:
 
-        El subconcepto com\'un m\'as grande de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
+        \[ \gamma g:=(\{g\}'', \{g\}') \]
 
-        \( (A_{1}, B_{1}) \wedge (A_{2}, B_{2}) = (A_{1} \cap A_{2}'', ~ (B_{1}\cup B_{2})'') \)
+        Es decir, para esta funci\'on se utiliza un contexto y un objeto, y nos devuelve un nuevo concepto siguiendo la definici\'on 
+        anterior.
+        \\
 
-
-        \textbf{C\'odigo}
-
-        \lstinputlisting{r_code/FCA/supremum.R}
-
-        \lstinputlisting{r_code/FCA/supremum.set.fc.R}
-
-
-        \textbf{Ejemplo}
-
-
-
-    \subsubsection{...object.concept.fc}
-
-    
-        \textbf{Descripci\'on}
-
-        Si se tiene un contexto y un objeto, se pueden extraer los atributos de dicho objeto en el contexto. Esto es precisamente lo que hace 
-        esta funci\'on, ya que crea un nuevo contexto a partir de uno inicial y un objeto con ayuda de los operadores de derivaci\'on.
-
+        \clearpage
 
         \textbf{C\'odigo}
 
+        Se han realizado dos funciones diferentes. En esta primera se calcula el objeto concepto para un solo objeto:
+        
         \lstinputlisting{r_code/FCA/object.concept.fc.R}
 
-
-        \textbf{Ejemplo}
-
-
-
-    \subsubsection{Objetos de un concepto}
-
-    
-        \textbf{Descripci\'on}
-
-        Esta funci\'on devolver\'a todos los objetos de un concepto...
-
-
-        \textbf{C\'odigo}
-
+        Y la segunda, calcula todos los objetos conceptos del contexto:
         \lstinputlisting{r_code/FCA/all.object.concept.R}
 
+        \bigskip
 
         \textbf{Ejemplo}
 
+        En este ejemplo, se genera un contexto aleatorio y se calcula el objeto concepto del objeto 4:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{objcon}
+            \caption{Ejemplo de objeto concepto}
+            \label{fig:objcon}
+        \end{figure}
 
 
-    \subsubsection{...attribute.concept.fc}
 
-        En este caso, si se tiene un contexto y un atributo, se pueden extraer los objetos de dicho atributo en el contexto. 
-        Esto es lo que hace esta funci\'on, crea un nuevo contexto a partir de uno inicial y un atributo con ayuda de los operadores 
-        de derivaci\'on.
+
+    \subsection{Atributo concepto}
+
     
         \textbf{Descripci\'on}
 
+        Siendo \( (G, M, I) \) un contexto formal. Entonces para cada atributo \( m \in M\), el correspondiente atributo concepto es:
+
+        \[ \mu m:=(\{m\}'', \{m\}') \]
+
+        Es este caso, para esta funci\'on se utiliza un contexto y un atributo, y nos devuelve un nuevo concepto siguiendo la definici\'on 
+        anterior.
+        \\
+
 
         \textbf{C\'odigo}
+
+        De nuevo, se divide en dos funciones. Esta calcula el atributo concepto para un solo atributo:
 
         \lstinputlisting{r_code/FCA/attribute.concept.fc.R}
 
-
-        \textbf{Ejemplo}
-
-
-
-    \subsubsection{Atributos de un concepto}
-
-    
-        \textbf{Descripci\'on}
-
-        Esta funci\'on devolver\'a todos los atributos de un concepto...
-
-        \textbf{C\'odigo}
-
+        Y esta segunda, calcula todos los atributos conceptos del contexto:
         \lstinputlisting{r_code/FCA/all.attribute.concept.fc.R}
 
+        \clearpage
+
         \textbf{Ejemplo}
 
+        En este caso usamos el mismo contexto que en el anterior:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{conconcepto}
+            \caption{Contexto para el ejemplo}
+            \label{fig:conconcepto}
+        \end{figure}
+
+        Y calculamos el atributo concepto del atributo 4:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{attcon}
+            \caption{Ejemplo de atributo concepto}
+            \label{fig:attcon}
+        \end{figure}
 
 
-    \subsubsection{... all.fc}
 
-    
+    \subsection{Todos los objetos conceptos y atributos conceptos}
+       
+        
         \textbf{Descripci\'on}
+
+        Por \'ultimo, con esta funci\'on se podr\'an obtener todos los conceptos formales de un contexto.
+        \\
 
 
         \textbf{C\'odigo}
 
         \lstinputlisting{r_code/FCA/all.fc.R}
 
+        \bigskip
 
         \textbf{Ejemplo}
 
+        Se genera un contexto aleatorio con un n\'umero peque\~no de objetos y atributos.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{contextoAll}
+            \caption{Contexto a usar en el ejemplo siguiente}
+            \label{fig:contextoAll}
+        \end{figure}
+        
+        \bigskip
+        Y se generan todos los conceptos formales:
 
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics{allcontext}
+            \caption{Ejemplo de todos los conceptos formales de un contexto}
+            \label{fig:allcontext}
+        \end{figure}
+
+        \clearpage
+
+
+
+\subsection{Next closure}
+
+        \textbf{Descripci\'on}
+    
+    
+        \textbf{C\'odigo}
+    
+    
+        \textbf{Ejemplo}
+
+
+        
 \subsection{Minimal generator}
 
 

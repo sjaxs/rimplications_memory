@@ -6,6 +6,6 @@ supremum.set.fc <- function(context, set.fc){
     B <- intersect(B, set.fc[k]$m)
   }
   A <- Gp2(context, A)
-  supremum <- create.fc(A, B)
+  supremum <- create.concept(A, B)
   return(supremum)
 }#End supremum.set.fc

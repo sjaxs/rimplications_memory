@@ -6,6 +6,6 @@ infimum.set.fc <- function(context, set.fc){
     B <- union(B, set.fc[k]$m)
   }
   B <- Mp2(context, B)
-  infimum <- create.fc(A, B)
+  infimum <- create.concept(A, B)
   return(infimum)
 }#End infimum.set.fc

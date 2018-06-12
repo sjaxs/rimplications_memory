@@ -9,8 +9,8 @@ new.imp <- function(Sigma,A,B){
         BD <- union.sets(B,D)
         Sigma <- substitute.right(Sigma,k,A,BD)
         return(Sigma)  
-      }
-    }
+  	  } 
+   	} 
   }
   Sigma <- add.imp(Sigma,A,B)
   return(Sigma)  
