@@ -5,7 +5,43 @@
 % Compromise between the size of the implicational set and the efficiency of its management
 % }
 
-Este algoritmo se desarroll\'o por E. Rodr\'iguez-Lorenzo et al. en \cite{DBasis} con el objetivo  de reducir el coste computacional del c\'alculo del cierre haciendo uso del concepto de D-Base presentado por K. Adaricheva \cite{Adaricheva}
+Este algoritmo se desarroll\'o por E. Rodr\'iguez-Lorenzo et al. en \cite{DBasis} con el objetivo  de reducir el coste computacional del c\'alculo del cierre haciendo uso del concepto de D-Base presentado por K. Adaricheva \cite{Adaricheva}.\\
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{Add}{Add}
+    \SetKwFunction{MinimalCovers}{MinimalCovers}
+    \SetKwFunction{MinGen}{$MinGen_{0}$}
+    \SetKwFunction{OrderedComp}{OrderedComp}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{ 
+        $\Sigma$, an implicational system on $M$ 
+    }
+    \KwOut{The D-basis $ \Sigma_{D} $ on $M$}
+    \Begin{
+        \ $MinGen = \MinGen{$M, \ \Sigma $}$\;
+        \ $C := \emptyset$\;
+        \ForEach{$\langle a,mg(C)\rangle \in MinGen $}{
+            \ForEach{$a \in C $}{
+                \ $C := \Add{$\langle a,mg(C)\rangle,C$}$
+            }
+        }
+        \ $\Sigma_{D} := \emptyset$ \;
+        \ForEach{$\langle a,mg_{a}\rangle \in C $}{
+            \ $mg_{a} := \MinimalCovers{$mg_{a}$}$\;
+            \ForEach{$g \in ,mg_{a} $}{
+                $\Sigma_{D} : = \Sigma_{D} \cup \{g \to a\}$
+            }
+        }
+        \OrderedComp{$\Sigma_{D}$}\;
+        \Return $\Sigma_{D}$
+    }%end beginre
+    \caption{D-basis algorithm}\label{alg:7}
+\end{algorithm}\DecMargin{1em}
+\bigskip
 
 Antes de entrar en el concepto de D-Base, se detallar\'an otros conceptos con el fin de entrar en contexto.\\
 

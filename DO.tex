@@ -33,8 +33,134 @@ El teorema 2 de \cite{DO2} nos dice que:
 
 Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \)\\
 
-Como soluci\'on al c\'alculo de bases directas optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo et al. \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\). Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado [doSimp] tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on (Si-Eq) y la composici\'on (Co-Eq) para simplifcar el sistema implicacional, [sSimp] para completarlo y (rSi-Eq) y (Co-Eq) para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que [SLgetdo] lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
-\newpage
+Como soluci\'on al c\'alculo de bases directas optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo et al. \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\).\\
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{ 
+        $\Sigma$, an implicational system on $S$
+    }
+    \KwOut{A simplified implicational system $ \Sigma_{s} $ that is equivalent to $\Sigma$}
+    \Begin{
+        \ $ \Sigma := \{ A \to B \setminus A \ | \ A  \to B \in \Sigma, \ B \not\subseteq A \}$\;
+        \Repeat{$ \Sigma_{s} = \Sigma $} {
+            \ $\Sigma_{S} = \Sigma$\;
+            \ $\Sigma := \emptyset$\;
+            \ForEach{$A \to B \in \Sigma_{s} $}{
+                \ $\Gamma = \emptyset$\;
+                \ForEach{$C \to D \in \Sigma $}{
+                    \lIf{$C \subseteq A \subseteq (C \cup D) \ or \ A \subseteq C \subseteq (A \cup B)$}{
+                        \ $A := A \cap C ; \ B := B \cap D$ 
+                    }\Else{
+                        \lIf{$A \subset C$}{
+                            \If{$D \not\subseteq B$}{
+                                \ $ add \ C \setminus B \to D \setminus B \ to \ \Gamma$ 
+                            }   
+                        }\Else{
+                            \If{$C \subset A$}{
+                                \ $ A := A \setminus D ; \ B := B \setminus D$ 
+                            } 
+                            \ $\Gamma := \Gamma \cup \{C \to D \} \cup $
+                        }
+                    }
+                }
+                \lIf{$B = \emptyset$}{
+                    \ $\Sigma := \Gamma$
+                }\lElse{
+                    \ $\Sigma := \Gamma \cup \{A \to B\}$
+                }
+            }
+        }
+        \Return $\Sigma_{s}$
+    }%end beginre
+    \caption{Simplify}\label{alg:4}
+\end{algorithm}\DecMargin{1em}
+
+% Add-sSimp
+
+% \IncMargin{1em}
+% \begin{algorithm}[H]
+%     \SetAlgoLined
+%     % \LinesNumbered
+%     \DontPrintSemicolon
+%     \SetKw{KwOr}{or}
+%     \Begin{
+%         \If{$A \not\subseteq C \ and \ B \cup C \neq \emptyset \neq D \setminus (A \cup B)$}{
+%             \ $E := A \cup (C \setminus B)$ \;
+%             \ $F := D \setminus (A \cup B)$ \;
+%             \ForEach{$X \to Y \in \Sigma $}{
+%                     \If{$X \subseteq E$}{
+%                         \lIf{$C \subseteq Y$}{
+%                             \Return $\emptyset$
+%                         }\Else{
+%                             \ $E := E \setminus Y$\;
+%                             \ $F := F \setminus Y$\;
+%                         } 
+%                     }
+%             } 
+%             \Return $\{E \to F\}$
+%         }\lElse{
+%             \Return $\emptyset$
+%         }
+%     }%end beginre
+%     \caption{Add-sSimp}\label{alg:5}
+% \end{algorithm}\DecMargin{1em}
+
+SLgetdo
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{Simplify}{Simplify}
+    \SetKwFunction{Ssimp}{Add-sSimp}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{ 
+        $\Sigma$, an implicational system 
+    }
+    \KwOut{The equivalent direct-optimal implicational system $ \Sigma_{do} $}
+    \Begin{
+        \ $ \Sigma := \Simplify{$\Sigma$}$\;
+        \Repeat{$ \Sigma_{do} = \Sigma $} {
+            \ $\Sigma_{do} = \Sigma$\;
+            \ $\Sigma := \emptyset$\;
+            \ForEach{$A \to B \in \Sigma_{do} $}{
+                \ $\Gamma = \emptyset$\;
+                \ForEach{$C \to D \in \Sigma $}{
+                    \lIf{$C \subseteq A \subseteq (C \cup D) \ or \ A \subseteq C \subseteq (A \cup B)$}{
+                        \ $A := A \cap C ; \ B := B \cap D$ 
+                    }\Else{
+                        \lIf{$A \subseteq C$}{
+                            \If{$D \not\subseteq B$}{
+                                \ $ add \ C \setminus B \to D \setminus B \ to \ \Gamma$ 
+                            }   
+                        }\Else{
+                            \If{$C \subseteq A$}{
+                                \ $ A := A \setminus D ; \ B := B \setminus D$ 
+                            } 
+                            \ $\Gamma := \Gamma \cup \{C \to D \} \cup \Ssimp{$A \to B, \ C \to D, \ \Sigma$} \cup \Ssimp{$C \to D, \ A \to B, \ \Sigma$}$
+                        }
+                    }
+                }
+                \lIf{$B = \emptyset$}{
+                    \ $\Sigma := \Gamma$
+                }\lElse{
+                    \ $\Sigma := \Gamma \cup \{A \to B\}$
+                }
+            }
+        }
+        \Return $\Sigma_{do}$
+    }%end beginre
+    \caption{SLgetdo algorithm}\label{alg:6}
+\end{algorithm}\DecMargin{1em}
+
+Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado [doSimp] tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on (Si-Eq) y la composici\'on (Co-Eq) para simplifcar el sistema implicacional, [sSimp] para completarlo y (rSi-Eq) y (Co-Eq) para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que [SLgetdo] lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
+% \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
 \newpage

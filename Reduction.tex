@@ -6,6 +6,29 @@ El problema de la b\'usqueda de claves aparece en distintas \'areas de la comput
 
 El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjuto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.
 
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{Body}{body}
+    \SetKwFunction{Core}{core}
+    \SetKwFunction{Compact}{Compact}
+    \SetKwFunction{EnumerateKeys}{EnumerateKeys}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{  
+        $\Omega$, a set of attributes; $\Gamma$, a set of formulas.
+    }
+    \KwOut{The set $K$ of all minimal keys}
+    \Begin{
+        \ $\Omega' := \Body{$\Omega,\Gamma$}$\;
+        \ $\Gamma' := \Compact{$ \{A \cap \Omega' \to B \cap \Omega' \ | \ A \to B in \Gamma\}$}$\;
+        \ $K' := \EnumerateKeys{$\Omega',\Gamma'$}$\;
+        \ $K := \{ k \cup \Core{$\Omega,\Gamma$} \ | \ k \in K' \}$\;
+    }%end beginre
+    \caption{Reduction Method algorithm}\label{alg:3}
+\end{algorithm}\DecMargin{1em}
+\newpage
 Se van a definir algunos conceptos que servir\'an de ayuda a la hora de entender el algoritmo desarrollado.\\
 
 \textbf{Core y Body}

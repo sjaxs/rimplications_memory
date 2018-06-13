@@ -17,6 +17,29 @@ El cierre es ampliamente usado en inteligencia artificial y bases de datos ya qu
 Por ello, se ha desarrollado un algoritmo de cierre, llamado \(\textbf{SL}_{FD}\)-Closure \cite{Mora2012a}, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
 El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\) \cite{Cordero2002} y tiene la misma complejidad que los algoritmos de cierre cl\'asicos.
 
+\IncMargin{1em}
+\begin{algorithm}[h]
+    \SetAlgoLined
+    \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{$\Sigma$ a set of FDs; $X$ A set of attributes}
+    \KwOut{$X^+$ the closure of $X$}
+    \Begin{
+        \ $X^+ = X$\;
+        \Repeat{$X^+$ does not change} {
+            \For{$A \to B \in \Sigma $}{
+                \If{$A \subseteq X^+ and B \notin X^+$}{
+                    \ $X^+ := X^+ \cup {B}$
+                }
+            }
+        }
+        \Return $X^+$
+    }%end beginre
+    \caption{apply.closure algorithm}\label{alg:2}
+\end{algorithm}\DecMargin{1em}
+\bigskip
+
 De nuevo, se dispon\'ia de una primera implementaci\'on del algoritmo, la cual ha sido mejorada y optimizada con el fin de reducir el coste computacional del c\'alculo del cierre.
 
 Si se compara esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura, podemos ver que se consigue una mejora considerable \cite{Mora2012a}:

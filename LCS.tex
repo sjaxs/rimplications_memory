@@ -8,7 +8,50 @@ Podemos definir el conjunto de \textit{Labeled Closed Sets} con respecto a \(\Si
     donde \(mg(C) = \{D \subseteq M \ | \ D \ es \ generador \ minimal \ y \ D^+_{\Sigma} = C \}\)
 \end{center}
 
-De esta forma, al calcular el conjunto de \textit{Labeled Closed Sets} con el siguiente algoritmo, autom\'aticamente se calculan los generadores minimales.
+De esta forma, al calcular el conjunto de \textit{Labeled Closed Sets} con el siguiente algoritmo, autom\'aticamente se calculan los generadores minimales.\\
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{LabeledClosedSets}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{  
+        $M$, the set of all attributes\\
+        $Label$, A structure to build a minimal generator\\
+        $Cicerone$, A structure to build a closed set\\
+        $\Sigma$, an implicational system on $M$
+    }
+    \KwOut{The set of Labeled Closed Sets}
+    \Begin{
+        \Repeat{$\Sigma = \Gamma$} {
+            \ $\Sigma = \Gamma$\;
+            \ $\Gamma = \emptyset$\;
+            \For{$A \to B \in \Sigma $}{
+                \If{$A \subseteq Cicerone$}{
+                    \ $Cicerone := Cicerone \cup {B}$
+                }\uElseIf{$B \not\subseteq Cicerone$}{
+                    \ $\Gamma := \Gamma \cup \{A \setminus Cicerone \to B \setminus Cicerone\}$
+                }
+            }
+        }
+        \ $M := M \setminus Cicerone$\;
+        \ $Mnl = \{A \subseteq M \ | \ A \to B \in \Gamma \ for \ some \ B \subseteq M \ and$\; 
+        \ $ \ \ \ \ \ \ \ \ \ \ \ \ C \subseteq A \ implies \ C = A \ for \ all \ C \to D \in \Gamma\}$\;
+        \ $NC := \{ X \subseteq M \ | \ A \not\subseteq X \ for \ all \ A \in Mnl \}$\;
+        \ $LCS := \emptyset$\;
+        \ForEach{$X \in NC$}{
+            \ $LCS := LCS \cup \{\langle Cicerone \cup X, \{Label \cup X\}\rangle\}$
+        }
+        \ForEach{$A \in Mnl$}{
+            \ $LCS := LCS \cup \LabeledClosedSets{$ M,Label \cup A,Cicerone \cup A, \Gamma $}$
+        }
+        \Return $LCS$
+    }%end beginre
+    \caption{LabeledClosedSets algorithm}\label{alg:3}
+\end{algorithm}\DecMargin{1em}
+\newpage
 
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/labeled.closed.set.R}
@@ -20,6 +63,7 @@ A continuaci\'on se muestra un peque\~no ejemplo de ejecuci\'on del algoritmo. P
     \caption{Ejemplo LCS 1}
     \label{fig:lcs_4}
 \end{figure} 
+\newpage
 Aqu\'i se puede ver el resultado:
 \begin{figure}[H]
     \centering
@@ -27,7 +71,6 @@ Aqu\'i se puede ver el resultado:
     \caption{Ejemplo LCS 2}
     \label{fig:lcs_3}
 \end{figure}
-\newpage 
 
 Y aqu\'i el resultado que se obtendr\'ia si se usa la otra versi\'on del algoritmo:
 \begin{figure}[H]
@@ -36,4 +79,5 @@ Y aqu\'i el resultado que se obtendr\'ia si se usa la otra versi\'on del algorit
     \caption{Ejemplo LCS 3}
     \label{fig:lcs_5}
 \end{figure}
+\newpage
 \subsubsection{Comparativa/Versiones} 

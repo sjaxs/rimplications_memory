@@ -1,20 +1,37 @@
 \subsubsection{Descripci\'on} 
 
-El objetivo de este algoritmo desarrollado por A. Mora et al. en \cite{Mora2003} es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.
+El objetivo de este algoritmo desarrollado por A. Mora et al. en \cite{Mora2003} es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.\\
 
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{$\Sigma$ a set of FDs}
+    \KwOut{$\Sigma'$ a FDs set with less redundancy}
+    \Begin{
+        \ $reduction + remT$\;
+        \ $union$\;
+        \Repeat{more simplifications cannot be applied} {
+            \ $simp + rSimp$\;
+        }
+        \ Check if is possible to aplly $trasnG$
+    }%end beginre
+    \caption{apply.remove.redundancy algorithm}\label{alg:1}
+\end{algorithm}\DecMargin{1em}
+\bigskip
 El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
 Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma repetida hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
 
 El \'ultimo paso consiste en aplicar la transitividad generalizada, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.\\
 
-\textit{Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional. Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.}\\
-
 Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
 \subsubsection{Ejemplo}
 
-Para ilustrar este ejemplo, se parte de un conjunto de 200 implicaciones generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
+Se parte de un conjunto de 200 implicaciones generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete arules.
 
 \begin{figure}[H]
     \centering
@@ -22,7 +39,7 @@ Para ilustrar este ejemplo, se parte de un conjunto de 200 implicaciones generad
     \caption{Implicaciones Mushroom}
     \label{fig:red_1}
 \end{figure} 
-
+\newpage
 A este conjunto le aplicamos el algoritmo y vemos cuantas implicaciones no redundantes se obtienen a partir del conjunto inicial.
 
 \begin{figure}[H]
