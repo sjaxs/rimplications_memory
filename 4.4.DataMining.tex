@@ -524,17 +524,114 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
 
         
-\subsection{Minimal generator}
+\subsection{Generadores minimales}
 
 
     \textbf{Introducci\'on}
 
+    Aunque seg\'un el anteproyecto este algoritmo se deber\'ia encontrar en la parte de mi compa\~nero, se ha decidido pasar este algoritmo 
+    a esta parte porque pertenece al campo de FCA, aunque podr\'ia aplicarse en otros muchos.
 
+    \textcolor{red}{Con esta explicaci\'on basta?}
+
+    \textcolor{red}{A\~nadir referencia paper -> 2012 cla paper16}
+
+
+    Se va a comenzar con algunas definiciones para que se conozca el contexto:
+
+    Una base implicacional \(K\) se define como un conjunto \(\mathcal{L}\) de implicaciones de \(K\) desde el cual, mediante las reglas de 
+    Armstrong puede ser deducida cualquier implicacion v\'alida de \(K\). El objetivo es obtener una base implicacional de tama\~no 
+    m\'inimo.
+
+    Aunque el algoritmo del cierre se explicar\'a detalladamente en el segundo vol\'umen de este TFG en grupo, se a\~nade aqu\'i su 
+    definici\'on, ya que se usar\'a en este algoritmo de generadores minimales:
+
+    Siendo \(\Gamma\) un conjunto de implicaciones y \(A\) un conjunto de atributos. El cierre de \(A\) en la l\'ogica de \(SL_{FD}\) se define como 
+    el m\'aximo conjunto de Atributos \(A^+\) como \(\Gamma \vdash A \rightarrow A^+\).
+
+
+    \bigskip
     \textbf{Descripci\'on}
 
+    En este punto, se van a calcular el conjunto de generadores minimales de un conjunto de implicaciones. Este algoritmo funciona aplicando 
+    el algoritmo SLFDClosure al conjunto de conjuntos de implicaciones.
 
+    La entrada de este algoritmo consta de un conjunto de atributos \(M\) y un conjunto de implicaciones \(\Gamma\) sobre los atributos en \(M\).
+    La salida ser\'a el conjunto de conjuntos cerrados dotados con todos los generadores que lo generan.
+
+    \[
+        {\langle C, mg(C) \rangle : C ~ is ~ a ~ closed ~ set ~ of ~ attributes}    
+    \]
+
+    \[
+        where ~ mg(C) = {D: ~ D ~ is ~ a ~ mingen ~ and ~ D^+ = C}    
+    \]
+
+    Esto se puede ver como el ret\'iculo de conceptos en el que se han agregado etiquetas con el generador minimal a cada conjunto cerrado.
+    Con esta idea, se van a necesitar operadores que nos permitan trabajar con estos tipos de conjuntos. Es decir, conjuntos de pares 
+    \( \langle A, B \rangle \), tales que \( A \subseteq M\) es un intent y \( B \subseteq 2^M\) cumple las siguientes condiciones:
+
+    1. \(X \subseteq A ~ for ~ all ~ X \in B\).
+
+    2. \(X,Y \in B ~ and ~ X \subseteq Y ~ imply ~ X = Y\)
+
+    Este tipo de conjuntos son llamados Labeled Set of Intents (LSI). Dados dos LSIs \(\Phi\) y \(\Psi\), se define la uni\'on de ambos como 
+    el m\'inimo LSI que satisfaga:
+    \\
+    - Si \( \langle A_{1}, B_{1} \rangle \in \Phi \) y \(A_{1} \neq A_{2} \) para todo \( \langle A_{2}, B_{2} \rangle \in \Psi \) 
+    entonces \( \langle A_{1}, B_{1} \rangle \in \Phi \sqcup \Psi \)
+    \\
+    - Si \( \langle A_{1}, B_{1} \rangle \in \Psi \) y \(A_{1} \neq A_{2} \) para todo \( \langle A_{2}, B_{2} \rangle \in \Phi \) 
+    entonces \( \langle A_{1}, B_{1} \rangle \in \Phi \sqcup \Psi \)
+    \\
+    - Si \( \langle A, B_{1} \rangle \in \Psi \) y \( \langle A, B_{1} \rangle \in \Phi \) entonces \( \langle A, B_{3} \rangle \in \Phi \sqcup \Psi \) 
+    siendo \(B_{3}\) el conjunto de los elementos minimales de \(B_{1} \cup B_{2}\)
+
+    
+    A continuaci\'on se va a definir un nuevo operador, el trivial, que dado un \(M\) y \(\Gamma\) devuelve el siguiente LSI:
+
+
+    \[
+        trv(M, \Gamma) = {\langle X, {X} \rangle: X \subseteq M ~ con ~ A \not \subseteq X ~ para ~ todo ~ A \rightarrow B \in \Gamma} )    
+    \]
+
+    Tambi\'en se va a necesitar una forma para a\~nadir un par a un LSI, que se define como:
+
+    \[
+        Add(\langle C, {D} \rangle, \Phi) = {\langle A \cup C, ~ {X \cup D: X \in B} \rangle : \langle A, B\rangle \in \Phi}    
+    \]
+
+
+    Por \'ultimo, se a especificar el pseudoc\'odigo de este algoritmo, del cual se ha partido para daserrollarlo en R para este TFG:
+    
+    \input{pseudoMinGen.tex}
+
+    \bigskip
     \textbf{C\'odigo}
 
+    Aunque a lo largo de este algoritmo se utilizan diversas funciones, aqu\'i se van a incluir las m\'as importantes.
+    
+    Se comienza con el principal, el algoritmo MinGen al que est\'a dedicado este punto:
 
+    \lstinputlisting{r_code/FCA/mingen.R}
+
+    A continuaci\'on, una de las m\'as importantes, la funci\'on trv:
+
+    \lstinputlisting{r_code/FCA/trv.R}
+
+    Y, por supuesto, la funci\'on add, que se ha explicado con anterioridad:
+
+    \lstinputlisting{r_code/FCA/add.R}
+
+    \bigskip
     \textbf{Ejemplo}
 
+    \bigskip
+    \textbf{Comparativa/Versiones}
+
+    La versi\'on original de la funci\'on trv se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
+    mejorar el tiempo del algoritmo general.
+
+    A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. La primera es la versi\'on original sin la poda, y 
+    la segunda en la que se aplica dicha mejora. La versi\'on que se ha incluido en esta memoria corresponde a la segunda, ya que 
+    realiza la poda.

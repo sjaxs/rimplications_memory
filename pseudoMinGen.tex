@@ -1,0 +1,31 @@
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{MinGen}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{  
+        $M,$
+        $\Gamma$
+    }
+    \KwOut{
+        $\Phi$
+    }
+    \Begin{
+        \If{ $ \Gamma = \emptyset $ } {
+            \ $ \Phi = trv(M, \Gamma) $\;
+        } \Else {
+            \ $ \Phi = trv(M, \Gamma) $\;
+             \ForEach{$ A \rightarrow B \in \Gamma $}{
+                \ $ (A^+, \Gamma ') = Cls(A, \Gamma) $\;
+                \ $ \Phi = \Phi \sqcup Add( \langle A^+, \{A\} \rangle, MinGen(M \backslash A^+, \Gamma ') ) $\;
+             }
+            }
+            
+        \Return $ \Phi $
+    }%end beginre
+    \caption{MinGen algorithm}
+    \label{alg:1}
+\end{algorithm}
+\DecMargin{1em}
