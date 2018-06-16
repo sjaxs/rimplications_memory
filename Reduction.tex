@@ -33,15 +33,22 @@ Se van a definir algunos conceptos que servir\'an de ayuda a la hora de entender
 
 \textbf{Core y Body}
 
+El c\'alculo de core y body que aparece a continuaci\'on se public\'o en [xx] y es una estrateg\'ia de poda (prunning) para reducir el esquema relacional en el que calcular las claves. 
+
+La estrateg\'ia mejora todas las heur\'isitcas que aparecen en la literatura. 
+
 Siendo \(\Omega\) un conjunto de atributos, \(\Gamma\) un conjunto de implicaciones sobre \(\Omega\), definimos el core y el body de \(\Gamma\) como:
 \begin{center}
     \(core(\Omega,\Gamma) = \Omega \setminus \big(\bigcup_{\substack{A \to B \in \Gamma}} B\big) \ \ \ \ \)
     \(body(\Omega,\Gamma) = \big(\bigcup_{\substack{A \to B \in \Gamma}} A\big) \setminus (core(\Omega,\Gamma))^+\)
 \end{center}
-Ambos permitir\'an simplificar \(\Gamma\) y as\'i agilizar el proceso de obtenci\'on de las claves. Adem\'as se tiene que, si \(K\) es una clave minimal, cumple que: 
+Ambos permitir\'an podar \(\Gamma\) y as\'i agilizar el proceso de obtenci\'on de las claves. Adem\'as se tiene que, si \(K\) es una clave minimal, cumple que: 
 \begin{center}
     \(core(\Omega,\Gamma) \subseteq K \subseteq core(\Omega,\Gamma) \cup body(\Omega,\Gamma)\)
 \end{center}
+
+En cualquier algoritmo de c\'alculo de claves o de generadores minimales podemos podar previamente el esquema con lo que de forma evidente se mejora muy significativamente el algoritmo posterior.
+
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/reduction.method.R}
@@ -57,6 +64,7 @@ Aq\'i se puede ver un ejemplo sencillo de c\'alculo de las claves minimales de u
     \caption{Ejemplo Reduction}
     \label{fig:reduction_1}
 \end{figure}
+[VER CORE Y BODY EXPLICAR SALIDA]
 \subsubsection{Comparativa/Versiones} 
 La implementaci\'on inicial del algoritmo ha sido mejorada con una poda que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.
 
@@ -68,5 +76,5 @@ Como se puede observar, si el conjunto de implicaciones es peque\~no, los result
     \caption{Comparativa Reduction}
     \label{fig:reduction}
 \end{figure}
-
+[CAMBIAR EJEMPLO]
 Obviamente, cuanto mayor sea el n\'umero de implicaciones, mayor ser\'a la ventaja del uso de la poda.
