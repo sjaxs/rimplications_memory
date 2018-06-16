@@ -1,5 +1,15 @@
 \subsubsection{Descripci\'on} 
 
+En ACF los generadores minimales y sus cerrados son elementos esenciales en el ret\'iculo de conceptos  que se obtiene a partir de la relaci\'on binaria de entrada. 
+
+Ser\'ia el equivalente al c\'alculo de las claves minimales. El cerrado de las claves minimales es el conjunto de atributos del dataset. 
+
+Ahora aparecen muchos cerrados y tenemos que calcular sus generadores minimales. Es un problema catalogado como \enquote*{hard} (exponencial en n\'umero de atributos).
+
+Existen algunos algoritmos que  calculan generadores minimales pero no implementados en R y no est\'an basados directamente en l\'ogica. El director del proyecto no ha realizado comparativas en este \'ambito con los otros algoritmos por la no disponibilidad de ellos.
+
+
+
 Dados un conjunto de atributos \(M\) y un sistema implicacional \(\Sigma\) sobre \(M\), este algoritmo desarrollado por P. Cordero et al. \cite{LCS} calcula los generadores minimales haciendo uso del concepto de \textit{Labeled Closed Set}, que se basa en que si tenemos un conjunto \(A \subseteq M\), \(A\) es generador minimal si \(X^+_{\Sigma} = A^+_{\Sigma}\) implica que \(X = A\) para todo  \(X \subseteq A\). 
 
 Podemos definir el conjunto de \textit{Labeled Closed Sets} con respecto a \(\Sigma\) como:
@@ -71,6 +81,8 @@ Aqu\'i se puede ver el resultado:
     \caption{Ejemplo LCS 2}
     \label{fig:lcs_3}
 \end{figure}
+
+Como puede verse, por ejemplo, el cerrado 12 tiene como generadores minimales \{cd, bde, bce, ab, ac, ae\}
 
 Y aqu\'i el resultado que se obtendr\'ia si se usa la otra versi\'on del algoritmo:
 \begin{figure}[H]
