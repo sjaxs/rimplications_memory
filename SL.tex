@@ -2,7 +2,9 @@
 
 % \subsubsection{Descripci\'on} 
 
-La base de este proyecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'ogica deriva de los axiomas de Amstrong, los cuales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
+La base de este proyecto se sit\'ua sobre la L\'ogica de Simplificaciones para Dependencias Funcionales \cite{Cordero2002}. Esta l\'ogica es equivalente a los axiomas de Amstrong, los cuales suponen una primera aproximaci\'on al uso de la l\'ogica para el tratamiento de implicaciones.\\
+
+Primero introducimos los axiomas de Amstrong: [CITA de los axiomas de Amstrong]
 
 \textbf{Axioma de Reflexividad}
 
@@ -22,10 +24,13 @@ La base de este proyecto se sit\'ua sobre la L\'ogica de Simplificaciones para D
     \(X \to Y \wedge Y \to Z \implies X \to Z \)
 \end{center}
 
-Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancias en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]\\
+Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. En este punto, introducimos la l\'ogica dise\~nada por el director del proyecto denominada l\'ogica de simplificaciones \cite{Cordero2002}.
 
+El elemento central de la l\'ogica de simplificaciones se centra en la regla de simplificaci\'on. Sustituye a la regla de transiividad en los axiomas de Armstrong.
 
+La ventaja es que directamente usando las reglas de la nueva l\'ogica es posible desarrollar m\'etodos directamente basados en l\'ogica para resolver problemas esenciales no solo en ACF, sino tambi\'en en bases de datos, data mining, inteligencia artificial, etc. 
 
+El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancia en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]
 
 El primer paso del desarrollo de este proyecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
 orientadas a aplicar esta L\'ogica de simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
@@ -59,7 +64,7 @@ necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el 
 
 % De estos axiomas se derivan las reglas de la l\'ogica de Simplificaciones que han servido como base para el desarrollo de este proyecto, siendo equivalentes a los axiomas de Amstrong.
 
-Por ello, la librer\'ia contiene definida una funci\'on por cada regla de la l\'ogica de implicaciones. A continuaci\'on se detallar\'an las m\'as relevantes, como son la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on y la uni\'on de implicaciones.\\
+Por ello, la librer\'ia contiene una funci\'on por cada regla de la l\'ogica de implicaciones. Adem\'as, se han implementado importantes reglas derivadas del sistema axiom\'atico primitivo de la l\'ogica de simplificaciones y que son usadas en los algoritmos, por ejemplo: la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on y la uni\'on de implicaciones.\\
 
 \textbf{Uni\'on}\\
 La uni\'on de implicaciones parte de la base de que se tienen dos implicaciones (\(X \to Y, \ X \to Z\)) cuyos antecedentes son iguales, se puede inferir una nueva regla que tendr\'a como antecedente el mismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:
@@ -95,8 +100,7 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se 
 % \lstinputlisting{r_code/lsimp.R}
 \textbf{Simplificaci\'on fuerte}\\
 
-EXPLICACION?
-
+Esta regla derivada se usa en los algoritmos de c\'alculo de claves minimales y en los de obtenci\'on de bases directas. 
 \begin{center}
     \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | \ D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
 \end{center}
@@ -110,7 +114,14 @@ EXPLICACION?
 
 \textbf{Transitividad generalizada}\\
 
-La transitividad generalizada nos permite eliminar implicaciones que pueden ser inferidas transitivamente a partir de otras. Dadas tres implicaciones, \(X \to Y\), \(Z \to U\) y \(V \to W\), si se cumple que \(Z \subseteq XY \), \( X \subseteq V \) y \( W \subseteq UV \) entonces se tiene que  \(X \to Y\), \(Z \to U\) \( \vdash V \to W\) y, por tanto, se puede eliminar \(V \to W\) del conjunto de implicaciones.\\
+La transitividad generalizada nos permite eliminar implicaciones que pueden ser inferidas transitivamente a partir de otras. Dadas tres implicaciones, \(X \to Y\), \(Z \to U\) y \(V \to W\), si se cumple que \(Z \subseteq XY \), \( X \subseteq V \) y \( W \subseteq UV \) entonces se tiene que  \(X \to Y\), \(Z \to U\) \( \vdash V \to W\) y, por tanto, se puede eliminar \(V \to W\) del conjunto de implicaciones.
+
+El director del proyecto public\'o en un art\'iculo cient\'ifico que usando solamente la l\'ogica de simplificaciones se elimina aproximadamente el 80\% de la redundancia. En muchos datasets y ejemplos generados aleatoriamente se eliminaba toda la redundancia. 
+
+Se usar\'a esta regla para eliminar totalmente la redundancia en el conjunto de las implicaciones. 
+
+Puesto que la ejecuci\'on de esta regla es m\'as costosa computacionalmente hablando, la funci\'on de eliminar redundancia tendr\'a un parámetro con el que el usuario indique si se quiere eliminar toda la redundancia o no (aplicar esta regla o no).\\
+
 \newpage
 \lstinputlisting{r_code/transG.R}
 \newpage
