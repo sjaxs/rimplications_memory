@@ -14,8 +14,22 @@ Dado un conjunto de atributos \( M \) y un conjunto de implicaciones (o dependen
 
 El cierre es ampliamente usado en inteligencia artificial y bases de datos ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
 
+En AFC es un algoritmo esencial, en los muy diversos algoritmos existentes por muy diversos autores, con un dataset de tama\~no medio se pueden calcular cientos de miles incluso millones de cierres. Cualquier m\'inima mejora permite mejorar estos algoritmos. 
+
 Por ello, se ha desarrollado un algoritmo de cierre, llamado \(\textbf{SL}_{FD}\)-Closure \cite{Mora2012a}, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
-El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\) \cite{Cordero2002} y tiene la misma complejidad que los algoritmos de cierre cl\'asicos.
+El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\) \cite{Cordero2002} y tiene la misma complejidad que los algoritmos de cierre cl\'asicos. El director demostr\'o en \cite{Mora2012a} con un exhaustivo experimento que el nuevo algoritmo propuesto es mejor en tiempo de ejecuci\'on que todos los existentes en la literatura de bases de datos. \\
+
+\begin{center}
+    \begin{tabular}{c c}
+        \hline
+        M\'etodo & Tiempo Medio (ms) \\
+        \hline
+        Diederich Closure & 4.593,48 \\   
+        Beeri Closure & 7.013,56 \\   
+        Paredaens Closure & 5.863,35 \\  
+        \(\textbf{SL}_{FD}\)-Closure & 1.262,41 \\  
+    \end{tabular}
+\end{center}
 
 \IncMargin{1em}
 \begin{algorithm}[h]
@@ -42,23 +56,14 @@ El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\
 
 De nuevo, se dispon\'ia de una primera implementaci\'on del algoritmo, la cual ha sido mejorada y optimizada con el fin de reducir el coste computacional del c\'alculo del cierre.
 
-Si se compara esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura, se puede ver que se consigue una mejora considerable \cite{Mora2012a}:
+% Si se compara esta versi\'on del algoritmo con las principales versiones que podemos encontrar a lo largo de la literatura, se puede ver que se consigue una mejora considerable \cite{Mora2012a}:
 
-\begin{center}
-    \begin{tabular}{c c}
-        \hline
-        M\'etodo & Tiempo Medio (ms) \\
-        \hline
-        Diederich Closure & 4.593,48 \\   
-        Beeri Closure & 7.013,56 \\   
-        Paredaens Closure & 5.863,35 \\  
-        \(\textbf{SL}_{FD}\)-Closure & 1.262,41 \\  
-    \end{tabular}
-\end{center}
+
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/closure.R}
-\subsubsection{Ejemplo} 
+\subsubsection{Ejemplo}
+Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de implicaciones (mush), en este caso de 1000 implicaciones, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de implicaciones. \\emptyset 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.6]{closure_ejemplo}
@@ -66,7 +71,6 @@ Si se compara esta versi\'on del algoritmo con las principales versiones que pod
     \label{fig:closure_ejemplo}
 \end{figure} 
 
-Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de implicaciones (mush), en este caso de 1000 implicaciones, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de implicaciones.
 \subsubsection{Comparativa/Versiones} 
 
 \begin{figure}[H]
