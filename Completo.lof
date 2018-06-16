@@ -1,27 +1,27 @@
 \babel@toc {spanish}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Ejemplo roxygen2 }}{15}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces Configuraci\'on Build Tools }}{15}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces Ejemplo Archivo DESCRIPTION }}{16}{figure.3}
-\contentsline {figure}{\numberline {4}{\ignorespaces Imports y Suggests con devtools }}{16}{figure.4}
-\contentsline {figure}{\numberline {5}{\ignorespaces Ejemplo roxygen2 }}{17}{figure.5}
-\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo documentaci\'on paquete }}{19}{figure.6}
-\contentsline {figure}{\numberline {7}{\ignorespaces Ejemplo de archivo NAMESPACE generado por roxygen2 }}{21}{figure.7}
-\contentsline {figure}{\numberline {8}{\ignorespaces Comentarios CRAN}}{23}{figure.8}
-\contentsline {figure}{\numberline {9}{\ignorespaces Implicaciones Mushroom}}{32}{figure.9}
-\contentsline {figure}{\numberline {10}{\ignorespaces Implicaciones Mushroom no redundantes}}{33}{figure.10}
-\contentsline {figure}{\numberline {11}{\ignorespaces C\'alculo del cierre}}{34}{figure.11}
-\contentsline {figure}{\numberline {12}{\ignorespaces Tiempos de c\'alculo del cierre}}{34}{figure.12}
-\contentsline {figure}{\numberline {13}{\ignorespaces Pruebas remove.redundancy}}{37}{figure.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Ejemplo apply.closure}}{41}{figure.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces Pruebas apply.closure}}{42}{figure.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Ejemplo LCS 1}}{47}{figure.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Ejemplo LCS 2}}{48}{figure.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Ejemplo LCS 3}}{48}{figure.18}
-\contentsline {figure}{\numberline {19}{\ignorespaces Ejemplo Reduction}}{55}{figure.19}
-\contentsline {figure}{\numberline {20}{\ignorespaces Comparativa Reduction}}{56}{figure.20}
-\contentsline {figure}{\numberline {21}{\ignorespaces Ejemplo SLgetdo 1}}{64}{figure.21}
-\contentsline {figure}{\numberline {22}{\ignorespaces Ejemplo SLgetdo 2}}{64}{figure.22}
-\contentsline {figure}{\numberline {23}{\ignorespaces Comparativa del c\'alculo del cierre a partir de una base DO}}{65}{figure.23}
-\contentsline {figure}{\numberline {24}{\ignorespaces Ejemplo D-Base 1}}{71}{figure.24}
-\contentsline {figure}{\numberline {25}{\ignorespaces Ejemplo D-Base 2}}{71}{figure.25}
-\contentsline {figure}{\numberline {26}{\ignorespaces Comparativa de c\'alculo del cierre}}{72}{figure.26}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ejemplo roxygen2 }}{16}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Configuraci\'on Build Tools }}{16}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Ejemplo Archivo DESCRIPTION }}{17}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Imports y Suggests con devtools }}{17}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Ejemplo roxygen2 }}{18}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Ejemplo documentaci\'on paquete }}{20}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Ejemplo de archivo NAMESPACE generado por roxygen2 }}{22}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Comentarios CRAN}}{24}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Implicaciones Mushroom}}{33}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Implicaciones Mushroom no redundantes}}{34}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces C\'alculo del cierre}}{35}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Tiempos de c\'alculo del cierre}}{35}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Pruebas remove.redundancy}}{38}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Ejemplo apply.closure}}{42}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Pruebas apply.closure}}{43}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Ejemplo LCS 1}}{48}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Ejemplo LCS 2}}{49}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Ejemplo LCS 3}}{49}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ejemplo Reduction}}{56}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Comparativa Reduction}}{57}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Ejemplo SLgetdo 1}}{66}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Ejemplo SLgetdo 2}}{66}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Comparativa del c\'alculo del cierre a partir de una base DO}}{67}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Ejemplo D-Base 1}}{73}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Ejemplo D-Base 2}}{73}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Comparativa de c\'alculo del cierre}}{74}{figure.26}

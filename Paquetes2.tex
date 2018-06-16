@@ -3,7 +3,7 @@
 
 
 El lenguaje R es un lenguaje que est\'a muy fundamentado en la comunidad, esta contribuye al desarrollo, mejora y extensi\'on de este lenguaje. La unidad fundamental a la hora de compartir 
-nuestro trabajo con la comunidad es el paquete. Es por ello por lo cual se va a desarrollar un estudio sobre c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que est\'e disponible para toda la comunidad y contribuir al desarrollo de este lenguaje.
+nuestro trabajo es el paquete. Es por ello por lo cual se va a desarrollar un estudio sobre c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que est\'e disponible para toda la comunidad y contribuir al desarrollo de este lenguaje.
 
 CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios para un proyecto.
 
@@ -53,8 +53,7 @@ Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que 
 En este caso se puede hacer tanto con R Studio, como se muestra a continuaci\'on,
 como con \textbf{devtools::create(}\enquote*{ruta/del/paquete/nombreDelPaquete}\textbf{)}, ambas opciones
 proporcionar\'an un \enquote*{esqueleto} del paquete con los archivos imprescindibles.
-Una vez abierto R Studio, lo primero que se debe hacer es crear un nuevo proyecto, para
-ellos vamos a: 
+Una vez abierto R Studio, lo primero que se debe hacer es crear un nuevo proyecto, para ello hay que dirigirse a: 
 \begin{center}
     \textbf{file > new project > new directory > r package} 
 \end{center}
@@ -63,22 +62,19 @@ En la casilla \textbf{Package name:} se debe especificar el nombre del  proyecto
 \textbf{Create package based on source files} se pueden a\~nadir (pinchar en el bot\'on \textbf{Add}) los
 archivos \textbf{.R} que contengan nuestras funciones, si se han generado previamente (no es
 estrictamente necesario a\~nadirlos ahora se pueden a\~nadir despu\'es).
-Se ind\'ica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an
-contenidos los archivos del proyecto. 
+Se ind\'ica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an contenidos los archivos del proyecto. 
 Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
 estructura necesaria para que R pueda construir el paquete \cite{datavu}.
 
-Una vez ajustada la configuraci\'on, hay que pinchar en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de nuestra funci\'on en la carpeta \textbf{man}.
+Una vez ajustada la configuraci\'on, hay que pinchar en \textbf{Install and Restart} de la pesta\~na \textbf{Build}, esto har\'a que \textbf{roxygen2} genere autom\'aticamente el archivo \textbf{.rd} de ayuda de la funci\'on en la carpeta \textbf{man}.
 
 \subsection{Documentaci\'on}
-\textbf{[R Packages Hadley Wickman]}
-La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para
-ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
-incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian
-sus funciones.
+% \textbf{[R Packages Hadley Wickman]}
+La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
+incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian sus funciones.
 
-Para qu\'e R pueda generar autom\'aticamente el archivo de ayuda para nuestras funciones
-se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'on de una serie de tags relacionados con el objetivo y descripci\'on de la funci\'on y/o paquete 
+Para qu\'e R pueda generar autom\'aticamente el archivo de ayuda para las funciones
+se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'on de una serie de tags relacionados con el objetivo y descripci\'on de la funci\'on y/o paquete. 
 
 
 \begin{figure}[H]
@@ -210,7 +206,7 @@ manualmente como \textbf{@docType package} y \textbf{@name} \textit{nombreDelPaq
 
 \subsubsection{Datos externos}
 
-Hay tres maneras principales de incluir datos en un paquete, dependiendo de qu\'e queramos
+Hay tres maneras principales de incluir datos en un paquete, dependiendo de qu\'e se quiera
 hacer con ellos o qui\'en debe usarlos:
 
 \begin{itemize}
@@ -229,7 +225,7 @@ Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\
 
 \subsubsection{NAMESPACE}
 
-El archivo \textbf{NAMESPACE} es muy importante en eñ paquete, ya que  ayuda a encapsular el paquete y que no falle por las dependencias que pueda tener de otros, ni
+El archivo \textbf{NAMESPACE} es muy importante en el paquete, ya que  ayuda a encapsular el paquete y que no falle por las dependencias que pueda tener de otros, ni
 interfiera en otros que lo usen si lo actualizamos.
 
 Como su nombre indica, \textbf{NAMESPACE} proporciona \enquote*{espacios para nombres}. Por ejemplo,
@@ -241,12 +237,12 @@ se usar\'a \textbf{plyr::sumarize()} o \textbf{Hmisc::sumarize()}.
 \textbf{NAMESPACE} hace el paquete autocontenido, tanto con los \textbf{Imports}, como con los
 exports. Los \textbf{Imports}, definen c\'omo una funci\'on de un paquete encuentra una funci\'on de
 otro. Los \textbf{exports}, ayudan a evitar los conflictos con otros paquetes especificando qu\'e
-funciones se pueden usar fuera de nuestro paquete.\\
+funciones se pueden usar fuera del paquete.\\
 
 \textbf{El archivo NAMESPACE}
 
 Cada l\'inea contiene una directriz: \textbf{S3method(), export(), exportClasses()}, adem\'as de otros.
-Cada una de estas directivas describe un objeto de R, que nos indica si se exporta desde
+Cada una de estas directivas describe un objeto de R, que indica si se exporta desde
 el paquete para ser usado por los dem\'as o si se importa para usarlo de forma local.
 En total hay ocho directrices. 
 
@@ -281,10 +277,10 @@ haya modificado correctamente.\\
 \end{figure} 
 
 \textbf{Exports}\\
-Para que una funci\'on sea usable fuera de nuestro paquete debemos exportarla. Las funciones que se exporten deben estar documentadas.
+Para que una funci\'on sea usable fuera de nuestro paquete debe ser exportarda. Las funciones que se exporten deben estar documentadas.
 
 \textbf{Imports}\\
-\textbf{NAMESPACE} tambi\'en controla las funciones externas que pueden ser usadas en nuestro
+\textbf{NAMESPACE} tambi\'en controla las funciones externas que pueden ser usadas en el
 paquete sin usar \enquote*{::}.
 
 \subsection{Comprobando el paquete}
@@ -324,7 +320,7 @@ Si se quiere que el paquete tenga cierta trascendencia en la comunidad de R, es 
 A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir el paquete a en CRAN. \\
 
 \textbf{Comentarios CRAN}\\
-Debemos recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
+Se debe recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
 libre a revisar los paquetes que se suben, por tanto, cuanto m\'as f\'acil se les haga el trabajo,
 m\'as posibilidades hay de que el paquete sea aceptado sin ning\'un problema.
 Por ello, es recomendable a\~nadir al paquete una serie de comentarios que faciliten la tarea de revisi\'on, estos comentarios ir\'an en un archivo llamado \textbf{cran-comments.md}.
@@ -344,7 +340,7 @@ otros paquetes en el caso de que se este  subiendo una nueva versi\'on del paque
 \end{itemize}
 
 \textbf{Las pol\'iticas en CRAN}\\
-Existen ciertas pol\'iticas que debemos cumplir a la hora de subir el paquete a CRAN, estas son comprobadas manualmente. Algunos problemas comunes son:
+Existen ciertas pol\'iticas que se deben cumplir a la hora de subir el paquete a CRAN, estas son comprobadas manualmente. Algunos problemas comunes son:
 \begin{itemize}
     \item Ausencia del email del mantenedor del paquete. 
     \item Es importante dejar claro los propietarios del copyright y si se ha usado c\'odigo externo, comprobar que la licencia es compatible.
@@ -366,7 +362,7 @@ hay que a\~nadirlos a la hora de construir el paquete
 \textbf{Lanzamiento}
 
 Lleg\'o la hora de construir el paquete y subirlo a CRAN. Para construir el paquete
-usamos \textbf{devtools::release()}. Esto se encarga de volver a comprobar el paquete una \'ultima
+se usa \textbf{devtools::release()}. Esto se encarga de volver a comprobar el paquete una \'ultima
 vez y nos hace una serie de preguntas acerca de buenas pr\'acticas a modo de comprobaci\'on,
 \textbf{devtools::release()}, autom\'aticamente, sube el paquete a CRAN.
 Una vez subido, los voluntarios de CRAN comprobar\'an el paquete y

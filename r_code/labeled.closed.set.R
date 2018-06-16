@@ -47,9 +47,7 @@ labeled.closed.set <- function(M, Gamma, Label = NULL, Cicerone = NULL, Flag = T
       subs <- gen.all.subsets(M)$sub
     }else{ subs <- list() }
   }
-  #A subconjunto de M que cumple que A -> B pertenece a Gamma
   Mnl <- mnl(Gamma)
-  #Subconjuntos de M que no contienen a ningun A de Mnl
   NC <- nc(subs,Mnl)
   LCS <- list() 
   if(length(NC) != 0){
