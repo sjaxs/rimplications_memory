@@ -2,6 +2,9 @@
 
 \textbf{Introducci\'on}
 
+Toda la teor\'ia que se va a desarrollar a lo largo de este punto est\'a extra\'ida del libro de Ganter.
+\textcolor{red}{A\~nadir referencia libro Ganter. Pedir datos a Angel}
+
 El an\'alisis de conceptos formales es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
 como una relaci\'on binaria entre objetos y atributos.
 
@@ -536,25 +539,26 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
     \textcolor{red}{A\~nadir referencia paper -> 2012 cla paper16}
 
-
+    Este algoritmo y sus respectivas funciones se han desarrollado a partir de un art\'iculo publicado por el tutor de 
+    TFG y su grupo de investigaci\'on.\cite{cla2012}
     Se va a comenzar con algunas definiciones para que se conozca el contexto:
 
     Una base implicacional \(K\) se define como un conjunto \(\mathcal{L}\) de implicaciones de \(K\) desde el cual, mediante las reglas de 
-    Armstrong puede ser deducida cualquier implicacion v\'alida de \(K\). El objetivo es obtener una base implicacional de tama\~no 
+    Armstrong puede ser deducida cualquier implicaci\'on v\'alida de \(K\). El objetivo es obtener una base implicacional de tama\~no 
     m\'inimo.
 
     Aunque el algoritmo del cierre se explicar\'a detalladamente en el segundo vol\'umen de este TFG en grupo, se a\~nade aqu\'i su 
     definici\'on, ya que se usar\'a en este algoritmo de generadores minimales:
 
     Siendo \(\Gamma\) un conjunto de implicaciones y \(A\) un conjunto de atributos. El cierre de \(A\) en la l\'ogica de \(SL_{FD}\) se define como 
-    el m\'aximo conjunto de Atributos \(A^+\) como \(\Gamma \vdash A \rightarrow A^+\).
+    el m\'aximo conjunto de atributos \(A^+\) como \(\Gamma \vdash A \rightarrow A^+\).
 
 
     \bigskip
     \textbf{Descripci\'on}
 
     En este punto, se van a calcular el conjunto de generadores minimales de un conjunto de implicaciones. Este algoritmo funciona aplicando 
-    el algoritmo SLFDClosure al conjunto de conjuntos de implicaciones.
+    el algoritmo \(SL_{FD}Closure\) al conjunto de conjuntos de implicaciones.
 
     La entrada de este algoritmo consta de un conjunto de atributos \(M\) y un conjunto de implicaciones \(\Gamma\) sobre los atributos en \(M\).
     La salida ser\'a el conjunto de conjuntos cerrados dotados con todos los generadores que lo generan.
@@ -603,7 +607,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
 
     Por \'ultimo, se a especificar el pseudoc\'odigo de este algoritmo, del cual se ha partido para daserrollarlo en R para este TFG:
-    
+    \bigskip
+
     \input{pseudoMinGen.tex}
 
     \bigskip
@@ -626,6 +631,18 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \bigskip
     \textbf{Ejemplo}
 
+    Para el ejemplo de este algoritmo, se ha usado un conjunto de tres implicaciones, formadas por cuatro elementos diferentes.
+    La salida del algoritmo es un conjunto de cinco pares, tal y como se puede ver en la siguiente imagen:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{minGen}
+        \caption{Ejemplo de generadores minimales}
+        \label{fig:minGen}
+    \end{figure}
+
+    
+
     \bigskip
     \textbf{Comparativa/Versiones}
 
@@ -635,3 +652,6 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. La primera es la versi\'on original sin la poda, y 
     la segunda en la que se aplica dicha mejora. La versi\'on que se ha incluido en esta memoria corresponde a la segunda, ya que 
     realiza la poda.
+
+    Los parámetros de entrada para realizar las pruebas de tiempo de este algoritmo se han realizado con el generador aleatorio definido en 
+    el punto anterior, generando, de esta manera conjuntos de implicaciones de diferentes tama\~nos.
