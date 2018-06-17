@@ -4,45 +4,45 @@ The top-level auxiliary file: Completo.aux
 The style file: unsrt.bst
 Database file #1: Bibliografia2.bib
 Warning--empty journal in cla2012
-You've used 1 entry,
+You've used 2 entries,
             1791 wiz_defined-function locations,
-            450 strings with 3676 characters,
-and the built_in function-call counts, 309 in all, are:
-= -- 26
-> -- 14
-< -- 1
-+ -- 5
-- -- 4
-* -- 20
-:= -- 52
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 1
+            460 strings with 3932 characters,
+and the built_in function-call counts, 569 in all, are:
+= -- 48
+> -- 28
+< -- 0
++ -- 10
+- -- 8
+* -- 49
+:= -- 97
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 2
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 14
-empty$ -- 25
-format.name$ -- 4
-if$ -- 67
+cite$ -- 3
+duplicate$ -- 18
+empty$ -- 51
+format.name$ -- 8
+if$ -- 118
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 1
-pop$ -- 5
+int.to.str$ -- 2
+missing$ -- 2
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 4
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 9
+skip$ -- 6
 stack$ -- 0
-substring$ -- 19
-swap$ -- 5
-text.length$ -- 1
+substring$ -- 58
+swap$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 4
-width$ -- 2
-write$ -- 12
+while$ -- 5
+width$ -- 3
+write$ -- 23
 (There was 1 warning)

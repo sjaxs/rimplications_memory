@@ -1,9 +1,15 @@
 \begin{thebibliography}{1}
 
+\bibitem{corebody}
+Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
+  de~Guzm{\'{a}}n.
+\newblock A tableaux-like method to infer all minimal keys.
+\newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
+
 \bibitem{cla2012}
-P.~Cordero, M.~Enciso, A.~Mora, and M.~Ojeda-Aciego.
-\newblock {Computing minimal generators from implications: a logic-guided
-  approach}.
-\newblock pages 1--12, 2012.
+Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Manuel Ojeda-Aciego.
+\newblock Computing minimal generators from implications: A logic-guided
+  approach.
+\newblock 972:187--198, 10 2012.
 
 \end{thebibliography}

@@ -1,16 +1,24 @@
 %Estructura de datos
 \section{Estructura de datos}
 
-Cuando se comienza a realizar un algoritmo que se necesita que 
-sea r\'apido y est\'e optimizado, una de las cosas m\'as importantes 
-es decidir qu\'e estructura de datos se va a utilizar.
-Ya que, dependiendo de qu\'e queramos hacer, elegir bien nos puede 
-ayudar a que el algoritmo se ejecute en el menor tiempo posible.
+Un primer objetivo, esencial para este TFG conjunto, era la elecci\'on 
+de una estructura de datos eficiente para la representaci\'on en R de los 
+sistemas de implicaciones.
+
+Si se quiere que los algoritmos a desarrollar sean eficientes, una de las cosas m\'as 
+importantes a decidir es la estructura de datos. Dada la importancia de este paso, se realiz\'o 
+un estudio te\'orico-pr\'actico de varias posibilidades que ofrec\'ia el lenguaje R. Se destaca 
+el esfuerzo y tiempo dedicado en esta etapa, aunque debido a las limitaciones de espacio no se 
+muestran los alternativas a la estructura elegida para almacenar implicaciones.
 
 Por ello, en la gran mayor\'ia de algoritmos que se van a realizar 
-en este TFG se va a utilizar la estructura rules, formada por varios 
-elementos con la estructura ItemMatrix, perteneciente al paquete 
+en este TFG, se va a utilizar la estructura de datos rules, formada por varios 
+elementos con la estructura ItemMatrix como elemento fundamental, perteneciente al paquete 
 arules.
+
+Rules es la estructura de datos para almacenar las implicaciones del paquete arules dise\~nado y mantenido 
+por M. Hashler. Cabe destacar, que fue necesario el estudio de todas las clases, m\'etodos del tipo S3 y S4 para 
+poder usar de forma eficiente la estructura de datos rules.
 \\
 
 La estructura de datos rules est\'a formada por cuatro slots, es decir, por 
@@ -19,20 +27,21 @@ cuatro campos de informaci\'on diferentes:
 \begin{itemize}
     \item \textbf{lhs:}
     Lista de objetos de la clase ItemMatrix, en la cual se profundizar\'a m\'as 
-    adelante. En este slot encontraremos todas las partes izquierdas de las 
-    implicaciones, cada una de ellas con varios slots m\'as debido a que son de la 
+    adelante. En este slot encontraremos todas las partes izquierdas, o antecedentes, de las 
+    implicaciones, cada una de ellas con varios slots m\'as, debido a que son de la 
     clase ItemMatrix. 
 
     \item \textbf{rhs:}
     De nuevo, es una lista de objetos de la clase ItemMatrix. S\'olo que en este 
-    slot encontraremos las partes derechas de las implicaciones.
+    slot encontraremos las partes derechas de las implicaciones, es decir, los consecuentes.
 
     \item \textbf{quality:}
     Objeto de la clase data.frame. En \'el se puede consultar la confianza de cada 
-    una de las reglas. La confianza se define como el porcentaje de transacciones 
-    que dan soporte a la regla con respecto a todas las transacciones que dan 
-    soporte al cuerpo de regla. Una transacci\'on da soporte al cuerpo de regla si 
-    contiene todos los items del cuerpo de regla.
+    una de las reglas. Este slot es usado en data mining almacenando en \'el el 
+    sorporte y la confianza de las reglas. Aunque en este caso, vamos a considerar 
+    solo reglas de asociaci\'on con confianza 1, en una futura extensi\'on de los 
+    algoritmos desarrollados a lo largo de este proyecto, se a\~nadir\'an reglas de 
+    asociaci\'on, por lo que el slot quality jugar\'a un importante papel.
 
     \item \textbf{info:}
     Lista con varios campos con informaci\'on del conjunto de implicaciones. Se puede 
@@ -65,7 +74,6 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
     Como resultado, el ngCMatrix en este caso siempre ser\'a una versi\'on traspuesta 
     de la matriz de incidencia binaria en ItemMatrix.
 
-
     \item \textbf{itemInfo:}
     Es un data.frame que contiene vectores de longitud igual al n\'umero de elementos que 
     hay en el conjunto. Si no est\'a vac\'io, el primer elemento del data.frame debe tener 
@@ -84,7 +92,7 @@ Cada ItemMatrix tiene la siguiente informaci\'on:
 
 Veamos un ejemplo:
 
-Si tenemos las siguientes implicaciones guardadas en la variable \textbf{rules}:
+Si tenemos las siguientes implicaciones guardadas en la variable \textit{rules}:
 \begin{verbatim}
     a -> b
     c -> a
@@ -94,7 +102,7 @@ Si tenemos las siguientes implicaciones guardadas en la variable \textbf{rules}:
 
 Si ejecutamos el comando \textbf{rules@lhs@data} vamos a obtener una matriz dispersa de la clase 
 ngCMatrix en la que podremos observar qu\'e elementos se encuentran en la parte izquierda de 
-nuestras implicaciones.
+nuestras implicaciones, es decir, en los antecedentes.
 
 \begin{verbatim}
     5 x 3 sparse Matrix of class "ngCMatrix"
@@ -108,6 +116,7 @@ nuestras implicaciones.
 Es decir, las filas son los diferentes elementos que tenemos en todas las reglas, y las 
 columnas son cada una de las implicaciones.
 
+\clearpage
 
 Al ejecutar \textbf{rules@lhs@itemInfo}, vamos a obtener el nombre de cada uno de los elementos que 
 tiene nuestro conjunto de implicaciones. 

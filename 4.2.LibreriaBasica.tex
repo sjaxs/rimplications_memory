@@ -1,19 +1,28 @@
 \section{Librer\'ia b\'asica para sistemas de implicaciones}
 Se va a intentar que este paquete de funciones pueda perdurar en el tiempo, y para ello, 
-se a realizado una librer\'ia b\'asica para intentar modularizar el c\'odigo y que sea lo 
-m\'as legible posible a la hora de poder comprenderlo.
+se ha realizado una librer\'ia b\'asica para intentar modularizar el c\'odigo y que sea lo 
+m\'as legible posible a la hora de poder comprenderlo. Se destaca, adem\'as, que como segundo 
+objetivo de esta librer\'ia, se quiere conseguir hacer independiente la estructura de datos, del c\'odigo usado 
+en los algoritmos. Es decir, en los algoritmos no se usa ning\'un m\'etodo o funci\'on que se encuentre directamente 
+en el paquete arules. 
 
-En esta librer\'ia b\'asica se encuentran diferentes funciones que se usar\'an bastante a lo largo de este TFG, a continuaci\'on 
-se van a detallar una a una.
+Aunque actualmente pensamos que arules es la mejor opci\'on, podr\'ia aparecer en el futuro otro paquete, o se podr\'ia 
+desarrollar desde 0 una estructura m\'as eficiente que arules y los algoritmos no deber\'ian sufrir ese cambio, sino que solo 
+se deber\'ia cambiar la librer\'ia que se va a detallar a continuaci\'on:
 
+\subsection{Funciones de manejo de conjuntos}
+
+\smallskip
 
 %%% initialize.setOfAttributes %%%
-\subsection{Inicializar conjunto de atributos}
+\textbf{ \Large Inicializar conjunto de atributos}
+
+    \smallskip
 
     \textbf{Descripci\'on}
 
-    Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar un subconjunto 
-    de todos los atributos que componen a un grupo de implicaciones, adem\'as del conjunto completo de los atributos. 
+    Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar una lista de atributos y el 
+    conjunto completo de los atributos, y se codificar\'a en la estructura de datos usada en arules.
     
     Dentro de esta, se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
     forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
@@ -21,6 +30,7 @@ se van a detallar una a una.
     Es decir, con esta funci\'on, lo que se consigue es tener un conjunto de atributos con la estructura adecuada para poder trabajar con \'el.
     \\
 
+    \clearpage
     
     \textbf{C\'odigo}
     
@@ -44,11 +54,14 @@ se van a detallar una a una.
     
     Dicho itemMatrix est\'a compuesto s\'olo por esos tres atributos, aunque va a contener la informaci\'on de todos los que 
     componen las reglas; ya que deben estar para poder usar algunas funciones como uni\'on o intersecci\'on.
+    \\
 
-
+\bigskip
 
 %%% is.singleton %%%
-\subsection{Conjunto unitario}
+\textbf{ \Large Conjunto unitario}
+
+\smallskip
 
     \textbf{Descripci\'on}
     
@@ -65,7 +78,8 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/is.singleton.R}
-    \bigskip
+    
+    \clearpage
 
     \textbf{Ejemplo}
 
@@ -86,11 +100,15 @@ se van a detallar una a una.
     Por \'ultimo, se tiene una lista que contiene a otra lista con tres elementos dentro de ella. En este caso, se podr\'ia pensar que 
     no es unitario al ver los tres elementos, pero no, ya que el elemento que estamos estudiando es el primero, y este contiene solo una lista 
     en \'el, por lo que el resultado es TRUE, ya que s\'i es unitario.
+    \\
 
+    \clearpage
 
 
 %%% union.sets %%% 
-\subsection{Uni\'on}
+\textbf{ \Large Uni\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -104,6 +122,9 @@ se van a detallar una a una.
 
     Esta funci\'on se usar\'a para la uni\'on de elementos de la clase itemMatrix, ya que lo que 
     se usa es itemUnion, una funci\'on perteneciente al paquete arules.
+
+    Se destaca aqu\'i, de nuevo, que aunque pueda parecer que esta funci\'on es demasiado simple, 
+    no se quiere hacer un uso directo de ninguna funci\'on ni m\'etodo de arules.
     \\
 
 
@@ -132,11 +153,14 @@ se van a detallar una a una.
     estar en los dos conjuntos como informaci\'on, tal y como se vio en la estructura de datos itemMatrix.
 
     Por \'ultimo, se realiza la uni\'on e inspeccionamos la variable resultante, y se comprueba que se ha realizado correctamente.
+    \\
 
-
+    \bigskip
 
 %%% intersection.sets %%% 
-\subsection{Intersecci\'on}
+\textbf{ \Large Intersecci\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
     
@@ -177,7 +201,9 @@ se van a detallar una a una.
     \clearpage
 
 %%% difference.sets %%% 
-\subsection{Diferencia}
+\textbf{ \Large Diferencia}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -211,14 +237,16 @@ se van a detallar una a una.
         \label{fig:diferencia}
     \end{figure}
 
-    En este caso, se vuelve a realizar todo de la misma forma que en los anteriores casos, pero usamos la funci\'on difference.sets, y 
+    En este caso, se vuelve a realizar todo de la misma forma que en los anteriores casos, pero usamos la funci\'on \textbf{difference.sets}, y 
     con ella obtenemos como resultado un nuevo conjunto, en el que se encuentran los elementos del primer conjunto, eliminando los que 
     tambi\'en est\'en en el segundo.
     \clearpage
 
 
 %%% is.included %%% 
-\subsection{Inclusi\'on}
+\textbf{ \Large Inclusi\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -248,15 +276,19 @@ se van a detallar una a una.
 
     En este caso, se van a proponer dos ejemplos:
 
-    En el primero no se cumple que el set1 est\'e incluido en el set2, aunque s\'i se cumplir\'ia al contrario, pero la inclusi\'on no es 
+    En el primero no se cumple que el \textit{set1} est\'e incluido en el \textit{set2}, aunque s\'i se cumplir\'ia al contrario, pero la inclusi\'on no es 
     una funci\'on que cumpla la propiedad sim\'etrica, luego en este caso el resultado es FALSE.
 
     En el segundo ejemplo s\'i que se cumple que el primer conjunto est\'e incluido en el segundo.
+    \\
 
+    \bigskip
 
 
 %%% is.empty.set %%% 
-\subsection{Vac\'io}
+\textbf{ \Large Vac\'io}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -285,11 +317,15 @@ se van a detallar una a una.
 
     En cambio, en el segundo, el vector no contiene elementos, por lo que la funci\'on devuelve TRUE porque el conjunto no tiene 
     elementos.
+    \\
 
+    \bigskip
 
 
     %%% equals.sets %%% 
-\subsection{Igualdad}
+\textbf{ \Large Igualdad}
+
+    \smallskip
 
     \textbf{Descripci\'on}
 
@@ -321,15 +357,18 @@ se van a detallar una a una.
     iguales.
 
     En el segundo caso, la funci\'on devuelve FALSE porque los conjuntos no son iguales.
+    \\
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\bigskip
 
 %%% remove.imp %%% 
-\subsection{Eliminar implicaci\'on}
+\textbf{ \Large Eliminar implicaci\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -354,27 +393,31 @@ se van a detallar una a una.
         \label{fig:removeImp}
     \end{figure}
 
-    En este ejemplo, tenemos un conjunto inicial implications con cuatro implicaciones diferentes. A continuaci\'on se usa la 
-    funci\'on remove.imp y con ella eliminamos la tercera.
+    En este ejemplo, tenemos un conjunto inicial \textit{implications} con cuatro implicaciones diferentes. A continuaci\'on se usa la 
+    funci\'on \textbf{remove.imp} y con ella eliminamos la tercera.
 
     Finalizamos comprobando que efectivamente, en el nuevo conjunto solo se tienen tres implicaciones, quitando la tercera del conjunto 
     inicial.
+    \\
 
 
+    \bigskip
 
-%%% remove.all %%% 
-\subsection{Vaciar conjunto}
+    %%% remove.all %%% 
+\textbf{ \Large Vaciar conjunto}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
     Otra funci\'on que puede ser \'util es vaciar un conjunto. Se podr\'ia pensar que igualando el conjunto a nulo, 
     se podr\'ia obtener el resultado que se quiere conseguir. Pero no es as\'i, ya que lo que se quiere es un conjunto sin 
-    elementos, pero que siga manteniendo su estructura de conjunto, no algo nulo. 
+    elementos, pero que siga manteniendo su estructura de datos arules, pero sin ninguna regla. 
     
     Para ello, en esta funci\'on, vamos a devolver la posici\'on 0 del conjunto que se quiere vaciar. Recordemos, que en el 
     lenguaje R los arrays, listas y dem\'as estructuras de conjuntos comienzan en 1 y no en 0 como la gran mayor\'ia de lenguajes.
     Por lo que al devolver esta posici\'on, el resultado que se obtiene es el conjunto que se le hab\'ia pasado, pero sin ning\'un 
-    elemento.
+    elemento. Como consecuencia, se devuelve un conjunto vac\'io de implicaciones.
     \\
 
 
@@ -392,13 +435,83 @@ se van a detallar una a una.
         \label{fig:removeAll}
     \end{figure}
 
-    En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado es vac\'io ya que el nuevo 
+    En este caso, tenemos un conjunto de implicaciones, y si vaciamos dicho conjunto, el resultado es vac\'io, ya que el nuevo 
     conjunto resultante no contiene ninguna implicaci\'on.
+
+    \clearpage
+
+    %%% read.left %%% 
+\textbf{ \Large Leer antecedente}
+
+\smallskip
+
+    \textbf{Descripci\'on}
+
+    Otra de las funciones b\'asicas a la hora de trabajar con implicaciones es poder obtener el antecedente de una determinada 
+    implicaci\'on. Para ello, pas\'andole a esta funci\'on el conjunto que contiene a la implicaci\'on que queremos obtener, y su 
+    posici\'on, nos devolver\'a el antecedente deseado.
+    \\
+
+
+    \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/read.left.R}
+    \bigskip
+
+    \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{readL}
+        \caption{Ejemplo de leer antecedente}
+        \label{fig:readL}
+    \end{figure}
+
+    Luego, en este ejemplo, tenemos un conjunto de tres implicaciones y con esta funci\'on leemos, en este caso, el antecedente de 
+    la segunda implicaci\'on. 
+    \\
+
+    \bigskip
+
+%%% read.right %%% 
+\textbf{ \Large Leer consecuente}
+
+\smallskip
+
+    \textbf{Descripci\'on}
+
+    De igual forma que en el anterior punto, se puede querer obtener el consecuente de una implicaci\'on, luego, con el conjunto de 
+    implicaciones y su posici\'on, esta funci\'on devolver\'a el consecuente de dicha implicaci\'on.
+    \\
+
+
+    \textbf{C\'odigo}
+
+    \lstinputlisting{r_code/basicLibrary/read.right.R}
+    \bigskip
+
+    \textbf{Ejemplo}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{readR}
+        \caption{Ejemplo de leer consecuente}
+        \label{fig:readR}
+    \end{figure}
+
+    Para este ejemplo, se ha usado el mismo conjunto de implicaciones que en el anterior, y leemos el consecuente de la misma 
+    implicaci\'on que en el punto anterior.
+    \\
+
+    \bigskip
+
 
 
 
 %%% add.imp %%% 
-\subsection{A\~nadir implicaci\'on}
+\textbf{ \Large A\~nadir implicaci\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -406,10 +519,11 @@ se van a detallar una a una.
     inserta la nueva implicaci\'on en la \'ultima posici\'on del conjunto. Como par\'ametros necesita el conjunto que se quiere ampliar, 
     el antecedente de la nueva implicaci\'on y el consecuente.
 
-    As\'i que, se crea la nueva implicaci\'on, con las dos partes que se le pasan como par\'ametros, y se le concatena al conjunto 
-    inicial para devolver un conjunto ampliado con una nueva implicaci\'on.
-    \\
-
+    As\'i que, se crea la nueva implicaci\'on, con las dos partes que se le pasan como par\'ametros y se le concatena al conjunto 
+    inicial para devolver un conjunto ampliado con una nueva implicaci\'on. Adem\'as, para indicar claramente que es una implicaci\'on, 
+    se le asocia al par\'ametro \textit{confidence} el valor 1.
+    
+    \clearpage
 
     \textbf{C\'odigo}
 
@@ -430,10 +544,13 @@ se van a detallar una a una.
 
     Usando la funci\'on add.imp a\~nadimos la nueva regla como se puede observar en el nuevo conjunto implications.
 
+    \clearpage
 
 
 %%% new.imp %%% 
-\subsection{Nueva implicaci\'on}
+\textbf{ \Large Nueva implicaci\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -442,7 +559,7 @@ se van a detallar una a una.
 
     Para cada implicaci\'on perteneciente al conjunto, se va a comprobar si el antecedente es igual al que se quiere insertar.
     En caso negativo, se continuar\'a con la siguiente implicaci\'on; y en caso afirmativo, se comprobar\'a si los consecuentes son 
-    iguales. En caso de que se cumplan ambas afirmaciones, quiere decir que la implicaci\'on que intentamos insertar en el conjunto, 
+    iguales. En caso de que se cumplan ambas afirmaciones, quiere decir que la implicaci\'on que intentamos insertar en el conjunto 
     ya se encuentra en \'el, por lo que se devolver\'a el conjunto inicial sin ning\'un cambio.
 
     En el caso de que los antecedentes sean iguales, y los consecuentes no, se sustituir\'a esa regla por una nueva, en la que el antecedente 
@@ -474,84 +591,25 @@ se van a detallar una a una.
     Aunque con esta funci\'on se podr\'ian realizar varios ejemplos seg\'un la implicaci\'on que se quiera a\~nadir, en este caso se 
     va a insertar una nueva en la que el antecedente ya se encuentra en el conjunto y el consecuente es nuevo.
 
-    En la variable implications tenemos un conjunto de tres implicaciones, y en newRule, est\'a la nueva a insertar. Como se puede 
+    En la variable \textit{implications} tenemos un conjunto de tres implicaciones, y en \textit{newRule}, est\'a la nueva a insertar. Como se puede 
     observar, el antecedente de la nueva es igual al de la tercera implicaci\'on del conjunto. Se realiza la operaci\'on de a\~nadir 
     y vemos como en el conjunto resultante ha cambiado el consecuente de la \'ultima implicaci\'on tal y como se esperaba.
-
-
-
-%%% read.left %%% 
-\subsection{Leer antecedente}
-
-    \textbf{Descripci\'on}
-
-    Otra de las funciones b\'asicas a la hora de trabajar con implicaciones es poder obtener el antecedente de una determinada 
-    implicaci\'on. Para ello, pas\'andole a esta funci\'on el conjunto que contiene a la implicaci\'on que queremos obtener, y su 
-    posici\'on, nos devolver\'a el antecedente deseado.
     \\
 
-
-    \textbf{C\'odigo}
-
-    \lstinputlisting{r_code/basicLibrary/read.left.R}
     \bigskip
 
-    \textbf{Ejemplo}
-
-    Aunque esta funci\'on ya se ha utilizado en algunos ejemplos anteriores, veamos su resultado.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics{readL}
-        \caption{Ejemplo de leer antecedente}
-        \label{fig:readL}
-    \end{figure}
-
-    Luego, en este ejemplo, tenemos un conjunto de tres implicaciones y con esta funci\'on leemos, en este caso, el antecedente de 
-    la segunda implicaci\'on. 
-
-
-
-%%% read.right %%% 
-\subsection{Leer consecuente}
-
-    \textbf{Descripci\'on}
-    
-    De igual forma que en el anterior punto, se puede querer obtener el consecuente de una implicaci\'on, luego, con el conjunto de 
-    implicaciones y su posici\'on, esta funci\'on devolver\'a el consecuente de dicha implicaci\'on.
-    \\
-
-
-    \textbf{C\'odigo}
-
-    \lstinputlisting{r_code/basicLibrary/read.right.R}
-    \bigskip
-
-    \textbf{Ejemplo}
-
-    Al igual que en el anterior punto, esta funci\'on ya se ha usado en ejemplos anteriores, pero observemos cual es su resultado.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics{readR}
-        \caption{Ejemplo de leer consecuente}
-        \label{fig:readR}
-    \end{figure}
-
-    Para este ejemplo, se ha usado el mismo conjunto de implicaciones que en el anterior, y leemos el consecuente de la misma 
-    implicaci\'on que en el punto anterior.
-
-    \clearpage
 
 %%% substitute.imp %%% 
-\subsection{Sustituir implicaci\'on}
+\textbf{ \Large Sustituir implicaci\'on}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
     La sustituci\'on de una implicaci\'on es una operaci\'on bastante \'util, ya que cuando se quieren unir dos implicaciones, puede que 
     se quiera que la nueva permanezca en un lugar determinado, para ello, esta funci\'on inserta la nueva implicaci\'on en el lugar que 
     se le indique. Como par\'ametros, necesita el conjunto de implicaciones, la posici\'on a cambiar, y los nuevos antedecente y consecuente.
-    Para la utilizaci\'on de esta funci\'on se debe llamar a sustitute.imp, aunque esta, a su vez har\'a uso de add.imp.k, cuyos codigos se 
+    Para la utilizaci\'on de esta funci\'on se debe llamar a \textbf{sustitute.imp}, aunque esta, a su vez har\'a uso de \textbf{add.imp.k}, cuyos codigos se 
     muestran a continuaci\'on.
     \\
 
@@ -572,19 +630,24 @@ se van a detallar una a una.
         \label{fig:sustituir}
     \end{figure}
 
-    Comenzamos con un conjunto de tres implicaciones en la variable implications, en newRule se tiene la implicaci\'on que se va 
+    Comenzamos con un conjunto de tres implicaciones en la variable \textit{implications}, en \textit{newRule} se tiene la implicaci\'on que se va 
     a insertar en el conjunto. Realizamos la operaci\'on de sustituir, en este caso la segunda implicaci\'on del conjunto, por la nueva. 
     Tal y como se observa en el conjunto resultante, se ha sustituido la anterior, por la nueva, tal y como se esperaba.
+    \\
 
+
+    \bigskip
 
 %%% included.left %%% 
-\subsection{Incluido en antecedente}
+\textbf{ \Large Incluido en antecedente}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
     Si tenemos dos implicaciones A y B y se quiere comprobar si el antecedente de A est\'a incluido en el de B, se debe usar 
     esta funci\'on. Le pasamos como par\'ametros un conjunto de implicaciones, y dos posiciones de dicho conjunto. Se usar\'an 
-    las funciones is.included y read.left para comprobar si un antecedente est\'a incluido en otro, devolver\'a TRUE en caso 
+    las funciones \textbf{is.included} y \textbf{read.left} para comprobar si un antecedente est\'a incluido en otro, devolver\'a TRUE en caso 
     afirmativo, y FALSE en el contrario.
     \\
     \clearpage
@@ -607,11 +670,14 @@ se van a detallar una a una.
     est\'a incluido en el de la segunda, el resultado obtenido es TRUE, ya que se cumple la inclusi\'on.
 
     En cambio, en el segundo caso, se prueba el consecuente de la segunda, con el de la tercera, y como no se cumple, el resultado es FALSE.
+    \\
 
-
+    \bigskip
 
 %%% delete.set.of.IS %%% 
-\subsection{Eliminar implicaciones con consecuente vac\'io}
+\textbf{ \Large Eliminar implicaciones con consecuente vac\'io}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -640,14 +706,20 @@ se van a detallar una a una.
     operaci\'on de borrar los consecuentes vac\'ios, obtenemos un nuevo conjunto con cuatro implicaciones, ya que las que ten\'ian 
     sus consecuentes sin elementos, han sido eliminadas.
 
+    \clearpage
 
+\subsection{Funciones de manejo de implicaciones}
+
+\smallskip
 
 %%% size.set %%% 
-\subsection{Tama\~no del conjunto}
+\textbf{ \Large Tama\~no del conjunto}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
-    Por tama\~no del conjunto, se entiende el n\'umero de elementos, repetidos o no, que lo componen. 
+    Por tama\~no del conjunto se entiende el n\'umero de elementos, repetidos o no, que lo componen. 
     Es decir, para calcular el tama\~no de un conjunto, se va a realizar la suma de los tama\~nos de cada una de 
     las implicaciones que forman el conjunto.
     \\
@@ -673,14 +745,18 @@ se van a detallar una a una.
         4 + 3 + 3 = 10    
     \]
 
+    
 
+    \clearpage
 
 %%% cadinality.set %%% 
-\subsection{Cardinalidad del conjunto}
+\textbf{ \Large Cardinalidad del conjunto}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
-    La cardinalidad de un conjunto, se entiende como el n\'umero de implicaciones que lo componen. Es decir, lo que 
+    La cardinalidad de un conjunto se entiende como el n\'umero de implicaciones que lo componen. Es decir, lo que 
     tambi\'en se suele denominar como longitud del conjunto.
     \\
 
@@ -690,7 +766,6 @@ se van a detallar una a una.
     \lstinputlisting{r_code/basicLibrary/cardinality.set.R}
     \bigskip
 
-    \clearpage
     \textbf{Ejemplo}
 
 
@@ -703,11 +778,18 @@ se van a detallar una a una.
 
     La cardinalidad, tal y como se ha explicado arriba es el n\'umero de implicaciones que tiene un conjunto, por lo que, como 
     se puede observar en este ejemplo, como tiene tres implicaciones, su cardinalidad es tres.
+     
 
-
+    \clearpage
 
 %%% core %%% 
-\subsection{Core}
+\textbf{ \Large Core}
+
+\smallskip
+
+Tanto esta funci\'on, como la siguiente, est\'an basadas en los resultados del director del proyecto\cite{corebody}.
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -723,13 +805,13 @@ se van a detallar una a una.
     en el algoritmo de claves minimales realizado en el segundo tomo de este TFG.
     \\
 
-    \clearpage
+    \bigskip
 
 
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/core.R}
-    \bigskip
+    \clearpage
 
     \textbf{Ejemplo}
 
@@ -745,12 +827,14 @@ se van a detallar una a una.
     un itemMatrix. Realizamos la operaci\'on core y se obtiene como resultado un itemMatrix con dos de los elementos de las implicaciones. 
     Tal y como se ha explicado anteriormente, este resultado se obtiene de restar de todos los atributos, los que est\'an en los consecuentes 
     de las implicaciones.
+    \\
 
-
-    \clearpage
+    \bigskip
 
 %%% body %%% 
-\subsection{Body}
+\textbf{ \Large Body}
+
+\smallskip
 
     \textbf{Descripci\'on}
 
@@ -767,7 +851,7 @@ se van a detallar una a una.
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/basicLibrary/body.R}
-    \clearpage
+    \bigskip
 
     \textbf{Ejemplo}
 
@@ -779,8 +863,8 @@ se van a detallar una a una.
         \label{fig:body}
     \end{figure}
 
-    Para este ejemplo, se usa el mismo conjunto de implicaciones que en el anterior punto. Sin embargo, el resultado en este caso es 
-    el conjunto vac\'io, ya que es el resultado de restar de todos los elementos que se encuentran en los antecedentes de las implicaciones, 
-    el resultado de el cierre del core de Omega y Gamma.
+    Para este ejemplo, se usa el mismo conjunto de implicaciones que en el anterior punto. En este caso se muestra el 
+    resultado de restar de todos los elementos que se encuentran en los antecedentes de las implicaciones, 
+    el resultado del cierre del core de Omega y Gamma.
 
     

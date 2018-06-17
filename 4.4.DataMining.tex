@@ -51,7 +51,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
             \label{fig:readfc}
         \end{figure}
 
-        Como se puede observar en la imagen de arriba, lo primero que se ejecuta es la funci\'on read.fc, que tal y como se ha comentado 
+        Como se puede observar en la imagen de arriba, lo primero que se ejecuta es la funci\'on \textbf{read.fc}, que tal y como se ha comentado 
         antes, es la encargada de leer el fichero. A continuaci\'on, se extrae el formato de la variable en la que se ha guardado la 
         salida de la funci\'on que se est\'a probando, y se observa, que tal y como se esperaba es un data.frame.
 
@@ -537,10 +537,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
     \textcolor{red}{Con esta explicaci\'on basta?}
 
-    \textcolor{red}{A\~nadir referencia paper -> 2012 cla paper16}
-
     Este algoritmo y sus respectivas funciones se han desarrollado a partir de un art\'iculo publicado por el tutor de 
-    TFG y su grupo de investigaci\'on.\cite{cla2012}
+    TFG y su grupo de investigaci\'on\cite{cla2012}.
     Se va a comenzar con algunas definiciones para que se conozca el contexto:
 
     Una base implicacional \(K\) se define como un conjunto \(\mathcal{L}\) de implicaciones de \(K\) desde el cual, mediante las reglas de 
@@ -649,9 +647,18 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     La versi\'on original de la funci\'on trv se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
     mejorar el tiempo del algoritmo general.
 
-    A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. La primera es la versi\'on original sin la poda, y 
+    A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. Se puede observar la versi\'on original sin la poda, y 
     la segunda en la que se aplica dicha mejora. La versi\'on que se ha incluido en esta memoria corresponde a la segunda, ya que 
     realiza la poda.
 
-    Los parámetros de entrada para realizar las pruebas de tiempo de este algoritmo se han realizado con el generador aleatorio definido en 
-    el punto anterior, generando, de esta manera conjuntos de implicaciones de diferentes tama\~nos.
+    \begin{figure}[H]
+        \centering
+        \includegraphics{tiemposMinGen}
+        \caption{Gr\'afica de tiempos}
+        \label{fig:tiemposMinGen}
+    \end{figure}
+
+
+    Los par\'ametros de entrada para realizar las pruebas de tiempo de este algoritmo se han realizado con el generador aleatorio definido en 
+    el punto anterior, generando de esta manera conjuntos de implicaciones de diferentes tama\~nos.
+

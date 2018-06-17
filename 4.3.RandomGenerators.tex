@@ -125,7 +125,7 @@
     \end{figure}
 
     En este primer ejemplo, se va a generar un sistema con cuatro implicaciones, utilizando 6 atributos diferentes, con una diferencia m\'axima 
-    de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a ejemplo1.
+    de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a \textit{ejemplo1}.
     
     En dicho fichero se ha escrito lo siguiente:
 
@@ -145,7 +145,7 @@
     \end{figure}
 
     En este segundo ejemplo se han generado con 10 atributos, 6 implicaciones, con un tama\~no m\'aximo de 4 para el antecedente y 3 para el 
-    consecuente. El nombre del fichero de salida ser\'a ejemplo2.
+    consecuente. El nombre del fichero de salida ser\'a \textit{ejemplo2}.
 
     \begin{verbatim}
         a1 a10 a6 a7 -> a9 
@@ -241,8 +241,8 @@
 
     \textbf{C\'odigo}
 
-    A la hora de optimizar el c\'odigo, si el par\'ametro sparness no est\'a vac\'io, se ha decidido generar aleatoriamente el n\'umero de 
-    TRUE o FALSE dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro sparness 0.2, con 4 objetos 
+    A la hora de optimizar el c\'odigo, si el par\'ametro \textit{sparness} no est\'a vac\'io, se ha decidido generar aleatoriamente el n\'umero de 
+    TRUE o FALSE dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro \textit{sparness} 0.2, con 4 objetos 
     y 5 atributos, esto querr\'a decir que debe haber cuatro TRUE entre los 20 elementos a generar aleatoriamente. Por lo que en este caso, 
     el n\'umero de TRUE ser\'a menor que el de FALSE, as\'i que se colocar\'an cuatro TRUE aleatoriamente, rellenando las dem\'as posiciones 
     del data.frame de FALSE.
@@ -256,7 +256,7 @@
     \lstinputlisting{r_code/randomGenerators/context.R}
     \bigskip
 
-    En el caso de que el usuario no especifique el par\'ametro sparness, el contexto se generar\'a totalmente de forma aleatoria:
+    En el caso de que el usuario no especifique el par\'ametro \textit{sparness}, el contexto se generar\'a totalmente de forma aleatoria:
 
     \lstinputlisting{r_code/randomGenerators/noSpar.R}
     \clearpage
@@ -271,7 +271,7 @@
 
     \textbf{Ejemplo}
 
-    Como primer ejemplo, se va a generar un contexto sin el par\'ametro sparness, con 4 objetos y 5 atributos:
+    Como primer ejemplo, se va a generar un contexto sin el par\'ametro \textit{sparness}, con 4 objetos y 5 atributos:
 
     \begin{figure}[H]
         \centering
@@ -281,7 +281,7 @@
     \end{figure}
 
     \bigskip
-    Y como segundo ejemplo, un contexto con 6 objetos y 8 atributos, con 0.5 de sparness:
+    Y como segundo ejemplo, un contexto con 6 objetos y 8 atributos, con 0.5 de \textit{sparness}:
 
     \begin{figure}[H]
         \centering
@@ -290,5 +290,5 @@
         \label{fig:randomC2}
     \end{figure}
 
-    Como podemos observar, el n\'umero de FALSE y TRUE es el mismo, ya que se ha elegido como par\'ametro de esparness 0.5.
+    Como podemos observar, el n\'umero de FALSE y TRUE es el mismo, ya que se ha elegido como par\'ametro de \textit{sparness} 0.5.
     
