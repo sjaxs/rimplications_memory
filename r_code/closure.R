@@ -37,4 +37,4 @@ apply.closure <- function(Sigma,Xmas){
     }
   }
   return(list("closure"=union.sets(Xmas,Xmas2), "implications"=Sigma))
-  }#End apply.closure
+}#End apply.closure

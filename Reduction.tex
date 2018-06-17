@@ -4,7 +4,7 @@ El concepto de clave es importante en cualquier modelo de datos y aparece con mu
 
 El problema de la b\'usqueda de claves aparece en distintas \'areas de la computaci\'on, siendo las bases de datos el \'area en la que mayor atenci\'on se le presta. Este algoritmo desarrollado por P. Cordero et al. en  \cite{Reduction} busca resolver este problema lo m\'as eficientemente posible. Para ello trata de simplificar lo m\'aximo posible el conjunto de implicaciones del cual se quieren obtener las claves, aplicando la L\'ogica de Simplificaciones \cite{Cordero2002}.
 
-El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjuto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.
+El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjuto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.\\
 
 \IncMargin{1em}
 \begin{algorithm}[H]
@@ -33,7 +33,7 @@ Se van a definir algunos conceptos que servir\'an de ayuda a la hora de entender
 
 \textbf{Core y Body}
 
-El c\'alculo de core y body que aparece a continuaci\'on se public\'o en [xx] y es una estrateg\'ia de poda (prunning) para reducir el esquema relacional en el que calcular las claves. 
+El c\'alculo de core y body que aparece a continuaci\'on se public\'o en \textbf{[xx]} y es una estrateg\'ia de poda (prunning) para reducir el esquema relacional en el que calcular las claves. 
 
 La estrateg\'ia mejora todas las heur\'isitcas que aparecen en la literatura. 
 
@@ -57,14 +57,30 @@ En cualquier algoritmo de c\'alculo de claves o de generadores minimales podemos
 \lstinputlisting{r_code/comp_unionk.R}
 \newpage
 \subsubsection{Ejemplo} 
-Aq\'i se puede ver un ejemplo sencillo de c\'alculo de las claves minimales de un sistema implicacional:
+Aqu\'i se puede ver un ejemplo sencillo de c\'alculo de las claves minimales de un sistema implicacional:
+
+Se parte del siguiente conjunto de implicaciones \(\Gamma\) y el conjunto de atributos \(M\)
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75]{reduction_1}
-    \caption{Ejemplo Reduction}
-    \label{fig:reduction_1}
+    \includegraphics[scale=0.75]{reduc_1}
+    \caption{Ejemplo Reduction: Gamma y M}
+    \label{fig:reduc_1}
 \end{figure}
-[VER CORE Y BODY EXPLICAR SALIDA]
+Aqu\'i se puede ver el resultado de calcular el core y el body:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{reduc_2}
+    \caption{Ejemplo Reduction: Core y Body}
+    \label{fig:reduc_2}
+\end{figure}
+Como se ve en la siguiente imagen, las claves minimales de \(\Gamma\) con respecto a \(M\) son: \(\{abe,abf\}\)
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{reduc_3}
+    \caption{Ejemplo Reduction: Salida}
+    \label{fig:reduc_3}
+\end{figure}
+
 \subsubsection{Comparativa/Versiones} 
 La implementaci\'on inicial del algoritmo ha sido mejorada con una poda que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.
 

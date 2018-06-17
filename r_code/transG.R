@@ -6,7 +6,7 @@ transG <- function(Sigma){
   while(!fixpoint){
     fixpoint <- TRUE
     k <- 1
-    while(k  <= longitud){ # V -> W
+    while(k  <= longitud){
       if(fuera2){
         fuera2 <- FALSE
         next
@@ -17,7 +17,7 @@ transG <- function(Sigma){
       V <- read.left(Sigma,k)
       W <- read.right(Sigma,k) 
       l <- 1
-      while(l <= longitud){ # X -> Y
+      while(l <= longitud){
         if(fuera){
           fuera <- FALSE
           next
@@ -33,7 +33,7 @@ transG <- function(Sigma){
         Y <- read.right(Sigma,l) 
         XY <- union.sets(X,Y)
         m <- 1
-        while(m <= longitud){ # Z -> U
+        while(m <= longitud){
           if(m >length(Sigma)){
             break
           }
@@ -45,9 +45,9 @@ transG <- function(Sigma){
             m <- m + 1
             next
           }
-          Z <- read.left(Sigma,m) # Z
-          if(is.included(Z,XY)){  # Z incluido en XY
-            U <- read.right(Sigma,m) # U
+          Z <- read.left(Sigma,m) 
+          if(is.included(Z,XY)){ 
+            U <- read.right(Sigma,m) 
             UV <- union.sets(U,V)
             if(is.included(X,V) & is.included(W,UV)){
               Sigma <- Sigma[-k]

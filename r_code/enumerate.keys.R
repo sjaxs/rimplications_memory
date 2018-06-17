@@ -1,6 +1,5 @@
 enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
   listKeys <- c()
-  # browser()
   if(flag){
     if(is.null(visited)){
       visited <- GammaP[0]
@@ -17,9 +16,9 @@ enumerate.keys <- function(OmegaB, GammaP, flag, visited = NULL){
       }
       A <- read.left(GammaP, k)
       B <- read.right(GammaP, k)
-      # Aplicamos a lsimplificacion
+      #lSimp
       newK <- lSimp(OmegaB, A, B) 
-      #Aplicamos la simplificacion fuerte
+      #sSimplificacion 
       newGammaP <- apply.ssimp(A,B,GammaP) )
       key <- enumerate.keys(newK, newGammaP, flag, visited))
       if(!is.null(key)){

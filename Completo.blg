@@ -9,45 +9,45 @@ Warning--empty publisher in Mora2003
 Warning--empty journal in Adaricheva
 Warning--empty journal in doSimp
 Warning--empty booktitle in DBasis
-You've used 15 entries,
+You've used 16 entries,
             1791 wiz_defined-function locations,
-            540 strings with 6164 characters,
-and the built_in function-call counts, 3278 in all, are:
-= -- 264
-> -- 170
-< -- 2
-+ -- 63
-- -- 48
-* -- 222
-:= -- 522
-add.period$ -- 45
-call.type$ -- 15
-change.case$ -- 14
+            547 strings with 6334 characters,
+and the built_in function-call counts, 3608 in all, are:
+= -- 296
+> -- 174
+< -- 3
++ -- 65
+- -- 49
+* -- 236
+:= -- 561
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 133
-empty$ -- 328
-format.name$ -- 48
-if$ -- 723
+cite$ -- 22
+duplicate$ -- 154
+empty$ -- 366
+format.name$ -- 49
+if$ -- 809
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 12
-newline$ -- 77
-num.names$ -- 14
-pop$ -- 67
+int.to.str$ -- 16
+missing$ -- 13
+newline$ -- 82
+num.names$ -- 15
+pop$ -- 73
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 58
+skip$ -- 74
 stack$ -- 0
-substring$ -- 190
-swap$ -- 22
-text.length$ -- 2
+substring$ -- 218
+swap$ -- 33
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 25
-width$ -- 17
-write$ -- 154
+while$ -- 28
+width$ -- 18
+write$ -- 165
 (There were 6 warnings)

@@ -167,29 +167,40 @@ Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'
 \lstinputlisting{r_code/simplify.R}
 \newpage
 \subsubsection{Ejemplo} 
-\textbf{[este ejemplo no me gusta, tiene vacios a la derecha.... y luego la base directa normalemente tiene mayor longitud. igual este ejemplo es de los que no va....¿¿??]}
+% \textbf{[este ejemplo no me gusta, tiene vacios a la derecha.... y luego la base directa normalemente tiene mayor longitud. igual este ejemplo es de los que no va....¿¿??]}
 A continuaci\'on, se muestra un ejemplo del c\'alculo de una base directa \'optima a partir del siguiente conjunto de implicaciones: 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75]{do_1}
+    \includegraphics[scale=0.75]{SLgetDO1}
     \caption{Ejemplo SLgetdo 1}
-    \label{fig:do_1}
+    \label{fig:SLgetDO1}
 \end{figure} 
 
 Aqu\'i se puede ver el resultado:
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75]{do_2}
+    \includegraphics[scale=0.75]{SLgetDO2}
     \caption{Ejemplo SLgetdo 2}
-    \label{fig:do_2}
+    \label{fig:SLgetDO2}
 \end{figure} 
-Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, d\'onde el c\'alculo es practicamente inmediato.
+Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, d\'onde el c\'alculo es practicamente inmediato.\\
+
+Se parte del conjunto de atributos \(\{c,f,g\}\)
+
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.75]{do_3}
+    \includegraphics[scale=0.75]{SLgetDO4}
     \caption{Comparativa del c\'alculo del cierre a partir de una base DO}
-    \label{fig:do_3}
-\end{figure} 
+    \label{fig:SLgetDO4}
+\end{figure}
+
+Y como se puede ver, el resultado es el mismo:
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{SLgetDO5}
+    \caption{Comparativa del c\'alculo del cierre a partir de una base DO 2}
+    \label{fig:SLgetDO5}
+\end{figure}
 
 Esta reducci\'on de tiempo se acent\'ua conforme crece el tama\~no del conjunto de implicaciones.
 
