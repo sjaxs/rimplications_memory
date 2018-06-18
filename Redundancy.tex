@@ -24,20 +24,20 @@ Regla de la l\'ogica de Simplificaciones que nos permite reducir el tama\~no del
         \Repeat{more simplifications cannot be applied} {
             \ $simp + rSimp$\;
         }
-        \ Check if is possible to aplly $trasnG$
+        \ Check if is possible to apply $transG$
     }%end beginre
     \caption{apply.remove.redundancy algorithm}\label{alg:1}
 \end{algorithm}\DecMargin{1em}
 \bigskip
-El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha este vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
+El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha est\'e vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
-Lo siguiente consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma iterativa hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
+Lo siguiente, consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma iterativa hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
 
 El \'ultimo paso consiste en aplicar la transitividad generalizada, si el usuario as\'i lo indica, lo cu\'al nos permite eliminar implicaciones que puedan ser inferidas transitivamente a partir de otras.
 
 Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
-Destacamos que en habitualmente en R se extraen implicaciones y el m\'etodo implementado en paquete aRules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
+Destacamos que en habitualmente en R se extraen implicaciones y el m\'etodo implementado en paquete arules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
 
 Pensamos que es un punto fuerte para el uso del paquete en muy diversas \'areas y aplicaciones. 
 
@@ -79,7 +79,7 @@ Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se 
     \label{fig:red_4}
 \end{figure}
 
-Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%. Adem\'as destacamos que este dataset no contiene un n\'umero muy grande de atributos. Cuanto mayor sea el tama\~no del dataset mayor es la mejora conseguida al aplicar cualquier algoritmo aunque sea el m\'as sencillo en t\'erminos de complejidad. 
+Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%. Adem\'as destacamos que este dataset no contiene un n\'umero muy grande de atributos. Cuanto mayor sea el tama\~no del dataset, mayor es la mejora conseguida al aplicar cualquier algoritmo aunque sea el m\'as sencillo en t\'erminos de complejidad. 
 
 \newpage
 \subsubsection{C\'odigo} 
@@ -94,7 +94,7 @@ Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a
     \label{fig:redundancy}
 \end{figure} 
 
-En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo. La versi\'on que exist\'ia solo era una versi\'on pedag\'ogica del algoritmo para explicarla en congresos. El objetivo conseguido con este TFG es el tener ahora una versi\'on eficiente de todos y cada uno de los algoritmos. 
+En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo. La versi\'on que exist\'ia, solo era una versi\'on pedag\'ogica del algoritmo para explicarla en congresos. El objetivo conseguido con este TFG es el tener ahora una versi\'on eficiente de todos y cada uno de los algoritmos. 
 
 
 Como se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de implicaciones.

@@ -12,9 +12,9 @@ El campo de aplicaci\'on de los sistemas de cierre va desde \'areas te\'oricas, 
 
 Dado un conjunto de atributos \( M \) y un conjunto de implicaciones (o dependencias funcionales) \( \Sigma \) sobre \( M \) y sea \( X \subseteq M \), el cierre de \( X \) con respecto a \( \Sigma \), \( X^+_{\Sigma} \), es el subconjunto de \( M \) m\'as grande que cumple que \( \Sigma \vdash X \to X^+_{\Sigma} \).
 
-El cierre es ampliamente usado en inteligencia artificial y bases de datos ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
+El cierre es ampliamente usado en inteligencia artificial y bases de datos, ya que es un punto clave en la resoluci\'on de muchos problemas: eliminaci\'on de restricciones redundantes, optimizaci\'on de consultas y el problema de la b\'usqueda de claves.
 
-En AFC es un algoritmo esencial, en los muy diversos algoritmos existentes por muy diversos autores, con un dataset de tama\~no medio se pueden calcular cientos de miles incluso millones de cierres. Cualquier m\'inima mejora permite mejorar estos algoritmos. 
+En AFC es un algoritmo esencial, en los muy diversos algoritmos existentes por muy diversos autores, con un dataset de tama\~no medio se pueden calcular cientos de miles, incluso millones, de cierres. Cualquier m\'inima mejora permite mejorar estos algoritmos. 
 
 Por ello, se ha desarrollado un algoritmo de cierre, llamado \(\textbf{SL}_{FD}\)-Closure \cite{Mora2012a}, que en el peor de los casos, tiene la misma complejidad que los algoritmos de cierre lineales existentes.
 El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\) \cite{Cordero2002} y tiene la misma complejidad que los algoritmos de cierre cl\'asicos. El director demostr\'o en \cite{Mora2012a} con un exhaustivo experimento que el nuevo algoritmo propuesto es mejor en tiempo de ejecuci\'on que todos los existentes en la literatura de bases de datos. \\
@@ -37,13 +37,13 @@ El algoritmo aplica las reglas de L\'ogica de Simplicaciones \(\textbf{SL}_{FD}\
     \LinesNumbered
     \DontPrintSemicolon
     \SetKw{KwOr}{or}
-    \KwIn{$\Sigma$ a set of FDs; $X$ A set of attributes}
+    \KwIn{$\Sigma$ a set of FDs; $X$ a set of attributes}
     \KwOut{$X^+$ the closure of $X$}
     \Begin{
         \ $X^+ = X$\;
         \Repeat{$X^+$ does not change} {
             \For{$A \to B \in \Sigma $}{
-                \If{$A \subseteq X^+ and B \notin X^+$}{
+                \If{$A \subseteq X^+ and \ B \notin X^+$}{
                     \ $X^+ := X^+ \cup {B}$
                 }
             }
@@ -63,7 +63,7 @@ De nuevo, se dispon\'ia de una primera implementaci\'on del algoritmo, la cual h
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/closure.R}
 \subsubsection{Ejemplo}
-Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de implicaciones (mush), en este caso de 1000 implicaciones, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de implicaciones. \\emptyset 
+Como se puede ver, dado un conjunto de atributos (x1) y un conjunto de implicaciones (mush), en este caso de 1000 implicaciones, se puede calcular el cierre de x1 respecto a mush en tan solo 33 segundos, tiempo bastante bueno teniendo en cuenta el tama\~no del conjunto de implicaciones. \\ 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.6]{closure_ejemplo}

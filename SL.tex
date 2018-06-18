@@ -26,7 +26,7 @@ Primero introducimos los axiomas de Amstrong \cite{Armstrong1974DependencySO}:
 
 Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. En este punto, introducimos la l\'ogica dise\~nada por el director del proyecto denominada l\'ogica de simplificaciones \cite{Cordero2002}.
 
-El elemento central de la l\'ogica de simplificaciones se centra en la regla de simplificaci\'on. Sustituye a la regla de transiividad en los axiomas de Armstrong.
+El elemento central de la l\'ogica de simplificaciones se centra en la regla de simplificaci\'on. Sustituye a la regla de transtividad en los axiomas de Armstrong.
 
 La ventaja es que directamente usando las reglas de la nueva l\'ogica es posible desarrollar m\'etodos directamente basados en l\'ogica para resolver problemas esenciales no solo en ACF, sino tambi\'en en bases de datos, data mining, inteligencia artificial, etc. 
 
@@ -86,7 +86,7 @@ La simplificaci\'on de implicaciones se basa en que si se dispone de dos implica
 \lstinputlisting{r_code/simplification.R}
 \bigskip
 \textbf{Rsimplificaci\'on}\\
-La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde s\'olo se simplifica la parte derecha de la regla, es decir, su consecuente:
+La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde solo se simplifica la parte derecha de la regla, es decir, su consecuente:
 
 \begin{center}
     \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies U \to (U - Y)\)
@@ -116,11 +116,11 @@ Esta regla derivada se usa en los algoritmos de c\'alculo de claves minimales y 
 
 La transitividad generalizada nos permite eliminar implicaciones que pueden ser inferidas transitivamente a partir de otras. Dadas tres implicaciones, \(X \to Y\), \(Z \to U\) y \(V \to W\), si se cumple que \(Z \subseteq XY \), \( X \subseteq V \) y \( W \subseteq UV \) entonces se tiene que  \(X \to Y\), \(Z \to U\) \( \vdash V \to W\) y, por tanto, se puede eliminar \(V \to W\) del conjunto de implicaciones.
 
-El director del proyecto public\'o en un art\'iculo cient\'ifico que usando solamente la l\'ogica de simplificaciones se elimina aproximadamente el 80\% de la redundancia. En muchos datasets y ejemplos generados aleatoriamente se eliminaba toda la redundancia. 
+El director del proyecto public\'o en un art\'iculo cient\'ifico que, usando solamente la l\'ogica de simplificaciones, se elimina aproximadamente el 80\% de la redundancia. En muchos datasets y ejemplos generados aleatoriamente se eliminaba toda la redundancia. 
 
 Se usar\'a esta regla para eliminar totalmente la redundancia en el conjunto de las implicaciones. 
 
-Puesto que la ejecuci\'on de esta regla es m\'as costosa computacionalmente hablando, la funci\'on de eliminar redundancia tendr\'a un parámetro con el que el usuario indique si se quiere eliminar toda la redundancia o no (aplicar esta regla o no).\\
+Puesto que la ejecuci\'on de esta regla es m\'as costosa computacionalmente hablando, la funci\'on de eliminar redundancia tendr\'a un par\'ametro con el que el usuario indique si se quiere eliminar toda la redundancia o no (aplicar esta regla o no).\\
 
 \newpage
 \lstinputlisting{r_code/transG.R}

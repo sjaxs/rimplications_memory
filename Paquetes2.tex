@@ -61,8 +61,8 @@ Una vez abierto R Studio, lo primero que se debe hacer es crear un nuevo proyect
 En la casilla \textbf{Package name} se debe especificar el nombre del  proyecto; en la casilla
 \textbf{Create package based on source files} se pueden a\~nadir (pinchar en el bot\'on \textbf{Add}) los
 archivos \textbf{.R} que contengan nuestras funciones, si se han generado previamente (no es
-estrictamente necesario a\~nadirlos ahora se pueden a\~nadir despu\'es).
-Se ind\'ica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an contenidos los archivos del proyecto. 
+estrictamente necesario a\~nadirlos ahora, se pueden a\~nadir despu\'es).
+Se indica el directorio ra\'iz en el que se situar\'a el subdirectorio en el que estar\'an contenidos los archivos del proyecto. 
 Al pinchar en el bot\'on \textbf{Create Project} se crear\'a un directorio en la ubicaci\'on indicada con la
 estructura necesaria para que R pueda construir el paquete \cite{datavu}.
 
@@ -73,7 +73,7 @@ Una vez ajustada la configuraci\'on, hay que pinchar en \textbf{Install and Rest
 La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
 incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian sus funciones.
 
-Para qu\'e R pueda generar autom\'aticamente el archivo de ayuda para las funciones
+Para que R pueda generar autom\'aticamente el archivo de ayuda para las funciones
 se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'on de una serie de tags relacionados con el objetivo y descripci\'on de la funci\'on y/o paquete. 
 
 
@@ -149,7 +149,7 @@ Para crear esta documentaci\'on, lo primero que se debe hacer es a\~nadir coment
 \end{figure} 
 
 Una vez completado esto, presionamos \textbf{Ctrl/Cmd + Shift + B}, esto reconstruir\'a
-completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a \'el
+completamente el paquete, actualizar\'a la documentaci\'on, reiniciar\'a R y recargar\'a el
 paquete. \\
 
 \textbf{Comentarios roxygen} \\
@@ -180,12 +180,9 @@ las l\'ineas para facilitar la lectura.\\
 Adem\'as del bloque introductorio y los tags ya mencionados, las funciones cuentan con una
 serie de tags propios:
 \begin{itemize}
-    \item \textbf{@param} compuesto por un nombre y una descripci\'on. Sirve para describir los
-par\'ametros de entrada de la funci\'on, su nombre, su tipo y para qu\'e se utilizan.
-    \item \textbf{@examples} sirve para proveer c\'odigo en R que muestre un ejemplo de c\'omo funciona
-la funci\'on. El c\'odigo debe funcionar sin errores. Esto es importante ya que muchos
-usuarios miran primero los ejemplos.
-    \item \textbf{@return} descripci\'on de la salida de la funci\'on.
+    \item \textbf{@param} compuesto por un nombre y una descripci\'on. Sirve para describir los par\'ametros de entrada de la funci\'on, su nombre, su tipo y para qu\'e se utilizan.
+    \item \textbf{@examples} sirve para proveer c\'odigo en R que muestre un ejemplo de c\'omo se usa la funci\'on. El c\'odigo debe funcionar sin errores. Esto es importante ya que muchos usuarios miran primero los ejemplos.
+    \item \textbf{@return} es la descripci\'on de la salida de la funci\'on.
 \end{itemize}
 
 \textbf{Documentando paquetes}\\
@@ -223,7 +220,7 @@ sitio para los datos que necesiten nuestras funciones.
 \end{itemize}
 
 Si \textbf{DESCRIPTION} incluye LazyData: true, entonces los datasets se cargar\'an de forma
-\enquote*{Lazy}. Es decir, que no ocupar\'an memoria hasta que se usen, \textbf{devtools::cr\'eate()} establece
+\enquote*{Lazy}. Es decir, que no ocupar\'an memoria hasta que se usen, \textbf{devtools::create()} establece
 \textbf{LazyData} a true autom\'aticamente.
 
 \subsubsection{NAMESPACE}
@@ -281,7 +278,7 @@ haya modificado correctamente.\\
 \end{figure} 
 
 \textbf{Exports}\\
-Para que una funci\'on sea usable fuera de nuestro paquete debe ser exportarda. Las funciones que se exporten deben estar documentadas.
+Para que una funci\'on se pueda usar fuera de nuestro paquete debe ser exportada. Las funciones que se exporten deben estar documentadas.
 
 \textbf{Imports}\\
 \textbf{NAMESPACE} tambi\'en controla las funciones externas que pueden ser usadas en el
@@ -289,12 +286,9 @@ paquete sin usar \enquote*{::}.
 
 \subsection{Comprobando el paquete}
 
-Una parte importante del desarrollo de un paquete es comprobar que el c\'odigo y la
-documentaci\'on no presenten problemas, especialmente si se planea distribuir p\'ublicamente
-el paquete. Para ello se tiene la herramienta que proporciona \textbf{devtools}, en concreto,
+Una parte importante del desarrollo de un paquete es comprobar que el c\'odigo y la documentaci\'on no presenten problemas, especialmente si se planea distribuir p\'ublicamente el paquete. Para ello se tiene la herramienta que proporciona \textbf{devtools}, en concreto,
 \textbf{devtools::check()} o, equivalentemente, \textbf{Ctrl + Shift + E} en R Studio.
-Esta herramienta se encarga de que toda la documentaci\'on del paquete este actualizada, ya
-que ejecuta \textbf{devtools::document()} de manera autom\'atica.
+Esta herramienta se encarga de que toda la documentaci\'on del paquete est\'e actualizada, ya que ejecuta \textbf{devtools::document()} de manera autom\'atica.
 
 Encapsula el paquete antes de realizar las comprobaciones. Esto asegura que la
 comprobaci\'on del paquete se hace desde un estado limpio ya que el encapsulamiento no
@@ -339,8 +333,7 @@ Por ello, es recomendable a\~nadir al paquete una serie de comentarios que facil
 
     \item \textbf{Test environments}: indica en qu\'e plataformas se ha comprobado el paquete.
     \item \textbf{Check results}: contendr\'a una lista de errores, advertencias o notas.
-    \item \textbf{Reverse dependencies}: sirve para indicar que si hay errores de dependencias con
-otros paquetes en el caso de que se este  subiendo una nueva versi\'on del paquete y los cambios hayan provocado errores en las dependencias con otros paquetes.
+    \item \textbf{Reverse dependencies}: sirve para indicar si hay errores de dependencias con otros paquetes, en el caso de que se este  subiendo una nueva versi\'on del paquete, y los cambios que  hayan provocado errores en las dependencias con otros paquetes.
 \end{itemize}
 
 \textbf{Las pol\'iticas en CRAN}\\

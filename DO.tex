@@ -15,11 +15,11 @@ A continuac\'on se van a detallar algunos de estos conceptos.\\
 
 Un sistema implicacional \( \Sigma \) se dice que es:
 \begin{itemize}
-    \item una base minimal cuando,  \( para \ todo \ A \to B \in \Sigma \ se \ tiene \ que \ \Sigma \setminus \{A \to B\} \not\equiv \Sigma\)
+    \item Una base minimal cuando,  \( para \ todo \ A \to B \in \Sigma \ se \ tiene \ que \ \Sigma \setminus \{A \to B\} \not\equiv \Sigma\)
 
-    \item una base m\'inima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ |\Sigma| \leq |\Sigma'|\)
+    \item Una base m\'inima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ |\Sigma| \leq |\Sigma'|\)
 
-    \item una base \'optima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ \|\Sigma\| \leq \|\Sigma'\| \\ donde \ \|\Sigma\| = 
+    \item Una base \'optima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ \|\Sigma\| \leq \|\Sigma'\| \\ donde \ \|\Sigma\| = 
     \sum_{\substack{A \to B \in \Sigma}} (|A|+|B|) \).
 \end{itemize}
 
@@ -31,7 +31,7 @@ Por tanto, ya se est\'a en condiciones de conocer qu\'e es una base directa \'op
 
 El teorema 2 de \cite{DO2} nos dice que:
 
-Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \)\\
+Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \).\\
 
 Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo et al. \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\).\\
 
@@ -110,7 +110,7 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
 %     \caption{Add-sSimp}\label{alg:5}
 % \end{algorithm}\DecMargin{1em}
 
-SLgetdo
+.
 
 \IncMargin{1em}
 \begin{algorithm}[H]
@@ -159,7 +159,7 @@ SLgetdo
     \caption{SLgetdo algorithm}\label{alg:6}
 \end{algorithm}\DecMargin{1em}
 
-Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado [doSimp] tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on (Si-Eq) y la composici\'on (Co-Eq) para simplifcar el sistema implicacional, [sSimp] para completarlo y (rSi-Eq) y (Co-Eq) para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que [SLgetdo] lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
+Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado doSimp tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on Si-Eq y la composici\'on Co-Eq para simplificar el sistema implicacional, sSimp para completarlo y rSi-Eq y Co-Eq para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que SLgetdo lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
 \newpage
 \subsubsection{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
@@ -183,7 +183,7 @@ Aqu\'i se puede ver el resultado:
     \caption{Ejemplo SLgetdo 2}
     \label{fig:SLgetDO2}
 \end{figure} 
-Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, d\'onde el c\'alculo es practicamente inmediato.\\
+Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, donde el c\'alculo es practicamente inmediato.\\
 
 Se parte del conjunto de atributos \(\{c,f,g\}\)
 
@@ -204,6 +204,6 @@ Y como se puede ver, el resultado es el mismo:
 
 Esta reducci\'on de tiempo se acent\'ua conforme crece el tama\~no del conjunto de implicaciones.
 
-Si se tiene en cuenta que para resolver determinados problemas, el c\'alculo de multitud de cierres (del orden de millones) es parte fundamental,\cite{Adaricheva} el impacto de cualquier peque\~na mejora en el c\'alculo de cada uno de esos cierres, puede suponer una diferencia abismal. De ah\'i radica la importancia de este algoritmo.
+Si se tiene en cuenta que para resolver determinados problemas, el c\'alculo de multitud de cierres (del orden de millones) es parte fundamental \cite{Adaricheva}, el impacto de cualquier peque\~na mejora en el c\'alculo de cada uno de esos cierres, puede suponer una diferencia abismal. De ah\'i radica la importancia de este algoritmo.
 
 % \subsubsection{Comparativa/Versiones} 

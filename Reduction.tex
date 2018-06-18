@@ -22,7 +22,7 @@ El problema de la b\'usqueda de claves consiste en enumerar todas las claves min
     \KwOut{The set $K$ of all minimal keys}
     \Begin{
         \ $\Omega' := \Body{$\Omega,\Gamma$}$\;
-        \ $\Gamma' := \Compact{$ \{A \cap \Omega' \to B \cap \Omega' \ | \ A \to B in \Gamma\}$}$\;
+        \ $\Gamma' := \Compact{$ \{A \cap \Omega' \to B \cap \Omega' \ | \ A \to B \in \Gamma\}$}$\;
         \ $K' := \EnumerateKeys{$\Omega',\Gamma'$}$\;
         \ $K := \{ k \cup \Core{$\Omega,\Gamma$} \ | \ k \in K' \}$\;
     }%end beginre
@@ -33,14 +33,14 @@ Se van a definir algunos conceptos que servir\'an de ayuda a la hora de entender
 
 \textbf{Core y Body}
 
-El c\'alculo de core y body que aparece a continuaci\'on se public\'o en \textbf{[xx]} y es una estrateg\'ia de poda (prunning) para reducir el esquema relacional en el que calcular las claves. 
+El c\'alculo de core y body que aparece a continuaci\'on se public\'o en \cite{Reduction} y es una estrategia de poda (prunning) para reducir el esquema relacional en el que calcular las claves. 
 
-La estrateg\'ia mejora todas las heur\'isitcas que aparecen en la literatura. 
+La estrategia mejora todas las heur\'isticas que aparecen en la literatura. 
 
 Siendo \(\Omega\) un conjunto de atributos, \(\Gamma\) un conjunto de implicaciones sobre \(\Omega\), definimos el core y el body de \(\Gamma\) como:
 \begin{center}
-    \(core(\Omega,\Gamma) = \Omega \setminus \big(\bigcup_{\substack{A \to B \in \Gamma}} B\big) \ \ \ \ \)
-    \(body(\Omega,\Gamma) = \big(\bigcup_{\substack{A \to B \in \Gamma}} A\big) \setminus (core(\Omega,\Gamma))^+\)
+    \(core(\Omega,\Gamma) = \Omega \setminus \Big(\bigcup_{A \to B \in \Gamma} B\Big) \ \ \ \ \)
+    \(body(\Omega,\Gamma) = \Big(\bigcup_{A \to B \in \Gamma} A\Big) \setminus (core(\Omega,\Gamma))^+\)
 \end{center}
 Ambos permitir\'an podar \(\Gamma\) y as\'i agilizar el proceso de obtenci\'on de las claves. Adem\'as se tiene que, si \(K\) es una clave minimal, cumple que: 
 \begin{center}
@@ -59,7 +59,7 @@ En cualquier algoritmo de c\'alculo de claves o de generadores minimales podemos
 \subsubsection{Ejemplo} 
 Aqu\'i se puede ver un ejemplo sencillo de c\'alculo de las claves minimales de un sistema implicacional:
 
-Se parte del siguiente conjunto de implicaciones \(\Gamma\) y el conjunto de atributos \(M\)
+Se parte del siguiente conjunto de implicaciones \(\Gamma\) y el conjunto de atributos \(M\).
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.75]{reduc_1}
