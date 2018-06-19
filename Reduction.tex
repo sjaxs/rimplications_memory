@@ -57,6 +57,7 @@ En cualquier algoritmo de c\'alculo de claves o de generadores minimales podemos
 \lstinputlisting{r_code/comp_unionk.R}
 \newpage
 \textbf{Ejemplo} 
+
 Aqu\'i se puede ver un ejemplo sencillo de c\'alculo de las claves minimales de un sistema implicacional:
 
 Se parte del siguiente conjunto de implicaciones \(\Gamma\) y el conjunto de atributos \(M\).
@@ -80,8 +81,9 @@ Como se ve en la siguiente imagen, las claves minimales de \(\Gamma\) con respec
     \caption{Ejemplo Reduction: Salida}
     \label{fig:reduc_3}
 \end{figure}
-
+\newpage
 \textbf{Comparativa/Versiones} 
+
 La implementaci\'on inicial del algoritmo ha sido mejorada con una poda que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.
 
 Como se puede observar, si el conjunto de implicaciones es peque\~no, los resultados son muy similares, pero en el caso de trabjar con 50 implicaciones, por ejemplo, la versi\'on con poda tarda alrededor de 300s menos, lo cual supone una reducci\'on de tiempo considerable.

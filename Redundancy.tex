@@ -28,7 +28,7 @@ Regla de la l\'ogica de Simplificaciones que nos permite reducir el tama\~no del
     }%end beginre
     \caption{apply.remove.redundancy algorithm}\label{alg:1}
 \end{algorithm}\DecMargin{1em}
-\bigskip
+\newpage
 El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha est\'e vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
 Lo siguiente, consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma iterativa hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
@@ -40,7 +40,7 @@ Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos don
 Destacamos que en habitualmente en R se extraen implicaciones y el m\'etodo implementado en paquete arules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
 
 Pensamos que es un punto fuerte para el uso del paquete en muy diversas \'areas y aplicaciones. 
-
+\newpage
 \textbf{Ejemplo}
 
 Se parte de un conjunto de 200 implicaciones (reglas de asociaci\'on con confianza 1) generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete aRules.

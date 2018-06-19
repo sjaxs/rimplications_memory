@@ -22,7 +22,7 @@ Un sistema implicacional \( \Sigma \) se dice que es:
     \item Una base \'optima cuando,  \( para \ todo \ \Sigma' \equiv \Sigma \ se \ tiene \ que \ \|\Sigma\| \leq \|\Sigma'\| \\ donde \ \|\Sigma\| = 
     \sum_{\substack{A \to B \in \Sigma}} (|A|+|B|) \).
 \end{itemize}
-
+\newpage
 \textbf{Directo}
 
 Un sistema implicacional \( \Sigma \) se dice que es directo cuando, \( para \ todo \ X \subseteq S \ se \ tiene \ que \\ X^+_{\Sigma} =  X \cup \{ B | A \to B \in \Sigma \ para \ algun \ A \subseteq X \} \). Esto se traduce en que se puede calcular el cierre de un conjunto de atributos con una sola pasada y que ninguna de las implicaciones puede ser eliminada sin perder esta propiedad.
@@ -167,6 +167,7 @@ Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'
 \lstinputlisting{r_code/simplify.R}
 \newpage
 \textbf{Ejemplo} 
+
 % \textbf{[este ejemplo no me gusta, tiene vacios a la derecha.... y luego la base directa normalemente tiene mayor longitud. igual este ejemplo es de los que no va....¿¿??]}
 A continuaci\'on, se muestra un ejemplo del c\'alculo de una base directa \'optima a partir del siguiente conjunto de implicaciones: 
 \begin{figure}[H]
