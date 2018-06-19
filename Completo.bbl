@@ -6,6 +6,11 @@ Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
 \newblock A tableaux-like method to infer all minimal keys.
 \newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
 
+\bibitem{ganter}
+Bernhard Ganter and Rudolf Wille.
+\newblock {\em Formal concept analysis: mathematical foundations}.
+\newblock Springer Science \& Business Media, 2012.
+
 \bibitem{cla2012}
 Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Manuel Ojeda-Aciego.
 \newblock Computing minimal generators from implications: A logic-guided

@@ -1,18 +1,17 @@
-\section{Librer\'ia de An\'alisis de Conceptos Formales}
+\section{Librer\'ia de An\'alisis Formal de Conceptos}
 
 \textbf{Introducci\'on}
 
-Toda la teor\'ia que se va a desarrollar a lo largo de este punto est\'a extra\'ida del libro de Ganter.
-\textcolor{red}{A\~nadir referencia libro Ganter. Pedir datos a Angel}
+Tomamos como referencia para esta secci\'on el libro de B. Ganter\cite{ganter}.
 
-El an\'alisis de conceptos formales es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
+El An\'alisis Formal de Conceptos es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
 como una relaci\'on binaria entre objetos y atributos.
 
 Como se ha explicado anteriormente, un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G \times M \). Los elementos 
 de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
 \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
 
-Para trabajar con contextos se utilizan varias funciones que se van a desgranar una a una en los siguientes puntos:
+Para trabajar con contextos se utilizan varias funciones que se van a desgranar una a una en los siguientes puntos.
 
     \subsection{Leer concepto}
 
@@ -23,7 +22,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         con toda la informaci\'on del fichero de entrada.
         \\
 
-        \clearpage
+        \bigskip
 
         \textbf{C\'odigo}
 
@@ -55,27 +54,26 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         antes, es la encargada de leer el fichero. A continuaci\'on, se extrae el formato de la variable en la que se ha guardado la 
         salida de la funci\'on que se est\'a probando, y se observa, que tal y como se esperaba es un data.frame.
 
-        Por \'ultimo, vemos que en la variable ejemplo se ha guardado la informaci\'on que se ten\'ia en el archivo txt.
+        Por \'ultimo, vemos que en la variable \textit{ejemplo} se ha guardado la informaci\'on que se ten\'ia en el archivo txt.
 
-    \subsection{Operador de derivaci\'on de atributos a objetos}
+    \subsection{Operador de derivaci\'on de objetos a atributos}
 
         \textbf{Descripci\'on}
 
-        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de atributos a objetos a la 
+        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de objetos a atributos a la 
         funci\'on \( ^\uparrow : 2^G \rightarrow 2^M \)
 
         \[ A^\uparrow = { m \in M | <g,m> \in I ~ para ~ todo ~ g \in A } \]
 
         El conjunto \( A^\uparrow \) es el de los atributos compartidos por todos los objetos de A, es decir, este operador devolver\'a 
         un conjunto de atributos que ser\'an los que contiene un determinado objeto.
-        \\
         
-        \clearpage
+        \bigskip
+
 
         \textbf{C\'odigo}
 
-        \lstinputlisting{r_code/FCA/mp.R}
-
+        \lstinputlisting{r_code/FCA/gp.R}
 
         \textbf{Ejemplo}
 
@@ -91,25 +89,28 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \end{figure}
 
 
-        A partir de ese contexto, se aplica la funci\'on de derivaci\'on de atributos a objetos. Le pasamos el contexto y el atributo 4, y 
-        como podemos observar en la salida, obtenemos los objetos 1, 2 y 3.
+        A partir de ese contexto, se aplica la funci\'on de derivaci\'on de objetos a atributos. 
+        Le pasamos el contexto y en este caso, el objeto 4, y como podemos observar en la salida, obtenemos los atributos 2 y 3.
 
         \begin{figure}[H]
             \centering
-            \includegraphics{mpej}
-            \caption{Ejemplo de derivaci\'on de atributos a objetos}
-            \label{fig:mpej}
+            \includegraphics{gpej}
+            \caption{Ejemplo de derivaci\'on de objetos a atributos}
+            \label{fig:gpej}
         \end{figure}
 
 
-    \subsection{Operador de derivaci\'on de objetos a atributos}
+
+    \subsection{Operador de derivaci\'on de atributos a objetos}
 
         \textbf{Descripci\'on}
 
-        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de objetos a atributos a la 
+        Dado un contexto formal \( (G, M, I) \), se llama operador de derivaci\'on de atributos a objetos a la 
         funci\'on \( ^\downarrow : 2^M \rightarrow 2^G \)
 
         \[ B^\downarrow = { g \in G | <g,m> \in I ~ para ~ todo ~ m \in B } \]
+
+        \clearpage
 
         El conjunto \( B^\downarrow \) es el de los objetos compartidos por todos los atributos de B, en este caso, este operador devolver\'a 
         un conjunto de objetos que ser\'an los que contiene un determinado atributo.
@@ -118,9 +119,9 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{C\'odigo}
 
-        \lstinputlisting{r_code/FCA/gp.R}
+        \lstinputlisting{r_code/FCA/mp.R}
 
-        \clearpage
+        \bigskip
 
         \textbf{Ejemplo}
 
@@ -133,51 +134,16 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
             \label{fig:context}
         \end{figure}
 
-        A continuaci\'on, se aplica la funci\'on de derivaci\'on de objetos a atributos. Le pasamos el contexto y en este caso, el objeto 4, y 
-        como podemos observar en la salida, obtenemos los atributos 2 y 3.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics{gpej}
-            \caption{Ejemplo de derivaci\'on de objetos a atributos}
-            \label{fig:gpej}
-        \end{figure}
-
-
-    \subsection{Operador de doble derivaci\'on de atributos a objetos}
-
-        \textbf{Descripci\'on}
-
-        El conjunto que devuelve el operador \( A^\uparrow \) tambi\'en se suele representar como \( A' \), por lo que en este caso, 
-        el operador de doble derivaci\'on de atributos a objetos se representar\'a como \( A'' \).
-
-
-        \[ A'' = (A^\uparrow)^\downarrow \]
-
-        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de atributos a objetos, se le aplica el operador 
-        de derivaci\'on de objetos a atributos.
-
-
         \clearpage
 
-        \textbf{C\'odigo}
-
-        \lstinputlisting{r_code/FCA/mp2.R}
-
-        \bigskip
-
-        \textbf{Ejemplo}
-
-        Usando el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de atributos a objetos a dicho 
-        contexto y al objeto4, de nuevo.
-
-        Y obtenemos como resultado los atributos 3 y 4.
+        A continuaci\'on, se aplica la funci\'on de derivaci\'on de atributos a objetos. 
+        Le pasamos el contexto y el atributo 4, y como podemos observar en la salida, obtenemos los objetos 1, 2 y 3.
 
         \begin{figure}[H]
             \centering
-            \includegraphics{mp2ej}
-            \caption{Ejemplo de doble derivaci\'on de atributos a objetos}
-            \label{fig:mp2ej}
+            \includegraphics{mpej}
+            \caption{Ejemplo de derivaci\'on de atributos a objetos}
+            \label{fig:mpej}
         \end{figure}
 
 
@@ -195,7 +161,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de objetos a atributos, se le aplica el operador 
         de derivaci\'on de atributos a objetos.
 
-        \clearpage
+        \bigskip
 
         \textbf{C\'odigo}
 
@@ -206,15 +172,51 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \textbf{Ejemplo}
 
         Por \'ultima vez, se usa el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de 
-        objetos a atributos al contexto y al atributo4 para terminar de observar el comportamiento de los cuatro operadores.
-
-        Y obtenemos como resultado los objetos 2 y 4.
+        objetos a atributos al contexto y al atributo4 para terminar de observar el comportamiento de los cuatro operadores. Y 
+        obtenemos como resultado los objetos 2 y 4.
 
         \begin{figure}[H]
             \centering
             \includegraphics{gp2ej}
             \caption{Ejemplo de doble derivaci\'on de objetos a atributos}
             \label{fig:gp2ej}
+        \end{figure}
+
+
+    \subsection{Operador de doble derivaci\'on de atributos a objetos}
+
+        \textbf{Descripci\'on}
+
+        El conjunto que devuelve el operador \( A^\uparrow \) tambi\'en se suele representar como \( A' \), por lo que en este caso, 
+        el operador de doble derivaci\'on de atributos a objetos se representar\'a como \( A'' \).
+
+
+        \[ A'' = (A^\uparrow)^\downarrow \]
+
+        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de atributos a objetos, se le aplica el operador 
+        de derivaci\'on de objetos a atributos.
+
+
+        \bigskip
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/mp2.R}
+
+        \clearpage
+
+        \textbf{Ejemplo}
+
+        Usando el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de atributos a objetos a dicho 
+        contexto y al objeto4, de nuevo.
+
+        Y obtenemos como resultado los atributos 3 y 4.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{mp2ej}
+            \caption{Ejemplo de doble derivaci\'on de atributos a objetos}
+            \label{fig:mp2ej}
         \end{figure}
 
 
@@ -229,9 +231,9 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         
         Es decir, \( <A,B> \) ser\'a un concepto formal si A contiene exactamente todos los objetos que comparten los atributos de B, y a su 
         vez, B contiene exactamente todos los atributos que comparten los objetos de A.
-        \\
+        
 
-        \clearpage
+        \bigskip
 
         \textbf{C\'odigo}
 
@@ -518,7 +520,40 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 \subsection{Next closure}
 
         \textbf{Descripci\'on}
+
+        Este algoritmo, resuelve la siguiente tarea: dado un operador de cierre y un conjunto finito \(M\), calcula todos los 
+        conjuntos cerrados. A continuaci\'on se va a proceder a detallar algunas definiciones necesarias para este algoritmo.
+
+        Sea \(M=\{1, ..., m\}\). Se define el \'orden l\'ectico en \(2^M\) como sigue: para cada \(A,B \subseteq M\), se tiene que \(A\) 
+        es m\'as peque\~no l\'ecticamente que \(B\), denotado por \(A < B\), si \(A \neq B\) y el menor elemento que los distingue 
+        pertenece a \(B\), es decir, si y solo si existe \(i \in B \setminus A \) tal que \( \{x \in A \mid x < i\} = \{x \in B 
+        \mid x < i\} \)
+
+        Dado un contexto finito \( K=(G, M, I) \), el algoritmo recorre \(2^M\) siguiendo un orden total conocido como ``orden l\'ectico". 
+        Partiendo de una ordenaci\'on total de \(M\), se identifica cada subconjunto con su mapa de bits. As\'i de puede considerar 
+        que un subconjunto precede a otro si su mapa de bits, como n\'umero binario, es anterior.
     
+
+        Sea \(M\) un conjunto finito, \(c\) un operador de cierre en \(<2^M, \subseteq > \) y \(A \subseteq M \). El menor 
+        conjunto cerrado mayor que \(A\) (llamado siguiente cerrado) con respecto al orden l\'ectico es:
+
+        \[
+            A \oplus i ~ donde ~ i = max \{j \in M \mid A <_{j} A \oplus j \}
+        \]
+
+        Por \'ultimo, se van a definir los pseudoc\'odigos de los algoritmos pertenecientes a estos puntos: 
+
+        \bigskip
+
+        \input{pseudoAllclo.tex}
+    
+        \bigskip
+
+        \input{pseudofirstclo.tex}
+    
+        \bigskip
+
+
     
         \textbf{C\'odigo}
     
@@ -532,11 +567,6 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
     \textbf{Introducci\'on}
 
-    Aunque seg\'un el anteproyecto este algoritmo se deber\'ia encontrar en la parte de mi compa\~nero, se ha decidido pasar este algoritmo 
-    a esta parte porque pertenece al campo de FCA, aunque podr\'ia aplicarse en otros muchos.
-
-    \textcolor{red}{Con esta explicaci\'on basta?}
-
     Este algoritmo y sus respectivas funciones se han desarrollado a partir de un art\'iculo publicado por el tutor de 
     TFG y su grupo de investigaci\'on\cite{cla2012}.
     Se va a comenzar con algunas definiciones para que se conozca el contexto:
@@ -549,7 +579,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     definici\'on, ya que se usar\'a en este algoritmo de generadores minimales:
 
     Siendo \(\Gamma\) un conjunto de implicaciones y \(A\) un conjunto de atributos. El cierre de \(A\) en la l\'ogica de \(SL_{FD}\) se define como 
-    el m\'aximo conjunto de atributos \(A^+\) como \(\Gamma \vdash A \rightarrow A^+\).
+    el m\'aximo conjunto de atributos \(A^+\) que pueden derivarse a partir de la l\'ogica. Y se denota como \(\Gamma \vdash A \rightarrow A^+\).
 
 
     \bigskip
@@ -662,3 +692,4 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     Los par\'ametros de entrada para realizar las pruebas de tiempo de este algoritmo se han realizado con el generador aleatorio definido en 
     el punto anterior, generando de esta manera conjuntos de implicaciones de diferentes tama\~nos.
 
+    Aunque en la gr\'afica se vean los tiempos bastante parecidos, la diferencia al ejecutar ambos algoritmos con 50 reglas es de 2 minutos.

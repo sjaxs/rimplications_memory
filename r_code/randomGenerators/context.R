@@ -1,4 +1,4 @@
-context <- function(num.obj, num.attr, sparness=NULL) {
+context <- function(num.obj, num.attr, sparness=NULL, namefile="context") {
   if (num.obj < 1 || num.attr < 1){
     stop("The number of objects and the number of attributes must be greater than zero.")
   } 
@@ -16,10 +16,12 @@ context <- function(num.obj, num.attr, sparness=NULL) {
       mi.df <- putZeros(mi.df, totalN, (totalN-ones), num.obj, num.attr)
     }
   }
-  colnames(mi.df) <- as.vector(sapply(1:num.attr,label.att))
-  rownames(mi.df) <- as.vector(sapply(1:num.obj,label.obj))
+  colnames(mi.df) <- as.vector(sapply(1:num.attr, label.att))
+  rownames(mi.df) <- as.vector(sapply(1:num.obj, label.obj))
   for(k in seq(dim(mi.df)[2])){
     mi.df[,k] <- as.logical(mi.df[,k])
   }
+  namefile <- paste(namefile, ".csv", sep="")
+  write.csv(mi.df, file=namefile)
   return(mi.df)
 }#End context

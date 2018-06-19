@@ -9,7 +9,7 @@
     generador aleatorio de sistemas de implicaciones en ninguna de las diferentes \'areas, como pueden ser data mining, machine learning, 
     IA, sistemas inteligentes, redes neuronales...
 
-    Luego, debido a esto, se ha decidido realizar una funci\'on que pueda ser usada para este fin y ponerla a disposici\'on de toda la comunidad 
+    Por este motivo, se ha decidido realizar una funci\'on que pueda ser usada para este fin y ponerla a disposici\'on de toda la comunidad 
     junto a este paquete.
     \\ 
 
@@ -17,7 +17,7 @@
     \textbf{Descripci\'on}
     
     Esta funci\'on va a generar uno o m\'as sistemas de implicaciones siguiendo una serie de par\'ametros que se pueden elegir a la 
-    hora de ejecutar dicha funci\'on para obtener el conjunto como sea m\'as adecuado a lo que se desee hacer.
+    hora de ejecutar dicha funci\'on.
 
     Los atributos de las implicaciones van a ser del tipo a0, a1... Comenzando en 0, de forma consecutiva hasta el n\'umero que sea 
     necesario para tener todos los atributos que el usuario quiera. Los par\'ametros de esta funci\'on son:
@@ -40,7 +40,7 @@
         
         \item \textbf{difference:}
 
-        Este par\'ametro opcional indica el n\'umero m\'aximo de diferencia de elementos entre el antecedente y el consecuente. Se puede 
+        Este par\'ametro opcional indica la m\'axima diferencia de elementos entre el antecedente y el consecuente. Se puede 
         insertar un n\'umero negativo, lo que indicar\'a que se desea que haya m\'as atributos en el consecuente. Por lo que, si el n\'umero 
         es positivo, el antecedente tendr\'a m\'as atributos.
 
@@ -83,9 +83,15 @@
 
         \item \textbf{numFiles:}
 
-        Por \'ultimo, un par\'ametro opcional en el que se puede especificar cu\'antos ficheros se quiere que se generen. Si no se especifica, 
+        Otro par\'ametro opcional en el que se puede especificar cu\'antos ficheros se quiere que se generen. Si no se especifica, 
         solo se generar\'a un archivo, en caso contrario, los archivos tendr\'an como nombre el especificado seguido de un guion bajo y un n\'umero 
         para distinguirlos.
+
+        \item \textbf{redundancy:}
+
+        Por \'ultimo, como par\'ametro opcional, se puede elegir si el conjunto de implicaciones que se genere va a tener, o no, redundancias. Si 
+        no se especifica este par\'ametro, se aplicar\'a la funci\'on para eliminar redundancias, en caso de que se quiera lo contrario, se 
+        deberá poner a FALSE.
 
     \end{itemize}
 
@@ -96,9 +102,10 @@
     deben estar nulos.
     Los par\'ametros que siempre se le deben pasar a la funci\'on son: numAttributes, numDependencies y nameExitFile.
 
-    Por \'ultimo, hay que especificar que el sistema o sistemas de implicaciones que se obtengan, no tendr\'an redundancias y se habr\'a aplicado 
-    la funci\'on de composici\'on, por lo que al realizar todas estas operaciones, si el n\'umero de implicaciones que se quiere obtener es 
-    alto, el tiempo que tardar\'a el algoritmo en obtener dicho sistema, tambi\'en ser\'a alto.
+    Por \'ultimo, hay que especificar que al sistema o sistemas de implicaciones que se obtengan se le habr\'a aplicado 
+    la funci\'on de composici\'on, por lo que al realizar esta operaciones, si el n\'umero de implicaciones que se quiere obtener es 
+    alto, el tiempo que tardar\'a el algoritmo en obtener dicho sistema, tambi\'en ser\'a algo m\'as alto, aumentando si se quieren 
+    eliminar redundancias tambi\'en.
     \\
 
     \bigskip
@@ -106,7 +113,7 @@
     \textbf{C\'odigo}
 
     \lstinputlisting{r_code/randomGenerators/randomImp.R}
-    \clearpage
+    \bigskip
 
 
     \textbf{Ejemplo}
@@ -125,7 +132,8 @@
     \end{figure}
 
     En este primer ejemplo, se va a generar un sistema con cuatro implicaciones, utilizando 6 atributos diferentes, con una diferencia m\'axima 
-    de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a \textit{ejemplo1}.
+    de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a \textit{ejemplo1}. 
+    Y como no se especifica el par\'ametro redundancy, pues el sistema generado se obtendr\'a con todas las redundancias eliminadas.
     
     En dicho fichero se ha escrito lo siguiente:
 
@@ -179,7 +187,8 @@
     \textbf{Introducci\'on}
 
     En este caso, al igual que en el anterior, hasta donde se sabe, en la comunidad de FCA tampoco existe ning\'un generador aleatorio de 
-    contextos, y son bastante necesarios para, como se ha nombrado antes, por ejemplo, realizar pruebas de los diferentes algoritmos.
+    contextos, y son bastante necesarios para, como se ha nombrado antes, por ejemplo, realizar pruebas de los diferentes algoritmos, comparativas 
+    entre algoritmos, etc.
 
     As\'i que, se decide realizar un algoritmo de este tipo para a\~nadirlo a este paquete para que toda persona interesada pueda 
     utilizarlo.
@@ -189,20 +198,20 @@
 
     Un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G x M \). Los elementos 
     de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
-    \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
+    \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".\cite{ganter}
 
-    \textcolor{red}{A\~nadir referencia paper}
 
     La manera habitual de representar un contexto formal es mediante una tabla, la cual contar\'a con una fila para cada objeto y una columna 
     para cada atributo, con una cruz en la intersecci\'on entre una fila g con una columna m sii el objeto g tiene un atributo m, \( (g,m) \in 
     I \).
 
-    Por ello, la estructura m\'as sencilla a la hora de programar un algoritmo para contextos formales en R ser\'a un data.frame.
+    Por ello, la estructura m\'as interesante a la hora de programar un algoritmo para contextos formales en R ser\'a un data.frame.
     \\
 
 
     Luego, en este caso, esta funci\'on va a generar un contexto formal siguiendo algunos par\'ametros que se pueden elegir a la 
-    hora de ejecutar dicha funci\'on para obtener el contexto lo m\'as adecuado posible para lo que se desee.
+    hora de ejecutar dicha funci\'on para obtener el contexto. Adem\'as, se generar\'a 
+    un archivo csv con el mismo resultado para poder comprobar a posteriori el contexto aleatorio generado.
 
     Los objetos del contexto se van a representar como obj1, obj2... y los atributos como att1, att2... Ambos comenzando en 1, de forma 
     consecutiva hasta el n\'umero que el usuario indique.
@@ -226,9 +235,14 @@
 
         \item \textbf{sparness:}
 
-        Como par\'ametro opcional, tenemos la dispersi\'on, es decir la probabilidad de que un objeto tenga un atributo, o lo que es 
-        lo mismo a la hora de programarlo, que en el cruce de columna y fila, haya un uno.
+        Como par\'ametro opcional, tenemos la dispersi\'on, es decir, el n\'umero de unos. O lo que es lo mismo, la probabilidad 
+        de que un objeto tenga un atributo, que a la hora de representarlo, en el cruce de columna y fila, haya un uno.
         Como este par\'ametro se trata de una probabilidad, su valor debe estar entre 0 y 1.
+
+        \item \textbf{sparness:}
+
+        Tambi\'en se puede elegir el nombre que va a tener el fichero de salida. Si no se especifica dicho nombre, por defecto, el 
+        csv se llamar\'a \textit{context}.
 
     \end{itemize}
 
@@ -245,7 +259,7 @@
     TRUE o FALSE dependiendo de cu\'al de los dos sea menor. Es decir, si el usuario inserta en el par\'ametro \textit{sparness} 0.2, con 4 objetos 
     y 5 atributos, esto querr\'a decir que debe haber cuatro TRUE entre los 20 elementos a generar aleatoriamente. Por lo que en este caso, 
     el n\'umero de TRUE ser\'a menor que el de FALSE, as\'i que se colocar\'an cuatro TRUE aleatoriamente, rellenando las dem\'as posiciones 
-    del data.frame de FALSE.
+    del data.frame a FALSE.
 
     Como el algoritmo se va a ejecutar de formas diferentes dependiendo de las entradas que elija el usuario, se ha decidido modularizarlo 
     para poder comprenderlo bien. Veamos las diferentes partes:
@@ -259,13 +273,13 @@
     En el caso de que el usuario no especifique el par\'ametro \textit{sparness}, el contexto se generar\'a totalmente de forma aleatoria:
 
     \lstinputlisting{r_code/randomGenerators/noSpar.R}
-    \clearpage
+    \bigskip
 
     Y como se ha especificado anteriormente, dependiendo de cu\'al sea la probabilidad de dispersi\'on elegida por el usuario, se generar\'an 
     los TRUE o los FALSE:
 
     \lstinputlisting{r_code/randomGenerators/ones.R}
-    \bigskip
+    \clearpage
     \lstinputlisting{r_code/randomGenerators/zeros.R}
     \bigskip
 
@@ -292,3 +306,11 @@
 
     Como podemos observar, el n\'umero de FALSE y TRUE es el mismo, ya que se ha elegido como par\'ametro de \textit{sparness} 0.5.
     
+
+    En ambos casos se genera un fichero csv con dicho contexto con el nombre por defecto \textit{context}, los cuales contienen la misma 
+    información que los data.frame.
+
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage

@@ -1,0 +1,30 @@
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{MinGen}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{  
+        $A ~ closure ~ operator ~ X \rightarrow X'' ~ on ~ a ~ finite ~ linearly ~ ordered ~ set ~ M ~ and ~ a ~ subset ~ A \in M.$
+    }
+    \KwOut{
+        $The ~ lectically ~ next ~ closed ~ set, ~ after ~ A ~ if ~ it ~ exists; ~ \perp , ~ otherwise.$
+    }
+    \Begin{
+        \If{ $ \Gamma = \emptyset $ } {
+            \ $ \Phi = trv(M, \Gamma) $\;
+        } \Else {
+            \ $ \Phi = trv(M, \Gamma) $\;
+             \ForEach{$ A \rightarrow B \in \Gamma $}{
+                \ $ (A^+, \Gamma ') = Cls(A, \Gamma) $\;
+                \ $ \Phi = \Phi \sqcup Add( \langle A^+, \{A\} \rangle, MinGen(M \backslash A^+, \Gamma ') ) $\;
+             }
+            }
+            
+        \Return $ \Phi $
+    }%end beginre
+    \caption{MinGen algorithm}
+    \label{alg:1}
+\end{algorithm}
+\DecMargin{1em}

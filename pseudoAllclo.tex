@@ -1,0 +1,26 @@
+\IncMargin{1em}
+\begin{algorithm}[H]
+    \SetKwFunction{AllClosures}
+    \SetAlgoLined
+    % \LinesNumbered
+    \DontPrintSemicolon
+    \SetKw{KwOr}{or}
+    \KwIn{  
+        $A ~ closure ~ operator ~ X \rightarrow X'' ~ on ~ a ~ finite ~ linearly ~ ordered ~ set ~ M.$
+    }
+    \KwOut{
+        $All ~ closed ~ sets ~ in ~ lectic ~ order.$
+    }
+    \Begin{
+        $A = FirstClosure(M, '')$
+
+        \While{ $ A \neq  \perp $ } {
+            \ $ \textbf{output}  ~ A \ $;
+            \ $A = NextClosure(A,M, '')\ $;
+        }
+            
+    }%end beginre
+    \caption{AllClosures algorithm}
+    \label{alg:2}
+\end{algorithm}
+\DecMargin{1em}

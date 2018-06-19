@@ -2,7 +2,8 @@ random.implications.generator <- function(numAttributes, numDependencies,
                              difference = NULL, 
                              percentage = NULL, 
                              maxLeftSize = NULL, maxRightSize = NULL,
-                             nameExitFile, numFiles=1){
+                             nameExitFile, numFiles=1, 
+                             redundancy=TRUE){
   
   if(is.correct.input(numAttributes, numDependencies, difference, percentage,
                        maxLeftSize, maxRightSize, nameExitFile, numFiles=1)){
@@ -60,7 +61,11 @@ random.implications.generator <- function(numAttributes, numDependencies,
       write(salida, nameExit)
       I <- read.implications(nameExit)
       R1 <- I$rules
-      R2 <- apply.remove.redundancy(R1)
+      if(redundancy){
+        R2 <- apply.remove.redundancy(R1)
+      }else{
+        R2 <- R1
+      }
       R3 <- apply.composition.eq(R2)
       if(length(R3) != numDependencies){
         numDep <- numDependencies - length(R3)

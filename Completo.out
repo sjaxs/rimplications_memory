@@ -1,27 +1,40 @@
 \BOOKMARK [1][-]{section.1}{1 Introducci\363n}{}% 1
-\BOOKMARK [1][-]{section.2}{2 Estructura de datos}{}% 2
-\BOOKMARK [1][-]{section.3}{3 Librer\355a b\341sica para sistemas de implicaciones}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{3.1 Funciones de manejo de conjuntos}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{3.2 Funciones de manejo de implicaciones}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{4 Generadores aleatorios}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{4.1 Sistemas de implicaciones aleatorios}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{4.2 Contextos aleatorios}{section.4}% 8
-\BOOKMARK [1][-]{section.5}{5 Librer\355a de An\341lisis de Conceptos Formales}{}% 9
-\BOOKMARK [2][-]{subsection.5.1}{5.1 Leer concepto}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{5.2 Operador de derivaci\363n de atributos a objetos}{section.5}% 11
-\BOOKMARK [2][-]{subsection.5.3}{5.3 Operador de derivaci\363n de objetos a atributos}{section.5}% 12
-\BOOKMARK [2][-]{subsection.5.4}{5.4 Operador de doble derivaci\363n de atributos a objetos}{section.5}% 13
-\BOOKMARK [2][-]{subsection.5.5}{5.5 Operador de doble derivaci\363n de objetos a atributos}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.6}{5.6 Concepto formal}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.7}{5.7 Crear concepto}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.8}{5.8 Supremo}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.9}{5.9 \315nfimo}{section.5}% 18
-\BOOKMARK [2][-]{subsection.5.10}{5.10 Objeto concepto}{section.5}% 19
-\BOOKMARK [2][-]{subsection.5.11}{5.11 Atributo concepto}{section.5}% 20
-\BOOKMARK [2][-]{subsection.5.12}{5.12 Todos los objetos conceptos y atributos conceptos}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.13}{5.13 Next closure}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.14}{5.14 Generadores minimales}{section.5}% 23
-\BOOKMARK [1][-]{section.6}{6 Manual de usuario}{}% 24
-\BOOKMARK [2][-]{subsection.6.1}{6.1 Requistos y dependencias}{section.6}% 25
-\BOOKMARK [2][-]{subsection.6.2}{6.2 Instalaci\363n}{section.6}% 26
-\BOOKMARK [2][-]{subsection.6.3}{6.3 Uso}{section.6}% 27
+\BOOKMARK [1][-]{section.2}{2 Paquetes}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Introducci\363n}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Estructura de paquetes en R}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{2.3 Requisitos previos}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{2.4 Crear proyecto R}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{2.5 Documentaci\363n}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.5.1}{2.5.1 Archivo DESCRIPTION}{subsection.2.5}% 8
+\BOOKMARK [3][-]{subsubsection.2.5.2}{2.5.2 Documentaci\363n de objetos}{subsection.2.5}% 9
+\BOOKMARK [3][-]{subsubsection.2.5.3}{2.5.3 Datos externos}{subsection.2.5}% 10
+\BOOKMARK [3][-]{subsubsection.2.5.4}{2.5.4 NAMESPACE}{subsection.2.5}% 11
+\BOOKMARK [2][-]{subsection.2.6}{2.6 Comprobando el paquete}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.7}{2.7 Liberando el paquete}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{3 Estructura de datos}{}% 14
+\BOOKMARK [1][-]{section.4}{4 Librer\355a b\341sica para sistemas de implicaciones}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Funciones de manejo de conjuntos}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Funciones de manejo de implicaciones}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{5 Generadores aleatorios}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Sistemas de implicaciones aleatorios}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.2}{5.2 Contextos aleatorios}{section.5}% 20
+\BOOKMARK [1][-]{section.6}{6 Librer\355a de An\341lisis Formal de Conceptos}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{6.1 Leer concepto}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{6.2 Operador de derivaci\363n de objetos a atributos}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{6.3 Operador de derivaci\363n de atributos a objetos}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.4}{6.4 Operador de doble derivaci\363n de objetos a atributos}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.5}{6.5 Operador de doble derivaci\363n de atributos a objetos}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.6}{6.6 Concepto formal}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.7}{6.7 Crear concepto}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.8}{6.8 Supremo}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.9}{6.9 \315nfimo}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.10}{6.10 Objeto concepto}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.11}{6.11 Atributo concepto}{section.6}% 32
+\BOOKMARK [2][-]{subsection.6.12}{6.12 Todos los objetos conceptos y atributos conceptos}{section.6}% 33
+\BOOKMARK [2][-]{subsection.6.13}{6.13 Next closure}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.14}{6.14 Generadores minimales}{section.6}% 35
+\BOOKMARK [1][-]{section.7}{7 Manual de usuario}{}% 36
+\BOOKMARK [2][-]{subsection.7.1}{7.1 Requistos y dependencias}{section.7}% 37
+\BOOKMARK [2][-]{subsection.7.2}{7.2 Instalaci\363n}{section.7}% 38
+\BOOKMARK [2][-]{subsection.7.3}{7.3 Uso}{section.7}% 39
+\BOOKMARK [1][-]{section.8}{8 Conclusiones y trabajos futuros}{}% 40

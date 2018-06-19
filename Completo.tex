@@ -37,8 +37,13 @@
     % title=\lstname,
     escapeinside={},
     stringstyle=\ttfamily\color{OliveGreen},
-    keywordstyle={\color{blue}},
-    morekeywords={redundancy,TRUE, FALSE}
+    keywordstyle={\bfseries\color{blue}},
+    morekeywords={redundancy,TRUE, FALSE,left,right,
+    sets,imp,eq,composition,difference,equals,empty,is,
+    included,of,IS,simplification,rsimplification,transG,
+    closure,encode,mnl,nc,gen,subsets,minimal,labeled,
+    closed,element,lSimp,ssimp,intersection,cardinality,
+    sSimpBoth,generator0,dbasis,covers,mga}
 }
 
 \input{Estilo.tex}
@@ -47,10 +52,21 @@
 
 \input{1.Titulo.tex}
 \input{2.Resumen.tex}
+
 \newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
 \tableofcontents
 \newpage
+
 \input{3.Introduccion.tex}
+
+
+\input{Paquetes.tex}
+\clearpage
 
 \input{4.1.EstructuraDatos.tex}
 \clearpage
@@ -65,7 +81,12 @@
 \clearpage
 
 \input{Manual.tex}
+\clearpage
+
+\input{Conclusiones.tex}
+\clearpage
 
 \input{Bibliografia.tex}
+\clearpage
 
 \end{document}
