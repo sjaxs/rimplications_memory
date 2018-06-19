@@ -1,4 +1,4 @@
-\subsubsection{Descripci\'on} 
+\textbf{Descripci\'on} 
 
 El objetivo de este algoritmo desarrollado por A. Mora et al. en \cite{Mora2003} es servir de antesala a todos los dem\'as algoritmos con el fin de eliminar las implicaciones redundantes de un dataset de implicaciones antes de ser procesado por otro algoritmo. Esto conlleva una importante reducci\'on del coste computacional y temporal de la ejecuci\'on del resto de algoritmos.\\
 
@@ -8,7 +8,7 @@ Regla de la l\'ogica de Simplificaciones que nos permite reducir el tama\~no del
 
 \begin{center}
     \(\ X \to Y \vdash X \to Y \setminus X, \ donde \ Y \setminus X \neq \emptyset \)
-\end{center}
+\end{center} 
 
 \IncMargin{1em}
 \begin{algorithm}[H]
@@ -41,7 +41,7 @@ Destacamos que en habitualmente en R se extraen implicaciones y el m\'etodo impl
 
 Pensamos que es un punto fuerte para el uso del paquete en muy diversas \'areas y aplicaciones. 
 
-\subsubsection{Ejemplo}
+\textbf{Ejemplo}
 
 Se parte de un conjunto de 200 implicaciones (reglas de asociaci\'on con confianza 1) generadas con el algoritmo apriori a partir del dataset Mushroom incluido en el paquete aRules.
 
@@ -82,11 +82,11 @@ Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se 
 Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%. Adem\'as destacamos que este dataset no contiene un n\'umero muy grande de atributos. Cuanto mayor sea el tama\~no del dataset, mayor es la mejora conseguida al aplicar cualquier algoritmo aunque sea el m\'as sencillo en t\'erminos de complejidad. 
 
 \newpage
-\subsubsection{C\'odigo} 
+\textbf{C\'odigo} 
 \lstinputlisting{r_code/redundancy.R}
 \newpage
  
-\subsubsection{Comparativa/Versiones} 
+\textbf{Comparativa/Versiones} 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.75]{Redundancy}

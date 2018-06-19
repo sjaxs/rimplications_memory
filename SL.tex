@@ -21,16 +21,28 @@ Primero introducimos los axiomas de Amstrong \cite{Armstrong1974DependencySO}:
 \textbf{Axioma de Transitividad}
 
 \begin{center}
-    \(X \to Y \wedge Y \to Z \implies X \to Z \)
+    \(X \to Y, \ Y \to Z \implies X \to Z \)
 \end{center}
 
-Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. En este punto, introducimos la l\'ogica dise\~nada por el director del proyecto denominada l\'ogica de simplificaciones \cite{Cordero2002}.
+Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mecanismo de deducci\'on autom\'atica. De ah\'i el uso de la l\'ogica de simplificaciones en su lugar. En este punto, introducimos la l\'ogica dise\~nada por el director del proyecto denominada l\'ogica de simplificaciones \cite{Cordero2002}, cuyos axiomas son los siguientes:
+
+\textbf{Transitividad}
+
+\begin{center}
+    \(X \to Y, \ Y \to Z \implies X \to Z \)
+\end{center}
+
+\textbf{Union}
+
+\begin{center}
+    \(X \to Y, \ Y \to Z \implies X \to YZ \)
+\end{center}
 
 El elemento central de la l\'ogica de simplificaciones se centra en la regla de simplificaci\'on. Sustituye a la regla de transtividad en los axiomas de Armstrong.
 
 La ventaja es que directamente usando las reglas de la nueva l\'ogica es posible desarrollar m\'etodos directamente basados en l\'ogica para resolver problemas esenciales no solo en ACF, sino tambi\'en en bases de datos, data mining, inteligencia artificial, etc. 
 
-El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancia en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto [REFERENCIA A LA TESIS DE ESTRELLA??]
+El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancia en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto \cite{Cordero2002}\cite{dbasisslfd}\cite{Reduction}\cite{do}.
 
 El primer paso del desarrollo de este proyecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
 orientadas a aplicar esta L\'ogica de simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
@@ -57,7 +69,7 @@ necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el 
 % \textbf{Axioma de Transitividad}
 
 % \begin{center}
-%     \(X \to Y \wedge Y \to Z \implies X \to Z \)
+%     \(X \to Y, \ Y \to Z \implies X \to Z \)
 % \end{center}
 
 % PROBLEMA DE LOS AXIOMAS DE AMSTRONG
@@ -70,7 +82,7 @@ Por ello, la librer\'ia contiene una funci\'on por cada regla de la l\'ogica de 
 La uni\'on de implicaciones parte de la base de que se tienen dos implicaciones (\(X \to Y, \ X \to Z\)) cuyos antecedentes son iguales, se puede inferir una nueva regla que tendr\'a como antecedente el mismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:
 
 \begin{center}
-    \(X \to Y \wedge X \to Z \implies X \to YZ \)
+    \(X \to Y, \ X \to Z \implies X \to YZ \)
 \end{center}
 
 \lstinputlisting{r_code/composition.R}
@@ -79,7 +91,7 @@ La uni\'on de implicaciones parte de la base de que se tienen dos implicaciones 
 La simplificaci\'on de implicaciones se basa en que si se dispone de dos implicaciones \\ (\(X \to Y , U \to V\)) cuyos antecedentes no son disjuntos (\(X \subseteq U\)) y se cumple que el antecedente y el consecuente de una de ellas si son disjuntos (\(X \cap Y \neq \emptyset\)) se puede simplificar la otra regla de la siguiente forma:
 
 \begin{center}
-    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies (U - Y) \to (V - Y)\)
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U, \ X \cap Y \neq \emptyset \implies (U - Y) \to (V - Y)\)
     % \(U \to V \implies (U - Y) \to (U - Y) \)
 \end{center}
 
@@ -89,7 +101,7 @@ La simplificaci\'on de implicaciones se basa en que si se dispone de dos implica
 La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde solo se simplifica la parte derecha de la regla, es decir, su consecuente:
 
 \begin{center}
-    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U \wedge X \cap Y \neq \emptyset \implies U \to (U - Y)\)
+    \(Siendo \ X \to Y \ y \ U\to V \ dos \ implicaciones \ | \ X \subseteq U, \ X \cap Y \neq \emptyset \implies U \to (U - Y)\)
     % \(U \to V \implies (U - Y) \to (U - Y) \)
 \end{center}
 
@@ -102,7 +114,7 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde solo se si
 
 Esta regla derivada se usa en los algoritmos de c\'alculo de claves minimales y en los de obtenci\'on de bases directas. 
 \begin{center}
-    \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | \ D \setminus (A \cup B) \neq \emptyset \wedge B \cap C \neq \emptyset\)
+    \(Siendo \ A \to B \ y \ C\to D \ dos \ implicaciones \ | \ D \setminus (A \cup B) \neq \emptyset, \ B \cap C \neq \emptyset\)
 \end{center}
 
 \begin{center}

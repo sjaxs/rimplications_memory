@@ -39,6 +39,25 @@ William~Ward Armstrong.
 \newblock In {\em IFIP Congress. North Holland, Amsterdam}, pages 580--583,
   1974.
 
+\bibitem{dbasisslfd}
+Estrella Rodr\'iguez-Lorenzo, Kira Adaricheva, Pablo Cordero, Manuel Enciso,
+  and Angel Mora.
+\newblock Formation of the d-basis from implicational systems using
+  simplification logic.
+\newblock {\em International Journal of General Systems}, 46(5):547--568, 2017.
+
+\bibitem{Reduction}
+Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
+  de~Guzm{\'{a}}n.
+\newblock A tableaux-like method to infer all minimal keys.
+\newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
+
+\bibitem{do}
+Karell Bertet, Pablo Cordero, Manuel Enciso, Angel Mora-Bonilla, and Estrella
+  Rodríguez-Lorenzo.
+\newblock The direct-optimal basis via reductions.
+\newblock 1252, 10 2014.
+
 \bibitem{Mora2003}
 {\'{A}}ngel Mora, Manuel Enciso, Pablo Cordero, and Inmaculada~P{\'{e}}rez
   de~Guzm{\'{a}}n.
@@ -59,12 +78,6 @@ Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, Manuel Ojeda~Aciego, and
 \newblock Knowledge discovery in social networks by using a logic-based
   treatment of implications.
 \newblock {\em Knowledge-Based Systems}, 87:16 -- 25, 07 2015.
-
-\bibitem{Reduction}
-Pablo Cordero, Manuel Enciso, \'Angel Mora-Bonilla, and Inmaculada~P{\'{e}}rez
-  de~Guzm{\'{a}}n.
-\newblock A tableaux-like method to infer all minimal keys.
-\newblock {\em Logic Journal of the IGPL}, 22:1019 -- 1044, 2014.
 
 \bibitem{BERTET20102155}
 K.~Bertet and B.~Monjardet.

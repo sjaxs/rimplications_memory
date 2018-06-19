@@ -4,50 +4,51 @@ The top-level auxiliary file: Completo.aux
 The style file: unsrt.bst
 Database file #1: Bibliografia2.bib
 Warning--empty journal in Cordero2002
+Warning--empty journal in do
 Warning--empty booktitle in Mora2003
 Warning--empty publisher in Mora2003
 Warning--empty journal in Adaricheva
 Warning--empty journal in doSimp
 Warning--empty booktitle in DBasis
-You've used 16 entries,
+You've used 18 entries,
             1791 wiz_defined-function locations,
-            547 strings with 6333 characters,
-and the built_in function-call counts, 3608 in all, are:
-= -- 296
-> -- 174
+            561 strings with 6746 characters,
+and the built_in function-call counts, 4068 in all, are:
+= -- 329
+> -- 208
 < -- 3
-+ -- 65
-- -- 49
-* -- 236
-:= -- 561
-add.period$ -- 48
-call.type$ -- 16
-change.case$ -- 15
++ -- 77
+- -- 59
+* -- 276
+:= -- 642
+add.period$ -- 54
+call.type$ -- 18
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 154
-empty$ -- 366
-format.name$ -- 49
-if$ -- 809
+cite$ -- 25
+duplicate$ -- 171
+empty$ -- 404
+format.name$ -- 59
+if$ -- 905
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 13
-newline$ -- 82
-num.names$ -- 15
-pop$ -- 73
+int.to.str$ -- 18
+missing$ -- 15
+newline$ -- 92
+num.names$ -- 17
+pop$ -- 77
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 74
+skip$ -- 81
 stack$ -- 0
-substring$ -- 218
-swap$ -- 33
+substring$ -- 239
+swap$ -- 34
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 6
-while$ -- 28
-width$ -- 18
-write$ -- 165
-(There were 6 warnings)
+warning$ -- 7
+while$ -- 31
+width$ -- 20
+write$ -- 186
+(There were 7 warnings)

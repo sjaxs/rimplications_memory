@@ -1,4 +1,4 @@
-\subsubsection{Descripci\'on} 
+\textbf{Descripci\'on} 
 
 % \textbf{Direct-optimal basis computation by means of the fusion of Simplification rules, E. Rodr ́ıguez-Lorenzo et.al., Last review Discrete Appl. Math (2017)}
 
@@ -161,12 +161,12 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
 
 Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado doSimp tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on Si-Eq y la composici\'on Co-Eq para simplificar el sistema implicacional, sSimp para completarlo y rSi-Eq y Co-Eq para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que SLgetdo lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
 \newpage
-\subsubsection{C\'odigo} 
+\textbf{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
 \newpage
 \lstinputlisting{r_code/simplify.R}
 \newpage
-\subsubsection{Ejemplo} 
+\textbf{Ejemplo} 
 % \textbf{[este ejemplo no me gusta, tiene vacios a la derecha.... y luego la base directa normalemente tiene mayor longitud. igual este ejemplo es de los que no va....¿¿??]}
 A continuaci\'on, se muestra un ejemplo del c\'alculo de una base directa \'optima a partir del siguiente conjunto de implicaciones: 
 \begin{figure}[H]
@@ -206,4 +206,4 @@ Esta reducci\'on de tiempo se acent\'ua conforme crece el tama\~no del conjunto 
 
 Si se tiene en cuenta que para resolver determinados problemas, el c\'alculo de multitud de cierres (del orden de millones) es parte fundamental \cite{Adaricheva}, el impacto de cualquier peque\~na mejora en el c\'alculo de cada uno de esos cierres, puede suponer una diferencia abismal. De ah\'i radica la importancia de este algoritmo.
 
-% \subsubsection{Comparativa/Versiones} 
+% \textbf{Comparativa/Versiones} 
