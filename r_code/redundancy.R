@@ -1,5 +1,5 @@
 
-apply.remove.redundancy <- function(Sigma){
+apply.remove.redundancy <- function(Sigma, transG = TRUE){
   fixpoint <- FALSE
   fuera <- FALSE
   longitud <- length(Sigma)
@@ -54,6 +54,8 @@ apply.remove.redundancy <- function(Sigma){
       k <- k+1
     }
   }
-  Sigma <- transG(Sigma)
+  if(transG){
+    Sigma <- transG(Sigma) 
+  }
   return(Sigma)
 }#End apply.remove.redundancy
