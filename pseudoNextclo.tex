@@ -1,30 +1,32 @@
 \IncMargin{1em}
 \begin{algorithm}[H]
-    \SetKwFunction{MinGen}
+    \SetKwFunction{NextClosure}
     \SetAlgoLined
     % \LinesNumbered
     \DontPrintSemicolon
     \SetKw{KwOr}{or}
     \KwIn{  
-        $A ~ closure ~ operator ~ X \rightarrow X'' ~ on ~ a ~ finite ~ linearly ~ ordered ~ set ~ M ~ and ~ a ~ subset ~ A \in M.$
+        $A ~ closure ~ operator ~ X \rightarrow X'' ~ on ~ a ~ finite ~ linearly ~ ordered $ $set ~ M ~ and ~ a ~ subset ~ A \in M.$
     }
     \KwOut{
         $The ~ lectically ~ next ~ closed ~ set, ~ after ~ A ~ if ~ it ~ exists; ~ \perp , ~ otherwise.$
     }
     \Begin{
-        \If{ $ \Gamma = \emptyset $ } {
-            \ $ \Phi = trv(M, \Gamma) $\;
-        } \Else {
-            \ $ \Phi = trv(M, \Gamma) $\;
-             \ForEach{$ A \rightarrow B \in \Gamma $}{
-                \ $ (A^+, \Gamma ') = Cls(A, \Gamma) $\;
-                \ $ \Phi = \Phi \sqcup Add( \langle A^+, \{A\} \rangle, MinGen(M \backslash A^+, \Gamma ') ) $\;
-             }
+
+        \ForAll{$ m \in M ~ in ~ reverse ~ order $ }{
+            \If{ $ m \in A $ } {
+                \ $ A = A \backslash \{m\} $\;
+            } \Else {
+                \ $ B = (A \cup \{m\} )'' $\;
+                 \If{ $ B \backslash A ~ contains ~ no ~ element ~ < m $ }{
+                     \Return $ B $ 
+                 }
             }
+        }
             
-        \Return $ \Phi $
+        \Return $ \perp $
     }%end beginre
-    \caption{MinGen algorithm}
-    \label{alg:1}
+    \caption{NextClosure algorithm}
+    \label{alg:4}
 \end{algorithm}
 \DecMargin{1em}

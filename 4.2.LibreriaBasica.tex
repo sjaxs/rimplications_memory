@@ -11,7 +11,7 @@ desarrollar desde 0 una estructura m\'as eficiente que arules y los algoritmos n
 se deber\'ia cambiar la librer\'ia que se va a detallar a continuaci\'on.
 
 Esta librer\'ia se ha dividido en dos apartados diferentes. El primero estar\'a dedicado a las funciones de manejo de conjuntos, 
-en \'el podremos encontrar los siguientes puntos: Inicializar conjunto de atributos, Conjunto unitario, Unión, Intersección, 
+en \'el podremos encontrar los siguientes puntos: Inicializar conjunto de atributos, Conjunto unitario, Uni\'on, Intersecci\'on, 
 Diferencia, Inclusi\'on, Vac\'io, Igualdad, Eliminar implicaci\'on, Vaciar conjunto, Leer antecedente, Leer consecuente, A\~nadir 
 implicaci\'on, Nueva implicaci\'on, Sustituir implicaci\'on, Incluido en antecedente y Eliminar implicaciones con consecuente vac\'io. 
 Y en el segundo apartado se encuentran: Tama\~no del conjunto, Cardinalidad del conjunto, Core y Body.
@@ -30,7 +30,7 @@ Y en el segundo apartado se encuentran: Tama\~no del conjunto, Cardinalidad del 
     Esta funci\'on se utilizar\'a para inicializar un conjunto de datos, es decir, se le va a pasar una lista de atributos y el 
     conjunto completo de los atributos, y se codificar\'a en la estructura de datos usada en arules.
     
-    Dentro de esta, se va a utilizar la funci\'on encode para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
+    Dentro de esta, se va a utilizar la funci\'on \textbf{encode} para convertir el subconjunto de atributos en un objeto itemMatrix, y de esta 
     forma poder trabajar con ellos en los diferentes algoritmos que se van a desarrollar a lo largo de este TFG.
 
     Es decir, con esta funci\'on, lo que se consigue es tener un conjunto de atributos con la estructura adecuada para poder trabajar con \'el.
@@ -548,7 +548,7 @@ Y en el segundo apartado se encuentran: Tama\~no del conjunto, Cardinalidad del 
     En este ejemplo tenemos un conjunto de 4 implicaciones en la variable \textit{implications}, en \textit{newRule} tenemos una \'unica regla que va 
     a ser la nueva a insertar. 
 
-    Usando la funci\'on \textbf{add.imp} a\~nadimos la nueva regla como se puede observar en el nuevo conjunto implications.
+    Usando la funci\'on \textbf{add.imp} a\~nadimos la nueva regla como se puede observar en el nuevo conjunto \textit{implications}.
 
     \clearpage
 
@@ -804,7 +804,7 @@ Tanto esta funci\'on, como la siguiente, est\'an basadas en los resultados del d
     consecuentes de las implicaciones que forman Gamma. 
 
     \[
-        core(\Omega , \Gamma ) = \Omega ~ \textbackslash ~ ( \bigcup_{A \to B \in \Gamma} B )    
+        core(\Omega , \Gamma ) = \Omega ~ \backslash ~ ( \bigcup_{A \to B \in \Gamma} B )    
     \]
     
     Esta no es precisamente una funci\'on b\'asica, pero se ha incluido en este apartado, ya que se utilizar\'a 
@@ -851,7 +851,7 @@ Tanto esta funci\'on, como la siguiente, est\'an basadas en los resultados del d
     de la uni\'on de los antecedentes de Gamma, menos el cierre del core de Omega y Gamma. 
 
     \[
-        body(\Omega , \Gamma ) = ( \bigcup_{A \to B \in \Gamma} B ) ~ \textbackslash ~ core(\Omega , \Gamma )^+
+        body(\Omega , \Gamma ) = ( \bigcup_{A \to B \in \Gamma} B ) ~ \backslash ~ core(\Omega , \Gamma )^+
     \]
 
     \textbf{C\'odigo}

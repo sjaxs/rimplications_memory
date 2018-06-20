@@ -8,8 +8,8 @@ El An\'alisis Formal de Conceptos es un entorno conceptual que estructura, anali
 como una relaci\'on binaria entre objetos y atributos.
 
 Como se ha explicado anteriormente, un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G \times M \). Los elementos 
-de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
-\( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
+de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G\) y \( m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
+\( (g,m) \in I \) o \( g I m \) y se leer\'a como ``el objeto g tiene el atributo m".
 
 Para trabajar con contextos se utilizan varias funciones que se van a desgranar una a una en los siguientes puntos.
 
@@ -90,7 +90,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
 
         A partir de ese contexto, se aplica la funci\'on de derivaci\'on de objetos a atributos. 
-        Le pasamos el contexto y en este caso, el objeto 4, y como podemos observar en la salida, obtenemos los atributos 2 y 3.
+        Le pasamos el contexto y en este caso, el objeto 4, y como podemos observar en la salida, obtenemos los atributos 1, 3 y 5.
 
         \begin{figure}[H]
             \centering
@@ -147,43 +147,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \end{figure}
 
 
-
-    \subsection{Operador de doble derivaci\'on de objetos a atributos}
-
-        \textbf{Descripci\'on}
-
-        El conjunto que devuelve el operador \( B^\downarrow \) tambi\'en se suele representar como \( B' \), por lo que en este caso, 
-        el operador de doble derivaci\'on de objetos a atributos se representar\'a como \( B'' \).
-
-
-        \[ B'' = (B^\downarrow)^\uparrow \]
-
-        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de objetos a atributos, se le aplica el operador 
-        de derivaci\'on de atributos a objetos.
-
-        \bigskip
-
-        \textbf{C\'odigo}
-
-        \lstinputlisting{r_code/FCA/gp2.R}
-
-        \bigskip
-
-        \textbf{Ejemplo}
-
-        Por \'ultima vez, se usa el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de 
-        objetos a atributos al contexto y al atributo4 para terminar de observar el comportamiento de los cuatro operadores. Y 
-        obtenemos como resultado los objetos 2 y 4.
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics{gp2ej}
-            \caption{Ejemplo de doble derivaci\'on de objetos a atributos}
-            \label{fig:gp2ej}
-        \end{figure}
-
-
-    \subsection{Operador de doble derivaci\'on de atributos a objetos}
+    \subsection{Operador de doble derivaci\'on de objetos a objetos}
 
         \textbf{Descripci\'on}
 
@@ -193,9 +157,46 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \[ A'' = (A^\uparrow)^\downarrow \]
 
+        Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de objetos a atributos, se le aplica el operador 
+        de derivaci\'on de atributos a objetos.
+
+
+        \bigskip
+
+        \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/gp2.R}
+
+        \clearpage
+
+        \textbf{Ejemplo}
+
+        Usando el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de objetos a objetos a dicho 
+        contexto y al objeto4, de nuevo.
+
+        Y obtenemos como resultado los objetos 2 y 4.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{gp2ej}
+            \caption{Ejemplo de doble derivaci\'on de objetos a objetos}
+            \label{fig:gp2ej}
+        \end{figure}
+
+
+
+    \subsection{Operador de doble derivaci\'on de atributos a atributos}
+
+        \textbf{Descripci\'on}
+
+        El conjunto que devuelve el operador \( B^\downarrow \) tambi\'en se suele representar como \( B' \), por lo que en este caso, 
+        el operador de doble derivaci\'on de atributos a atributos se representar\'a como \( B'' \).
+
+
+        \[ B'' = (B^\downarrow)^\uparrow \]
+
         Es decir, al conjunto que se obtiene como salida del operador de derivaci\'on de atributos a objetos, se le aplica el operador 
         de derivaci\'on de objetos a atributos.
-
 
         \bigskip
 
@@ -207,18 +208,17 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{Ejemplo}
 
-        Usando el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de atributos a objetos a dicho 
-        contexto y al objeto4, de nuevo.
-
-        Y obtenemos como resultado los atributos 3 y 4.
+        Por \'ultima vez, se usa el mismo contexto que en los anteriores, se aplica el operador de doble derivaci\'on de 
+        atributos a atributos al contexto y al atributo4 para terminar de observar el comportamiento de los cuatro operadores. Y 
+        obtenemos como resultado los atributos 3 y 4.
 
         \begin{figure}[H]
             \centering
             \includegraphics{mp2ej}
-            \caption{Ejemplo de doble derivaci\'on de atributos a objetos}
+            \caption{Ejemplo de doble derivaci\'on de atributos a atributos}
             \label{fig:mp2ej}
         \end{figure}
-
+    
 
 
     \subsection{Concepto formal}
@@ -227,7 +227,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \textbf{Descripci\'on}
 
         Dado un contexto formal \( K = (G, M, I) \), se dice que un par \( <A,B> \) es un 
-        concepto formal de \(K\) si \( A^\uparrow = B ~ y ~ B^\downarrow = A\), donde \( A \subseteq G ~ y ~ B \subseteq M \).
+        concepto formal de \(K\) si \( A^\uparrow = B \) y \( B^\downarrow = A\), donde \( A \subseteq G \) y \( B \subseteq M \).
         
         Es decir, \( <A,B> \) ser\'a un concepto formal si A contiene exactamente todos los objetos que comparten los atributos de B, y a su 
         vez, B contiene exactamente todos los atributos que comparten los objetos de A.
@@ -272,7 +272,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         En esta librer\'ia, un concepto consta de una lista con dos vectores diferentes. Luego, con esta funci\'on, se puede crear un concepto 
         pas\'andole como par\'ametros dos vectores diferentes.
-        Cada uno de dichos vectores, tendr\'a como nombre g y m en este orden, y representar\'an los objetos y atributos.
+        Cada uno de dichos vectores, tendr\'an como nombres g y m en este orden, y representar\'an los objetos y atributos.
         \\
         
 
@@ -299,7 +299,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \textbf{Introducci\'on}
     
-        En este caso, se a comenzar con unas definiciones necesarias para los dos pr\'oximos puntos.
+        En este caso, se va a comenzar con unas definiciones necesarias para los dos pr\'oximos puntos.
         \\
 
         Dado un contexto formal \( K = (G, M, I) \), se llama ret\'iculo de conceptos de \(K\), y se denota por \( B (K) \), al ret\'iculo 
@@ -356,9 +356,9 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     
         \textbf{Descripci\'on}
 
-        Siendo \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el \'infimo como:
+        Siendo \((A_{1}, B_{1}) \) y \( (A_{2}, B_{2})\) dos conceptos formales de un contexto formal, se define el \'infimo como:
 
-        El subconcepto com\'un m\'as grande de \((A_{1}, B_{1}) ~ y ~ (A_{2}, B_{2})\):
+        El subconcepto com\'un m\'as grande de \((A_{1}, B_{1}) \) y \( (A_{2}, B_{2})\):
 
         \[ (A_{1}, B_{1}) \wedge (A_{2}, B_{2}) = (A_{1} \cap A_{2}'', ~ (B_{1}\cup B_{2})'') \]
 
@@ -524,15 +524,22 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         Este algoritmo, resuelve la siguiente tarea: dado un operador de cierre y un conjunto finito \(M\), calcula todos los 
         conjuntos cerrados. A continuaci\'on se va a proceder a detallar algunas definiciones necesarias para este algoritmo.
 
-        Sea \(M=\{1, ..., m\}\). Se define el \'orden l\'ectico en \(2^M\) como sigue: para cada \(A,B \subseteq M\), se tiene que \(A\) 
+        \bigskip
+
+        Sea \(M=\{1, ..., m\}\). Se define el \'orden l\'ectico en \(2^M\) como sigue: 
+        
+        para cada \(A,B \subseteq M\), se tiene que \(A\) 
         es m\'as peque\~no l\'ecticamente que \(B\), denotado por \(A < B\), si \(A \neq B\) y el menor elemento que los distingue 
         pertenece a \(B\), es decir, si y solo si existe \(i \in B \setminus A \) tal que \( \{x \in A \mid x < i\} = \{x \in B 
         \mid x < i\} \)
 
+        \bigskip
+
         Dado un contexto finito \( K=(G, M, I) \), el algoritmo recorre \(2^M\) siguiendo un orden total conocido como ``orden l\'ectico". 
-        Partiendo de una ordenaci\'on total de \(M\), se identifica cada subconjunto con su mapa de bits. As\'i de puede considerar 
+        Partiendo de una ordenaci\'on total de \(M\), se identifica cada subconjunto con su mapa de bits. As\'i que se puede considerar 
         que un subconjunto precede a otro si su mapa de bits, como n\'umero binario, es anterior.
     
+        \bigskip
 
         Sea \(M\) un conjunto finito, \(c\) un operador de cierre en \(<2^M, \subseteq > \) y \(A \subseteq M \). El menor 
         conjunto cerrado mayor que \(A\) (llamado siguiente cerrado) con respecto al orden l\'ectico es:
@@ -540,6 +547,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \[
             A \oplus i ~ donde ~ i = max \{j \in M \mid A <_{j} A \oplus j \}
         \]
+
+        \bigskip
 
         Por \'ultimo, se van a definir los pseudoc\'odigos de los algoritmos pertenecientes a estos puntos: 
 
@@ -550,6 +559,10 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \bigskip
 
         \input{pseudofirstclo.tex}
+    
+        \bigskip
+
+        \input{pseudoNextclo.tex}
     
         \bigskip
 
@@ -586,7 +599,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \textbf{Descripci\'on}
 
     En este punto, se van a calcular el conjunto de generadores minimales de un conjunto de implicaciones. Este algoritmo funciona aplicando 
-    el algoritmo \(SL_{FD}Closure\) al conjunto de conjuntos de implicaciones.
+    el algoritmo \(SL_{FD}-Closure\) al conjunto de conjuntos de implicaciones.
 
     La entrada de este algoritmo consta de un conjunto de atributos \(M\) y un conjunto de implicaciones \(\Gamma\) sobre los atributos en \(M\).
     La salida ser\'a el conjunto de conjuntos cerrados dotados con todos los generadores que lo generan.
@@ -634,12 +647,15 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \]
 
 
-    Por \'ultimo, se a especificar el pseudoc\'odigo de este algoritmo, del cual se ha partido para daserrollarlo en R para este TFG:
+    Por \'ultimo, se va a especificar el pseudoc\'odigo de este algoritmo, del cual se ha partido para desarrollarlo en R para este TFG:
     \bigskip
 
     \input{pseudoMinGen.tex}
 
     \bigskip
+
+    \bigskip
+
     \textbf{C\'odigo}
 
     Aunque a lo largo de este algoritmo se utilizan diversas funciones, aqu\'i se van a incluir las m\'as importantes.
@@ -674,7 +690,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \bigskip
     \textbf{Comparativa/Versiones}
 
-    La versi\'on original de la funci\'on trv se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
+    La versi\'on original de la funci\'on \textbf{trv} se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
     mejorar el tiempo del algoritmo general.
 
     A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. Se puede observar la versi\'on original sin la poda, y 

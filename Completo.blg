@@ -3,51 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Completo.aux
 The style file: unsrt.bst
 Database file #1: Bibliografia2.bib
-Warning--I didn't find a database entry for "rcore"
-Warning--I didn't find a database entry for "book"
-Warning--I didn't find a database entry for "librR"
-Warning--I didn't find a database entry for "rParaTodos"
-Warning--I didn't find a database entry for "datavu"
 Warning--empty journal in cla2012
-You've used 3 entries,
+You've used 8 entries,
             1791 wiz_defined-function locations,
-            470 strings with 4096 characters,
-and the built_in function-call counts, 733 in all, are:
-= -- 61
-> -- 36
+            486 strings with 4546 characters,
+and the built_in function-call counts, 1380 in all, are:
+= -- 112
+> -- 57
 < -- 0
-+ -- 13
-- -- 10
-* -- 54
-:= -- 123
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 2
++ -- 23
+- -- 15
+* -- 63
+:= -- 215
+add.period$ -- 23
+call.type$ -- 8
+change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 28
-empty$ -- 70
-format.name$ -- 10
-if$ -- 157
+cite$ -- 9
+duplicate$ -- 58
+empty$ -- 161
+format.name$ -- 15
+if$ -- 313
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 4
-newline$ -- 18
-num.names$ -- 3
-pop$ -- 11
+int.to.str$ -- 8
+missing$ -- 6
+newline$ -- 42
+num.names$ -- 7
+pop$ -- 47
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 9
+skip$ -- 25
 stack$ -- 0
 substring$ -- 58
-swap$ -- 2
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 6
-width$ -- 4
-write$ -- 33
-(There were 6 warnings)
+while$ -- 10
+width$ -- 9
+write$ -- 81
+(There was 1 warning)

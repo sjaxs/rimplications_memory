@@ -22,8 +22,8 @@
 \BOOKMARK [2][-]{subsection.6.1}{6.1 Leer concepto}{section.6}% 22
 \BOOKMARK [2][-]{subsection.6.2}{6.2 Operador de derivaci\363n de objetos a atributos}{section.6}% 23
 \BOOKMARK [2][-]{subsection.6.3}{6.3 Operador de derivaci\363n de atributos a objetos}{section.6}% 24
-\BOOKMARK [2][-]{subsection.6.4}{6.4 Operador de doble derivaci\363n de objetos a atributos}{section.6}% 25
-\BOOKMARK [2][-]{subsection.6.5}{6.5 Operador de doble derivaci\363n de atributos a objetos}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.4}{6.4 Operador de doble derivaci\363n de objetos a objetos}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.5}{6.5 Operador de doble derivaci\363n de atributos a atributos}{section.6}% 26
 \BOOKMARK [2][-]{subsection.6.6}{6.6 Concepto formal}{section.6}% 27
 \BOOKMARK [2][-]{subsection.6.7}{6.7 Crear concepto}{section.6}% 28
 \BOOKMARK [2][-]{subsection.6.8}{6.8 Supremo}{section.6}% 29
@@ -34,7 +34,4 @@
 \BOOKMARK [2][-]{subsection.6.13}{6.13 Next closure}{section.6}% 34
 \BOOKMARK [2][-]{subsection.6.14}{6.14 Generadores minimales}{section.6}% 35
 \BOOKMARK [1][-]{section.7}{7 Manual de usuario}{}% 36
-\BOOKMARK [2][-]{subsection.7.1}{7.1 Requistos y dependencias}{section.7}% 37
-\BOOKMARK [2][-]{subsection.7.2}{7.2 Instalaci\363n}{section.7}% 38
-\BOOKMARK [2][-]{subsection.7.3}{7.3 Uso}{section.7}% 39
-\BOOKMARK [1][-]{section.8}{8 Conclusiones y trabajos futuros}{}% 40
+\BOOKMARK [1][-]{section.8}{8 Conclusiones y trabajos futuros}{}% 37

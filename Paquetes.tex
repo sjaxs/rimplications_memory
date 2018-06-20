@@ -5,7 +5,9 @@
 El lenguaje R es un lenguaje que est\'a muy consolidado en la comunidad. Esta contribuye al desarrollo, mejora y extensi\'on de este lenguaje. La unidad fundamental a la hora de compartir 
 nuestro trabajo es el paquete. Es por ello por lo cual se va a desarrollar un estudio sobre c\'omo crear un paquete en el lenguaje R y c\'omo distribuirlo de forma que est\'e disponible para toda la comunidad y contribuir en el impulso a la utilizaci\'on de este lenguaje.
 
-CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios para un proyecto. Como objetivo paralelo, se pretende que tras la presentaci\'on del proyecto el paquete sea difundido adem\'as usando GITHUB.  Destacamos que en el desarrollo del proyecto hemos utilizado GITHUB como herramienta de colaboraci\'on y desarrollo. 
+CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios 
+para un proyecto. Como objetivo paralelo, se pretende que tras la presentaci\'on del proyecto, el paquete sea difundido adem\'as
+ usando GITHUB.  Destacamos que en el desarrollo del proyecto hemos utilizado GITHUB como herramienta de colaboraci\'on y desarrollo. 
 
 Para mas informaci\'on a cerca de los paquetes de R ver \cite{rcore} y \cite{book}, de donde se ha obtenido al mayor parte de la informaci\'on necesaria para este estudio.
 \subsection{Estructura de paquetes en R}
@@ -16,7 +18,7 @@ conforme a una estructura bien definida y f\'acilmente accesible para R \cite{li
 Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
 nuevas.
 Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambi\'en incorpora m\'as ficheros, 
-los cuales se van a detallar a continuaci\'on.\cite{rParaTodos}
+los cuales se van a detallar a continuaci\'on\cite{rParaTodos}.
 
 La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{DESCRIPTION}, donde se puede ver qu\'e hace 
 el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la documentaci\'on... entre otros datos.
@@ -32,9 +34,9 @@ La carpeta \textbf{R} es el n\'ucleo de la estructura, aqu\'i se encuentran todo
 Es recomendable no aglutinar todo el c\'odigo en un mismo archivo, sino separar las funciones que tienen relaci\'on 
 o que cumplen cierta funcionalidad en archivos separados, as\'i como dar un nombre descriptivo a los archivos.
 
-La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos paquetes compondr\'an el \enquote*{Manual de referencia} 
+La carpeta \textbf{man} contiene los ficheros de ayuda, es decir, estos ficheros compondr\'an el \enquote*{Manual de referencia} 
 del paquete. Cada uno de estos ficheros, se debe corresponder a cada uno de los archivos que se encuentran 
-en la carpeta R, pero en este caso, su nombre sera \textbf{nombre\_del\_archivo\textbf{.R}d}.
+en la carpeta R, pero en este caso, su nombre ser\'a \textbf{nombre\_del\_archivo\textbf{.R}d}.
 
 En la carpeta \textbf{data} se encontrar\'an todos los ficheros de datos que se deseen incorporar al paquete. La extensi\'on 
 de estos ficheros ser\'an \textbf{\textbf{.R}Data} o \textbf{\textbf{.R}da}.
@@ -42,7 +44,7 @@ Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que 
 \subsection{Requisitos previos}
 
 \begin{itemize}
-    \item R Studio
+    \item RStudio
     \item Paquete \textbf{devtools}
     \item Paquete \textbf{\textbf{roxygen2}} 
     \item Rtools
@@ -50,10 +52,10 @@ Por \'ultimo, en la carpeta \textbf{inst} estar\'an todos aquellos ficheros que 
 
 \subsection{Crear proyecto R}
 
-En este caso se puede hacer tanto con R Studio, como se muestra a continuaci\'on,
+En este caso se puede hacer tanto con RStudio, como se muestra a continuaci\'on,
 como con \textbf{devtools::create(}\enquote*{ruta/del/paquete/nombreDelPaquete}\textbf{)}, ambas opciones
 proporcionar\'an un \enquote*{esqueleto} del paquete con los archivos imprescindibles.
-Una vez abierto R Studio, lo primero que se debe hacer es crear un nuevo proyecto, para ello hay que dirigirse a: 
+Una vez abierto RStudio, lo primero que se debe hacer es crear un nuevo proyecto, para ello hay que dirigirse a: 
 \begin{center}
     \textbf{file > new project > new directory > r package} 
 \end{center}
@@ -97,8 +99,8 @@ M\'as adelante se hablar\'a del uso del paquete \textbf{roxygen2} para generar l
 
 \subsubsection{Archivo DESCRIPTION}
 
-En primer lugar, el archivo \textbf{DESCRIPTION} es lo que indica a R Studio que el directorio que lo
-contiene es un paquete. Cuando se crea un proyecto e indicamos a R Studio que se va a
+En primer lugar, el archivo \textbf{DESCRIPTION} es lo que indica a RStudio que el directorio que lo
+contiene es un paquete. Cuando se crea un proyecto e indicamos a RStudio que se va a
 tratar de un paquete, este autom\'aticamente genera una plantilla del archivo \textbf{DESCRIPTION}
 con los campos necesarios. De igual forma, si se crea el paquete haciendo uso de la herramienta \textbf{devtools}, se obtendr\'a
 una plantilla similar.
@@ -210,7 +212,7 @@ Hay tres maneras principales de incluir datos en un paquete, dependiendo de qu\'
 hacer con ellos o qui\'en debe usarlos:
 
 \begin{itemize}
-    \item Si se quiere almacenar datos binarios y que est\'en disponibles para los usuarios, se
+    \item Si se quieren almacenar datos binarios y que est\'en disponibles para los usuarios, se
 deben poner en el directorio \textbf{data/}. Este es el mejor sitio para los datasets.
     \item Si lo que se quiere es almacenar datos de an\'alisis, pero que los dem\'as usuarios no
 los tengan disponibles, se deben colocar en \textbf{R/sysdata.Rda}. En este caso es el mejor
@@ -287,7 +289,7 @@ paquete sin usar \enquote*{::}.
 \subsection{Comprobando el paquete}
 
 Una parte importante del desarrollo de un paquete es comprobar que el c\'odigo y la documentaci\'on no presenten problemas, especialmente si se planea distribuir p\'ublicamente el paquete. Para ello se tiene la herramienta que proporciona \textbf{devtools}, en concreto,
-\textbf{devtools::check()} o, equivalentemente, \textbf{Ctrl + Shift + E} en R Studio.
+\textbf{devtools::check()} o, equivalentemente, \textbf{Ctrl + Shift + E} en RStudio.
 Esta herramienta se encarga de que toda la documentaci\'on del paquete est\'e actualizada, ya que ejecuta \textbf{devtools::document()} de manera autom\'atica.
 
 Encapsula el paquete antes de realizar las comprobaciones. Esto asegura que la
@@ -298,7 +300,7 @@ en las comprobaciones.\\
 La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
 
 \begin{itemize}
-    \item Ejecutar \textbf{devtools::check()} o \textbf{Ctrl + Shift + E} en R Studio.
+    \item Ejecutar \textbf{devtools::check()} o \textbf{Ctrl + Shift + E} en RStudio.
     \item Arreglar el primer problema.
     \item Repetir los dos anteriores hasta que no haya m\'as problemas.
 \end{itemize}
@@ -315,7 +317,7 @@ La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
 \subsection{Liberando el paquete}
 
 Si se quiere que el paquete tenga cierta trascendencia en la comunidad de R, es necesario subirlo a CRAN, ya que la mayor\'ia de usuarios descargan e instalan sus paquetes desde CRAN.
-A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir el paquete a en CRAN. \\
+A continuaci\'on, se detallar\'an las buenas pr\'acticas a la hora de distribuir el paquete en CRAN. \\
 
 \textbf{Comentarios CRAN}\\
 Se debe recordar que CRAN est\'a compuesto por voluntarios que dedican parte de su tiempo
@@ -333,7 +335,7 @@ Por ello, es recomendable a\~nadir al paquete una serie de comentarios que facil
 
     \item \textbf{Test environments}: indica en qu\'e plataformas se ha comprobado el paquete.
     \item \textbf{Check results}: contendr\'a una lista de errores, advertencias o notas.
-    \item \textbf{Reverse dependencies}: sirve para indicar si hay errores de dependencias con otros paquetes, en el caso de que se este  subiendo una nueva versi\'on del paquete, y los cambios que  hayan provocado errores en las dependencias con otros paquetes.
+    \item \textbf{Reverse dependencies}: sirve para indicar si hay errores de dependencias con otros paquetes, en el caso de que se est\'e  subiendo una nueva versi\'on del paquete, y los cambios que  hayan provocado errores en las dependencias con otros paquetes.
 \end{itemize}
 
 \textbf{Las pol\'iticas en CRAN}\\

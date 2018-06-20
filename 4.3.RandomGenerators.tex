@@ -91,20 +91,20 @@
 
         Por \'ultimo, como par\'ametro opcional, se puede elegir si el conjunto de implicaciones que se genere va a tener, o no, redundancias. Si 
         no se especifica este par\'ametro, se aplicar\'a la funci\'on para eliminar redundancias, en caso de que se quiera lo contrario, se 
-        deberá poner a FALSE.
+        deber\'a poner a FALSE.
 
     \end{itemize}
 
-    Hay que precisar, que algunos de los par\'ametros anteriores son excluyentes. Es decir, si se especifica el par\'ametro difference, tanto 
-    percentage, como maxLeftSize y maxRightSize deben dejarse nulos. O si se especifica percentage, deber\'an quedar vac\'ios difference y 
-    maxLeftSize y maxRightSize. 
-    En cambio, maxLeftSize siempre debe ir acompa\~nado de maxRightSize y viceversa, aunque en caso de especificarlos, difference y percentage, 
+    Hay que precisar, que algunos de los par\'ametros anteriores son excluyentes. Es decir, si se especifica el par\'ametro \textit{difference}, tanto 
+    \textit{percentage}, como \textit{maxLeftSize} y \textit{maxRightSize} deben dejarse nulos. O si se especifica \textit{percentage}, deber\'an quedar vac\'ios \textit{difference} y 
+    \textit{maxLeftSize} y \textit{maxRightSize}. 
+    En cambio, \textit{maxLeftSize} siempre debe ir acompa\~nado de \textit{maxRightSize} y viceversa, aunque en caso de especificarlos, \textit{difference} y \textit{percentage}, 
     deben estar nulos.
-    Los par\'ametros que siempre se le deben pasar a la funci\'on son: numAttributes, numDependencies y nameExitFile.
+    Los par\'ametros que siempre se le deben pasar a la funci\'on son: \textit{numAttributes}, \textit{numDependencies} y \textit{nameExitFile}.
 
     Por \'ultimo, hay que especificar que al sistema o sistemas de implicaciones que se obtengan se le habr\'a aplicado 
-    la funci\'on de composici\'on, por lo que al realizar esta operaciones, si el n\'umero de implicaciones que se quiere obtener es 
-    alto, el tiempo que tardar\'a el algoritmo en obtener dicho sistema, tambi\'en ser\'a algo m\'as alto, aumentando si se quieren 
+    la funci\'on de composici\'on, por lo que al realizar esta operaci\'on, si el n\'umero de implicaciones que se quiere obtener es 
+    alto, el tiempo que tardar\'a el algoritmo en obtener dicho sistema, tambi\'en ser\'a algo m\'as alto, aumentando dicho tiempo si se quieren 
     eliminar redundancias tambi\'en.
     \\
 
@@ -133,7 +133,7 @@
 
     En este primer ejemplo, se va a generar un sistema con cuatro implicaciones, utilizando 6 atributos diferentes, con una diferencia m\'axima 
     de 3 elementos entre el antecedente y el consecuente, siendo mayor el antecedente, como nombre del fichero se utilizar\'a \textit{ejemplo1}. 
-    Y como no se especifica el par\'ametro redundancy, pues el sistema generado se obtendr\'a con todas las redundancias eliminadas.
+    Y como no se especifica el par\'ametro \textit{redundancy}, pues el sistema generado se obtendr\'a con todas las redundancias eliminadas.
     
     En dicho fichero se ha escrito lo siguiente:
 
@@ -197,8 +197,8 @@
     \textbf{Descripci\'on}
 
     Un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G x M \). Los elementos 
-    de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G ~ y ~ m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
-    \( (g,m) \in I ~ o ~ g I m \) y se leer\'a como ``el objeto g tiene el atributo m".\cite{ganter}
+    de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G\) y \( m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
+    \( (g,m) \in I \) o \( g I m \) y se leer\'a como ``el objeto g tiene el atributo m".\cite{ganter}
 
 
     La manera habitual de representar un contexto formal es mediante una tabla, la cual contar\'a con una fila para cada objeto y una columna 
@@ -239,7 +239,7 @@
         de que un objeto tenga un atributo, que a la hora de representarlo, en el cruce de columna y fila, haya un uno.
         Como este par\'ametro se trata de una probabilidad, su valor debe estar entre 0 y 1.
 
-        \item \textbf{sparness:}
+        \item \textbf{namefile:}
 
         Tambi\'en se puede elegir el nombre que va a tener el fichero de salida. Si no se especifica dicho nombre, por defecto, el 
         csv se llamar\'a \textit{context}.
@@ -308,7 +308,7 @@
     
 
     En ambos casos se genera un fichero csv con dicho contexto con el nombre por defecto \textit{context}, los cuales contienen la misma 
-    información que los data.frame.
+    informaci\'on que los data.frame.
 
     \newpage
     \thispagestyle{empty}
