@@ -56,7 +56,7 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
                     \lIf{$C \subseteq A \subseteq (C \cup D) \ or \ A \subseteq C \subseteq (A \cup B)$}{
                         \ $A := A \cap C ; \ B := B \cap D$ 
                     }\Else{
-                        \lIf{$A \subset C$}{
+                        \If{$A \subset C$}{
                             \If{$D \not\subseteq B$}{
                                 \ $ add \ C \setminus B \to D \setminus B \ to \ \Gamma$ 
                             }   
@@ -64,7 +64,7 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
                             \If{$C \subset A$}{
                                 \ $ A := A \setminus D ; \ B := B \setminus D$ 
                             } 
-                            \ $\Gamma := \Gamma \cup \{C \to D \} \cup $
+                            \ $ add \ C \to D \ to \ \Gamma$
                         }
                     }
                 }
@@ -159,7 +159,7 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
     \caption{SLgetdo algorithm}\label{alg:6}
 \end{algorithm}\DecMargin{1em}
 
-Una primera aproximaci\'on  fue el algoritmo desarrolado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado doSimp tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on Si-Eq y la composici\'on Co-Eq para simplificar el sistema implicacional, sSimp para completarlo y rSi-Eq y Co-Eq para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que SLgetdo lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
+Una primera aproximaci\'on  fue el algoritmo desarrollado tambi\'en por E. Rodr\'iguez-Lorenzo et al. \cite{doSimp}, llamado doSimp tambi\'en basado en la L\'ogica de Simplificaciones, aplicando la simplificaci\'on Si-Eq y la composici\'on Co-Eq para simplificar el sistema implicacional, sSimp para completarlo y rSi-Eq y Co-Eq para optimizar el resultado final. Este primer algoritmo no se ha implementado en el proyecto ya que SLgetdo lo mejora, reduciendo el n\'umero de pasos a dos, as\'i como el tama\~no de las bases directas generadas hasta alcanzar la \'optima.
 \newpage
 \textbf{C\'odigo} 
 \lstinputlisting{r_code/DO_IS.R}
@@ -184,7 +184,7 @@ Aqu\'i se puede ver el resultado:
     \caption{Ejemplo SLgetdo 2}
     \label{fig:SLgetDO2}
 \end{figure} 
-Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, donde el c\'alculo es practicamente inmediato.\\
+Y, como era de esperar, el hecho de usar una base directa \'optima para el c\'alculo del cierre reduce consideradamente los tiempos de ejecuci\'on incluso en ejemplos tan peque\~nos como este, donde el c\'alculo es pr\'acticamente inmediato.\\
 
 Se parte del conjunto de atributos \(\{c,f,g\}\)
 

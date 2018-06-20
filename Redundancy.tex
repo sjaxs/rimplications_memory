@@ -37,7 +37,7 @@ El \'ultimo paso consiste en aplicar la transitividad generalizada, si el usuari
 
 Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
-Destacamos que en habitualmente en R se extraen implicaciones y el m\'etodo implementado en paquete arules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
+Destacamos que habitualmente en R se extraen implicaciones y el m\'etodo implementado en el paquete arules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
 
 Pensamos que es un punto fuerte para el uso del paquete en muy diversas \'areas y aplicaciones. 
 \newpage
@@ -79,7 +79,7 @@ Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se 
     \label{fig:red_4}
 \end{figure}
 
-Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%. Adem\'as destacamos que este dataset no contiene un n\'umero muy grande de atributos. Cuanto mayor sea el tama\~no del dataset, mayor es la mejora conseguida al aplicar cualquier algoritmo aunque sea el m\'as sencillo en t\'erminos de complejidad. 
+Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a que el algoritmo de c\'alculo de cierre es un algoritmo bastante r\'apido. En este caso se reduce el tiempo necesario para el c\'alculo del cierre en casi un 70 \%. Adem\'as destacamos que este dataset no contiene un n\'umero muy grande de atributos. Cuanto mayor sea el tama\~no del dataset, mayor ser\'a la mejora conseguida al aplicar cualquier algoritmo aunque sea el m\'as sencillo en t\'erminos de complejidad. 
 
 \newpage
 \textbf{C\'odigo} 
@@ -89,12 +89,12 @@ Aunque en este caso pueda parecer que la diferencia de tiempo es poca, se debe a
 \textbf{Comparativa/Versiones} 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.75]{Redundancy}
+    \includegraphics[scale=0.75]{Redundancy2}
     \caption{Pruebas remove.redundancy}
     \label{fig:redundancy}
 \end{figure} 
 
-En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo. La versi\'on que exist\'ia, solo era una versi\'on pedag\'ogica del algoritmo para explicarla en congresos. El objetivo conseguido con este TFG es el tener ahora una versi\'on eficiente de todos y cada uno de los algoritmos. 
+En la figura \ref{fig:redundancy} se puede ver una gr\'afica comparativa entre dos versiones distintas de esta funci\'on. La primera de ellas es la versi\'on de la que dispon\'ia el director de este TFG en el momento en que se empez\'o a desarrollar el mismo. La segunda es una versi\'on mejorada (como se puede ver m\'as arriba en el extracto de c\'odigo), que se realiz\'o como parte de este trabajo. La versi\'on que exist\'ia, solo era una versi\'on pedag\'ogica del algoritmo para explicarla en congresos. El objetivo conseguido con este TFG es tener ahora una versi\'on eficiente de todos y cada uno de los algoritmos. 
 
 
 Como se puede observar, la diferencia de tiempo es bastante considerable y va aumentando conforme se aumenta el n\'umero de implicaciones.

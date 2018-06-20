@@ -4,7 +4,7 @@ El concepto de clave es importante en cualquier modelo de datos y aparece con mu
 
 El problema de la b\'usqueda de claves aparece en distintas \'areas de la computaci\'on, siendo las bases de datos el \'area en la que mayor atenci\'on se le presta. Este algoritmo desarrollado por P. Cordero et al. en  \cite{Reduction} busca resolver este problema lo m\'as eficientemente posible. Para ello trata de simplificar lo m\'aximo posible el conjunto de implicaciones del cual se quieren obtener las claves, aplicando la L\'ogica de Simplificaciones \cite{Cordero2002}.
 
-El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjuto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.\\
+El problema de la b\'usqueda de claves consiste en enumerar todas las claves minimales que pueden ser inferidas a partir de un conjunto de reglas. La mayor\'ia de los trabajos que se pueden encontrar en la literatura no usan un sistema axiom\'atico para inferir las claves, sino que proporcionan distintas aproximaciones a casos particulares de este problema. El objetivo de este algoritmo es el de proporcionar un m\'etodo directo basado en la L\'ogica de Simplificaciones.\\
 
 \IncMargin{1em}
 \begin{algorithm}[H]
@@ -86,7 +86,7 @@ Como se ve en la siguiente imagen, las claves minimales de \(\Gamma\) con respec
 
 La implementaci\'on inicial del algoritmo ha sido mejorada con una poda que sirve para no comprobar dos veces la misma implicaci\'on y as\'i reducir el tiempo de c\'alculo de las claves.
 
-Como se puede observar, si el conjunto de implicaciones es peque\~no, los resultados son muy similares, pero en el caso de trabjar con 50 implicaciones, por ejemplo, la versi\'on con poda tarda alrededor de 300s menos, lo cual supone una reducci\'on de tiempo considerable.
+Como se puede observar, si el conjunto de implicaciones es peque\~no, los resultados son muy similares, pero en el caso de trabajar con 50 implicaciones, por ejemplo, la versi\'on con poda tarda alrededor de 300s menos, lo cual supone una reducci\'on de tiempo considerable.
 
 \begin{figure}[H]
     \centering
