@@ -18,9 +18,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \textbf{Descripci\'on}
 
         Como primera funci\'on se tiene la de obtener un concepto formal con su estructura adecuada teniendo la informaci\'on en un fichero. A la 
-        hora de utilizar esta funci\'on se pueden usar ficheros xls, txt o r, ya que el resultado ser\'a el mismo, una variable de tipo data.frame 
+        hora de utilizar esta funci\'on se pueden usar ficheros xls, csv txt o r, ya que el resultado ser\'a el mismo, una variable de tipo data.frame 
         con toda la informaci\'on del fichero de entrada.
-        \\
 
         \bigskip
 
@@ -564,16 +563,45 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \input{pseudoNextclo.tex}
     
-        \bigskip
+        \clearpage
 
 
     
         \textbf{C\'odigo}
+
+        \lstinputlisting{r_code/FCA/allClosures.R}
+
+        \bigskip
+
+        \lstinputlisting{r_code/FCA/nextclosure.R}
     
+        \bigskip
     
         \textbf{Ejemplo}
 
+        A continuaci\'on se va a ejecutar un ejemplo para poder observar la salida de este algoritmo.
 
+        Se comienza mostrando el contexto que se va a utilizar para dicho ejemplo:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics{contNext}
+            \caption{Contexto para el ejemplo de All Closures}
+            \label{fig:contNext}
+        \end{figure}
+
+        \clearpage
+
+        Y, por \'ultimo, se ejecuta la funci\'on \textbf{all.closures} y se muestra su salida.
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics{nextclosure}
+            \caption{Contexto para el ejemplo de Next Closure}
+            \label{fig:nextclosure}
+        \end{figure}
+
+        \clearpage
         
 \subsection{Generadores minimales}
 
@@ -687,7 +715,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
     
 
-    \bigskip
+    \clearpage
     \textbf{Comparativa/Versiones}
 
     La versi\'on original de la funci\'on \textbf{trv} se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
@@ -709,3 +737,8 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     el punto anterior, generando de esta manera conjuntos de implicaciones de diferentes tama\~nos.
 
     Aunque en la gr\'afica se vean los tiempos bastante parecidos, la diferencia al ejecutar ambos algoritmos con 50 reglas es de 2 minutos.
+
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage

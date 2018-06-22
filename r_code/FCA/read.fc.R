@@ -10,8 +10,7 @@ read.fc <- function(filename, file, first.line.atrr, first.col.obj){
       for(k in seq(dim(df)[1])){
         ob <- label.obj(k)
         objs <- c(objs, ob)
-      }
-      row.names(df) <- objs
+      } row.names(df) <- objs
     }else if (first.col.obj){
       df <- as.data.frame(read_excel(filename, col_names = FALSE))
       row.names(df) <- df[,1]
@@ -20,16 +19,14 @@ read.fc <- function(filename, file, first.line.atrr, first.col.obj){
       for(k in seq(dim(df)[2])){
         at <- label.att(k)
         attrs <- c(attrs, at)
-      }
-      names(df) <- attrs
+      } names(df) <- attrs
     }else{
       df <- as.data.frame(read_excel(filename, col_names = FALSE))
       attrs <- c()
       for(k in seq(dim(df)[2])){
         at <- label.att(k)
         attrs <- c(attrs, at)
-      }
-      objs <- c()
+      } objs <- c()
       for(k in seq(dim(df)[1])){
         ob <- label.obj(k)
         objs <- c(objs, ob)
@@ -91,10 +88,13 @@ read.fc <- function(filename, file, first.line.atrr, first.col.obj){
       for(k in seq(dim(df)[1])){
         ob <- label.obj(k)
         list_obj <- c(list_obj, ob)
-      }
-    }
+    } }
     row.names(df) <- list_obj
     names(df) <- list_atrr
+  }else if(file == "csv"){
+    df <- read.csv(file=filename, header=TRUE, sep=",")
+    row.names(df) <- df[,1]
+    df[,1] <- NULL
   }
   for(k in seq(dim(df)[2])){
     df[,k] <- as.logical(df[,k])
