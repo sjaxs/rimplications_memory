@@ -1,4 +1,4 @@
-\section{L\'ogica de simplificaciones para sistemas implicacionales}
+\section{L\'ogica de Simplificaciones para sistemas implicacionales}
 
 % \subsubsection{Descripci\'on} 
 
@@ -40,12 +40,12 @@ Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mec
 
 El elemento central de la l\'ogica de simplificaciones se centra en la regla de simplificaci\'on. Sustituye a la regla de transtividad en los axiomas de Armstrong.
 
-La ventaja es que directamente usando las reglas de la nueva l\'ogica es posible desarrollar m\'etodos directamente basados en l\'ogica para resolver problemas esenciales no solo en ACF, sino tambi\'en en bases de datos, data mining, inteligencia artificial, etc. 
+La ventaja es que, directamente usando las reglas de la nueva l\'ogica, es posible desarrollar m\'etodos directamente basados en l\'ogica para resolver problemas esenciales no solo en ACF, sino tambi\'en en bases de datos, data mining, inteligencia artificial, etc. 
 
 El conjunto de axiomas y reglas de inferencias de esta l\'ogica lleva directamente a un conjunto de equivalencias que permiten eliminar redundancia en los sistemas de implicaciones, es decir, simplificarlos. Estas mismas equivalencias proporcionan, a su vez, un m\'etodo de deducci\'on autom\'atica. Es por ello que la L\'ogica de Simplificaciones constituye el n\'ucleo de los algoritmos implementados en este proyecto \cite{Cordero2002}\cite{dbasisslfd}\cite{Reduction}\cite{do}.
 
-El primer paso del desarrollo de este proyecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones
-orientadas a aplicar esta L\'ogica de simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
+El primer paso del desarrollo de este proyecto consiste en la creaci\'on de una peque\~na librer\'ia de funciones,
+orientadas a aplicar esta L\'ogica de Simplificaciones a los conjuntos de implicaciones con los que se trabaja. Como 
 puede ser la composici\'on de implicaciones, la reducci\'on, la uni\'on y la simplificaci\'on.
 
 Estas funciones, adem\'as de formar parte de los algoritmos desarrollados, nos permiten reducir el n\'umero de 
@@ -76,7 +76,7 @@ necesarios para la ejecuci\'on de los algoritmos. As\'i como mantener limpio el 
 
 % De estos axiomas se derivan las reglas de la l\'ogica de Simplificaciones que han servido como base para el desarrollo de este proyecto, siendo equivalentes a los axiomas de Amstrong.
 
-Por ello, la librer\'ia contiene una funci\'on por cada regla de la l\'ogica de implicaciones. Adem\'as, se han implementado importantes reglas derivadas del sistema axiom\'atico primitivo de la l\'ogica de simplificaciones y que son usadas en los algoritmos, por ejemplo: la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on y la uni\'on de implicaciones.\\
+Por ello, la librer\'ia contiene una funci\'on por cada regla de la l\'ogica de Simplificaciones. Adem\'as, se han implementado importantes reglas derivadas del sistema axiom\'atico primitivo de la l\'ogica de simplificaciones y que son usadas en los algoritmos, por ejemplo: la simplificaci\'on, la rsimplificaci\'on, la ssimplificaci\'on y la uni\'on de implicaciones.\\
 
 \textbf{Uni\'on}\\
 La uni\'on de implicaciones parte de la base de que se tienen dos implicaciones (\(X \to Y, \ X \to Z\)) cuyos antecedentes son iguales, se puede inferir una nueva regla que tendr\'a como antecedente el mismo y como consecuente la uni\'on de los consecuentes de ambas implicaciones, es decir:

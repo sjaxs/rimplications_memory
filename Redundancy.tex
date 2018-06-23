@@ -29,7 +29,7 @@ Regla de la l\'ogica de Simplificaciones que nos permite reducir el tama\~no del
     \caption{apply.remove.redundancy algorithm}\label{alg:1}
 \end{algorithm}\DecMargin{1em}
 \newpage
-El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha est\'e vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
+El proceso de eliminar implicaciones redundantes se basa en aplicar la L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\) que ya hemos visto anteriormente. En este caso, lo primero a realizar es la eliminaci\'on de implicaciones cuya parte derecha est\'e vac\'ia y unir implicaciones que compartan parte izquierda (consecuente).
 
 Lo siguiente, consiste en aplicar la simplificaci\'on y la rsimplificaci\'on de implicaciones de forma iterativa hasta que se alcance un punto fijo, es decir, cuando no se puedan simplificar m\'as implicaciones.
 
@@ -37,7 +37,7 @@ El \'ultimo paso consiste en aplicar la transitividad generalizada, si el usuari
 
 Para ilustrar la importancia de este algoritmo se van a ver algunos ejemplos donde se pueda apreciar el n\'umero de implicaciones que se eliminan y su importancia en la reducci\'on de coste computacional.
 
-Destacamos que habitualmente en R se extraen implicaciones y el m\'etodo implementado en el paquete arules elimina menos redundancia en implicaciones que el algoritmo que estamos aqu\'i desarrollando. 
+Destacamos que habitualmente en R se extraen implicaciones y el m\'etodo implementado en el paquete arules elimina menos redundancia en implicaciones que el algoritmo que se est\'a aqu\'i desarrollando. 
 
 Pensamos que es un punto fuerte para el uso del paquete en muy diversas \'areas y aplicaciones. 
 \newpage
@@ -63,7 +63,7 @@ A este conjunto le aplicamos el algoritmo y vemos cuantas implicaciones no redun
 
 Como se puede ver, de 200 implicaciones iniciales, se consigue reducir a 38 implicaciones, lo que supone una reducci\'on nada despreciable del 81 \% .
 
-Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos se podr\'a ver la reducci\'on del coste computacional de los otros algoritmos al trabajar con un 80\% (aproximadamente) menos de tama\~no. En este caso se va a probar el algoritmo que calcula el cerrado de un conjunto de implicaciones a partir de un conjunto de atributos (este algoritmo se explicar\'a posteriormente).
+Si probamos a utilizar estos conjuntos de implicaciones con otros algoritmos, se podr\'a ver la reducci\'on del coste computacional de los otros algoritmos al trabajar con un 80\% (aproximadamente) menos de tama\~no. En este caso, se va a probar el algoritmo que calcula el cerrado de un conjunto de implicaciones a partir de un conjunto de atributos (este algoritmo se explicar\'a posteriormente).
 
 \begin{figure}[H]
     \centering

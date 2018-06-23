@@ -8,7 +8,7 @@ K. Bertet \cite{BERTET20102155} propuso la llamada base directa \'optima como pr
 
 La importancia del c\'alculo de bases directas de sistemas implicacionales ha sido remarcada por diferentes autores en \'areas diferentes ya que su uso es crucial en problemas donde se requiere el c\'alculo de gran cantidad de cierres. Por lo tanto, cuanto m\'as eficiente sea el c\'alculo de estas bases, mejor rendimiento tendr\'an los m\'etodos de resoluci\'on de esos problemas. 
 
-A continuac\'on se van a detallar algunos de estos conceptos.\\
+A continuac\'on, se van a detallar algunos de estos conceptos.\\
 
 
 \textbf{Base}
@@ -34,6 +34,8 @@ El teorema 2 de \cite{DO2} nos dice que:
 Para cualquier sistema impicacional \(\Sigma\), existe un \'unica base directa \'optima \(\Sigma_{DO}\) tal que \(\Sigma \equiv \Sigma_{DO} \).\\
 
 Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el algoritmo desarrollado por  E. Rodr\'iguez-Lorenzo et al. \cite{DO2}, llamado [SLgetdo] en el cu\'al se aplican las reglas de L\'ogica de Simplificaciones \(\textbf{SL}_{FD}\).\\
+\newpage
+Aqu\'i se puede ver el pseudoc\'odigo de \(Simplify\), parte fundamental del algoritmo:
 
 \IncMargin{1em}
 \begin{algorithm}[H]
@@ -110,7 +112,7 @@ Como soluci\'on al c\'alculo de bases directas \'optimas se ha implementado el a
 %     \caption{Add-sSimp}\label{alg:5}
 % \end{algorithm}\DecMargin{1em}
 
-.
+Y aqu\'i el pseudoc\'odigo en el que se basa la implementaci\'on del algoritmo:
 
 \IncMargin{1em}
 \begin{algorithm}[H]

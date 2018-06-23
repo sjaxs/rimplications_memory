@@ -1,4 +1,4 @@
-\section{Paquetes}
+\section{Creaci\'on y distribuci\'on de un paquete R en CRAN}
 \subsection{Introducci\'on}
 
 
@@ -7,7 +7,8 @@ nuestro trabajo es el paquete. Es por ello por lo cual se va a desarrollar un es
 
 CRAN es el principal repositorio de paquetes estables de R, del cual se descargar\'an la mayor\'ia de los paquetes necesarios para un proyecto. Como objetivo paralelo, se pretende que, tras la presentaci\'on del proyecto, el paquete sea difundido adem\'as usando GITHUB.  Destacamos que en el desarrollo del proyecto hemos utilizado GITHUB como herramienta de colaboraci\'on y desarrollo. 
 
-Para mas informaci\'on a cerca de los paquetes de R ver \cite{rcore} y \cite{book}, de donde se ha obtenido al mayor parte de la informaci\'on necesaria para este estudio.
+Para m\'as informaci\'on a cerca de los paquetes de R ver \cite{rcore} y \cite{book}, de donde se ha obtenido al mayor parte de la informaci\'on necesaria para este estudio.
+
 \subsection{Estructura de paquetes en R}
 
 Un paquete (\textbf{package}) es una colecci\'on de funciones, datos y c\'odigo R que se almacenan en una carpeta 
@@ -16,7 +17,7 @@ conforme a una estructura bien definida y f\'acilmente accesible para R \cite{li
 Estos paquetes sirven para incrementar la potencia de R mejorando su funcionalidad base, o a\~nadiendo 
 nuevas.
 Un paquete en R no est\'a compuesto s\'olo del c\'odigo en dicho lenguaje, sino que tambi\'en incorpora m\'as ficheros, 
-los cuales se van a detallar a continuaci\'on\cite{rParaTodos}.
+los cu\'ales se van a detallar a continuaci\'on\cite{rParaTodos}.
 
 La informaci\'on b\'asica sobre un paquete se proporciona en el archivo \textbf{DESCRIPTION}, donde se puede ver qu\'e hace 
 el paquete, qui\'en es el autor o autores, qui\'en realizar\'a el mantenimiento, a qu\'e versi\'on pertenece la documentaci\'on... entre otros datos.
@@ -73,7 +74,7 @@ Una vez ajustada la configuraci\'on, hay que pinchar en \textbf{Install and Rest
 La documentaci\'on es una de las partes m\'as importantes del paquete en R, ya que sirve para ayudar a los usuarios a usar el paquete, para los desarrolladores que quieran extenderlo e
 incluso para el propio creador del paquete, para en un futuro poder recordar para que serv\'ian sus funciones.
 
-Para que R pueda generar autom\'aticamente el archivo de ayuda para las funciones
+Para que R pueda generar autom\'aticamente el archivo de ayuda para las funciones,
 se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'on de una serie de tags relacionados con el objetivo y descripci\'on de la funci\'on y/o paquete. 
 
 
@@ -84,7 +85,7 @@ se va a hacer uso del paquete \textbf{roxygen2}, el cual se basa en la inclusi\'
     \label{fig:roxygen}
 \end{figure} 
 
-Para ello se deben configurar las \textbf{Build Tools} de nuestro proyecto:
+Para ello, se deben configurar las \textbf{Build Tools} de nuestro proyecto:
 
 \begin{figure}[H]
     \centering
@@ -93,7 +94,7 @@ Para ello se deben configurar las \textbf{Build Tools} de nuestro proyecto:
     \label{fig:build_tools}
 \end{figure} 
 
-M\'as adelante se hablar\'a del uso del paquete \textbf{roxygen2} para generar la documentaci\'on del paquete
+M\'as adelante se hablar\'a del uso del paquete \textbf{roxygen2} para generar la documentaci\'on del paquete.
 
 \subsubsection{Archivo DESCRIPTION}
 
@@ -168,7 +169,7 @@ una l\'inea y acabar en punto.
     \item El segundo p\'arrafo es la descripci\'on, se muestra inmediatamente despu\'es del t\'itulo y
 debe dar una breve descripci\'on de lo que hace la funci\'on.
     \item Por \'ultimo, el resto de p\'arrafos, si los hubiera, corresponden a una descripci\'on m\'as
-detallada del funcionamiento de la funci\'on. Tambi\'en se puede usar el tag \textbf{@section}
+detallada del uso de la funci\'on. Tambi\'en se puede usar el tag \textbf{@section}
 para dividir los detalles de la funci\'on en distintas secciones.
 \end{itemize}
 
@@ -308,7 +309,7 @@ La mejor forma, aunque tediosa, de comprobar el paquete es la siguiente:
 \begin{itemize}
     \item \textbf{Error}: Problema grave que deber ser arreglado, aunque no se planee subir el paquete a CRAN.
     \item \textbf{Warning}: Problema medio que debe ser arreglado en caso de que se planee subir el paquete a CRAN.
-    \item \textbf{Note}: Problema medio que se deber\'ia arreglar en caso de querer subir el paquete a CRAN incluso si se trata de un falso positivo.
+    \item \textbf{Note}: Problema leve que se deber\'ia arreglar en caso de querer subir el paquete a CRAN incluso si se trata de un falso positivo.
 \end{itemize}
 
 
@@ -347,7 +348,7 @@ Existen ciertas pol\'iticas que se deben cumplir a la hora de subir el paquete a
 \end{itemize}
 
 \textbf{Archivos importantes}\\
-Una vez que el paquete ya est\'a listo para subirlo, se deben  tener en cuenta dos archivos importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on del paquete y su
+Una vez que el paquete ya est\'a listo para subirlo, se deben  tener en cuenta dos archivos importantes m\'as,\textbf{ README.md}, el cual proporciona una descripci\'on del paquete, su
 funcionamiento y uso, y \textbf{NEWS.md}, el cual describe los cambios con respecto a la versi\'on anterior del paquete. Dado que estos dos archivos no son soportados por CRAN no
 hay que a\~nadirlos a la hora de construir el paquete
 \begin{center}
