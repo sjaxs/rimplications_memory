@@ -4,8 +4,9 @@
 
 Tomamos como referencia para esta secci\'on el libro de B. Ganter\cite{ganter}.
 
-El An\'alisis Formal de Conceptos es un entorno conceptual que estructura, analiza y visualiza conocimiento a partir de datos proporcionados 
-como una relaci\'on binaria entre objetos y atributos.
+El An\'alisis Formal de Conceptos es un \'area de las matem\'aticas desarrollada 
+a finales de los 80 que permite estructurar, analizar y visualizar conocimiento extra\'ido de una relaci\'on 
+binaria entre objetos y atributos.
 
 Como se ha explicado anteriormente, un contexto formal \( (G, M, I) \) consiste en dos conjuntos, G y M, y una relaci\'on binaria \( I \subseteq G \times M \). Los elementos 
 de G se llaman objetos, los de M, atributos de \( (G, M, I) \). Si \(g \in G\) y \( m \in M \) est\'an relacionados seg\'un I, se escribir\'a 
@@ -521,11 +522,12 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \textbf{Descripci\'on}
 
         Este algoritmo, resuelve la siguiente tarea: dado un operador de cierre y un conjunto finito \(M\), calcula todos los 
-        conjuntos cerrados. A continuaci\'on se va a proceder a detallar algunas definiciones necesarias para este algoritmo.
+        conceptos que pueden extraerse a partir del contexto formal (la tabla). A continuaci\'on se va a proceder a detallar 
+        algunas definiciones necesarias para este algoritmo.
 
         \bigskip
 
-        Sea \(M=\{1, ..., m\}\). Se define el \'orden l\'ectico en \(2^M\) como sigue: 
+        Sea \(M=\{1, ..., m\}\) un conjunto de atributos. Se define el \'orden l\'ectico en \(2^M\) como sigue: 
         
         para cada \(A,B \subseteq M\), se tiene que \(A\) 
         es m\'as peque\~no l\'ecticamente que \(B\), denotado por \(A < B\), si \(A \neq B\) y el menor elemento que los distingue 
@@ -549,7 +551,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         \bigskip
 
-        Por \'ultimo, se van a definir los pseudoc\'odigos de los algoritmos pertenecientes a estos puntos: 
+        Por \'ultimo, se van a definir los pseudoc\'odigos de los algoritmos implementados en esta secci\'on: 
 
         \bigskip
 
@@ -601,6 +603,17 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
             \label{fig:nextclosure}
         \end{figure}
 
+        Por tanto, los conceptos obtenido con el algoritmo son:
+
+        \( \langle (``Con'', ``Pla'', ``Inst'', ``Tra'', ``Ser''), (``Comp'') \rangle ,\)
+
+        \(\langle (``Con'', ``Pla''), (``Comp'', ``Fur'') \rangle ,\)
+
+        \(\langle (``Con'', ``Inst'', ``Ser''), (``Comp'', ``Copy'') \rangle ,\)
+
+        \(\langle (``Con'', ``Inst''), (``Comp'', ``Copy'', ``Spec'') \rangle ,\)
+
+        \(\langle (``Con''), (``Comp'', ``Copy'', ``Fur'', ``Spec'') \rangle   \)
         \clearpage
         
 \subsection{Generadores minimales}
@@ -617,10 +630,11 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     m\'inimo.
 
     Aunque el algoritmo del cierre se explicar\'a detalladamente en el segundo vol\'umen de este TFG en grupo, se a\~nade aqu\'i su 
-    definici\'on, ya que se usar\'a en este algoritmo de generadores minimales:
+    definici\'on, ya que se usar\'a en este algoritmo de generadores minimales.
 
     Siendo \(\Gamma\) un conjunto de implicaciones y \(A\) un conjunto de atributos. El cierre de \(A\) en la l\'ogica de \(SL_{FD}\) se define como 
-    el m\'aximo conjunto de atributos \(A^+\) que pueden derivarse a partir de la l\'ogica. Y se denota como \(\Gamma \vdash A \rightarrow A^+\).
+    el m\'aximo conjunto de atributos \(A^+\) que pueden derivarse a partir de un conjunto inicial de atributos \(A\) usando las reglas de la 
+    l\'ogica. Y se denota como \(\Gamma \vdash A \rightarrow A^+\).
 
 
     \bigskip
@@ -640,7 +654,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         where ~ mg(C) = {D: ~ D ~ is ~ a ~ mingen ~ and ~ D^+ = C}    
     \]
 
-    Esto se puede ver como el ret\'iculo de conceptos en el que se han agregado etiquetas con el generador minimal a cada conjunto cerrado.
+    Esto se puede ver como el ret\'iculo de conceptos en el que se han agregado etiquetas con los generadores minimales asociados a cada conjunto cerrado.
     Con esta idea, se van a necesitar operadores que nos permitan trabajar con estos tipos de conjuntos. Es decir, conjuntos de pares 
     \( \langle A, B \rangle \), tales que \( A \subseteq M\) es un intent y \( B \subseteq 2^M\) cumple las siguientes condiciones:
 
@@ -661,7 +675,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     siendo \(B_{3}\) el conjunto de los elementos minimales de \(B_{1} \cup B_{2}\)
 
     
-    A continuaci\'on se va a definir un nuevo operador, el trivial, que dado un \(M\) y \(\Gamma\) devuelve el siguiente LSI:
+    A continuaci\'on se va a definir un nuevo operador, que denominamos trivial, que dado un \(M\) y \(\Gamma\) devuelve el siguiente LSI:
 
 
     \[
@@ -675,7 +689,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \]
 
 
-    Por \'ultimo, se va a especificar el pseudoc\'odigo de este algoritmo, del cual se ha partido para desarrollarlo en R para este TFG:
+    Por \'ultimo, se va a especificar el pseudoc\'odigo de este algoritmo, punto de partida de la implementaci\'on que se ha desarrollado en este TFG.
     \bigskip
 
     \input{pseudoMinGen.tex}
@@ -719,7 +733,9 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \textbf{Comparativa/Versiones}
 
     La versi\'on original de la funci\'on \textbf{trv} se ha mejorado implementando una poda para no recorrer todos los subconjuntos, y as\'i 
-    mejorar el tiempo del algoritmo general.
+    mejorar el tiempo del algoritmo general. Dicha poda consiste en ordenar todos los subconjuntos alfab\'eticamente e ir comparando, para que 
+    cuando se encuentre un subconjunto que no se debe incluir, los superconjuntos de este que est\'en en una posici\'on posterior, no sean 
+    comparados, y as\'i poder mejorar el tiempo de ejecuci\'on del algoritmo.
 
     A continuaci\'on se puede ver una comparativa de tiempos entre las dos versiones. Se puede observar la versi\'on original sin la poda, y 
     la segunda en la que se aplica dicha mejora. La versi\'on que se ha incluido en esta memoria corresponde a la segunda, ya que 
@@ -732,13 +748,10 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
         \label{fig:tiemposMinGen}
     \end{figure}
 
+    \clearpage
+
 
     Los par\'ametros de entrada para realizar las pruebas de tiempo de este algoritmo se han realizado con el generador aleatorio definido en 
     el punto anterior, generando de esta manera conjuntos de implicaciones de diferentes tama\~nos.
 
     Aunque en la gr\'afica se vean los tiempos bastante parecidos, la diferencia al ejecutar ambos algoritmos con 50 reglas es de 2 minutos.
-
-    \newpage
-    \thispagestyle{empty}
-    \mbox{}
-    \newpage
