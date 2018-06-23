@@ -32,7 +32,7 @@ Sin embargo, estos axiomas tienen unas limitaciones que los inhabilitan como mec
     \(X \to Y, \ Y \to Z \implies X \to Z \)
 \end{center}
 
-\textbf{Union}
+\textbf{Uni\'on}
 
 \begin{center}
     \(X \to Y, \ Y \to Z \implies X \to YZ \)
@@ -110,7 +110,7 @@ La rsimplicaci\'on es una regla derivada de la simplificaci\'on donde solo se si
 % \textbf{Lsimplificaci\'on}\\
 
 % \lstinputlisting{r_code/lsimp.R}
-\textbf{Simplificaci\'on fuerte}\\
+\textbf{Simplificaci\'on fuerte}
 
 Esta regla derivada se usa en los algoritmos de c\'alculo de claves minimales y en los de obtenci\'on de bases directas. 
 \begin{center}
@@ -124,7 +124,7 @@ Esta regla derivada se usa en los algoritmos de c\'alculo de claves minimales y 
 \lstinputlisting{r_code/ssimp.R}
 \bigskip
 
-\textbf{Transitividad generalizada}\\
+\textbf{Transitividad generalizada}
 
 La transitividad generalizada nos permite eliminar implicaciones que pueden ser inferidas transitivamente a partir de otras. Dadas tres implicaciones, \(X \to Y\), \(Z \to U\) y \(V \to W\), si se cumple que \(Z \subseteq XY \), \( X \subseteq V \) y \( W \subseteq UV \) entonces se tiene que  \(X \to Y\), \(Z \to U\) \( \vdash V \to W\) y, por tanto, se puede eliminar \(V \to W\) del conjunto de implicaciones.
 

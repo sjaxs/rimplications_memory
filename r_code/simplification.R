@@ -10,9 +10,6 @@ simplification <- function(Sigma, A,B,C,D,k,l){
         if(equals.sets(CB,A)){
           Sigma <- composition.eq(Sigma,k,l)
           Sigma <- Sigma[-l]
-        }
-      }
-    }
-  }
+        }}}}
   return(Sigma)
 }#End simplification
