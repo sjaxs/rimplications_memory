@@ -50,7 +50,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
             \label{fig:readfc}
         \end{figure}
 
-        Como se puede observar en la imagen de arriba, lo primero que se ejecuta es la funci\'on \textbf{read.fc}, que tal y como se ha comentado 
+        Como se puede observar en la imagen 35, lo primero que se ejecuta es la funci\'on \textbf{read.fc}, que tal y como se ha comentado 
         antes, es la encargada de leer el fichero. A continuaci\'on, se extrae el formato de la variable en la que se ha guardado la 
         salida de la funci\'on que se est\'a probando, y se observa, que tal y como se esperaba es un data.frame.
 
@@ -529,7 +529,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
         Sea \(M=\{1, ..., m\}\) un conjunto de atributos. Se define el \'orden l\'ectico en \(2^M\) como sigue: 
         
-        para cada \(A,B \subseteq M\), se tiene que \(A\) 
+        Para cada \(A,B \subseteq M\), se tiene que \(A\) 
         es m\'as peque\~no l\'ecticamente que \(B\), denotado por \(A < B\), si \(A \neq B\) y el menor elemento que los distingue 
         pertenece a \(B\), es decir, si y solo si existe \(i \in B \setminus A \) tal que \( \{x \in A \mid x < i\} = \{x \in B 
         \mid x < i\} \)
@@ -603,17 +603,17 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
             \label{fig:nextclosure}
         \end{figure}
 
-        Por tanto, los conceptos obtenido con el algoritmo son:
+        Por tanto, los conceptos obtenidos con el algoritmo son:
 
-        \( \langle (``Con'', ``Pla'', ``Inst'', ``Tra'', ``Ser''), (``Comp'') \rangle ,\)
+        \( \langle (``Con", ``Pla", ``Inst", ``Tra", ``Ser"), (``Comp") \rangle ,\)
 
-        \(\langle (``Con'', ``Pla''), (``Comp'', ``Fur'') \rangle ,\)
+        \(\langle (``Con", ``Pla"), (``Comp", ``Fur") \rangle ,\)
 
-        \(\langle (``Con'', ``Inst'', ``Ser''), (``Comp'', ``Copy'') \rangle ,\)
+        \(\langle (``Con", ``Inst", ``Ser"), (``Comp", ``Copy") \rangle ,\)
 
-        \(\langle (``Con'', ``Inst''), (``Comp'', ``Copy'', ``Spec'') \rangle ,\)
+        \(\langle (``Con", ``Inst"), (``Comp", ``Copy", ``Spec") \rangle ,\)
 
-        \(\langle (``Con''), (``Comp'', ``Copy'', ``Fur'', ``Spec'') \rangle   \)
+        \(\langle (``Con"), (``Comp", ``Copy", ``Fur", ``Spec") \rangle   \)
         \clearpage
         
 \subsection{Generadores minimales}
@@ -664,13 +664,13 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
 
     Este tipo de conjuntos son llamados Labeled Set of Intents (LSI). Dados dos LSIs \(\Phi\) y \(\Psi\), se define la uni\'on de ambos como 
     el m\'inimo LSI que satisfaga:
-    \\
+    
     - Si \( \langle A_{1}, B_{1} \rangle \in \Phi \) y \(A_{1} \neq A_{2} \) para todo \( \langle A_{2}, B_{2} \rangle \in \Psi \) 
     entonces \( \langle A_{1}, B_{1} \rangle \in \Phi \sqcup \Psi \)
-    \\
+    
     - Si \( \langle A_{1}, B_{1} \rangle \in \Psi \) y \(A_{1} \neq A_{2} \) para todo \( \langle A_{2}, B_{2} \rangle \in \Phi \) 
     entonces \( \langle A_{1}, B_{1} \rangle \in \Phi \sqcup \Psi \)
-    \\
+    
     - Si \( \langle A, B_{1} \rangle \in \Psi \) y \( \langle A, B_{1} \rangle \in \Phi \) entonces \( \langle A, B_{3} \rangle \in \Phi \sqcup \Psi \) 
     siendo \(B_{3}\) el conjunto de los elementos minimales de \(B_{1} \cup B_{2}\)
 
@@ -718,7 +718,7 @@ Para trabajar con contextos se utilizan varias funciones que se van a desgranar 
     \textbf{Ejemplo}
 
     Para el ejemplo de este algoritmo, se ha usado un conjunto de tres implicaciones, formadas por cuatro elementos diferentes.
-    La salida del algoritmo es un conjunto de cinco pares, tal y como se puede ver en la siguiente imagen:
+    La salida del algoritmo es un conjunto de cinco pares, tal y como se puede ver en la imagen 54:
 
     \begin{figure}[H]
         \centering
