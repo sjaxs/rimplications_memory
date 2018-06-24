@@ -12,7 +12,7 @@ Warning--empty journal in doSimp
 Warning--empty booktitle in DBasis
 You've used 18 entries,
             1791 wiz_defined-function locations,
-            561 strings with 6746 characters,
+            561 strings with 6747 characters,
 and the built_in function-call counts, 4068 in all, are:
 = -- 329
 > -- 208
